@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "requisicao",
+    "slug": "requisicao",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}

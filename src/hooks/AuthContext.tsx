@@ -17,6 +17,7 @@ import { format } from 'date-fns';
 import * as Notifications from 'expo-notifications';
 import { IUser, IReqEpi, IReqFerramenta } from '../dtos';
 import { colecao } from '../colecao';
+import { ListMaterial } from '../utils/MaterialList';
 
 export interface User {
    id: string;
@@ -40,8 +41,17 @@ interface AuthContexData {
    listUser: IUser[] | null;
    listReqEpi: IReqEpi[] | null;
    listReqFerramenta: IReqFerramenta[] | null;
+   epis: EpisPros[];
 }
 
+interface EpisPros {
+   codig: string;
+   item: string;
+   type: string;
+   ged: string;
+   ft: string;
+   index: number;
+}
 const User_Collection = '@Req:user';
 
 export const AuthContext = createContext<AuthContexData>({} as AuthContexData);
@@ -54,6 +64,7 @@ export const AuthProvider: React.FC = ({ children }) => {
 
    const [listUser, setListUser] = useState<IUser[]>([]);
    const [listReqEpi, setReqEpi] = React.useState<IReqEpi[]>([]);
+   const [epis, setEpis] = React.useState<EpisPros[]>([]);
 
    const [listReqFerramenta, setListReqFerramenta] = React.useState<
       IReqFerramenta[]
@@ -219,7 +230,34 @@ export const AuthProvider: React.FC = ({ children }) => {
       }
 
       setExpotoken(token);
-      console.log(token);
+   }, []);
+
+   React.useEffect(() => {
+      const li = [];
+
+      for (let i = 175; i < ListMaterial.length; i += 1) {
+         const [codigo, item, ig] = ListMaterial[i][
+            'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM'
+         ]
+            .split(';')
+            .map(String);
+
+         const [ged, ft, type, ignore] =
+            ListMaterial[i].Column2.split(';').map(String);
+
+         const dados = {
+            codig: codigo,
+            item,
+            type,
+            ged,
+            ft,
+            index: i,
+         };
+
+         li.push(dados);
+      }
+
+      setEpis(li);
    }, []);
 
    React.useEffect(() => {
@@ -240,6 +278,7 @@ export const AuthProvider: React.FC = ({ children }) => {
             expoToken,
             listReqEpi,
             listReqFerramenta,
+            epis,
          }}
       >
          {children}

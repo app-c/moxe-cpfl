@@ -16,6 +16,10 @@ export interface IReqEpi {
    user_id: string;
    nome: string;
    dataFormatada?: string;
+   quantidade: string;
+   token: string;
+   ged: string;
+   lf: string;
 }
 
 export interface IReqFerramenta {

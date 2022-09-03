@@ -5,12 +5,16 @@ import { Text, Box, FlatList, Center, HStack } from 'native-base';
 import { ScrollView, TouchableOpacity } from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
 import Fire from '@react-native-firebase/firestore';
+import Firestore from '@react-native-firebase/firestore';
+import { format } from 'date-fns';
 import { Cards } from '../../components/cards';
 import { useAuth } from '../../hooks/AuthContext';
 import { Lista } from '../../components/Lista';
 import theme from '../../global/styles/theme';
 import { Fiter } from '../../components/Fiter';
 import { colecao } from '../../colecao';
+import { ListMaterial } from '../../utils/MaterialList';
+import { IReqEpi } from '../../dtos';
 
 interface PropsFicha {
    type: 'epi' | 'ferramenta' | 'ferramenal';
@@ -22,6 +26,8 @@ export function Home() {
 
    const [filtro, setFiltro] = React.useState('todos');
    const [ficha, setFicha] = React.useState('epi');
+   const [reqEpi, setReqEpi] = React.useState<IReqEpi[]>([]);
+   const [reqFer, setReqFer] = React.useState<IReqEpi[]>([]);
 
    useFocusEffect(
       useCallback(() => {
@@ -31,25 +37,63 @@ export function Home() {
       }, [hook.expoToken, hook.user.id]),
    );
 
+   React.useEffect(() => {
+      const lod = Firestore()
+         .collection(colecao.REQEPI)
+         .onSnapshot(h => {
+            const data = h.docs.map(p => p.data() as IReqEpi);
+
+            const res = data.map(h => {
+               const data = format(new Date(h.data), 'dd/MM/yy');
+               return {
+                  ...h,
+                  dataFormatada: data,
+               };
+            });
+            setReqEpi(res);
+         });
+
+      return () => lod();
+   }, []);
+
+   React.useEffect(() => {
+      const loa = Firestore()
+         .collection(colecao.REQFERRAMENTA)
+         .onSnapshot(h => {
+            const data = h.docs.map(p => p.data() as IReqEpi);
+
+            const res = data.map(h => {
+               const data = format(new Date(h.data), 'dd/MM/yy');
+               return {
+                  ...h,
+                  dataFormatada: data,
+               };
+            });
+            setReqFer(res);
+         });
+
+      return () => loa();
+   }, []);
+
    const lista = React.useMemo(() => {
       if (ficha === 'epi') {
-         const lsT = hook.listReqEpi.filter(h => {
+         const lsT = reqEpi.filter(h => {
             return h.user_id === hook.user.id;
          });
 
-         const lsP = hook.listReqEpi.filter(h => {
+         const lsP = reqEpi.filter(h => {
             if (h.situacao === 'pendente' && h.user_id === hook.user.id) {
                return h;
             }
          });
 
-         const lsS = hook.listReqEpi.filter(h => {
+         const lsS = reqEpi.filter(h => {
             if (h.situacao === 'em separacao' && h.user_id === hook.user.id) {
                return h;
             }
          });
 
-         const lsE = hook.listReqEpi.filter(h => {
+         const lsE = reqEpi.filter(h => {
             if (h.situacao === 'entregue' && h.user_id === hook.user.id) {
                return h;
             }
@@ -59,23 +103,23 @@ export function Home() {
       }
 
       if (ficha === 'ferramenta') {
-         const lsT = hook.listReqFerramenta.filter(h => {
+         const lsT = reqFer.filter(h => {
             return h.user_id === hook.user.id;
          });
 
-         const lsP = hook.listReqFerramenta.filter(h => {
+         const lsP = reqFer.filter(h => {
             if (h.situacao === 'pendente' && h.user_id === hook.user.id) {
                return h;
             }
          });
 
-         const lsS = hook.listReqFerramenta.filter(h => {
+         const lsS = reqFer.filter(h => {
             if (h.situacao === 'em separacao' && h.user_id === hook.user.id) {
                return h;
             }
          });
 
-         const lsE = hook.listReqFerramenta.filter(h => {
+         const lsE = reqFer.filter(h => {
             if (h.situacao === 'entregue' && h.user_id === hook.user.id) {
                return h;
             }
@@ -83,7 +127,7 @@ export function Home() {
 
          return { lsP, lsE, lsS, lsT };
       }
-   }, [ficha, hook.listReqEpi, hook.listReqFerramenta, hook.user.id]);
+   }, [ficha, reqEpi, hook.user.id, reqFer]);
 
    return (
       <Box flex="1">
@@ -125,11 +169,6 @@ export function Home() {
                   pres={() => setFicha('ferramenta')}
                   title="FICHA DE FERRAMENTAS"
                />
-               {/* <Cards
-                  presIn={ficha === 'ferramental'}
-                  pres={() => setFicha('ferramental')}
-                  title="FICHA DE FERRAMENTAL"
-               /> */}
             </ScrollView>
          </Box>
 
@@ -170,6 +209,7 @@ export function Home() {
                   renderItem={({ item: h }) => (
                      <Lista
                         data={h.dataFormatada}
+                        qnt={h.quantidade}
                         situacao={h.situacao}
                         item={h.item}
                      />
@@ -186,6 +226,7 @@ export function Home() {
                   renderItem={({ item: h }) => (
                      <Lista
                         data={h.dataFormatada}
+                        qnt={h.quantidade}
                         situacao={h.situacao}
                         item={h.item}
                      />
@@ -205,6 +246,7 @@ export function Home() {
                            data={h.dataFormatada}
                            situacao={h.situacao}
                            item={h.item}
+                           qnt={h.quantidade}
                         />
                      )}
                   />
@@ -220,16 +262,11 @@ export function Home() {
                            data={h.dataFormatada}
                            situacao={h.situacao}
                            item={h.item}
+                           qnt={h.quantidade}
                         />
                      )}
                   />
                </Box>
-            )}
-
-            {ficha === 'ferramental' && (
-               <Center>
-                  <Text>EM BREVE</Text>
-               </Center>
             )}
          </Box>
       </Box>

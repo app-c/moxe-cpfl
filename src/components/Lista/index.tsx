@@ -7,9 +7,10 @@ interface IProps {
    situacao: 'pendente' | 'em separacao' | 'entregue';
    item: string;
    data: string;
+   qnt: string;
 }
 
-export function Lista({ situacao, item, data }: IProps) {
+export function Lista({ situacao, item, data, qnt }: IProps) {
    const [color, setColor] = React.useState('red.500');
 
    const { colors } = theme;
@@ -26,7 +27,7 @@ export function Lista({ situacao, item, data }: IProps) {
       if (situacao === 'entregue') {
          setColor(colors.green.tom);
       }
-   }, [situacao]);
+   }, [colors.green.tom, colors.red.tom, colors.yellow.tom, situacao]);
 
    return (
       <Box
@@ -40,6 +41,7 @@ export function Lista({ situacao, item, data }: IProps) {
       >
          <VStack space="2">
             <Text color="dark.200">ITEM: {item}</Text>
+            <Text color="dark.200">QUANTIDADE: {qnt}</Text>
             <Text color="dark.200">DATA: {data}</Text>
             <Text color="dark.200">SITUAÇÃO: {situacao}</Text>
          </VStack>

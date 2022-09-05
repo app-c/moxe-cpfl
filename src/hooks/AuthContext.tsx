@@ -19,13 +19,6 @@ import { IUser, IReqEpi, IReqFerramenta } from '../dtos';
 import { colecao } from '../colecao';
 import { ListMaterial } from '../utils/MaterialList';
 
-export interface User {
-   id: string;
-   nome: string;
-   adm: boolean;
-   padrinhQuantity: number;
-}
-
 interface SignInCred {
    email: string;
    senha: string;
@@ -38,10 +31,6 @@ interface AuthContexData {
    signIn(credential: SignInCred): Promise<void>;
    signOut(): void;
    updateUser(user: IUser): Promise<void>;
-   listUser: IUser[] | null;
-   listReqEpi: IReqEpi[] | null;
-   listReqFerramenta: IReqFerramenta[] | null;
-   epis: EpisPros[];
 }
 
 interface EpisPros {
@@ -57,13 +46,11 @@ const User_Collection = '@Req:user';
 export const AuthContext = createContext<AuthContexData>({} as AuthContexData);
 
 export const AuthProvider: React.FC = ({ children }) => {
-   const { USER, REQEPI, REQFERRAMENTA } = colecao;
+   const { USER, REQFERRAMENTA } = colecao;
 
    const [loading, setLoading] = useState(true);
    const [user, setUser] = useState<IUser | null>(null);
 
-   const [listUser, setListUser] = useState<IUser[]>([]);
-   const [listReqEpi, setReqEpi] = React.useState<IReqEpi[]>([]);
    const [epis, setEpis] = React.useState<EpisPros[]>([]);
 
    const [listReqFerramenta, setListReqFerramenta] = React.useState<
@@ -133,63 +120,6 @@ export const AuthProvider: React.FC = ({ children }) => {
 
    //* .......................................................................
 
-   useEffect(() => {
-      if (!user) {
-         return;
-      }
-      const ld = Firestore()
-         .collection(USER)
-         .onSnapshot(h => {
-            const data = h.docs.map(p => p.data() as IUser);
-
-            const us = data.sort((a, b) => {
-               if (a.nome < b.nome) {
-                  return -1;
-               }
-            });
-            setListUser(us);
-         });
-      return () => ld();
-   }, [USER, user]);
-
-   React.useEffect(() => {
-      Firestore()
-         .collection(REQEPI)
-         .onSnapshot(h => {
-            const data = h.docs.map(p => p.data() as IReqEpi);
-
-            const res = data.map(h => {
-               const data = format(new Date(h.data), 'dd/MM/yy');
-               return {
-                  ...h,
-                  dataFormatada: data,
-               };
-            });
-            setReqEpi(res);
-         });
-   }, [REQEPI]);
-
-   React.useEffect(() => {
-      Firestore()
-         .collection(REQFERRAMENTA)
-         .onSnapshot(h => {
-            const data = h.docs.map(p => p.data() as IReqEpi);
-
-            const res = data.map(h => {
-               const data = format(new Date(h.data), 'dd/MM/yy');
-               return {
-                  ...h,
-                  dataFormatada: data,
-               };
-            });
-            setListReqFerramenta(res);
-         });
-   }, [REQFERRAMENTA]);
-
-   useEffect(() => {
-      setLoading(true);
-   }, []);
-
    const signOut = useCallback(async () => {
       await AsyncStorage.removeItem(User_Collection);
 
@@ -235,28 +165,6 @@ export const AuthProvider: React.FC = ({ children }) => {
    React.useEffect(() => {
       const li = [];
 
-      for (let i = 175; i < ListMaterial.length; i += 1) {
-         const [codigo, item, ig] = ListMaterial[i][
-            'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM'
-         ]
-            .split(';')
-            .map(String);
-
-         const [ged, ft, type, ignore] =
-            ListMaterial[i].Column2.split(';').map(String);
-
-         const dados = {
-            codig: codigo,
-            item,
-            type,
-            ged,
-            ft,
-            index: i,
-         };
-
-         li.push(dados);
-      }
-
       setEpis(li);
    }, []);
 
@@ -274,11 +182,7 @@ export const AuthProvider: React.FC = ({ children }) => {
             signIn,
             signOut,
             updateUser,
-            listUser,
             expoToken,
-            listReqEpi,
-            listReqFerramenta,
-            epis,
          }}
       >
          {children}

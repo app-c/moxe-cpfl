@@ -1,6 +1,8 @@
 import React from 'react';
 import { Text, Box, Center } from 'native-base';
-import { TouchableOpacity } from 'react-native';
+import { Dimensions, TouchableOpacity } from 'react-native';
+import { GlobalText } from '../GlobalText';
+import theme from '../../global/styles/theme';
 
 interface Props {
    title: string;
@@ -9,23 +11,24 @@ interface Props {
 }
 
 export function Cards({ title, pres, presIn }: Props) {
+   const w = Dimensions.get('window').width;
    return (
-      <Box
-         alignItems="center"
-         justifyContent="center"
-         size="40"
-         borderRadius="10"
-         bg={presIn ? 'blue.800' : 'blue.500'}
-         ml="10"
-         h="20"
-      >
-         <TouchableOpacity onPress={pres}>
+      <TouchableOpacity onPress={pres}>
+         <Box
+            alignItems="center"
+            justifyContent="center"
+            // size="40"
+            borderRadius="10"
+            bg={theme.colors.green.tom}
+            opacity={presIn ? 1 : 0.4}
+            ml="10"
+            h={w * 0.14}
+            px="10"
+         >
             <Center>
-               <Text textAlign="center" fontSize="20" color="dark.900">
-                  {title}
-               </Text>
+               <GlobalText text={title} size={20} font="Regular" color="#fff" />
             </Center>
-         </TouchableOpacity>
-      </Box>
+         </Box>
+      </TouchableOpacity>
    );
 }

@@ -1,274 +1,198 @@
-/* eslint-disable array-callback-return */
-/* eslint-disable consistent-return */
-import React, { useCallback } from 'react';
-import { Text, Box, FlatList, Center, HStack } from 'native-base';
-import { ScrollView, TouchableOpacity } from 'react-native';
-import { useFocusEffect } from '@react-navigation/native';
+import React from 'react';
+import { Text, Box, Input, HStack, ScrollView } from 'native-base';
 import Fire from '@react-native-firebase/firestore';
-import Firestore from '@react-native-firebase/firestore';
-import { format } from 'date-fns';
-import { Cards } from '../../components/cards';
-import { useAuth } from '../../hooks/AuthContext';
-import { Lista } from '../../components/Lista';
-import theme from '../../global/styles/theme';
-import { Fiter } from '../../components/Fiter';
+import { Feather } from '@expo/vector-icons';
+import { FlatList } from 'react-native';
 import { colecao } from '../../colecao';
-import { ListMaterial } from '../../utils/MaterialList';
 import { IReqEpi } from '../../dtos';
-
-interface PropsFicha {
-   type: 'epi' | 'ferramenta' | 'ferramenal';
-}
+import { Cards } from '../../components/cards';
+import { Lista } from '../../components/Lista';
+import { SearchInput } from '../../components/SearchInput';
+import { CircleSelect } from '../../components/CircleSelect';
+import { Header } from '../../components/Header';
+import { useAuth } from '../../hooks/AuthContext';
 
 export function Home() {
-   const hook = useAuth();
-   const { colors } = theme;
+   const { user } = useAuth();
+   const [search, setSearch] = React.useState('');
+   const [dataEpi, setDataEpi] = React.useState<IReqEpi[]>([]);
+   const [dataFer, setDataFer] = React.useState<IReqEpi[]>([]);
+   const [select, setSelect] = React.useState('pendente');
+   const [type, setType] = React.useState('EPI');
 
-   const [filtro, setFiltro] = React.useState('todos');
-   const [ficha, setFicha] = React.useState('epi');
-   const [reqEpi, setReqEpi] = React.useState<IReqEpi[]>([]);
-   const [reqFer, setReqFer] = React.useState<IReqEpi[]>([]);
-
-   useFocusEffect(
-      useCallback(() => {
-         Fire().collection(colecao.USER).doc(hook.user.id).update({
-            token: hook.expoToken,
-         });
-      }, [hook.expoToken, hook.user.id]),
-   );
-
+   // TODO BUSCAR DO BANCO DE DADOS */
    React.useEffect(() => {
-      const lod = Firestore()
+      const lod = Fire()
          .collection(colecao.REQEPI)
-         .onSnapshot(h => {
-            const data = h.docs.map(p => p.data() as IReqEpi);
+         .onSnapshot(data => {
+            const dt = data.docs.map(h => h.data() as IReqEpi);
 
-            const res = data.map(h => {
-               const data = format(new Date(h.data), 'dd/MM/yy');
+            const up = dt.map(h => {
+               const cs = h.material_info.descricao.toUpperCase();
+
                return {
                   ...h,
-                  dataFormatada: data,
+                  material_info: {
+                     ...h.material_info,
+                     descricao: cs,
+                  },
                };
             });
-            setReqEpi(res);
+
+            setDataEpi(up);
          });
 
       return () => lod();
    }, []);
 
    React.useEffect(() => {
-      const loa = Firestore()
+      const lod = Fire()
          .collection(colecao.REQFERRAMENTA)
-         .onSnapshot(h => {
-            const data = h.docs.map(p => p.data() as IReqEpi);
+         .onSnapshot(data => {
+            const dt = data.docs.map(h => h.data() as IReqEpi);
 
-            const res = data.map(h => {
-               const data = format(new Date(h.data), 'dd/MM/yy');
-               return {
-                  ...h,
-                  dataFormatada: data,
-               };
-            });
-            setReqFer(res);
+            setDataFer(dt);
          });
 
-      return () => loa();
+      return () => lod();
    }, []);
 
-   const lista = React.useMemo(() => {
-      if (ficha === 'epi') {
-         const lsT = reqEpi.filter(h => {
-            return h.user_id === hook.user.id;
-         });
+   const filEpi = dataEpi.filter(h => select === h.situacao);
 
-         const lsP = reqEpi.filter(h => {
-            if (h.situacao === 'pendente' && h.user_id === hook.user.id) {
-               return h;
-            }
-         });
-
-         const lsS = reqEpi.filter(h => {
-            if (h.situacao === 'em separacao' && h.user_id === hook.user.id) {
-               return h;
-            }
-         });
-
-         const lsE = reqEpi.filter(h => {
-            if (h.situacao === 'entregue' && h.user_id === hook.user.id) {
-               return h;
-            }
-         });
-
-         return { lsP, lsE, lsS, lsT };
+   const filFe = dataFer.filter(h => {
+      if (h.whoFor === 'PESSOAL' && select === h.situacao) {
+         return h;
       }
-
-      if (ficha === 'ferramenta') {
-         const lsT = reqFer.filter(h => {
-            return h.user_id === hook.user.id;
-         });
-
-         const lsP = reqFer.filter(h => {
-            if (h.situacao === 'pendente' && h.user_id === hook.user.id) {
-               return h;
-            }
-         });
-
-         const lsS = reqFer.filter(h => {
-            if (h.situacao === 'em separacao' && h.user_id === hook.user.id) {
-               return h;
-            }
-         });
-
-         const lsE = reqFer.filter(h => {
-            if (h.situacao === 'entregue' && h.user_id === hook.user.id) {
-               return h;
-            }
-         });
-
-         return { lsP, lsE, lsS, lsT };
+   });
+   const filFer = dataFer.filter(h => {
+      if (h.whoFor === 'VEICULO' && h.situacao === select) {
+         return h;
       }
-   }, [ficha, reqEpi, hook.user.id, reqFer]);
+   });
+
+   const lista =
+      search.length > 0
+         ? filEpi.filter(h => {
+              return h.material_info.descricao.includes(search);
+           })
+         : filEpi;
+
+   const ferramenta =
+      search.length > 0
+         ? filFe.filter(h => {
+              return h.user_info.nome.includes(search);
+           })
+         : filFe;
+
+   const ferramental =
+      search.length > 0
+         ? filFer.filter(h => h.user_info.nome.includes(search))
+         : filFer;
 
    return (
       <Box flex="1">
-         <Box p="5">
-            <TouchableOpacity
-               onPress={() => hook.signOut()}
-               style={{
-                  width: 50,
-                  backgroundColor: colors.green.tom,
-                  alignItems: 'center',
-                  padding: 4,
-                  justifyContent: 'center',
-               }}
-            >
-               <Text>SAIR</Text>
-            </TouchableOpacity>
+         <Header text={`Olá ${user.nome}`} />
+         <Box mt="-6" p="10">
+            <SearchInput
+               text="PESQUISAR ITEM"
+               onChangeText={h => setSearch(h)}
+               autoCapitalize="characters"
+            />
          </Box>
-
-         <Box>
+         <HStack mt="1">
             <ScrollView
+               showsHorizontalScrollIndicator={false}
                horizontal
-               snapToAlignment="start"
-               scrollEventThrottle={16}
-               decelerationRate="fast"
-               snapToOffsets={[0, 150, 160]}
-               contentContainerStyle={{
-                  paddingRight: 100,
-                  paddingLeft: 50,
-                  height: 100,
-               }}
+               contentContainerStyle={{ paddingRight: 100 }}
             >
                <Cards
-                  pres={() => setFicha('epi')}
-                  presIn={ficha === 'epi'}
-                  title="FICHA DE EPIS"
+                  pres={() => setType('EPI')}
+                  title="EPI"
+                  presIn={type === 'EPI'}
                />
                <Cards
-                  presIn={ficha === 'ferramenta'}
-                  pres={() => setFicha('ferramenta')}
-                  title="FICHA DE FERRAMENTAS"
+                  pres={() => setType('FERRAMENTA')}
+                  title="FERRAMENTA"
+                  presIn={type === 'FERRAMENTA'}
+               />
+               <Cards
+                  pres={() => setType('FERRAMENTAL')}
+                  title="FERRAMENTAL"
+                  presIn={type === 'FERRAMENTAL'}
                />
             </ScrollView>
+         </HStack>
+         <Box mb="5" px="10">
+            <HStack justifyContent="space-between" mt="5">
+               <CircleSelect
+                  pres={() => setSelect('pendente')}
+                  selected={select === 'pendente'}
+                  text="pendente"
+               />
+               <CircleSelect
+                  pres={() => setSelect('em separacao')}
+                  selected={select === 'em separacao'}
+                  text="separado"
+               />
+               <CircleSelect
+                  pres={() => setSelect('entregue')}
+                  selected={select === 'entregue'}
+                  text="entregue"
+               />
+            </HStack>
          </Box>
 
-         <Box p="5">
-            <Box>
-               <ScrollView horizontal>
-                  <HStack space={2}>
-                     <Fiter
-                        select={() => setFiltro('todos')}
-                        active={filtro === 'todos'}
-                        text="TODOS PEDIDOS"
-                     />
-                     <Fiter
-                        active={filtro === 'pendente'}
-                        text="PEDIDOS PENDENTES"
-                        select={() => setFiltro('pendente')}
-                     />
-                     <Fiter
-                        active={filtro === 'em separacao'}
-                        select={() => setFiltro('em separacao')}
-                        text="PEDIDOS EM SEPARAÇÃO "
-                     />
-                     <Fiter
-                        select={() => setFiltro('entregue')}
-                        active={filtro === 'entregue'}
-                        text="PEDIDOS ENTREGUE"
-                     />
-                  </HStack>
-               </ScrollView>
-            </Box>
-
-            {filtro === 'todos' && (
-               <FlatList
-                  contentContainerStyle={{
-                     paddingBottom: 300,
-                  }}
-                  data={lista.lsT}
-                  renderItem={({ item: h }) => (
+         {type === 'EPI' && (
+            <FlatList
+               contentContainerStyle={{ paddingBottom: 200 }}
+               data={lista}
+               keyExtractor={h => String(h.data)}
+               renderItem={({ item: h }) => (
+                  <Box>
                      <Lista
-                        data={h.dataFormatada}
-                        qnt={h.quantidade}
+                        data={h.data}
+                        item={h.material_info.descricao}
                         situacao={h.situacao}
-                        item={h.item}
+                        qnt={h.quantidade}
                      />
-                  )}
-               />
-            )}
-
-            {filtro === 'pendente' && (
-               <FlatList
-                  contentContainerStyle={{
-                     paddingBottom: 300,
-                  }}
-                  data={lista.lsP}
-                  renderItem={({ item: h }) => (
+                  </Box>
+               )}
+            />
+         )}
+         {type === 'FERRAMENTA' && (
+            <FlatList
+               contentContainerStyle={{ paddingBottom: 200 }}
+               data={ferramenta}
+               keyExtractor={h => String(h.data)}
+               renderItem={({ item: h }) => (
+                  <Box>
                      <Lista
-                        data={h.dataFormatada}
-                        qnt={h.quantidade}
+                        data={h.data}
+                        item={h.material_info.descricao}
                         situacao={h.situacao}
-                        item={h.item}
+                        qnt={h.quantidade}
                      />
-                  )}
-               />
-            )}
-
-            {filtro === 'em separacao' && (
-               <Box>
-                  <FlatList
-                     contentContainerStyle={{
-                        paddingBottom: 300,
-                     }}
-                     data={lista.lsS}
-                     renderItem={({ item: h }) => (
-                        <Lista
-                           data={h.dataFormatada}
-                           situacao={h.situacao}
-                           item={h.item}
-                           qnt={h.quantidade}
-                        />
-                     )}
-                  />
-               </Box>
-            )}
-
-            {filtro === 'entregue' && (
-               <Box>
-                  <FlatList
-                     data={lista.lsE}
-                     renderItem={({ item: h }) => (
-                        <Lista
-                           data={h.dataFormatada}
-                           situacao={h.situacao}
-                           item={h.item}
-                           qnt={h.quantidade}
-                        />
-                     )}
-                  />
-               </Box>
-            )}
-         </Box>
+                  </Box>
+               )}
+            />
+         )}
+         {type === 'FERRAMENTAL' && (
+            <FlatList
+               contentContainerStyle={{ paddingBottom: 200 }}
+               data={ferramental}
+               keyExtractor={h => String(h.data)}
+               renderItem={({ item: h }) => (
+                  <Box>
+                     <Lista
+                        data={h.data}
+                        item={h.material_info.classificacao}
+                        situacao={h.situacao}
+                        qnt={h.quantidade}
+                     />
+                  </Box>
+               )}
+            />
+         )}
       </Box>
    );
 }

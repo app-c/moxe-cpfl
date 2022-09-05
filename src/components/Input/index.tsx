@@ -29,7 +29,13 @@ export function Input({
    return (
       <Box w="100%">
          <FormControl isInvalid={error}>
-            <In mt="2" variant="underlined" placeholder={title} {...rest} />
+            <In
+               fontFamily="bold"
+               mt="2"
+               variant="underlined"
+               placeholder={title}
+               {...rest}
+            />
             <FormControl.ErrorMessage
                leftIcon={<WarningOutlineIcon size="xs" />}
             >

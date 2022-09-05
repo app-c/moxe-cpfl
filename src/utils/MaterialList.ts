@@ -1,2720 +1,5410 @@
-export const ListMaterial = [
+export const materias = [
+   {
+      id: 'ad5ff70b-3cdc-4be6-9fb4-81ac2fd6eb09',
+      codigo: '40-000-030-835',
+      descricao: 'ACESSO PROT-CINTO OPERACIONAL G',
+      classificacao: 'Despesa',
+      valor: ' R$ 9,71 ',
+      ged: '17184',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '8c2b6667-896c-4753-82a3-6558a7450822',
+      codigo: '40-000-047-098',
+      descricao: 'ACESSO PROT-CINTO OPERACIONAL M',
+      classificacao: 'Despesa',
+      valor: ' R$ 9,71 ',
+      ged: '17184',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '3a078579-a7e6-4a06-b198-fb3ea2aac552',
+      codigo: '40-000-047-100',
+      descricao: 'ACESSO PROT-CINTO OPERACIONAL P',
+      classificacao: 'Despesa',
+      valor: ' R$ 9,71 ',
+      ged: '17184',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '9ea20658-32b3-45de-883b-85e24fb5755b',
+      codigo: '40-000-030-024',
+      descricao: 'ACOPLADOR FIXACAO PROT. FACIAL LD',
+      classificacao: 'Despesa',
+      valor: ' R$ 7,05 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '389065cd-ee14-464f-9c09-ff9a40101280',
+      codigo: '40-000-030-014',
+      descricao: 'ACOPLADOR FIXACAO PROT. FACIAL LE',
+      classificacao: 'Despesa',
+      valor: ' R$ 7,05 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'a03298ef-1aad-4cee-9661-50178f9df14e',
+      codigo: '40-000-043-594',
+      descricao: 'Alavanca de Aço',
+      classificacao: 'Despesa',
+      valor: ' R$ 180,00 ',
+      ged: '18601',
+      ft: '1006',
+      item: 'Estoque',
+   },
+   {
+      id: '8a6e3e2c-fd86-4d79-8037-68eda45d4fb9',
+      codigo: '50-000-015-097',
+      descricao: 'Alicate Algema para cabo com Alma',
+      classificacao: 'Investimento',
+      valor: ' R$ 4.678,56 ',
+      ged: '18601',
+      ft: '2001',
+      item: 'Estoque',
+   },
+   {
+      id: '241766b5-6911-4f90-913d-70da3caa45b1',
+      codigo: '40-000-015-047',
+      descricao: 'Alicate Bomba d\'água 12" com extrator',
+      classificacao: 'Despesa',
+      valor: ' R$ 99,14 ',
+      ged: '18601',
+      ft: '1007',
+      item: 'Estoque',
+   },
+   {
+      id: 'e113b996-ffbb-487e-8818-21319a071fe8',
+      codigo: '50-000-032-503',
+      descricao: 'ALICATE COMP HIDRAUL  A BATERIA',
+      classificacao: 'Investimento',
+      valor: ' R$ 18.740,19 ',
+      ged: '18601',
+      ft: '2004',
+      item: 'Rotativo',
+   },
+   {
+      id: 'a4797254-f716-4922-bbdc-f1dd77681854',
+      codigo: '40-000-045-404',
+      descricao: 'Alicate Compressão Hidráulica Y-35',
+      classificacao: 'Investimento',
+      valor: ' R$ 558,60 ',
+      ged: '18601',
+      ft: '2003',
+      item: 'Novo_ Estoque',
+   },
    {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-030-835;ACESSO PROT-CINTO OPERACIONAL G;Despesa; R$ 9',
-      Column2: '71 ;17184;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-098;ACESSO PROT-CINTO OPERACIONAL M;Despesa; R$ 9',
-      Column2: '71 ;17184;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-100;ACESSO PROT-CINTO OPERACIONAL P;Despesa; R$ 9',
-      Column2: '71 ;17184;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-030-024;ACOPLADOR FIXACAO PROT. FACIAL LD;Despesa; R$ 7',
-      Column2: '05 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-030-014;ACOPLADOR FIXACAO PROT. FACIAL LE;Despesa; R$ 7',
-      Column2: '05 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-043-594;Alavanca de Aço;Despesa; R$ 180',
-      Column2: '00 ;18601;1006;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '50-000-015-097;Alicate Algema para cabo com Alma;Investimento; R$ 4.678',
-      Column2: '56 ;18601;2001;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-047;"Alicate Bomba d\'água 12"" com extrator";Despesa; R$ 99',
-      Column2: '14 ;18601;1007;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '50-000-032-503;ALICATE COMP HIDRAUL  A BATERIA;Investimento; R$ 18.740',
-      Column2: '19 ;18601;2004;Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-045-404;Alicate Compressão Hidráulica Y-35;Investimento; R$ 558',
-      Column2: '60 ;18601;2003;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-563;ALICATE CORTE DIAGONAL;Despesa; R$ 40',
-      Column2: '60 ;18601;1009;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '50-000-011-079;ALICATE MECÂNICO DE COMPRESSãO MD6;Investimento; R$ 1.362',
-      Column2: '90 ;18601;2007;Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-003-992;Alicate Universal;Despesa; R$ 36',
-      Column2: '89 ;18601;1011;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-533;Arco de Serra para Madeira (lamina pode ser adquirida separado);Despesa; R$ 45',
-      Column2: '50 ;18601;1014;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-564;Arco de Serra para Metais - LM;Despesa; R$ 73',
-      Column2: '67 ;18601;1015;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-046-875;Arco de Serra para Metais - LV;Despesa; R$ 95',
-      Column2: '30 ;18601;1260;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-445;Aterramento Primario;Investimento; R$ 3.928',
-      Column2: '64 ;18601;2023;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-495;Aterramento Secundario;Despesa/Investimento; R$ 724',
-      Column2: '24 ;18601;2045;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-035-532;AVENTAL  PVC FORRADO PRETO PROT;Despesa; R$ 10',
-      Column2: '77 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-032-347;AVENTAL DE RASPA;Despesa; R$ 64',
-      Column2: '63 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-046-880;Bag (Retirar os residuos da base);Despesa; R$ 43',
-      Column2: '55 ;18601;1275;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-043-270;BALACLAVA TAMANHO G;Despesa; R$ 68',
-      Column2: '79 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-043-269;BALACLAVA TAMANHO M;Despesa; R$ 68',
-      Column2: '79 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-045-386;Balancim para movimentaÇAo de bobinas � 1500 kg;Despesa; R$ 150',
-      Column2: '55 ;18601;1016;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-004-118;Balde de Lona (Modelo 2);Despesa; R$ 79',
-      Column2: '79 ;18601;1017;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-536;Bandeirola para sinalizaÇAo para poste;Despesa; R$ 31',
-      Column2: '44 ;18601;1263;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-046-787;BANDOLA P LANÇAMENTOS CABOS EM �NGULO;Despesa; R$ 360',
-      Column2: '00 ;18601;1250;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '50-000-032-531;BANQUETA ISOLADA C/ESPIRAL;Despesa; R$ 298',
-      Column2: '09 ;18601;1019;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-573;Bastao  TraÇAo com Torniquete ;Despesa/Investimento; R$ 1.333',
-      Column2: '27 ;18601;1025;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-033-503;Bastao Alavanca;Despesa; R$ 935',
-      Column2: '64 ;18601;1021;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-030-795;Bastao de Manobra Pega Tudo (32 X 1975 mm);Despesa/Investimento; R$ 578',
-      Column2: '12 ;18601;1023;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-003-281;Bastao de Manobra Pega Tudo (32 X 3190 mm);Despesa/Investimento; R$ 728',
-      Column2: '57 ;18601;1023;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-572;Bastao Garra ;Investimento; R$ 1.673',
-      Column2: '03 ;18601;1026;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-045-323;Bastao Guia Para Poste;Despesa; R$ 412',
-      Column2: '33 ;18601;1256;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-045-624;Bastao Mastro 64x2000 MM;Despesa; R$ 236',
-      Column2: '98 ;18601;1027;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '50-000-032-542;Bastao Suporte para Cabo By Pass;Despesa; R$ 334',
-      Column2: '75 ;18601;2010;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-045-389;Bastao Suporte para Condutor (topo p/lv);Despesa; R$ 1.348',
-      Column2: '82 ;18601;1028;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-030-716;Bastao TraÇAo com espiral;Despesa/Investimento; R$ 802',
-      Column2: '03 ;18601;1024;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-033;BATERIA P/ MAQUINAS 5A ELETRICAS 18V;Despesa; R$ 458',
-      Column2: '99 ;18601;1292;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-034;BERCO UNITARIO PARA POSTE;Despesa; R$ 64',
-      Column2: '00 ;18601;1267;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-045-778;BOBINADEIRA DE CONDUTORES;Investimento; R$ 8.138',
-      Column2: '30 ;18601;2012;Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-016-368;BOLSA CAPACETE/OCULOS SERVICOS-EPI;Despesa; R$ 50',
-      Column2: '02 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-264;BOLSA P/ ARMAZENAMENTO LUVA ISOL/CO;Despesa; R$ 69',
-      Column2: '78 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-004-120;Bolsa para ferramentas - uso na distribuiÇAo;Despesa; R$ 91',
-      Column2: '58 ;18601;1034;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-046-510;BOTINA SEG RESISTENTE A PERFURO N 34;Despesa; R$ 95',
-      Column2: '08 ;16381;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-046-511;BOTINA SEG RESISTENTE A PERFURO N 35;Despesa; R$ 98',
-      Column2: '71 ;16381;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-046-512;BOTINA SEG RESISTENTE A PERFURO N 36;Despesa; R$ 95',
-      Column2: '08 ;16381;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-046-519;BOTINA SEG RESISTENTE A PERFURO N 37;Despesa; R$ 98',
-      Column2: '19 ;16381;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-046-523;BOTINA SEG RESISTENTE A PERFURO N 38;Despesa; R$ 96',
-      Column2: '96 ;16381;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-046-530;BOTINA SEG RESISTENTE A PERFURO N 39;Despesa; R$ 97',
-      Column2: '74 ;16381;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-046-533;BOTINA SEG RESISTENTE A PERFURO N 40;Despesa; R$ 99',
-      Column2: '60 ;16381;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-046-542;BOTINA SEG RESISTENTE A PERFURO N 41;Despesa; R$ 95',
-      Column2: '48 ;16381;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-046-543;BOTINA SEG RESISTENTE A PERFURO N 42;Despesa; R$ 96',
-      Column2: '32 ;16381;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-046-544;BOTINA SEG RESISTENTE A PERFURO N 43;Despesa; R$ 95',
-      Column2: '08 ;16381;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-046-548;BOTINA SEG RESISTENTE A PERFURO N 44;Despesa; R$ 99',
-      Column2: '26 ;16381;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-046-549;BOTINA SEG RESISTENTE A PERFURO N 45;Despesa; R$ 99',
-      Column2: '11 ;16381;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-046-550;BOTINA SEG RESISTENTE A PERFURO N 46;Despesa; R$ 99',
-      Column2: '11 ;16381;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-046-551;BOTINA SEG RESISTENTE A PERFURO N 47;Despesa; R$ 99',
-      Column2: '11 ;16381;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-618;Broca 11/16 Especial para Poste de Madeira;Despesa; R$ 133',
-      Column2: '82 ;18601;1038;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-010-399;Cabe�ote Universal para Manobra;Despesa; R$ 41',
-      Column2: '34 ;18601;1041;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-035;CABO DE MADEIRA PARA CAVADEIRA;Despesa; R$ 66',
-      Column2: '59 ;18601;1270;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-042-400;CALÇA BRIM CINZA MODELO FEMININO G;Despesa; R$ 37',
-      Column2: '10 ;18525;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-042-401;CALÇA BRIM CINZA MODELO FEMININO GG;Despesa; R$ 42',
-      Column2: '40 ;18525;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-042-399;CALÇA BRIM CINZA MODELO FEMININO M;Despesa; R$ 42',
-      Column2: '40 ;18525;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-042-398;CALÇA BRIM CINZA MODELO FEMININO P;Despesa; R$ 42',
-      Column2: '40 ;18525;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-042-397;CALÇA BRIM CINZA MODELO FEMININO PP;Despesa; R$ 42',
-      Column2: '40 ;18525;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-041-776;CALÇA BRIM SANTISTA CINZA EG;Despesa; R$ 43',
-      Column2: '35 ;18525;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-041-777;CALÇA BRIM SANTISTA CINZA EGG;Despesa; R$ 43',
-      Column2: '35 ;18525;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-041-774;CALÇA BRIM SANTISTA CINZA G;Despesa; R$ 43',
-      Column2: '35 ;18525;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-041-775;CALÇA BRIM SANTISTA CINZA GG;Despesa; R$ 43',
-      Column2: '35 ;18525;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-041-773;CALÇA BRIM SANTISTA CINZA M;Despesa; R$ 43',
-      Column2: '35 ;18525;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-041-772;CALÇA BRIM SANTISTA CINZA P;Despesa; R$ 43',
-      Column2: '35 ;18525;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-041-771;CALÇA BRIM SANTISTA CINZA PP;Despesa; R$ 37',
-      Column2: '10 ;18525;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-045-048;CALÇA FR 88/12 FEMININA FR SERV T EG;Despesa; R$ 109',
-      Column2: '24 ;16881 / 3444;EPI;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-045-046;CALÇA FR 88/12 FEMININA FR SERV T G;Despesa; R$ 99',
-      Column2: '85 ;16881 / 3444;EPI;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-045-047;CALÇA FR 88/12 FEMININA FR SERV T GG;Despesa; R$ 99',
-      Column2: '85 ;16881 / 3444;EPI;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-045-045;CALÇA FR 88/12 FEMININA FR SERV T M;Despesa; R$ 99',
-      Column2: '85 ;16881 / 3444;EPI;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-045-044;CALÇA FR 88/12 FEMININA FR SERV T P;Despesa; R$ 108',
-      Column2: '34 ;16881 / 3444;EPI;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-045-043;CALÇA FR 88/12 FEMININA FR SERV T PP;Despesa; R$ 99',
-      Column2: '85 ;16881 / 3444;EPI;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-032-286;CALÇA IMPERMEAVEL CPFL SERV - EG;Despesa; R$ 99',
-      Column2: '85 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-032-284;CALÇA IMPERMEAVEL CPFL SERV - G;Despesa; R$ 358',
-      Column2: '30 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-032-285;CALÇA IMPERMEAVEL CPFL SERV - GG;Despesa; R$ 358',
-      Column2: '30 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-032-280;CALÇA IMPERMEAVEL CPFL SERV - M;Despesa; R$ 358',
-      Column2: '30 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-032-283;CALÇA IMPERMEAVEL CPFL SERV - P;Despesa; R$ 251',
-      Column2: '13 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-522;CALÇA IMPERMEÁVEL NÃO FR EG;Despesa; R$ 158',
-      Column2: '76 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-520;CALÇA IMPERMEÁVEL NÃO FR G;Despesa; R$ 158',
-      Column2: '76 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-521;CALÇA IMPERMEÁVEL NÃO FR GG;Despesa; R$ 158',
-      Column2: '76 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-519;CALÇA IMPERMEÁVEL NÃO FR M;Despesa; R$ 158',
-      Column2: '76 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-518;CALÇA IMPERMEÁVEL NÃO FR P;Despesa; R$ 158',
-      Column2: '76 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-074;CALÇA PROT OPER MOTOSSERRA NUM 42;Despesa; R$ 440',
-      Column2: '00 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-075;CALÇA PROT OPER MOTOSSERRA NUM 44;Despesa; R$ 376',
-      Column2: '67 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-030-653;CALÇO DE BORRACHA PARA VE�CULOS OPERACIONAIS ;Despesa; R$ 224',
-      Column2: '78 ;18601;1044;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-633;CALÇO PARA SAPATA ESTABILIZADORA - CESTO AÉREO;Despesa; R$ 110',
-      Column2: '00 ;18601;1045;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-580;CALÇO PARA SAPATA ESTABILIZADORA - GUINDAUTO;Despesa; R$ 530',
-      Column2: '42 ;18601;1266;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-341;CAMISA  MANGA LONGA AZUL FEM - 36;Despesa; R$ 57',
-      Column2: '76 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-348;CAMISA  MANGA LONGA AZUL FEM - 38;Despesa; R$ 57',
-      Column2: '76 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-349;CAMISA  MANGA LONGA AZUL FEM - 40;Despesa; R$ 57',
-      Column2: '76 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-350;CAMISA  MANGA LONGA AZUL FEM - 42;Despesa; R$ 57',
-      Column2: '76 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-351;CAMISA  MANGA LONGA AZUL FEM - 44;Despesa; R$ 57',
-      Column2: '76 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-352;CAMISA  MANGA LONGA AZUL FEM - 46;Despesa; R$ 57',
-      Column2: '76 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-361;CAMISA  MANGA LONGA AZUL MASC - 1;Despesa; R$ 58',
-      Column2: '65 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-362;CAMISA  MANGA LONGA AZUL MASC - 2;Despesa; R$ 58',
-      Column2: '65 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-363;CAMISA  MANGA LONGA AZUL MASC - 3;Despesa; R$ 58',
-      Column2: '65 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-364;CAMISA  MANGA LONGA AZUL MASC - 4;Despesa; R$ 58',
-      Column2: '65 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-365;CAMISA  MANGA LONGA AZUL MASC - 5;Despesa; R$ 58',
-      Column2: '65 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-374;CAMISA  MANGA LONGA AZUL MASC - 6;Despesa; R$ 58',
-      Column2: '65 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-391;CAMISA  MANGA LONGA AZUL MASC - 7;Despesa; R$ 58',
-      Column2: '65 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-392;CAMISA  MANGA LONGA BRANCA FEM - 36;Despesa; R$ 53',
-      Column2: '90 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-393;CAMISA  MANGA LONGA BRANCA FEM - 38;Despesa; R$ 53',
-      Column2: '90 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-394;CAMISA  MANGA LONGA BRANCA FEM - 40;Despesa; R$ 53',
-      Column2: '90 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-395;CAMISA  MANGA LONGA BRANCA FEM - 42;Despesa; R$ 53',
-      Column2: '90 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-396;CAMISA  MANGA LONGA BRANCA FEM - 44;Despesa; R$ 53',
-      Column2: '90 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-397;CAMISA  MANGA LONGA BRANCA FEM - 46;Despesa; R$ 53',
-      Column2: '90 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-398;CAMISA  MANGA LONGA BRANCA MASC - 1;Despesa; R$ 56',
-      Column2: '71 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-399;CAMISA  MANGA LONGA BRANCA MASC - 2;Despesa; R$ 56',
-      Column2: '71 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-400;CAMISA  MANGA LONGA BRANCA MASC - 3;Despesa; R$ 56',
-      Column2: '71 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-401;CAMISA  MANGA LONGA BRANCA MASC - 4;Despesa; R$ 56',
-      Column2: '71 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-402;CAMISA  MANGA LONGA BRANCA MASC - 5;Despesa; R$ 56',
-      Column2: '71 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-403;CAMISA  MANGA LONGA BRANCA MASC - 6;Despesa; R$ 56',
-      Column2: '71 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-404;CAMISA  MANGA LONGA BRANCA MASC - 7;Despesa; R$ 56',
-      Column2: '71 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-405;CAMISA  MANGA LONGA CINZA MASC - 1;Despesa; R$ 57',
-      Column2: '29 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-406;CAMISA  MANGA LONGA CINZA MASC - 2;Despesa; R$ 57',
-      Column2: '29 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-407;CAMISA  MANGA LONGA CINZA MASC - 3;Despesa; R$ 57',
-      Column2: '29 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-408;CAMISA  MANGA LONGA CINZA MASC - 4;Despesa; R$ 57',
-      Column2: '29 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-409;CAMISA  MANGA LONGA CINZA MASC - 5;Despesa; R$ 57',
-      Column2: '29 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-410;CAMISA  MANGA LONGA CINZA MASC - 6;Despesa; R$ 57',
-      Column2: '29 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-411;CAMISA  MANGA LONGA CINZA MASC - 7;Despesa; R$ 57',
-      Column2: '29 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-412;CAMISA  POLO AZUL FEM - G;Despesa; R$ 43',
-      Column2: '59 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-413;CAMISA  POLO AZUL FEM - GG;Despesa; R$ 43',
-      Column2: '59 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-414;CAMISA  POLO AZUL FEM - M;Despesa; R$ 43',
-      Column2: '59 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-415;CAMISA  POLO AZUL FEM - P;Despesa; R$ 43',
-      Column2: '59 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-416;CAMISA  POLO AZUL MASC - G;Despesa; R$ 44',
-      Column2: '92 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-417;CAMISA  POLO AZUL MASC - GG;Despesa; R$ 44',
-      Column2: '92 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-418;CAMISA  POLO AZUL MASC - M;Despesa; R$ 44',
-      Column2: '92 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-419;CAMISA  POLO AZUL MASC - P;Despesa; R$ 44',
-      Column2: '92 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-420;CAMISA  POLO AZUL MASC - XG;Despesa; R$ 44',
-      Column2: '92 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-576;Camisa de puxamento Nº 1;Despesa; R$ 668',
-      Column2: '84 ;18601;1047;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-578;Camisa de puxamento Nº 2;Despesa; R$ 777',
-      Column2: '08 ;18601;1047;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-045-035;CAMISA FR 88/12 FEMININA FR SERV T EG;Despesa; R$ 140',
-      Column2: '74 ;16881 / 3444;EPI;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-045-023;CAMISA FR 88/12 FEMININA FR SERV T G;Despesa; R$ 137',
-      Column2: '37 ;16881 / 3444;EPI;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-045-034;CAMISA FR 88/12 FEMININA FR SERV T GG;Despesa; R$ 115',
-      Column2: '54 ;16881 / 3444;EPI;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-045-021;CAMISA FR 88/12 FEMININA FR SERV T M;Despesa; R$ 115',
-      Column2: '54 ;16881 / 3444;EPI;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-045-013;CAMISA FR 88/12 FEMININA FR SERV T P;Despesa; R$ 115',
-      Column2: '54 ;16881 / 3444;EPI;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-045-000;CAMISA FR 88/12 FEMININA FR SERV T PP;Despesa; R$ 115',
-      Column2: '00 ;16881 / 3444;EPI;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-421;CAMISA MANGA LONGA AZUL FEM - 34;Despesa; R$ 57',
-      Column2: '76 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-422;CAMISA MANGA LONGA AZUL MASC - 10;Despesa; R$ 58',
-      Column2: '65 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-423;CAMISA MANGA LONGA AZUL MASC - 8;Despesa; R$ 58',
-      Column2: '65 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-424;CAMISA MANGA LONGA AZUL MASC - 9;Despesa; R$ 58',
-      Column2: '65 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-425;CAMISA MANGA LONGA BRANCA FEM - 34;Despesa; R$ 53',
-      Column2: '90 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-426;CAMISA MANGA LONGA BRANCA MASC - 10;Despesa; R$ 56',
-      Column2: '71 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-427;CAMISA MANGA LONGA BRANCA MASC - 8;Despesa; R$ 56',
-      Column2: '71 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-428;CAMISA MANGA LONGA BRANCA MASC - 9;Despesa; R$ 56',
-      Column2: '71 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-429;CAMISA MANGA LONGA CINZA MASC - 10;Despesa; R$ 57',
-      Column2: '29 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-430;CAMISA MANGA LONGA CINZA MASC - 8;Despesa; R$ 57',
-      Column2: '29 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-431;CAMISA MANGA LONGA CINZA MASC - 9;Despesa; R$ 57',
-      Column2: '29 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-041-783;CAMISA MANGA LONGA DE BRIM CINZA EG;Despesa; R$ 43',
-      Column2: '35 ;18525;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-041-784;CAMISA MANGA LONGA DE BRIM CINZA EGG;Despesa; R$ 43',
-      Column2: '35 ;18525;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-041-781;CAMISA MANGA LONGA DE BRIM CINZA G;Despesa; R$ 43',
-      Column2: '13 ;18525;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-041-782;CAMISA MANGA LONGA DE BRIM CINZA GG;Despesa; R$ 43',
-      Column2: '62 ;18525;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-041-780;CAMISA MANGA LONGA DE BRIM CINZA M;Despesa; R$ 44',
-      Column2: '52 ;18525;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-041-779;CAMISA MANGA LONGA DE BRIM CINZA P;Despesa; R$ 44',
-      Column2: '52 ;18525;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-041-778;CAMISA MANGA LONGA DE BRIM CINZA PP;Despesa; R$ 41',
-      Column2: '58 ;18525;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-432;CAMISA POLO AZUL FEM - XG;Despesa; R$ 43',
-      Column2: '59 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-433;CAMISA POLO AZUL FEM - XXG;Despesa; R$ 43',
-      Column2: '59 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-434;CAMISA POLO AZUL MASC - XXG;Despesa; R$ 44',
-      Column2: '92 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-004-459;CAMISETA LINHA VIV TEC ANT EG PTA-EPI;Despesa; R$ 115',
-      Column2: '54 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-004-456;CAMISETA LINHA VIV TEC ANT G PTA-EPI;Despesa; R$ 198',
-      Column2: '27 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-004-458;CAMISETA LINHA VIV TEC ANT GG PTA-EPI;Despesa; R$ 174',
-      Column2: '00 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-004-455;CAMISETA LINHA VIV TEC ANT M PTA-EPI;Despesa; R$ 197',
-      Column2: '48 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-004-454;CAMISETA LINHA VIV TEC ANT P PTA-EPI;Despesa; R$ 197',
-      Column2: '38 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-045-337;CAMISETA LV FR C/ FAIXA REFLETIVA EG;Despesa; R$ 209',
-      Column2: '88 ;16881;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-045-338;CAMISETA LV FR C/ FAIXA REFLETIVA EGG;Despesa; R$ 232',
-      Column2: '65 ;16881;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-045-342;CAMISETA LV FR C/ FAIXA REFLETIVA G;Despesa; R$ 216',
-      Column2: '77 ;16881;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-045-345;CAMISETA LV FR C/ FAIXA REFLETIVA GG;Despesa; R$ 225',
-      Column2: '98 ;16881;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-045-348;CAMISETA LV FR C/ FAIXA REFLETIVA M;Despesa; R$ 217',
-      Column2: '81 ;16881;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-045-373;CAMISETA LV FR C/ FAIXA REFLETIVA P;Despesa; R$ 221',
-      Column2: '60 ;16881;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-045-378;CAMISETA LV FR C/ FAIXA REFLETIVA PP;Despesa; R$ 214',
-      Column2: '55 ;16881;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-042-407;CAMISETA MANGA CURTA EG;Despesa; R$ 29',
-      Column2: '02 ;18525;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-042-408;CAMISETA MANGA CURTA EGG;Despesa; R$ 29',
-      Column2: '57 ;18525;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-042-405;CAMISETA MANGA CURTA G;Despesa; R$ 29',
-      Column2: '57 ;18525;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-042-406;CAMISETA MANGA CURTA GG;Despesa; R$ 29',
-      Column2: '57 ;18525;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-042-404;CAMISETA MANGA CURTA M;Despesa; R$ 29',
-      Column2: '57 ;18525;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-042-403;CAMISETA MANGA CURTA P;Despesa; R$ 29',
-      Column2: '57 ;18525;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-042-402;CAMISETA MANGA CURTA PP;Despesa; R$ 21',
-      Column2: '20 ;18525;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-042-414;CAMISETA MANGA LONGA EG;Despesa; R$ 30',
-      Column2: '90 ;18525;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-042-415;CAMISETA MANGA LONGA EGG;Despesa; R$ 30',
-      Column2: '90 ;18525;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-042-412;CAMISETA MANGA LONGA G;Despesa; R$ 30',
-      Column2: '90 ;18525;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-042-413;CAMISETA MANGA LONGA GG;Despesa; R$ 30',
-      Column2: '90 ;18525;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-042-411;CAMISETA MANGA LONGA M;Despesa; R$ 30',
-      Column2: '90 ;18525;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-042-410;CAMISETA MANGA LONGA P;Despesa; R$ 30',
-      Column2: '90 ;18525;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-557;Canivete;Despesa; R$ 30',
-      Column2: '53 ;18601;1050;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-537;CAPACETE SEG TIP II/CL B ABA FRONT SERVI;Despesa; R$ 46',
-      Column2: '64 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-440;CAPUZ  TECIDO ANTICH PROT NU-EPI - IMP;Despesa; R$ 32',
-      Column2: '01 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-030-554;Carretilha com Gancho;Despesa; R$ 329',
-      Column2: '10 ;18601;1053;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-488;CARRETILHA DE PUXAMENTO DE CONDUTORES FASE EM REDE COMPACTA;Despesa; R$ 135',
-      Column2: '42 ;18601;1054;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-486;CARRETILHA PARA LANÇAMENTO DE CABO MENSAGEIRO EM �NGULO;Despesa; R$ 115',
-      Column2: '27 ;18601;1055;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-485;CARRETILHA PARA LANÇAMENTO DE CABO MULTIPLEXADO BT (MOD_1);Despesa; R$ 389',
-      Column2: '50 ;18601;1056;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-045-050;CARRETILHA PARA LANÇAMENTO DE CABO MULTIPLEXADO BT (MOD_3);Despesa; R$ 278',
-      Column2: '33 ;18601;1056;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-487;CARRETILHA PARA LANÇAMENTO DE CONDUTOR FASE EM �NGULO DE REDE COMPACTA;Despesa; R$ 139',
-      Column2: '07 ;18601;1058;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-484;CARRETILHA PARA LANÇAMENTO DE CONDUTORES FASE EM REDE COMPACTA;Despesa; R$ 275',
-      Column2: '00 ;18601;1057;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-483;CARRETILHA PARA REMOÇAO E SUBSTITUIÇAO DE CONDUTORES FASE;Despesa; R$ 205',
-      Column2: '90 ;18601;1059;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-046-881;Carrinho de Mão ;Despesa; R$ 122',
-      Column2: '33 ;18601;1271;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-534;Cavadeira Articulada Tipo Light ;Despesa; R$ 135',
-      Column2: '44 ;18601;1060;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '50-000-032-543;Cavadeira reta (Cavadeira reta Metalica);Despesa; R$ 212',
-      Column2: '22 ;18601;1062;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '50-000-032-506;CAVALETE PARA LEVANTAMENTO DE BOBINAS;Investimento; R$ 8.505',
-      Column2: '00 ;18601;2013;Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-016-343;Chave Catraca Soquete Quadrado 24 e 27 mm;Despesa; R$ 362',
-      Column2: '10 ;18601;1066;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-045-651;Chave Combinada com Catraca Nº 13;Despesa; R$ 23',
-      Column2: '40 ;18601;1264;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-045-652;Chave Combinada com Catraca Nº 17;Despesa; R$ 33',
-      Column2: '45 ;18601;1264;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-045-659;Chave Combinada com Catraca Nº 19;Despesa; R$ 42',
-      Column2: '76 ;18601;1264;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-613;Chave de Boca Ajustável Nº 08;Despesa; R$ 32',
-      Column2: '90 ;18601;1073;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-475;Chave de Boca Ajustável Nº 12;Despesa; R$ 46',
-      Column2: '20 ;18601;1073;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-045-591;Chave de Fenda Protegida G;Despesa; R$ 8',
-      Column2: '99 ;18601;1076;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-045-592;Chave de Fenda Protegida M;Despesa; R$ 11',
-      Column2: '34 ;18601;1076;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-045-576;Chave de Fenda Protegida PP;Despesa; R$ 14',
-      Column2: '56 ;18601;1076;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-616;Chave de grifo 14  adaptada;Despesa; R$ 228',
-      Column2: '03 ;18601;1086;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-032-894;Chave T - Ponta Allen de 5 mm;Despesa; R$ 73',
-      Column2: '08 ;18601;1089;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-501;Cinta de 64 MM para Mão Francesa;Despesa; R$ 607',
-      Column2: '37 ;18601;1090;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-046-866;CINTA PARA TROCA DE FUSÍVEL;Despesa; R$ 32',
-      Column2: '41 ;18601;1225;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-524;COBERTURA CIRCULAR 300X600MM;Despesa; R$ 328',
-      Column2: '70 ;18601;1099;Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-004-210;Cobertura Flexível para Condutor 1400mm (classe 2);Investimento; R$ 2.069',
-      Column2: '10 ;18601;1094;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-510;Cobertura Flexível para Condutor 915mm (classe 2);Despesa/Investimento; R$ 1.057',
-      Column2: '64 ;18601;1094;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-469;COBERTURA ISOLANTE ROLDANA-IMP;Despesa; R$ 70',
-      Column2: '86 ;18601;1098;Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-004-215;Cobertura Rígida Circular 150 x 600mm de 15KV (classe 2);Despesa; R$ 104',
-      Column2: '72 ;18601;1099;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-522;Cobertura Rígida Circular 220x1200mm de 36KV (classe 4);Despesa; R$ 543',
-      Column2: '87 ;18601;1099;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-518;Cobertura Rígida Circular 230 x 600mm de 15KVe 25KV (classe 3);Despesa; R$ 260',
-      Column2: '20 ;18601;1099;Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-004-214;Cobertura Rígida Circular 300mm de 15KV;Despesa; R$ 90',
-      Column2: '56 ;18601;1099;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-523;Cobertura Rígida Circular 300x1800mm de 36KV (classe 4);Despesa; R$ 560',
-      Column2: '40 ;18601;1099;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-004-211;Cobertura Rígida para Condutor (Classe 2);Despesa; R$ 117',
-      Column2: '23 ;18601;1105;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '50-000-032-493;COMPACTADOR HIDRAULICO;Investimento; R$ 17.390',
-      Column2: '00 ;18602;2017;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '50-000-032-502;Cone de SinalizaçAo (Pode ser adquirido a fita refletiva separada);Despesa; R$ 90',
-      Column2: '00 ;18602;1259;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-045-600;Conjunto de Corda de Serviço (10mm);Despesa; R$ 11',
-      Column2: '20 ;18602;1113;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '50-000-015-012;CONJUNTO SOQUETES E CH CATRACA;Despesa; R$ 455',
-      Column2: '80 ;18601;1065;Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-575;Corda de Polipropileno (12 mm);Despesa; R$ 1',
-      Column2: '91 ;18602;1109;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-515;Corda de Polipropileno 12mm (linha de vida);Despesa; R$ 264',
-      Column2: '08 ;18602;1111;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-040-151;CORDA P/ ESCALADA BRANCA E AZUL- PC 100M;Despesa; R$ 1.378',
-      Column2: '00 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-574;CORDA POLIPROP 10MM;Despesa; R$ 1',
-      Column2: '59 ;18602;1109;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-045-628;Cortadora de vergalhão;Investimento; R$ 24.322',
-      Column2: '40 ;18602;2026;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-583;Cravador de Haste Cantoneira Aterramento;Despesa; R$ 1.039',
-      Column2: '87 ;18602;1119;Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-333;CRAVADOR DE HASTE REDONDA DE ATERRAMENTO;Despesa; R$ 2.213',
-      Column2: '00 ;18602;1120;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '50-000-032-544;Cruzeta Auxiliar (2400mm);Investimento; R$ 4.331',
-      Column2: '05 ;18602;1122;Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-482;Decapador de Condutor RDC (até 25 kv);Despesa; R$ 949',
-      Column2: '00 ;18602;1123;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-045-593;Decapador de Condutor RDC (até 34',
-      Column2: '5 kv) - Somente para bases que atende 34',
-      Column3: '5 KV;Despesa; R$ 899',
-      Column4: '30 ;18602;1124;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-032-652;Degrau de Fibra para Poste Circular;Despesa; R$ 130',
-      Column2: '17 ;18602;1125;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-032-345;DESC AUTBLOC IDL 11',
-      Column2: '5 A 13MM TRANSM;Despesa; R$ 1.758',
-      Column3: '24 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '50-000-030-998;Detector de Tensão por Contato 5 a 35 kV;Despesa/Investimento; R$ 440',
-      Column2: '98 ;18602;2032;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-046-882;Disjuntor trif�sico jumper para rede secundaria ;Despesa; R$ 2.312',
-      Column2: '44 ;18602;1257;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '50-000-011-078;Dispositivo para Abertura em Carga de 25KV;Investimento; R$ 4.134',
-      Column2: '00 ;18602;2038;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '50-000-032-521;Dispositivo para Abertura em Carga de 34',
-      Column2: '5KV - Somente para bases que atende 34',
-      Column3: '5 KV;Investimento; R$ 9.516',
-      Column4: '15 ;18602;2038;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-016-239;Encerado de Lona 2 X 2 m;Despesa; R$ 152',
-      Column2: '87 ;18602;1133;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-570;Enxada;Despesa; R$ 24',
-      Column2: '90 ;18602;1134;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-569;Enxadão;Despesa; R$ 56',
-      Column2: '54 ;18602;1137;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-019;EQUIPAMENTO RESGATE ESTRUT AER-EPI;Despesa; R$ 333',
-      Column2: '90 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-428;Escada (Fibra) (10',
-      Column2: '8 m);Investimento; R$ 1.137',
-      Column3: '41 ;18602;2042;Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-425;Escada (Fibra) (6',
-      Column2: '6 m);Despesa/Investimento; R$ 528',
-      Column3: '50 ;18602;2042;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-426;Escada (Fibra) (7',
-      Column2: '8 m);Despesa/Investimento; R$ 609',
-      Column3: '72 ;18602;2042;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-030-784;Escada (Fibra) (9',
-      Column2: '7 m);Despesa/Investimento; R$ 773',
-      Column3: '54 ;18602;2042;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-559;Escova de Aço tipo V;Despesa; R$ 130',
-      Column2: '69 ;18602;1142;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-004-028;Esticador para cabo de aço;Despesa; R$ 187',
-      Column2: '90 ;18602;1146;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-004-026;Esticador para Condutor 2/0 a 4/0 AWG            ;Despesa; R$ 212',
-      Column2: '33 ;18602;1147;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-708;Esticador para Condutor 336 AWG                     ;Despesa/Investimento; R$ 392',
-      Column2: '85 ;18602;1147;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-004-027;Esticador para Condutor 477 AWG                    ;Despesa/Investimento; R$ 360',
-      Column2: '00 ;18602;1147;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-906;Esticador para Condutor até 1/0 AWG             ;Despesa; R$ 180',
-      Column2: '32 ;18602;1147;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-032-895;Estribo para Aterramento Secundario ;Despesa; R$ 25',
-      Column2: '62 ;18602;1155;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-030-805;Estribo para Mão Francesa;Despesa; R$ 232',
-      Column2: '62 ;18602;1156;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-705;Estropo de Aço (1200mm);Despesa; R$ 133',
-      Column2: '56 ;18602;1157;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-706;Estropo de Aço (1600mm);Despesa; R$ 186',
-      Column2: '03 ;18602;1157;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-448;Estropo de Nylon de 1.500 mm (postes);Despesa; R$ 88',
-      Column2: '90 ;18602;1165;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-704;Estropo de Nylon de 1.800 mm (postes);Despesa; R$ 99',
-      Column2: '66 ;18602;1165;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-031-012;Estropo de Nylon de 1100 mm;Despesa; R$ 45',
-      Column2: '07 ;18602;1165;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-044-201;Estropo de Nylon de 600 mm;Despesa; R$ 18',
-      Column2: '84 ;18602;1165;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-030-673;Estropo de Nylon de 800 mm;Despesa; R$ 35',
-      Column2: '11 ;18602;1165;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-033-944;Estropo de Poliester formato anel (tipo 1);Despesa; R$ 89',
-      Column2: '14 ;18602;1162;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-033-946;Estropo de Poliester formato anel (tipo 3);Despesa; R$ 119',
-      Column2: '90 ;18602;1162;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-046-495;ESTROPO DE POLIéSTER PARA POSTE 15/18M;Despesa; R$ 315',
-      Column2: '66 ;18602;1244;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-449;Estropo de poliéster para transformador (G);Despesa; R$ 127',
-      Column2: '65 ;18602;1173;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-461;Estropo de poliéster para transformador (P);Despesa; R$ 113',
-      Column2: '23 ;18602;1173;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-031-021;ESTROPO POLIESTER 2600MM;Despesa; R$ 277',
-      Column2: '90 ;18602;1165;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-904;ESTROPO POLIESTER CHAVE A OLEO 400A-IMP;Despesa; R$ 303',
-      Column2: '72 ;18602;1169;Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-046-484;ESTROPO POLIéSTER PARA POSTE 1000/1200;Despesa; R$ 234',
-      Column2: '56 ;18602;1244;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-046-481;ESTROPO POLIéSTER PARA POSTE 200/400/600;Despesa; R$ 198',
-      Column2: '77 ;18602;1244;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-905;ESTROPO POLIESTER REGULADOR TENSAO-IMP;Despesa; R$ 311',
-      Column2: '37 ;18602;1169;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-902;ESTROPO RELIG BRUSH PMR3',
-      Column2: 'D WHIPP&BOURNE;Despesa; R$ 134',
-      Column3: '62 ;18602;1169;Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-903;ESTROPO RELIG REYROLLE',
-      Column2: ' NU-LEC',
-      Column3: ' COOPER;Despesa; R$ 293',
-      Column4: '63 ;18602;1169;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-046-460;ESTRUTURA DE CHAVE FERRAMENTA;Despesa; R$ 2.412',
-      Column2: '69 ;18602;1265;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-552;Faca Curva;Despesa; R$ 113',
-      Column2: '76 ;18602;1178;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-046-871;FAIXA REFLETIVA;Despesa; R$ 23',
-      Column2: '44 ;18602;1159;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-032;Ferramenta de AplicaÇAo de Conectores e Corte de Condutor a Bateria (FEERGS);Investimento; R$ 34.000',
-      Column2: '00 ;18602;2050;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '50-000-015-065;Ferramenta para AplicaÇAo de Conector Cunha (KRJ);Investimento; R$ 2.450',
-      Column2: '00 ;18602;2051;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-045;FITA ADESIVA PARA CONES;Despesa; R$ 18',
-      Column2: '54 ;18602;1291;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-022;Fita de SinalizaÇAo com Recolhedor;Despesa; R$ 131',
-      Column2: '80 ;18602;1258;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-032-354;FITA TIPO SLING 1200MM VERMELHA;Despesa; R$ 71',
-      Column2: '68 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-006;FITA VELCRO DUPLA FACE 250MM;Despesa; R$ 10',
-      Column2: '49 ;18602;1185;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-619;Fita Velcro Dupla Face 800mm;Despesa; R$ 15',
-      Column2: '85 ;18602;1186;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-565;Foice Panam�;Despesa; R$ 23',
-      Column2: '78 ;18602;1310;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-004-037;FOLHA SERRA PARA METAIS;Despesa; R$ 5',
-      Column2: '31 ;18602;1187;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-470;Gancho de linha de vida;Despesa; R$ 125',
-      Column2: '48 ;18602;1189;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-030-720;Gancho para IÇamento de Materiais;Despesa; R$ 70',
-      Column2: '68 ;18602;1191;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-528;Garraf�o T�rmico (5 Litros);Despesa; R$ 28',
-      Column2: '94 ;18602;1192;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-045-649;Gerador monof�sico;Investimento; R$ 6.715',
-      Column2: '23 ;18602;2076;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-004-040;Grampo de TorÇAo para Cabo Jumper;Despesa; R$ 122',
-      Column2: '90 ;18602;1194;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '50-000-032-546;Grampo para Bucha de Transformador (Presilha para BY-PASS);Despesa; R$ 340',
-      Column2: '00 ;18602;2052;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '50-000-032-525;GUINCHO CABRESTANTE;Investimento; R$ 34.175',
-      Column2: '85 ;18602;1195;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-832;GUINCHO DE IÇAMENTO MANUAL COM SUPORTE ;Investimento; R$ 3.350',
-      Column2: '00 ;18602;1196;Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '50-000-011-212;GUINCHO PORTATIL CABO DE ACO 2000KG;Despesa; R$ 620',
-      Column2: '05 ;18602;1197;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '50-000-032-501;Guincho Portátil de Corrente Nº 1500;Despesa/Investimento; R$ 905',
-      Column2: '95 ;18602;2036;Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '50-000-015-748;Guincho Portátil de Corrente Nº 500;Despesa; R$ 471',
-      Column2: '90 ;18602;2039;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '50-000-010-458;Guincho Portátil de Corrente Nº 750;Despesa/Investimento; R$ 548',
-      Column2: '90 ;18602;2053;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '50-000-011-190;Guincho Portátil Linha Viva Tirante de Nylon;Despesa/Investimento; R$ 550',
-      Column2: '00 ;18602;2041;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '50-000-032-499;INFLADOR LUVAS BORRACHAS;Despesa; R$ 985',
-      Column2: '39 ;18602;2054;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-608;Jampe Provisório Isolado 2 AWG 1',
-      Column2: '20 m (Classe 2);Despesa; R$ 698',
-      Column3: '18 ;18602;1201;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-609;Jampe Provisório Isolado 2 AWG 4',
-      Column2: '00 m  (Classe 2);Despesa; R$ 869',
-      Column3: '28 ;18602;1201;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-611;Jampe Provisório Isolado 4/0 AWG 1',
-      Column2: '20 m  (Classe 2);Despesa; R$ 606',
-      Column3: '91 ;18602;1201;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-612;Jampe Provisório Isolado 4/0 AWG 5',
-      Column2: '00 m  (Classe 2);Investimento; R$ 1.814',
-      Column3: '67 ;18602;1201;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-032-279;JAQUETA IMPERMEAVEL CPFL SERV - EG;Despesa; R$ 388',
-      Column2: '96 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-032-277;JAQUETA IMPERMEAVEL CPFL SERV - G;Despesa; R$ 537',
-      Column2: '46 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-032-278;JAQUETA IMPERMEAVEL CPFL SERV - GG;Despesa; R$ 537',
-      Column2: '46 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-032-276;JAQUETA IMPERMEAVEL CPFL SERV - M;Despesa; R$ 537',
-      Column2: '46 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-030-000;JAQUETA IMPERMEAVEL CPFL SERV - P;Despesa; R$ 398',
-      Column2: '36 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-527;JAQUETA IMPERMEÁVEL NÃO FR EG;Despesa; R$ 118',
-      Column2: '55 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-525;JAQUETA IMPERMEÁVEL NÃO FR G;Despesa; R$ 118',
-      Column2: '55 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-526;JAQUETA IMPERMEÁVEL NÃO FR GG;Despesa; R$ 118',
-      Column2: '55 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-524;JAQUETA IMPERMEÁVEL NÃO FR M;Despesa; R$ 118',
-      Column2: '55 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-523;JAQUETA IMPERMEÁVEL NÃO FR P;Despesa; R$ 118',
-      Column2: '55 ;18525;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-016-453;KIT CINTO PARAQ CESTO AÉREO TAM1;Despesa; R$ 664',
-      Column2: '94 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-016-454;KIT CINTO PARAQ CESTO AÉREO TAM2;Despesa; R$ 667',
-      Column2: '80 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-688;KIT CINTURAO PARAQ T0/TALAB E TRAVA-EPI;Despesa; R$ 1.537',
-      Column2: '00 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-545;KIT CINTURAO PARAQ T1/TALAB E TRAVA-EPI;Despesa; R$ 1.490',
-      Column2: '36 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-546;KIT CINTURAO PARAQ T2/TALAB E TRAVA-EPI;Despesa; R$ 1.537',
-      Column2: '00 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-548;KIT CINTURAO PARAQ T3/TALAB E TRAVA-EPI;Despesa; R$ 1.537',
-      Column2: '00 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-046-546;LAMINA P/ SERRA PODA C/ FIM CURSO ;Despesa; R$ 265',
-      Column2: '20 ;18601;1014;Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-003-980;LANTERNA PORTATIL;Despesa; R$ 189',
-      Column2: '53 ;18602;1209;Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-004-266;Lençol de Borracha para LV - Inteiro (Classe 4);Despesa; R$ 322',
-      Column2: '10 ;18602;1210;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-004-267;Lençol de Borracha para LV - Semipartido (Classe 4);Despesa; R$ 322',
-      Column2: '04 ;18602;1210;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-478;LENÇOL ISOLANTE PARA BAIXA TENSãO;Despesa; R$ 181',
-      Column2: '63 ;18602;1218;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-045-438;LenÇol Isolante para LV com Velcro (Classe 3);Despesa; R$ 213',
-      Column2: '45 ;18602;1215;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-013;LENÇOL ISOLANTE TIPO L�MINA PARA BT;Despesa; R$ 56',
-      Column2: '43 ;18602;1219;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-045-049;LenÇol Lamina Rosa;Despesa; R$ 25',
-      Column2: '36 ;18602;1277;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-046-494;LENTE REPOSICAO P/ OCULOS PROT CINZA  ;Despesa; R$ 20',
-      Column2: '55 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-045-572;Lima Chata;Despesa; R$ 14',
-      Column2: '63 ;18602;1220;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-046-885;Luva Giratéria 5 Tonelada;Despesa; R$ 1.211',
-      Column2: '34 ;18602;1100;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-030-740;LUVA ISOLANTE DE CLASSE 0 Nº 10;Despesa; R$ 701',
-      Column2: '49 ;14688;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-030-751;LUVA ISOLANTE DE CLASSE 0 Nº 10 �;Despesa; R$ 701',
-      Column2: '49 ;14688;EPI;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-030-746;LUVA ISOLANTE DE CLASSE 0 Nº 11;Despesa; R$ 42',
-      Column2: '00 ;14688;EPI;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-031-097;LUVA ISOLANTE DE CLASSE 0 Nº 11�;Despesa; R$ 174',
-      Column2: '00 ;14688;EPI;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-031-111;LUVA ISOLANTE DE CLASSE 0 Nº 12;Despesa; R$ 174',
-      Column2: '00 ;14688;EPI;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-030-822;LUVA ISOLANTE DE CLASSE 0 Nº 8;Despesa; R$ 230',
-      Column2: '58 ;14688;EPI;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-031-090;LUVA ISOLANTE DE CLASSE 0 Nº 8 �;Despesa; R$ 395',
-      Column2: '50 ;14688;EPI;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-030-792;LUVA ISOLANTE DE CLASSE 0 Nº 9;Despesa; R$ 386',
-      Column2: '72 ;14688;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-030-745;LUVA ISOLANTE DE CLASSE 0 Nº 9 �;Despesa; R$ 274',
-      Column2: '23 ;14688;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-004-279;LUVA ISOLANTE DE CLASSE 2 Nº 10;Despesa; R$ 640',
-      Column2: '83 ;14688;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-006-410;LUVA ISOLANTE DE CLASSE 2 Nº 10 �;Despesa; R$ 399',
-      Column2: '00 ;14688;EPI;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-052;LUVA ISOLANTE DE CLASSE 2 Nº 11;Despesa; R$ 762',
-      Column2: '21 ;14688;EPI;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-052;LUVA ISOLANTE DE CLASSE 2 Nº 11�;Despesa; R$ 359',
-      Column2: '00 ;14688;EPI;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-884;LUVA ISOLANTE DE CLASSE 2 Nº 12;Despesa; R$ 512',
-      Column2: '55 ;14688;EPI;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-881;LUVA ISOLANTE DE CLASSE 2 Nº 8;Despesa; R$ 432',
-      Column2: '69 ;14688;EPI;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-882;LUVA ISOLANTE DE CLASSE 2 Nº 8 �;Despesa; R$ 507',
-      Column2: '94 ;14688;EPI;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-006-396;LUVA ISOLANTE DE CLASSE 2 Nº 9;Despesa; R$ 399',
-      Column2: '00 ;14688;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-006-409;LUVA ISOLANTE DE CLASSE 2 Nº 9 �;Despesa; R$ 399',
-      Column2: '00 ;14688;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-031-027;LUVA ISOLANTE DE CLASSE 3 Nº  8 �;Despesa; R$ 634',
-      Column2: '64 ;14688;EPI;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-277;LUVA ISOLANTE DE CLASSE 3 Nº 10;Despesa; R$ 2.827',
-      Column2: '36 ;14688;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-051;LUVA ISOLANTE DE CLASSE 3 Nº 10 �;Despesa; R$ 2.284',
-      Column2: '88 ;14688;EPI;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-276;LUVA ISOLANTE DE CLASSE 3 Nº 11;Despesa; R$ 2.151',
-      Column2: '18 ;14688;EPI;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-276;LUVA ISOLANTE DE CLASSE 3 Nº 11 �;Despesa; R$ 325',
-      Column2: '60 ;14688;EPI;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-031-009;LUVA ISOLANTE DE CLASSE 3 Nº 12;Despesa; R$ 325',
-      Column2: '60 ;14688;EPI;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-031-017;LUVA ISOLANTE DE CLASSE 3 Nº 8;Despesa; R$ 634',
-      Column2: '64 ;14688;EPI;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-031-008;LUVA ISOLANTE DE CLASSE 3 Nº 9;Despesa; R$ 4.023',
-      Column2: '06 ;14688;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-006-393;LUVA ISOLANTE DE CLASSE 3 Nº 9 �;Despesa; R$ 3.308',
-      Column2: '89 ;14688;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-886;LUVA ISOLANTE DE CLASSE 4 Nº  8 �;Despesa; R$ 1.195',
-      Column2: '33 ;14688;EPI;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-531;LUVA ISOLANTE DE CLASSE 4 Nº 10;Despesa; R$ 2.492',
-      Column2: '05 ;14688;EPI;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-532;LUVA ISOLANTE DE CLASSE 4 Nº 10 �;Despesa; R$ 2.382',
-      Column2: '60 ;14688;EPI;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-533;LUVA ISOLANTE DE CLASSE 4 Nº 11;Despesa; R$ 2.380',
-      Column2: '55 ;14688;EPI;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-888;LUVA ISOLANTE DE CLASSE 4 Nº 11 �;Despesa; R$ 1.214',
-      Column2: '98 ;14688;EPI;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-889;LUVA ISOLANTE DE CLASSE 4 Nº 12;Despesa; R$ 1.222',
-      Column2: '55 ;14688;EPI;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-885;LUVA ISOLANTE DE CLASSE 4 Nº 8;Despesa; R$ 1.278',
-      Column2: '88 ;14688;EPI;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-887;LUVA ISOLANTE DE CLASSE 4 Nº 9;Despesa; R$ 1.009',
-      Column2: '40 ;14688;EPI;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-529;LUVA ISOLANTE DE CLASSE 4 Nº 9 �;Despesa; R$ 2.189',
-      Column2: '27 ;14688;EPI;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-006-394;LUVA PROT COURO LUV BORR TAMANHO G;Despesa; R$ 27',
-      Column2: '83 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-004-276;LUVA PROT COURO LUV BORR TAMANHO M;Despesa; R$ 28',
-      Column2: '00 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-004-272;LUVA PROT COURO LUVA BORR TAMANHO P;Despesa; R$ 28',
-      Column2: '00 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-041-313;LUVA PROT NYLON REVE 3/4 NITR NEOPRE T7;Despesa; R$ 27',
-      Column2: '00 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-041-315;LUVA PROT NYLON REVES 3/4 NITR NEOPRE T8;Despesa; R$ 29',
-      Column2: '14 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-046-205;LUVA PROT QUIMICA MAXIDRY PLUS G               ;Despesa; R$ 47',
-      Column2: '50 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-046-204;LUVA PROT QUIMICA MAXIDRY PLUS M           ;Despesa; R$ 45',
-      Column2: '00 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-046-183;LUVA PROT QUIMICA MAXIDRY PLUS P               ;Despesa; R$ 45',
-      Column2: '00 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-046-206;LUVA PROT QUIMICA MAXIDRY PLUS XG        ;Despesa; R$ 47',
-      Column2: '50 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-032-307;LUVA PROT. NYLON REVES. 3/4 NITR NEOPREM;Despesa; R$ 27',
-      Column2: '39 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-032-308;LUVA PROT. NYLON REVES. 3/4 NITR NEOPREM;Despesa; R$ 28',
-      Column2: '92 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-032-309;LUVA PROT. TRIC.ANTI CORTE E BANHO NIT.;Despesa; R$ 39',
-      Column2: '89 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-032-310;LUVA PROT. TRIC.ANTI CORTE E BANHO NIT.;Despesa; R$ 39',
-      Column2: '89 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-046-035;Luva proteÇAo anti corte punho 12 cm G    ;Despesa; R$ 43',
-      Column2: '00 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-046-034;Luva proteÇAo anti corte punho 12 cm M     ;Despesa; R$ 43',
-      Column2: '00 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-046-033;Luva proteÇAo anti corte punho 12 cm P  ;Despesa; R$ 43',
-      Column2: '00 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-046-037;Luva proteÇAo anti corte punho 12 cm XG    ;Despesa; R$ 43',
-      Column2: '00 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-031-157;LUVA SEG VAQUETA TAMANHO G;Despesa; R$ 20',
-      Column2: '78 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-031-149;LUVA SEG VAQUETA TAMANHO M;Despesa; R$ 20',
-      Column2: '25 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-031-148;LUVA SEG VAQUETA TAMANHO P;Despesa; R$ 19',
-      Column2: '61 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-490;LUVA SUEDINE LINHA VIVA;Despesa; R$ 5',
-      Column2: '83 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-693;MANGA CURVA ISOL BORR CL2 TAM G;Despesa; R$ 3.569',
-      Column2: '41 ;14688;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-006-364;MANGA CURVA ISOL BORR CL2 TAM M;Despesa; R$ 3.326',
-      Column2: '33 ;14688;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-692;MANGA CURVA ISOL BORR CL3 TAM G;Despesa; R$ 4.446',
-      Column2: '00 ;14688;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-285;MANGA CURVA ISOL BORR CL3 TAM M;Despesa; R$ 3.132',
-      Column2: '92 ;14688;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-702;MANGA CURVA ISOL BORR CL4 TAM G;Despesa; R$ 6.918',
-      Column2: '82 ;14688;EPI;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-701;MANGA CURVA ISOL BORR CL4 TAM M;Despesa; R$ 7.215',
-      Column2: '58 ;14688;EPI;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-032-346;MANGA EM RASPA DE COURO(CARBOGRAFITE);Despesa; R$ 47',
-      Column2: '16 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-035-523;MANGOTE DE SEGURANCA;Despesa; R$ 124',
-      Column2: '79 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-046-974;Maquina de Impacto DTW 300;Investimento; R$ 3.200',
-      Column2: '00 ;18603;2087;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-046-976;Maquina de Impacto DTW 800;Investimento; R$ 4.470',
-      Column2: '00 ;18603;2086;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-562;Marreta de 1 Kg;Despesa; R$ 75',
-      Column2: '00 ;18603;1226;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-030-990;Marreta de 5 KG;Despesa; R$ 230',
-      Column2: '85 ;18603;1276;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-012;Martelo Ponta e P�;Despesa; R$ 102',
-      Column2: '08 ;18603;1230;Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-044-989;MASCARA CIRURGICA PAC (pacote c/ 50)  ;Despesa; R$ 19',
-      Column2: '28 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-035-522;MASCARA DESCARTAVEL COM VALVULA PPF2;Despesa; R$ 10',
-      Column2: '95 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-032-330;MASCARA SOLDA AUTO ESCURECIMENTO;Despesa; R$ 403',
-      Column2: '78 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-004-061;Matriz    163 ;Despesa; R$ 88',
-      Column2: '00 ;18603;1255;Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-004-052;Matriz    236;Despesa; R$ 88',
-      Column2: '00 ;18603;1255;Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-004-053;Matriz    237;Despesa; R$ 88',
-      Column2: '00 ;18603;1255;Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-004-062;Matriz    238;Despesa; R$ 88',
-      Column2: '00 ;18603;1255;Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-004-063;Matriz    239;Despesa; R$ 88',
-      Column2: '00 ;18603;1255;Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-004-064;Matriz    242;Despesa; R$ 88',
-      Column2: '00 ;18603;1242;Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-004-065;Matriz    243;Despesa; R$ 88',
-      Column2: '00 ;18603;1255;Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-004-066;Matriz    245;Despesa; R$ 88',
-      Column2: '00 ;18603;1255;Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-004-067;Matriz    248;Despesa; R$ 88',
-      Column2: '00 ;18603;1255;Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-004-068;Matriz    249;Despesa; R$ 88',
-      Column2: '00 ;18603;1255;Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-004-069;Matriz    252;Despesa; R$ 88',
-      Column2: '00 ;18603;1255;Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-004-087;Matriz    316;Despesa; R$ 88',
-      Column2: '00 ;18603;1255;Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-004-070;Matriz    317;Despesa; R$ 88',
-      Column2: '00 ;18603;1255;Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-004-071;Matriz    321;Despesa; R$ 88',
-      Column2: '00 ;18603;1255;Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-004-077;Matrriz W - 163;Despesa; R$ 88',
-      Column2: '00 ;18603;1242;Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-004-076;Matrriz W - 236;Despesa; R$ 88',
-      Column2: '00 ;18603;1242;Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-004-078;Matrriz W - 237;Despesa; R$ 88',
-      Column2: '00 ;18603;1242;Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-004-079;Matrriz W - 238;Despesa; R$ 88',
-      Column2: '00 ;18603;1242;Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-004-080;Matrriz W - 239;Despesa; R$ 88',
-      Column2: '00 ;18603;1242;Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-004-082;Matrriz W - 243;Despesa; R$ 88',
-      Column2: '00 ;18603;1242;Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-529;Metro Zigue Zague (2 metros);Despesa; R$ 15',
-      Column2: '80 ;18603;1278;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-568;MOITAO DOIS GORNES LINHA MORTA;Despesa; R$ 1.061',
-      Column2: '14 ;18603;1279;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-558;MOIT�O EM AçO DE 3 GORNES;Despesa; R$ 1.293',
-      Column2: '17 ;18603;1280;Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-515;MOITAO LINHA VIVA;Despesa; R$ 528',
-      Column2: '94 ;18603;1281;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-016-467;MOSQUETAO ACO TIPO PERA 3500KG-EPC;Despesa; R$ 63',
-      Column2: '55 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-551;Mosquet�o com mola;Despesa; R$ 12',
-      Column2: '72 ;18603;1282;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-516;MOSQUETAO OVAL ACO 2200KG F-EPI;Despesa; R$ 79',
-      Column2: '80 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-049;MOTOPODA � BATERIA;Investimento; R$ 4.399',
-      Column2: '88 ;18603;2060;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '50-000-032-492;MOTOSSERRA;Investimento; R$ 2.153',
-      Column2: '33 ;18603;2061;Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-050;MOTOSSERRA A BATERIA;Investimento; R$ 3.583',
-      Column2: '44 ;18603;2064;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-567;N�vel de Bolha � Madeira;Despesa; R$ 27',
-      Column2: '86 ;18603;1283;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-045-575;Nivelador de Escada tipo Degrau;Despesa; R$ 185',
-      Column2: '31 ;18603;1285;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-032-362;OCULOS PROT   SOLDA TON 5;Despesa; R$ 22',
-      Column2: '58 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-046-493;OCULOS PROTECAO CINZA ANTI EMBAC IV      ;Despesa; R$ 47',
-      Column2: '89 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-010-344;OCULOS SEG INCOLOR - EPI - IMP;Despesa; R$ 11',
-      Column2: '00 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-531;P�;Despesa; R$ 46',
-      Column2: '14 ;18603;1286;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-046-886;Patesca;Despesa; R$ 19.865',
-      Column2: '82 ;18603;1101;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-582;Pedarol para Escalada e apoio em postes DT;Despesa; R$ 358',
-      Column2: '15 ;18603;1289;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-051;PERFURATRIZ PARA USO EM GUINDAUTO;Investimento; R$ 23.986',
-      Column2: '55 ;18603;2068;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-004-285;PERNEIRA COURO VACUM FIXAR CALÇADO;Despesa; R$ 31',
-      Column2: '96 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-032-349;PERNEIRA EM RASPA;Despesa; R$ 40',
-      Column2: '32 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-541;Picareta Alviço (Chibanca);Despesa; R$ 45',
-      Column2: '49 ;18603;1290;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-127;Placa de InterdiÇAo de Manobras;Despesa; R$ 250',
-      Column2: '05 ;18603;1293;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-046-872;PLACA DE SINALIZAÇAO PARA BIG JUMPER;Despesa; R$ 22',
-      Column2: '87 ;18603;1161;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-047;PLACA INTERDIÇAO DE MANOBRA S/ SUPORTE;Despesa; R$ 22',
-      Column2: '87 ;18603;1293;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-033-092;POLIA PARA RESGATE;Despesa; R$ 658',
-      Column2: '51 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-046;PONTEIRA PARA PRENDEDOR;Despesa; R$ 5',
-      Column2: '50 ;18603;1247;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-540;Ponteiro de aço;Despesa; R$ 43',
-      Column2: '30 ;18603;1296;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-625;Porta FusÍvel para Jamper Linha Viva;Despesa; R$ 486',
-      Column2: '24 ;18603;1298;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-004-115;Pregador de Cobertura para Linha Viva;Despesa; R$ 49',
-      Column2: '89 ;18603;1299;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-045-626;Presilha de Suspensão / ElevaÇAo;Despesa; R$ 325',
-      Column2: '66 ;18603;1300;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-471;Presilha para Manobra;Despesa; R$ 153',
-      Column2: '00 ;18603;1301;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-031-195;PROT FACIAL TELA NAILON OPER MOTOSERRA;Despesa; R$ 125',
-      Column2: '00 ;14688;EPI;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-689;PROTECAO CORDA TALABARTE-EPI;Despesa; R$ 68',
-      Column2: '90 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-160;PROTET AUDITIVO ESPUMA TIPO INSE;Despesa; R$ 0',
-      Column2: '59 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-016-350;PROTETOR AURICULAR ABAFADOR-EPI;Despesa; R$ 62',
-      Column2: '34 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-004-289;PROTETOR AURICULAR PLUG GRANDE;Despesa; R$ 2',
-      Column2: '47 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-048-043;PROTETOR PARA ARMAÇAO SECUND�RIA;Despesa; R$ 35',
-      Column2: '00 ;18603;1338;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-006-275;PROTETOR FACIAL CAPACETE C/LENTE;Despesa; R$ 117',
-      Column2: '20 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-553;PROTETOR SOLAR CORPO;Despesa; R$ 7',
-      Column2: '87 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-560;Prumo;Despesa; R$ 20',
-      Column2: '92 ;18603;1302;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-045-623;Refletor de led a bateria;Investimento; R$ 2.110',
-      Column2: '33 ;18603;2088;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-093;RESPIRADOR PURIFICADOR DE AR AZUL PFF2;Despesa; R$ 1',
-      Column2: '20 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-045-558;Rompedor de concreto el�trico bivolt;Investimento; R$ 4.533',
-      Column2: '98 ;18603;2059;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-052;SACA POSTE;Investimento; R$ 10.530',
-      Column2: '00 ;18603;2046;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-016-005;SACOLA CORDA LINHA VID LONA IMP TR-EPI;Despesa; R$ 139',
-      Column2: '92 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-004-123;SACOLA LONA GUARDAR LUVAS ISOL./PROT;Despesa; R$ 43',
-      Column2: '46 ;2276;EPI;Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-015;SELA AMARRACAO CORDA;Despesa; R$ 356',
-      Column2: '00 ;18603;1306;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '50-000-032-549;Sela para poste 38;Despesa/Investimento; R$ 1.190',
-      Column2: '70 ;18603;2075;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '50-000-032-548;Sela para poste 64;Despesa/Investimento; R$ 1.108',
-      Column2: '70 ;18603;2075;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '50-000-015-017;Sela plataforma para poste;Despesa/Investimento; R$ 333',
-      Column2: '90 ;18603;1307;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-046-887;Separador Cabo Multiplexado;Despesa; R$ 23',
-      Column2: '00 ;18603;1269;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-046-793;Separador de cabos / condutores (BT Energizada);Despesa; R$ 76',
-      Column2: '35 ;18603;1221;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '50-000-032-495;SERRA HIDRAULICA CORRENTE  - IMP;Investimento; R$ 14.039',
-      Column2: '99 ;18603;2077;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-046-547;SERRA PODA C/ FIM CURSO ENG UNIVERSAL;Despesa; R$ 418',
-      Column2: '63 ;18603;1311;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-627;Serra sabre;Investimento; R$ 1.687',
-      Column2: '09 ;18603;2089;Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-517;SOLVENTE ECOLOGICO;Despesa; R$ 110',
-      Column2: '00 ;18603;1070;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-045-118;Soquete Longo para Pafuso Sextavado Nº 13;Despesa; R$ 88',
-      Column2: '32 ;18603;1327;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-045-136;Soquete Longo para Pafuso Sextavado Nº 19 e 17;Despesa; R$ 124',
-      Column2: '22 ;18603;1327;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-045-052;Soquete Longo para Porca Quadrada Nº 19 e 16;Despesa; R$ 110',
-      Column2: '55 ;18603;1326;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-045-110;Soquete Longo para Porca Quadrada Nº 24 e 27;Despesa; R$ 114',
-      Column2: '22 ;18603;1326;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-505;Soquete Manual;Despesa; R$ 324',
-      Column2: '36 ;18603;1313;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-591;SUPORTE P/VISOR DO PROTETOR FACIAL;Despesa; R$ 58',
-      Column2: '80 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-577;Suporte para Apoio de Poste (Trip�);Investimento; R$ 2.850',
-      Column2: '00 ;18603;1314;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-095;SUPORTE PARA BANDEIROLA;Despesa; R$ 213',
-      Column2: '55 ;18603;1071;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-017;Suporte para condutor;Despesa; R$ 266',
-      Column2: '00 ;18603;1315;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-041-993;Suporte tipo U com Colar de 64 MM;Despesa; R$ 428',
-      Column2: '86 ;18603;1316;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-032-782;TALABARTE CESTO AÉREO 1',
-      Column2: '5M;Despesa; R$ 243',
-      Column3: '73 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-542;TALABARTE SEG DUPLO Y-EPI;Despesa; R$ 625',
-      Column2: '40 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-538;TALABARTE SEG REGUL E CORD C/PRO-EPI;Despesa; R$ 350',
-      Column2: '97 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-004-322;TALCO INDUSTRIAL BRANCO ASTM MALHA 325;Despesa; R$ 7',
-      Column2: '63 ;18603;1317;Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-489;Talhadeira chata;Despesa; R$ 35',
-      Column2: '09 ;18603;1318;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-031-786;Tesour�o Cabo de Fibra Curto Linha Viva;Despesa/Investimento; R$ 370',
-      Column2: '00 ;18603;1319;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-045-137;Tesour�o Cabo de Fibra Curto Linha Viva Bico Papagaio;Despesa; R$ 244',
-      Column2: '33 ;18603;1273;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '50-000-010-299;Tesour�o para Cortar Cabos (18);Despesa; R$ 76',
-      Column2: '80 ;18603;2078;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '50-000-032-500;Tesour�o para Cortar Cabos (30);Despesa; R$ 95',
-      Column2: '00 ;18603;2078;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-046-545;Testador de Sequencia de Fase;Investimento; R$ 4.230',
-      Column2: '99 ;18603;1320;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-030-607;Trado;Despesa; R$ 96',
-      Column2: '85 ;18603;1321;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-521;TRAVA QUEDA C/ABSORV IMP MOSQ PERA-EPI;Despesa; R$ 408',
-      Column2: '01 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-043-941;TRAVAQUEDA RETRATIL 2',
-      Column2: '5 M     item novo (cadeia reversa);Despesa; R$ 1.254',
-      Column3: '00 ;14688;EPI;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-047-048;TRENA A LASER;Investimento; R$ 450',
-      Column2: '00 ;18603;2047;Novo_Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-556;Trena Fita de Fibra de  50 mts;Despesa; R$ 44',
-      Column2: '60 ;18603;1323;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-034-566;Trena fita metalica de 2 mts;Despesa; R$ 4',
-      Column2: '24 ;18603;1324;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-539;Vara de Manobra Telesc�pica Refor�ada;Despesa/Investimento; R$ 924',
-      Column2: '29 ;18603;2082;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-003-283;VARA MANOB SECCION C/4 ELEMENT;Despesa; R$ 720',
-      Column2: '30 ;18603;2081;Rotativo',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-046-888;Vassoura ;Despesa; R$ 15',
-      Column2: '00 ;18603;1272;Novo_ Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-004-815;VESTIMENTA IGNIF 88/12 JAQUETA - EG - Jaqueta de Frio FR;Despesa; R$ 265',
-      Column2: '00 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-004-811;VESTIMENTA IGNIF 88/12 JAQUETA - G - Jaqueta de Frio FR;Despesa; R$ 265',
-      Column2: '00 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-004-813;VESTIMENTA IGNIF 88/12 JAQUETA - GG - Jaqueta de Frio FR;Despesa; R$ 265',
-      Column2: '00 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-004-809;VESTIMENTA IGNIF 88/12 JAQUETA - M - Jaqueta de Frio FR;Despesa; R$ 265',
-      Column2: '00 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-004-807;VESTIMENTA IGNIF 88/12 JAQUETA - P - Jaqueta de Frio FR;Despesa; R$ 265',
-      Column2: '00 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-383;VESTIMENTA IGNIF CALÇA - EGG;Despesa; R$ 109',
-      Column2: '24 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-351;VESTIMENTA IGNIF CALÇA - G;Despesa; R$ 99',
-      Column2: '85 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-352;VESTIMENTA IGNIF CALÇA - GG;Despesa; R$ 99',
-      Column2: '85 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-350;VESTIMENTA IGNIF CALÇA - M;Despesa; R$ 99',
-      Column2: '85 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-348;VESTIMENTA IGNIF CALÇA - PP;Despesa; R$ 108',
-      Column2: '34 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-353;VESTIMENTA IGNIF CALÇA� - EG;Despesa; R$ 99',
-      Column2: '85 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-015-349;VESTIMENTA IGNIF CALÇA� - P;Despesa; R$ 99',
-      Column2: '85 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-016-255;VESTIMENTA IGNIF CAMISA SERV - EG;Despesa; R$ 140',
-      Column2: '74 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-016-256;VESTIMENTA IGNIF CAMISA SERV - EGG;Despesa; R$ 137',
-      Column2: '37 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-016-253;VESTIMENTA IGNIF CAMISA SERV - G;Despesa; R$ 115',
-      Column2: '54 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-016-254;VESTIMENTA IGNIF CAMISA SERV - GG;Despesa; R$ 115',
-      Column2: '54 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-016-252;VESTIMENTA IGNIF CAMISA SERV - M;Despesa; R$ 115',
-      Column2: '54 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-016-251;VESTIMENTA IGNIF CAMISA SERV - P;Despesa; R$ 115',
-      Column2: '54 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-016-250;VESTIMENTA IGNIF CAMISA SERV - PP;Despesa; R$ 115',
-      Column2: '54 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '40-000-004-290;VESTIMENTA PROT CONTRA INSETO G;Despesa; R$ 201',
-      Column2: '40 ;14688;EPI;Estoque',
-   },
-   {
-      'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM':
-         '50-000-010-066;Volt - Amperimetro Tipo Alicate;Despesa/Investimento; R$ 520',
-      Column2: '00 ;18603;2085;Estoque',
+      id: '3b41b457-85b1-4ae1-a37e-c23a79aac981',
+      codigo: '40-000-034-563',
+      descricao: 'ALICATE CORTE DIAGONAL',
+      classificacao: 'Despesa',
+      valor: ' R$ 40,60 ',
+      ged: '18601',
+      ft: '1009',
+      item: 'Estoque',
+   },
+   {
+      id: 'a829456b-4aeb-4eb2-9ac3-51f38a8c0ced',
+      codigo: '50-000-011-079',
+      descricao: 'ALICATE MECÂNICO DE COMPRESSÃO MD6',
+      classificacao: 'Investimento',
+      valor: ' R$ 1.362,90 ',
+      ged: '18601',
+      ft: '2007',
+      item: 'Rotativo',
+   },
+   {
+      id: 'c5458c75-cd10-4f33-b87f-273f4a7cdb16',
+      codigo: '40-000-003-992',
+      descricao: 'Alicate Universal',
+      classificacao: 'Despesa',
+      valor: ' R$ 36,89 ',
+      ged: '18601',
+      ft: '1011',
+      item: 'Estoque',
+   },
+   {
+      id: '7896df40-ec68-4a0f-b699-4954354036d9',
+      codigo: '40-000-034-533',
+      descricao:
+         'Arco de Serra para Madeira (lamina pode ser adquirida separado)',
+      classificacao: 'Despesa',
+      valor: ' R$ 45,50 ',
+      ged: '18601',
+      ft: '1014',
+      item: 'Estoque',
+   },
+   {
+      id: '76deeab1-ad5f-4c31-8736-6cc7449c333b',
+      codigo: '40-000-034-564',
+      descricao: 'Arco de Serra para Metais - LM',
+      classificacao: 'Despesa',
+      valor: ' R$ 73,67 ',
+      ged: '18601',
+      ft: '1015',
+      item: 'Estoque',
+   },
+   {
+      id: 'ed05f499-cf4b-43f6-a48f-b2c612787bae',
+      codigo: '40-000-046-875',
+      descricao: 'Arco de Serra para Metais - LV',
+      classificacao: 'Despesa',
+      valor: ' R$ 95,30 ',
+      ged: '18601',
+      ft: '1260',
+      item: 'Estoque',
+   },
+   {
+      id: 'abccc389-ed2a-4d58-8f29-602e7c036cb6',
+      codigo: '40-000-047-445',
+      descricao: 'Aterramento Primario',
+      classificacao: 'Investimento',
+      valor: ' R$ 3.928,64 ',
+      ged: '18601',
+      ft: '2023',
+      item: 'Estoque',
+   },
+   {
+      id: '8713fb65-8ce4-40e1-b0ab-77a516f3fa01',
+      codigo: '40-000-034-495',
+      descricao: 'Aterramento Secundario',
+      classificacao: 'Despesa/Investimento',
+      valor: ' R$ 724,24 ',
+      ged: '18601',
+      ft: '2045',
+      item: 'Estoque',
+   },
+   {
+      id: '82ab6d2b-2d2e-43af-8f0a-2815cfcf96b6',
+      codigo: '40-000-035-532',
+      descricao: 'AVENTAL  PVC FORRADO PRETO PROT',
+      classificacao: 'Despesa',
+      valor: ' R$ 10,77 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '6596eb81-2306-4ea7-a2fb-be277d2c3ac3',
+      codigo: '40-000-032-347',
+      descricao: 'AVENTAL DE RASPA',
+      classificacao: 'Despesa',
+      valor: ' R$ 64,63 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'f2fec592-cbf1-454a-a831-712cbcc917f6',
+      codigo: '40-000-046-880',
+      descricao: 'Bag (Retirar os residuos da base)',
+      classificacao: 'Despesa',
+      valor: ' R$ 43,55 ',
+      ged: '18601',
+      ft: '1275',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '4a1f7ce8-3866-48ed-b73a-31a6d375445e',
+      codigo: '40-000-043-270',
+      descricao: 'BALACLAVA TAMANHO G',
+      classificacao: 'Despesa',
+      valor: ' R$ 68,79 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'cfe223be-3285-4f2c-ae8c-b60f793916be',
+      codigo: '40-000-043-269',
+      descricao: 'BALACLAVA TAMANHO M',
+      classificacao: 'Despesa',
+      valor: ' R$ 68,79 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '3eff5dc2-393c-4e37-bbed-fb6cc3c97018',
+      codigo: '40-000-045-386',
+      descricao: 'Balancim para movimentação de bobinas – 1500 kg',
+      classificacao: 'Despesa',
+      valor: ' R$ 150,55 ',
+      ged: '18601',
+      ft: '1016',
+      item: 'Estoque',
+   },
+   {
+      id: 'a771de4f-40d2-4662-9311-b6f031471729',
+      codigo: '40-000-004-118',
+      descricao: 'Balde de Lona (Modelo 2)',
+      classificacao: 'Despesa',
+      valor: ' R$ 79,79 ',
+      ged: '18601',
+      ft: '1017',
+      item: 'Estoque',
+   },
+   {
+      id: '17035bdc-7674-4081-b152-2b2dfc7424d3',
+      codigo: '40-000-034-536',
+      descricao: 'Bandeirola para sinalização para poste',
+      classificacao: 'Despesa',
+      valor: ' R$ 31,44 ',
+      ged: '18601',
+      ft: '1263',
+      item: 'Estoque',
+   },
+   {
+      id: '3778eb8c-2b98-4521-b87b-0a17082d8d1e',
+      codigo: '40-000-046-787',
+      descricao: 'BANDOLA P LANÇAMENTOS CABOS EM ÂNGULO',
+      classificacao: 'Despesa',
+      valor: ' R$ 360,00 ',
+      ged: '18601',
+      ft: '1250',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: 'f4e4206d-4469-4421-9ce5-2ab25693ca86',
+      codigo: '50-000-032-531',
+      descricao: 'BANQUETA ISOLADA C/ESPIRAL',
+      classificacao: 'Despesa',
+      valor: ' R$ 298,09 ',
+      ged: '18601',
+      ft: '1019',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: '28a9fc2a-dfd5-4a78-ab87-6c661edace21',
+      codigo: '40-000-034-573',
+      descricao: 'Bastão  Tração com Torniquete ',
+      classificacao: 'Despesa/Investimento',
+      valor: ' R$ 1.333,27 ',
+      ged: '18601',
+      ft: '1025',
+      item: 'Estoque',
+   },
+   {
+      id: 'f9fd207c-f4e7-4d0e-a755-bd9b95408beb',
+      codigo: '40-000-033-503',
+      descricao: 'Bastão Alavanca',
+      classificacao: 'Despesa',
+      valor: ' R$ 935,64 ',
+      ged: '18601',
+      ft: '1021',
+      item: 'Estoque',
+   },
+   {
+      id: '929c75ea-6913-476f-b38b-8771bf790498',
+      codigo: '40-000-030-795',
+      descricao: 'Bastão de Manobra Pega Tudo (32 X 1975 mm)',
+      classificacao: 'Despesa/Investimento',
+      valor: ' R$ 578,12 ',
+      ged: '18601',
+      ft: '1023',
+      item: 'Estoque',
+   },
+   {
+      id: '2fece561-938e-4dd8-b92c-b0e1a6acca8f',
+      codigo: '40-000-003-281',
+      descricao: 'Bastão de Manobra Pega Tudo (32 X 3190 mm)',
+      classificacao: 'Despesa/Investimento',
+      valor: ' R$ 728,57 ',
+      ged: '18601',
+      ft: '1023',
+      item: 'Estoque',
+   },
+   {
+      id: '6e430c8c-ca10-43e6-8290-317a9bb87fd6',
+      codigo: '40-000-034-572',
+      descricao: 'Bastão Garra ',
+      classificacao: 'Investimento',
+      valor: ' R$ 1.673,03 ',
+      ged: '18601',
+      ft: '1026',
+      item: 'Estoque',
+   },
+   {
+      id: '3608235f-874e-4f42-812d-623a8f274517',
+      codigo: '40-000-045-323',
+      descricao: 'Bastão Guia Para Poste',
+      classificacao: 'Despesa',
+      valor: ' R$ 412,33 ',
+      ged: '18601',
+      ft: '1256',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: '8385e6fa-b0c4-4162-b075-6d12c08b8854',
+      codigo: '40-000-045-624',
+      descricao: 'Bastão Mastro 64x2000 MM',
+      classificacao: 'Despesa',
+      valor: ' R$ 236,98 ',
+      ged: '18601',
+      ft: '1027',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '96e22ace-ea85-4ffe-a56b-0e9dfce19d09',
+      codigo: '50-000-032-542',
+      descricao: 'Bastão Suporte para Cabo By Pass',
+      classificacao: 'Despesa',
+      valor: ' R$ 334,75 ',
+      ged: '18601',
+      ft: '2010',
+      item: 'Estoque',
+   },
+   {
+      id: 'bbb6e95e-fc1e-433c-a41b-de9f7c32007d',
+      codigo: '40-000-045-389',
+      descricao: 'Bastão Suporte para Condutor (topo p/lv)',
+      classificacao: 'Despesa',
+      valor: ' R$ 1.348,82 ',
+      ged: '18601',
+      ft: '1028',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '59306d94-ed1d-4483-be07-3ad663aad0c6',
+      codigo: '40-000-030-716',
+      descricao: 'Bastão Tração com espiral',
+      classificacao: 'Despesa/Investimento',
+      valor: ' R$ 802,03 ',
+      ged: '18601',
+      ft: '1024',
+      item: 'Estoque',
+   },
+   {
+      id: 'f6cdd165-c528-4306-9acd-3eadce8aec42',
+      codigo: '40-000-047-033',
+      descricao: 'BATERIA P/ MAQUINAS 5A ELETRICAS 18V',
+      classificacao: 'Despesa',
+      valor: ' R$ 458,99 ',
+      ged: '18601',
+      ft: '1292',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: 'ca92dce3-d913-4f5b-8f9d-f04f8887280a',
+      codigo: '40-000-047-034',
+      descricao: 'BERCO UNITARIO PARA POSTE',
+      classificacao: 'Despesa',
+      valor: ' R$ 64,00 ',
+      ged: '18601',
+      ft: '1267',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: 'e2f72a15-a8ff-40e0-ba58-cb5403d81d72',
+      codigo: '40-000-045-778',
+      descricao: 'BOBINADEIRA DE CONDUTORES',
+      classificacao: 'Investimento',
+      valor: ' R$ 8.138,30 ',
+      ged: '18601',
+      ft: '2012',
+      item: 'Rotativo',
+   },
+   {
+      id: '7e2d2311-7fef-4d1f-940e-e89dd7c2d43e',
+      codigo: '40-000-016-368',
+      descricao: 'BOLSA CAPACETE/OCULOS SERVICOS-EPI',
+      classificacao: 'Despesa',
+      valor: ' R$ 50,02 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'ff862e35-546a-4d79-9d20-a8c1c36d10bd',
+      codigo: '40-000-015-264',
+      descricao: 'BOLSA P/ ARMAZENAMENTO LUVA ISOL/CO',
+      classificacao: 'Despesa',
+      valor: ' R$ 69,78 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '3ac1bca9-569a-4cff-ba40-f4f757aa243f',
+      codigo: '40-000-004-120',
+      descricao: 'Bolsa para ferramentas - uso na distribuição',
+      classificacao: 'Despesa',
+      valor: ' R$ 91,58 ',
+      ged: '18601',
+      ft: '1034',
+      item: 'Estoque',
+   },
+   {
+      id: '5c7dff00-c368-4b84-9d32-62ff60424e9d',
+      codigo: '40-000-046-510',
+      descricao: 'BOTINA SEG RESISTENTE A PERFURO N 34',
+      classificacao: 'Despesa',
+      valor: ' R$ 95,08 ',
+      ged: '16381',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '099d57f7-e399-4c02-be08-ed58acbd14c7',
+      codigo: '40-000-046-511',
+      descricao: 'BOTINA SEG RESISTENTE A PERFURO N 35',
+      classificacao: 'Despesa',
+      valor: ' R$ 98,71 ',
+      ged: '16381',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '532a1310-9d36-44b4-94c3-1479ea0af907',
+      codigo: '40-000-046-512',
+      descricao: 'BOTINA SEG RESISTENTE A PERFURO N 36',
+      classificacao: 'Despesa',
+      valor: ' R$ 95,08 ',
+      ged: '16381',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '3bf149f5-1cbe-4dfa-bc50-a727975fe2e2',
+      codigo: '40-000-046-519',
+      descricao: 'BOTINA SEG RESISTENTE A PERFURO N 37',
+      classificacao: 'Despesa',
+      valor: ' R$ 98,19 ',
+      ged: '16381',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '891231d4-7a32-49f7-b256-b020a7a33aa8',
+      codigo: '40-000-046-523',
+      descricao: 'BOTINA SEG RESISTENTE A PERFURO N 38',
+      classificacao: 'Despesa',
+      valor: ' R$ 96,96 ',
+      ged: '16381',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '84d4fa9c-266a-4b52-b8c9-8f14d4c803ef',
+      codigo: '40-000-046-530',
+      descricao: 'BOTINA SEG RESISTENTE A PERFURO N 39',
+      classificacao: 'Despesa',
+      valor: ' R$ 97,74 ',
+      ged: '16381',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '2434b966-37ae-4325-ae57-32c2363dddf1',
+      codigo: '40-000-046-533',
+      descricao: 'BOTINA SEG RESISTENTE A PERFURO N 40',
+      classificacao: 'Despesa',
+      valor: ' R$ 99,60 ',
+      ged: '16381',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'ff62c6d5-4541-4189-9dea-fb5d5013bfb2',
+      codigo: '40-000-046-542',
+      descricao: 'BOTINA SEG RESISTENTE A PERFURO N 41',
+      classificacao: 'Despesa',
+      valor: ' R$ 95,48 ',
+      ged: '16381',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '7f3a7554-90bd-49e2-8543-b13dda677197',
+      codigo: '40-000-046-543',
+      descricao: 'BOTINA SEG RESISTENTE A PERFURO N 42',
+      classificacao: 'Despesa',
+      valor: ' R$ 96,32 ',
+      ged: '16381',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'f2883c2f-67d4-492c-be9a-bb5b3047d73a',
+      codigo: '40-000-046-544',
+      descricao: 'BOTINA SEG RESISTENTE A PERFURO N 43',
+      classificacao: 'Despesa',
+      valor: ' R$ 95,08 ',
+      ged: '16381',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '686b03ac-65e9-454c-8882-c34c24b1247f',
+      codigo: '40-000-046-548',
+      descricao: 'BOTINA SEG RESISTENTE A PERFURO N 44',
+      classificacao: 'Despesa',
+      valor: ' R$ 99,26 ',
+      ged: '16381',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'e0d2e026-110f-46c8-8a87-d0b04f90c181',
+      codigo: '40-000-046-549',
+      descricao: 'BOTINA SEG RESISTENTE A PERFURO N 45',
+      classificacao: 'Despesa',
+      valor: ' R$ 99,11 ',
+      ged: '16381',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '62c87e45-f2f1-4c6b-bebb-e5c1eacfe878',
+      codigo: '40-000-046-550',
+      descricao: 'BOTINA SEG RESISTENTE A PERFURO N 46',
+      classificacao: 'Despesa',
+      valor: ' R$ 99,11 ',
+      ged: '16381',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '8715b7da-99dc-4da1-a368-72da0510e4dc',
+      codigo: '40-000-046-551',
+      descricao: 'BOTINA SEG RESISTENTE A PERFURO N 47',
+      classificacao: 'Despesa',
+      valor: ' R$ 99,11 ',
+      ged: '16381',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '21a685d7-0ed9-4d7f-824c-d8021ca43a03',
+      codigo: '40-000-015-618',
+      descricao: 'Broca 11/16 Especial para Poste de Madeira',
+      classificacao: 'Despesa',
+      valor: ' R$ 133,82 ',
+      ged: '18601',
+      ft: '1038',
+      item: 'Estoque',
+   },
+   {
+      id: '85919819-5ba2-4cff-be52-21cb3ed7dfa5',
+      codigo: '40-000-010-399',
+      descricao: 'Cabeçote Universal para Manobra',
+      classificacao: 'Despesa',
+      valor: ' R$ 41,34 ',
+      ged: '18601',
+      ft: '1041',
+      item: 'Estoque',
+   },
+   {
+      id: '08ab6c31-c94f-48a7-b35d-8833a2b8e289',
+      codigo: '40-000-047-035',
+      descricao: 'CABO DE MADEIRA PARA CAVADEIRA',
+      classificacao: 'Despesa',
+      valor: ' R$ 66,59 ',
+      ged: '18601',
+      ft: '1270',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: '258506aa-5343-475e-8ac1-aa5c9994f1e2',
+      codigo: '40-000-042-400',
+      descricao: 'CALCA BRIM CINZA MODELO FEMININO G',
+      classificacao: 'Despesa',
+      valor: ' R$ 37,10 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'b34a68e1-f7f1-49fe-b74d-0dade30d67ec',
+      codigo: '40-000-042-401',
+      descricao: 'CALCA BRIM CINZA MODELO FEMININO GG',
+      classificacao: 'Despesa',
+      valor: ' R$ 42,40 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '845fcdaf-ceef-469f-a251-ad0a88e42a15',
+      codigo: '40-000-042-399',
+      descricao: 'CALCA BRIM CINZA MODELO FEMININO M',
+      classificacao: 'Despesa',
+      valor: ' R$ 42,40 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'e13669f0-bcf8-4530-91ee-add73c835f78',
+      codigo: '40-000-042-398',
+      descricao: 'CALCA BRIM CINZA MODELO FEMININO P',
+      classificacao: 'Despesa',
+      valor: ' R$ 42,40 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '6cfe5a05-b933-44ba-bd7e-640ad57205ad',
+      codigo: '40-000-042-397',
+      descricao: 'CALCA BRIM CINZA MODELO FEMININO PP',
+      classificacao: 'Despesa',
+      valor: ' R$ 42,40 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '056490ee-1cb8-4679-8ec9-b7e4d0dd1c85',
+      codigo: '40-000-041-776',
+      descricao: 'CALCA BRIM SANTISTA CINZA EG',
+      classificacao: 'Despesa',
+      valor: ' R$ 43,35 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '1abd1f3b-af4f-4925-ab32-b38747b53144',
+      codigo: '40-000-041-777',
+      descricao: 'CALCA BRIM SANTISTA CINZA EGG',
+      classificacao: 'Despesa',
+      valor: ' R$ 43,35 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '16b41ec4-bbcd-4f39-895c-4d1197cc3217',
+      codigo: '40-000-041-774',
+      descricao: 'CALCA BRIM SANTISTA CINZA G',
+      classificacao: 'Despesa',
+      valor: ' R$ 43,35 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '25d6d4af-c024-4de2-a671-f8e7d76a057d',
+      codigo: '40-000-041-775',
+      descricao: 'CALCA BRIM SANTISTA CINZA GG',
+      classificacao: 'Despesa',
+      valor: ' R$ 43,35 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'f0287aba-98dd-4187-a7d0-785f25baaa0b',
+      codigo: '40-000-041-773',
+      descricao: 'CALCA BRIM SANTISTA CINZA M',
+      classificacao: 'Despesa',
+      valor: ' R$ 43,35 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '2f1dc464-e60b-443c-b80a-b06dc5d87ba0',
+      codigo: '40-000-041-772',
+      descricao: 'CALCA BRIM SANTISTA CINZA P',
+      classificacao: 'Despesa',
+      valor: ' R$ 43,35 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '3df4f6a3-5dd3-4870-9ed7-bb9fdf984295',
+      codigo: '40-000-041-771',
+      descricao: 'CALCA BRIM SANTISTA CINZA PP',
+      classificacao: 'Despesa',
+      valor: ' R$ 37,10 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '3e3d4c36-8df1-4ff6-9eb2-7a46443e1aff',
+      codigo: '40-000-045-048',
+      descricao: 'CALÇA FR 88/12 FEMININA FR SERV T EG',
+      classificacao: 'Despesa',
+      valor: ' R$ 109,24 ',
+      ged: '16881 / 3444',
+      ft: 'EPI',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: '32c5a22b-e424-47d3-9e4e-f2ac8fc90828',
+      codigo: '40-000-045-046',
+      descricao: 'CALÇA FR 88/12 FEMININA FR SERV T G',
+      classificacao: 'Despesa',
+      valor: ' R$ 99,85 ',
+      ged: '16881 / 3444',
+      ft: 'EPI',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: 'b847b825-b9f0-492c-8139-f6716f15aa81',
+      codigo: '40-000-045-047',
+      descricao: 'CALÇA FR 88/12 FEMININA FR SERV T GG',
+      classificacao: 'Despesa',
+      valor: ' R$ 99,85 ',
+      ged: '16881 / 3444',
+      ft: 'EPI',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: '9a12d1fc-d188-42ad-9b74-9d7fd7f5b8da',
+      codigo: '40-000-045-045',
+      descricao: 'CALÇA FR 88/12 FEMININA FR SERV T M',
+      classificacao: 'Despesa',
+      valor: ' R$ 99,85 ',
+      ged: '16881 / 3444',
+      ft: 'EPI',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: 'e6864110-a91c-42d8-befd-5aeaac54faa3',
+      codigo: '40-000-045-044',
+      descricao: 'CALÇA FR 88/12 FEMININA FR SERV T P',
+      classificacao: 'Despesa',
+      valor: ' R$ 108,34 ',
+      ged: '16881 / 3444',
+      ft: 'EPI',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: '32b2ac85-e9d2-480e-8d37-046e9f7f3653',
+      codigo: '40-000-045-043',
+      descricao: 'CALÇA FR 88/12 FEMININA FR SERV T PP',
+      classificacao: 'Despesa',
+      valor: ' R$ 99,85 ',
+      ged: '16881 / 3444',
+      ft: 'EPI',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: '3044cde7-8348-41e0-82f2-4cb941118d83',
+      codigo: '40-000-032-286',
+      descricao: 'CALCA IMPERMEAVEL CPFL SERV - EG',
+      classificacao: 'Despesa',
+      valor: ' R$ 99,85 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'bcc15c86-4041-46e7-abe5-1cde98dae4d8',
+      codigo: '40-000-032-284',
+      descricao: 'CALCA IMPERMEAVEL CPFL SERV - G',
+      classificacao: 'Despesa',
+      valor: ' R$ 358,30 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '63bd1762-9738-4f9e-b125-167f995fa349',
+      codigo: '40-000-032-285',
+      descricao: 'CALCA IMPERMEAVEL CPFL SERV - GG',
+      classificacao: 'Despesa',
+      valor: ' R$ 358,30 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'c132587e-1d77-46ac-86cc-01fef8356c0c',
+      codigo: '40-000-032-280',
+      descricao: 'CALCA IMPERMEAVEL CPFL SERV - M',
+      classificacao: 'Despesa',
+      valor: ' R$ 358,30 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '9d07d71e-0a87-400f-b4b2-199852682f21',
+      codigo: '40-000-032-283',
+      descricao: 'CALCA IMPERMEAVEL CPFL SERV - P',
+      classificacao: 'Despesa',
+      valor: ' R$ 251,13 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '37a1956c-bbee-494d-a7a2-acbdc1512e64',
+      codigo: '40-000-047-522',
+      descricao: 'CALÇA IMPERMEÁVEL NÃO FR EG',
+      classificacao: 'Despesa',
+      valor: ' R$ 158,76 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '0b3499f6-6a15-4008-a964-a2592a3cc402',
+      codigo: '40-000-047-520',
+      descricao: 'CALÇA IMPERMEÁVEL NÃO FR G',
+      classificacao: 'Despesa',
+      valor: ' R$ 158,76 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '1a464aa1-3651-4006-a938-e25d876f85e1',
+      codigo: '40-000-047-521',
+      descricao: 'CALÇA IMPERMEÁVEL NÃO FR GG',
+      classificacao: 'Despesa',
+      valor: ' R$ 158,76 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '6d268fdc-bc72-44d3-9619-3b152f3823ef',
+      codigo: '40-000-047-519',
+      descricao: 'CALÇA IMPERMEÁVEL NÃO FR M',
+      classificacao: 'Despesa',
+      valor: ' R$ 158,76 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: 'e91aea99-92bd-4e57-ad1d-6501e6311546',
+      codigo: '40-000-047-518',
+      descricao: 'CALÇA IMPERMEÁVEL NÃO FR P',
+      classificacao: 'Despesa',
+      valor: ' R$ 158,76 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: 'e0087473-5134-4e4a-9ffa-5194a6f8bbe9',
+      codigo: '40-000-015-074',
+      descricao: 'CALCA PROT OPER MOTOSSERRA NUM 42',
+      classificacao: 'Despesa',
+      valor: ' R$ 440,00 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'fa441803-4d98-424a-8b65-8e23ca4b9c07',
+      codigo: '40-000-015-075',
+      descricao: 'CALCA PROT OPER MOTOSSERRA NUM 44',
+      classificacao: 'Despesa',
+      valor: ' R$ 376,67 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'f962591d-e2bc-4e89-9f66-5de2d7acd7fa',
+      codigo: '40-000-030-653',
+      descricao: 'CALÇO DE BORRACHA PARA VEÍCULOS OPERACIONAIS ',
+      classificacao: 'Despesa',
+      valor: ' R$ 224,78 ',
+      ged: '18601',
+      ft: '1044',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '5a46f5e0-0e46-4fac-903e-79ce0caa2531',
+      codigo: '40-000-034-633',
+      descricao: 'CALÇO PARA SAPATA ESTABILIZADORA - CESTO AÉREO',
+      classificacao: 'Despesa',
+      valor: ' R$ 110,00 ',
+      ged: '18601',
+      ft: '1045',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '09343083-c11e-4f18-9802-8a62ee8a4867',
+      codigo: '40-000-034-580',
+      descricao: 'CALÇO PARA SAPATA ESTABILIZADORA - GUINDAUTO',
+      classificacao: 'Despesa',
+      valor: ' R$ 530,42 ',
+      ged: '18601',
+      ft: '1266',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '8b6aa5a5-d031-4585-b726-32f351d28548',
+      codigo: '40-000-047-341',
+      descricao: 'CAMISA  MANGA LONGA AZUL FEM - 36',
+      classificacao: 'Despesa',
+      valor: ' R$ 57,76 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '0167626f-de70-4707-a54a-07ed06ee0b7d',
+      codigo: '40-000-047-348',
+      descricao: 'CAMISA  MANGA LONGA AZUL FEM - 38',
+      classificacao: 'Despesa',
+      valor: ' R$ 57,76 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: 'e847fae4-4141-4dc6-b216-51c29cc02c33',
+      codigo: '40-000-047-349',
+      descricao: 'CAMISA  MANGA LONGA AZUL FEM - 40',
+      classificacao: 'Despesa',
+      valor: ' R$ 57,76 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: 'b6c82fab-78c1-4a34-882a-0bfdc9d85218',
+      codigo: '40-000-047-350',
+      descricao: 'CAMISA  MANGA LONGA AZUL FEM - 42',
+      classificacao: 'Despesa',
+      valor: ' R$ 57,76 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '82856e7b-e47f-4c46-9678-1818a93d0a03',
+      codigo: '40-000-047-351',
+      descricao: 'CAMISA  MANGA LONGA AZUL FEM - 44',
+      classificacao: 'Despesa',
+      valor: ' R$ 57,76 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '7afa409c-412f-4eb8-902e-d177a1ecefb4',
+      codigo: '40-000-047-352',
+      descricao: 'CAMISA  MANGA LONGA AZUL FEM - 46',
+      classificacao: 'Despesa',
+      valor: ' R$ 57,76 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '79deefe1-db97-4689-8ad0-2b2209f9651c',
+      codigo: '40-000-047-361',
+      descricao: 'CAMISA  MANGA LONGA AZUL MASC - 1',
+      classificacao: 'Despesa',
+      valor: ' R$ 58,65 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '9bb74c42-5fea-44a7-af6a-eea27cb52b97',
+      codigo: '40-000-047-362',
+      descricao: 'CAMISA  MANGA LONGA AZUL MASC - 2',
+      classificacao: 'Despesa',
+      valor: ' R$ 58,65 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '1403fe03-c730-4db0-909b-f0a04dbb3984',
+      codigo: '40-000-047-363',
+      descricao: 'CAMISA  MANGA LONGA AZUL MASC - 3',
+      classificacao: 'Despesa',
+      valor: ' R$ 58,65 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '91ab3c4d-1fc2-413a-8baf-fae6a2953d38',
+      codigo: '40-000-047-364',
+      descricao: 'CAMISA  MANGA LONGA AZUL MASC - 4',
+      classificacao: 'Despesa',
+      valor: ' R$ 58,65 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: 'ae5a0d6f-c653-444c-9172-f024e2606060',
+      codigo: '40-000-047-365',
+      descricao: 'CAMISA  MANGA LONGA AZUL MASC - 5',
+      classificacao: 'Despesa',
+      valor: ' R$ 58,65 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '5192aa14-92df-4ca3-8f9a-fa0c3dc9b8fe',
+      codigo: '40-000-047-374',
+      descricao: 'CAMISA  MANGA LONGA AZUL MASC - 6',
+      classificacao: 'Despesa',
+      valor: ' R$ 58,65 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: 'defaad1a-bb7b-43df-89f8-620710791569',
+      codigo: '40-000-047-391',
+      descricao: 'CAMISA  MANGA LONGA AZUL MASC - 7',
+      classificacao: 'Despesa',
+      valor: ' R$ 58,65 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '6936b323-fabd-4ca5-a4c5-0fade6074cae',
+      codigo: '40-000-047-392',
+      descricao: 'CAMISA  MANGA LONGA BRANCA FEM - 36',
+      classificacao: 'Despesa',
+      valor: ' R$ 53,90 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: 'e85ad36c-a13f-428b-aaf2-04db94aefd54',
+      codigo: '40-000-047-393',
+      descricao: 'CAMISA  MANGA LONGA BRANCA FEM - 38',
+      classificacao: 'Despesa',
+      valor: ' R$ 53,90 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '26fe3cdf-ee3c-4ddf-8944-5b515ab6b079',
+      codigo: '40-000-047-394',
+      descricao: 'CAMISA  MANGA LONGA BRANCA FEM - 40',
+      classificacao: 'Despesa',
+      valor: ' R$ 53,90 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '164ecb4a-f66f-4015-a6d2-7d0e62efa972',
+      codigo: '40-000-047-395',
+      descricao: 'CAMISA  MANGA LONGA BRANCA FEM - 42',
+      classificacao: 'Despesa',
+      valor: ' R$ 53,90 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '49ff9064-8903-418f-b3a2-0d26fe73aed9',
+      codigo: '40-000-047-396',
+      descricao: 'CAMISA  MANGA LONGA BRANCA FEM - 44',
+      classificacao: 'Despesa',
+      valor: ' R$ 53,90 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '6cc9690a-5cb9-4af0-a65c-d45a27878f80',
+      codigo: '40-000-047-397',
+      descricao: 'CAMISA  MANGA LONGA BRANCA FEM - 46',
+      classificacao: 'Despesa',
+      valor: ' R$ 53,90 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: 'f5d780ad-4d03-47c1-bec7-d16fceaf0cc4',
+      codigo: '40-000-047-398',
+      descricao: 'CAMISA  MANGA LONGA BRANCA MASC - 1',
+      classificacao: 'Despesa',
+      valor: ' R$ 56,71 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: 'b44ce184-68e4-4dc4-86f9-5edbf6fd199d',
+      codigo: '40-000-047-399',
+      descricao: 'CAMISA  MANGA LONGA BRANCA MASC - 2',
+      classificacao: 'Despesa',
+      valor: ' R$ 56,71 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '7d24236a-7eb7-4db0-8833-6e55a6247bff',
+      codigo: '40-000-047-400',
+      descricao: 'CAMISA  MANGA LONGA BRANCA MASC - 3',
+      classificacao: 'Despesa',
+      valor: ' R$ 56,71 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '017ed140-845c-4f75-a29d-9bf8dcae4fa1',
+      codigo: '40-000-047-401',
+      descricao: 'CAMISA  MANGA LONGA BRANCA MASC - 4',
+      classificacao: 'Despesa',
+      valor: ' R$ 56,71 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '1eb3280b-a3dc-4f44-9407-e4297e73b808',
+      codigo: '40-000-047-402',
+      descricao: 'CAMISA  MANGA LONGA BRANCA MASC - 5',
+      classificacao: 'Despesa',
+      valor: ' R$ 56,71 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: 'fab824aa-153a-470b-9353-47ea79ed940e',
+      codigo: '40-000-047-403',
+      descricao: 'CAMISA  MANGA LONGA BRANCA MASC - 6',
+      classificacao: 'Despesa',
+      valor: ' R$ 56,71 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: 'd971f8d4-c446-48ea-9039-c289e9f17ee4',
+      codigo: '40-000-047-404',
+      descricao: 'CAMISA  MANGA LONGA BRANCA MASC - 7',
+      classificacao: 'Despesa',
+      valor: ' R$ 56,71 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '3b13c651-25d8-4b8a-a3ec-c99d2ca36aee',
+      codigo: '40-000-047-405',
+      descricao: 'CAMISA  MANGA LONGA CINZA MASC - 1',
+      classificacao: 'Despesa',
+      valor: ' R$ 57,29 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: 'd35930dd-ab6b-4cde-8a7c-f91b2ce68499',
+      codigo: '40-000-047-406',
+      descricao: 'CAMISA  MANGA LONGA CINZA MASC - 2',
+      classificacao: 'Despesa',
+      valor: ' R$ 57,29 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: 'fb57a877-16fa-4a17-a8c8-004378ef111d',
+      codigo: '40-000-047-407',
+      descricao: 'CAMISA  MANGA LONGA CINZA MASC - 3',
+      classificacao: 'Despesa',
+      valor: ' R$ 57,29 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '2b55175c-1040-4949-b1a7-5b8b194f05da',
+      codigo: '40-000-047-408',
+      descricao: 'CAMISA  MANGA LONGA CINZA MASC - 4',
+      classificacao: 'Despesa',
+      valor: ' R$ 57,29 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '02fcaa24-b764-4c6a-aa7e-c9cae68614c3',
+      codigo: '40-000-047-409',
+      descricao: 'CAMISA  MANGA LONGA CINZA MASC - 5',
+      classificacao: 'Despesa',
+      valor: ' R$ 57,29 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '5425da27-e7f8-4862-b469-ea62f9e217b3',
+      codigo: '40-000-047-410',
+      descricao: 'CAMISA  MANGA LONGA CINZA MASC - 6',
+      classificacao: 'Despesa',
+      valor: ' R$ 57,29 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '9b4d5061-c9fb-4410-b4fb-9091c8c1d2c0',
+      codigo: '40-000-047-411',
+      descricao: 'CAMISA  MANGA LONGA CINZA MASC - 7',
+      classificacao: 'Despesa',
+      valor: ' R$ 57,29 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '29859c36-c70c-4263-b060-ab3af2feed4a',
+      codigo: '40-000-047-412',
+      descricao: 'CAMISA  POLO AZUL FEM - G',
+      classificacao: 'Despesa',
+      valor: ' R$ 43,59 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '05eab044-927c-43a8-a0a4-b4c41bd793ac',
+      codigo: '40-000-047-413',
+      descricao: 'CAMISA  POLO AZUL FEM - GG',
+      classificacao: 'Despesa',
+      valor: ' R$ 43,59 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: 'f8a8b320-e38c-4653-a56b-81f2a8d0357a',
+      codigo: '40-000-047-414',
+      descricao: 'CAMISA  POLO AZUL FEM - M',
+      classificacao: 'Despesa',
+      valor: ' R$ 43,59 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: 'a5dc654a-0dff-4d3c-a49b-5cc93176d8ac',
+      codigo: '40-000-047-415',
+      descricao: 'CAMISA  POLO AZUL FEM - P',
+      classificacao: 'Despesa',
+      valor: ' R$ 43,59 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: 'b4c412d5-6047-4443-9073-d4f7b36f8db2',
+      codigo: '40-000-047-416',
+      descricao: 'CAMISA  POLO AZUL MASC - G',
+      classificacao: 'Despesa',
+      valor: ' R$ 44,92 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '7467ea80-6464-4f43-bf31-4262f79ae0c2',
+      codigo: '40-000-047-417',
+      descricao: 'CAMISA  POLO AZUL MASC - GG',
+      classificacao: 'Despesa',
+      valor: ' R$ 44,92 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '45b7e6c2-bb1a-478d-a1ab-27e73bb2f103',
+      codigo: '40-000-047-418',
+      descricao: 'CAMISA  POLO AZUL MASC - M',
+      classificacao: 'Despesa',
+      valor: ' R$ 44,92 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: 'bcf9706d-a78b-4b27-9bfc-8b5a6ffd9294',
+      codigo: '40-000-047-419',
+      descricao: 'CAMISA  POLO AZUL MASC - P',
+      classificacao: 'Despesa',
+      valor: ' R$ 44,92 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: 'f9fdec7b-5378-4409-b592-6ceea3b468c2',
+      codigo: '40-000-047-420',
+      descricao: 'CAMISA  POLO AZUL MASC - XG',
+      classificacao: 'Despesa',
+      valor: ' R$ 44,92 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '8603d30e-f165-4c21-bf9d-4e5d2a963e8b',
+      codigo: '40-000-034-576',
+      descricao: 'Camisa de puxamento N° 1',
+      classificacao: 'Despesa',
+      valor: ' R$ 668,84 ',
+      ged: '18601',
+      ft: '1047',
+      item: 'Estoque',
+   },
+   {
+      id: '7733d838-9e39-47a1-bd10-430287cde201',
+      codigo: '40-000-034-578',
+      descricao: 'Camisa de puxamento N° 2',
+      classificacao: 'Despesa',
+      valor: ' R$ 777,08 ',
+      ged: '18601',
+      ft: '1047',
+      item: 'Estoque',
+   },
+   {
+      id: '59b9b1e1-3995-498d-b25f-78da90c2ef63',
+      codigo: '40-000-045-035',
+      descricao: 'CAMISA FR 88/12 FEMININA FR SERV T EG',
+      classificacao: 'Despesa',
+      valor: ' R$ 140,74 ',
+      ged: '16881 / 3444',
+      ft: 'EPI',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: '88edafca-e191-45cd-80ff-29fa7774fb7a',
+      codigo: '40-000-045-023',
+      descricao: 'CAMISA FR 88/12 FEMININA FR SERV T G',
+      classificacao: 'Despesa',
+      valor: ' R$ 137,37 ',
+      ged: '16881 / 3444',
+      ft: 'EPI',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: '601cd000-2b2d-41df-b04f-3b9aef0ae29a',
+      codigo: '40-000-045-034',
+      descricao: 'CAMISA FR 88/12 FEMININA FR SERV T GG',
+      classificacao: 'Despesa',
+      valor: ' R$ 115,54 ',
+      ged: '16881 / 3444',
+      ft: 'EPI',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: '39155f9a-de1d-46de-9f50-7d007ff54b13',
+      codigo: '40-000-045-021',
+      descricao: 'CAMISA FR 88/12 FEMININA FR SERV T M',
+      classificacao: 'Despesa',
+      valor: ' R$ 115,54 ',
+      ged: '16881 / 3444',
+      ft: 'EPI',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: 'ed2b0f20-5347-4ce5-8edb-ef676b002bfb',
+      codigo: '40-000-045-013',
+      descricao: 'CAMISA FR 88/12 FEMININA FR SERV T P',
+      classificacao: 'Despesa',
+      valor: ' R$ 115,54 ',
+      ged: '16881 / 3444',
+      ft: 'EPI',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: 'b05cf639-3b07-45dd-b088-1e5d860e998d',
+      codigo: '40-000-045-000',
+      descricao: 'CAMISA FR 88/12 FEMININA FR SERV T PP',
+      classificacao: 'Despesa',
+      valor: ' R$ 115,00 ',
+      ged: '16881 / 3444',
+      ft: 'EPI',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: 'd52673e5-a33b-40a6-903a-85407da6cebc',
+      codigo: '40-000-047-421',
+      descricao: 'CAMISA MANGA LONGA AZUL FEM - 34',
+      classificacao: 'Despesa',
+      valor: ' R$ 57,76 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: 'c6801ce8-712b-44a7-8342-2602bc83c6bc',
+      codigo: '40-000-047-422',
+      descricao: 'CAMISA MANGA LONGA AZUL MASC - 10',
+      classificacao: 'Despesa',
+      valor: ' R$ 58,65 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: 'b60c03eb-4c4c-44e0-bd97-50e51cf46bd2',
+      codigo: '40-000-047-423',
+      descricao: 'CAMISA MANGA LONGA AZUL MASC - 8',
+      classificacao: 'Despesa',
+      valor: ' R$ 58,65 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '5f03bd40-2577-4b30-98c6-bbb6ba67e53c',
+      codigo: '40-000-047-424',
+      descricao: 'CAMISA MANGA LONGA AZUL MASC - 9',
+      classificacao: 'Despesa',
+      valor: ' R$ 58,65 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '2e17219d-f2b4-47c7-bbcd-48a41d834ecf',
+      codigo: '40-000-047-425',
+      descricao: 'CAMISA MANGA LONGA BRANCA FEM - 34',
+      classificacao: 'Despesa',
+      valor: ' R$ 53,90 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '2d6a125f-a1b8-4757-b93e-c9ce515ea0bb',
+      codigo: '40-000-047-426',
+      descricao: 'CAMISA MANGA LONGA BRANCA MASC - 10',
+      classificacao: 'Despesa',
+      valor: ' R$ 56,71 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '8e4890a9-c863-4684-9200-619c94b4554d',
+      codigo: '40-000-047-427',
+      descricao: 'CAMISA MANGA LONGA BRANCA MASC - 8',
+      classificacao: 'Despesa',
+      valor: ' R$ 56,71 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: 'bebd3669-3149-46e5-ac95-83fcc79cd7e4',
+      codigo: '40-000-047-428',
+      descricao: 'CAMISA MANGA LONGA BRANCA MASC - 9',
+      classificacao: 'Despesa',
+      valor: ' R$ 56,71 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: 'c4f9acb3-6466-42b3-8146-8d0ed9d4dd11',
+      codigo: '40-000-047-429',
+      descricao: 'CAMISA MANGA LONGA CINZA MASC - 10',
+      classificacao: 'Despesa',
+      valor: ' R$ 57,29 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '6cc4f940-b988-4df7-bf99-9bcca348842a',
+      codigo: '40-000-047-430',
+      descricao: 'CAMISA MANGA LONGA CINZA MASC - 8',
+      classificacao: 'Despesa',
+      valor: ' R$ 57,29 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '014d8238-aa48-4570-ae7d-00be9a204a85',
+      codigo: '40-000-047-431',
+      descricao: 'CAMISA MANGA LONGA CINZA MASC - 9',
+      classificacao: 'Despesa',
+      valor: ' R$ 57,29 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '50f48ceb-9145-4569-ba44-23b8e000404e',
+      codigo: '40-000-041-783',
+      descricao: 'CAMISA MANGA LONGA DE BRIM CINZA EG',
+      classificacao: 'Despesa',
+      valor: ' R$ 43,35 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'b07427b3-184d-44e2-bfdf-e6f76360ba7e',
+      codigo: '40-000-041-784',
+      descricao: 'CAMISA MANGA LONGA DE BRIM CINZA EGG',
+      classificacao: 'Despesa',
+      valor: ' R$ 43,35 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'ba9f8753-3f8f-46ed-9609-debd69c4220c',
+      codigo: '40-000-041-781',
+      descricao: 'CAMISA MANGA LONGA DE BRIM CINZA G',
+      classificacao: 'Despesa',
+      valor: ' R$ 43,13 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'a33fe556-8e0a-42c2-85cf-c82a334d7e99',
+      codigo: '40-000-041-782',
+      descricao: 'CAMISA MANGA LONGA DE BRIM CINZA GG',
+      classificacao: 'Despesa',
+      valor: ' R$ 43,62 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '62a30195-e5be-4682-8060-a5612c54b2e0',
+      codigo: '40-000-041-780',
+      descricao: 'CAMISA MANGA LONGA DE BRIM CINZA M',
+      classificacao: 'Despesa',
+      valor: ' R$ 44,52 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'fb517070-37c7-4c94-b65a-49fe9d5114ea',
+      codigo: '40-000-041-779',
+      descricao: 'CAMISA MANGA LONGA DE BRIM CINZA P',
+      classificacao: 'Despesa',
+      valor: ' R$ 44,52 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'e95c8dd8-c60b-4a74-b4a8-a089ada03f09',
+      codigo: '40-000-041-778',
+      descricao: 'CAMISA MANGA LONGA DE BRIM CINZA PP',
+      classificacao: 'Despesa',
+      valor: ' R$ 41,58 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'c2d296a4-2e64-41e3-9468-f75ce0bbb5f1',
+      codigo: '40-000-047-432',
+      descricao: 'CAMISA POLO AZUL FEM - XG',
+      classificacao: 'Despesa',
+      valor: ' R$ 43,59 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: 'a8f7c501-5364-4b68-bef0-837c9aae3e90',
+      codigo: '40-000-047-433',
+      descricao: 'CAMISA POLO AZUL FEM - XXG',
+      classificacao: 'Despesa',
+      valor: ' R$ 43,59 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '48bfb0da-3446-452c-a3d1-03ddd1fc3605',
+      codigo: '40-000-047-434',
+      descricao: 'CAMISA POLO AZUL MASC - XXG',
+      classificacao: 'Despesa',
+      valor: ' R$ 44,92 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: 'be432e11-89d1-4846-ab1b-1044a304219f',
+      codigo: '40-000-004-459',
+      descricao: 'CAMISETA LINHA VIV TEC ANT EG PTA-EPI',
+      classificacao: 'Despesa',
+      valor: ' R$ 115,54 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '9ad7a321-cefc-4b8d-8081-6a73b505d589',
+      codigo: '40-000-004-456',
+      descricao: 'CAMISETA LINHA VIV TEC ANT G PTA-EPI',
+      classificacao: 'Despesa',
+      valor: ' R$ 198,27 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'e29cee87-f88e-4bbc-b2f2-defe8b0f8871',
+      codigo: '40-000-004-458',
+      descricao: 'CAMISETA LINHA VIV TEC ANT GG PTA-EPI',
+      classificacao: 'Despesa',
+      valor: ' R$ 174,00 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '9a7ff73c-43de-47d1-a6c9-be392203f65a',
+      codigo: '40-000-004-455',
+      descricao: 'CAMISETA LINHA VIV TEC ANT M PTA-EPI',
+      classificacao: 'Despesa',
+      valor: ' R$ 197,48 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '5fab937d-8895-46ff-adc7-f4c758347e51',
+      codigo: '40-000-004-454',
+      descricao: 'CAMISETA LINHA VIV TEC ANT P PTA-EPI',
+      classificacao: 'Despesa',
+      valor: ' R$ 197,38 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '881bacf7-fc24-4fba-af1e-0017e68a0f3d',
+      codigo: '40-000-045-337',
+      descricao: 'CAMISETA LV FR C/ FAIXA REFLETIVA EG',
+      classificacao: 'Despesa',
+      valor: ' R$ 209,88 ',
+      ged: '16881',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'bc648282-a1dc-4055-816a-c1e9586bc166',
+      codigo: '40-000-045-338',
+      descricao: 'CAMISETA LV FR C/ FAIXA REFLETIVA EGG',
+      classificacao: 'Despesa',
+      valor: ' R$ 232,65 ',
+      ged: '16881',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '18ec5afd-b487-4644-ae38-c3b6732795e3',
+      codigo: '40-000-045-342',
+      descricao: 'CAMISETA LV FR C/ FAIXA REFLETIVA G',
+      classificacao: 'Despesa',
+      valor: ' R$ 216,77 ',
+      ged: '16881',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'd66e1568-4cbb-441d-b36b-df87cb0ebe87',
+      codigo: '40-000-045-345',
+      descricao: 'CAMISETA LV FR C/ FAIXA REFLETIVA GG',
+      classificacao: 'Despesa',
+      valor: ' R$ 225,98 ',
+      ged: '16881',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '61a26403-47be-4074-a50c-cda5508949c6',
+      codigo: '40-000-045-348',
+      descricao: 'CAMISETA LV FR C/ FAIXA REFLETIVA M',
+      classificacao: 'Despesa',
+      valor: ' R$ 217,81 ',
+      ged: '16881',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '5cf982be-f008-4e26-8a34-dddb73fb5786',
+      codigo: '40-000-045-373',
+      descricao: 'CAMISETA LV FR C/ FAIXA REFLETIVA P',
+      classificacao: 'Despesa',
+      valor: ' R$ 221,60 ',
+      ged: '16881',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '079a77e2-dab4-4f33-bcf0-114c2c98b8bf',
+      codigo: '40-000-045-378',
+      descricao: 'CAMISETA LV FR C/ FAIXA REFLETIVA PP',
+      classificacao: 'Despesa',
+      valor: ' R$ 214,55 ',
+      ged: '16881',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'e7994257-2ab9-46af-a6be-b601897dcdb5',
+      codigo: '40-000-042-407',
+      descricao: 'CAMISETA MANGA CURTA EG',
+      classificacao: 'Despesa',
+      valor: ' R$ 29,02 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '80cc3e6b-099b-48e4-95fd-42988ff7c368',
+      codigo: '40-000-042-408',
+      descricao: 'CAMISETA MANGA CURTA EGG',
+      classificacao: 'Despesa',
+      valor: ' R$ 29,57 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '162af92e-5a71-4402-aa1d-1bdcc74fc3e8',
+      codigo: '40-000-042-405',
+      descricao: 'CAMISETA MANGA CURTA G',
+      classificacao: 'Despesa',
+      valor: ' R$ 29,57 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '6d167f2a-b515-43f0-960a-8dbf249daf01',
+      codigo: '40-000-042-406',
+      descricao: 'CAMISETA MANGA CURTA GG',
+      classificacao: 'Despesa',
+      valor: ' R$ 29,57 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '812a25ea-5836-4a2a-a57e-86aaa63121a8',
+      codigo: '40-000-042-404',
+      descricao: 'CAMISETA MANGA CURTA M',
+      classificacao: 'Despesa',
+      valor: ' R$ 29,57 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '3d36b295-cf66-4e1d-b52c-9062886aabb4',
+      codigo: '40-000-042-403',
+      descricao: 'CAMISETA MANGA CURTA P',
+      classificacao: 'Despesa',
+      valor: ' R$ 29,57 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '1c8b77ff-d6ca-47d4-9713-b081a6ef0d0c',
+      codigo: '40-000-042-402',
+      descricao: 'CAMISETA MANGA CURTA PP',
+      classificacao: 'Despesa',
+      valor: ' R$ 21,20 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '2e307403-1c1b-46c1-8318-984839e18a63',
+      codigo: '40-000-042-414',
+      descricao: 'CAMISETA MANGA LONGA EG',
+      classificacao: 'Despesa',
+      valor: ' R$ 30,90 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '422a9ca2-de84-48ac-9b0e-d42cccf3df27',
+      codigo: '40-000-042-415',
+      descricao: 'CAMISETA MANGA LONGA EGG',
+      classificacao: 'Despesa',
+      valor: ' R$ 30,90 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '4c1fb1fd-2708-4e1c-bcb4-a05724e096c5',
+      codigo: '40-000-042-412',
+      descricao: 'CAMISETA MANGA LONGA G',
+      classificacao: 'Despesa',
+      valor: ' R$ 30,90 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '500ae46c-c6b4-4ee9-ad1f-4f6f56fe0df0',
+      codigo: '40-000-042-413',
+      descricao: 'CAMISETA MANGA LONGA GG',
+      classificacao: 'Despesa',
+      valor: ' R$ 30,90 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '985e5774-48c0-467a-8464-56038b5f08eb',
+      codigo: '40-000-042-411',
+      descricao: 'CAMISETA MANGA LONGA M',
+      classificacao: 'Despesa',
+      valor: ' R$ 30,90 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'e5e1140c-fe6e-4f9a-85d0-2096705a387d',
+      codigo: '40-000-042-410',
+      descricao: 'CAMISETA MANGA LONGA P',
+      classificacao: 'Despesa',
+      valor: ' R$ 30,90 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '1d86bdfa-97d4-4974-b83c-025bde59b326',
+      codigo: '40-000-034-557',
+      descricao: 'Canivete',
+      classificacao: 'Despesa',
+      valor: ' R$ 30,53 ',
+      ged: '18601',
+      ft: '1050',
+      item: 'Estoque',
+   },
+   {
+      id: '9fdf0973-8022-4250-8bb5-131fe2f03d5a',
+      codigo: '40-000-034-537',
+      descricao: 'CAPACETE SEG TIP II/CL B ABA FRONT SERVI',
+      classificacao: 'Despesa',
+      valor: ' R$ 46,64 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '64e893ac-2cbc-46d3-8ff4-cc64e21c3065',
+      codigo: '40-000-015-440',
+      descricao: 'CAPUZ  TECIDO ANTICH PROT NU-EPI - IMP',
+      classificacao: 'Despesa',
+      valor: ' R$ 32,01 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'd9c79e01-abe4-4371-b102-90ac0a750f9f',
+      codigo: '40-000-030-554',
+      descricao: 'Carretilha com Gancho',
+      classificacao: 'Despesa',
+      valor: ' R$ 329,10 ',
+      ged: '18601',
+      ft: '1053',
+      item: 'Estoque',
+   },
+   {
+      id: '162f3036-aa19-41f3-aedb-f6983978efb1',
+      codigo: '40-000-034-488',
+      descricao: 'CARRETILHA DE PUXAMENTO DE CONDUTORES FASE EM REDE COMPACTA',
+      classificacao: 'Despesa',
+      valor: ' R$ 135,42 ',
+      ged: '18601',
+      ft: '1054',
+      item: 'Estoque',
+   },
+   {
+      id: '69801dd9-f49f-4c1c-8ec8-7ac781d3d3dd',
+      codigo: '40-000-034-486',
+      descricao: 'CARRETILHA PARA LANÇAMENTO DE CABO MENSAGEIRO EM ÂNGULO',
+      classificacao: 'Despesa',
+      valor: ' R$ 115,27 ',
+      ged: '18601',
+      ft: '1055',
+      item: 'Estoque',
+   },
+   {
+      id: '9d5da38f-4a16-4444-84b0-740dc74d6815',
+      codigo: '40-000-034-485',
+      descricao: 'CARRETILHA PARA LANÇAMENTO DE CABO MULTIPLEXADO BT (MOD_1)',
+      classificacao: 'Despesa',
+      valor: ' R$ 389,50 ',
+      ged: '18601',
+      ft: '1056',
+      item: 'Estoque',
+   },
+   {
+      id: '35e66bbf-7931-4ba4-9fdb-d37e1bed9aa8',
+      codigo: '40-000-045-050',
+      descricao: 'CARRETILHA PARA LANÇAMENTO DE CABO MULTIPLEXADO BT (MOD_3)',
+      classificacao: 'Despesa',
+      valor: ' R$ 278,33 ',
+      ged: '18601',
+      ft: '1056',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '588a99d9-1bb3-4028-a283-24ad39b1c4a3',
+      codigo: '40-000-034-487',
+      descricao:
+         'CARRETILHA PARA LANÇAMENTO DE CONDUTOR FASE EM ÂNGULO DE REDE COMPACTA',
+      classificacao: 'Despesa',
+      valor: ' R$ 139,07 ',
+      ged: '18601',
+      ft: '1058',
+      item: 'Estoque',
+   },
+   {
+      id: '14ca0654-0811-490f-a036-b2d0016f38da',
+      codigo: '40-000-034-484',
+      descricao:
+         'CARRETILHA PARA LANÇAMENTO DE CONDUTORES FASE EM REDE COMPACTA',
+      classificacao: 'Despesa',
+      valor: ' R$ 275,00 ',
+      ged: '18601',
+      ft: '1057',
+      item: 'Estoque',
+   },
+   {
+      id: '95874ca3-af01-455d-9a8c-6fda9c3502c9',
+      codigo: '40-000-034-483',
+      descricao: 'CARRETILHA PARA REMOÇÃO E SUBSTITUIÇÃO DE CONDUTORES FASE',
+      classificacao: 'Despesa',
+      valor: ' R$ 205,90 ',
+      ged: '18601',
+      ft: '1059',
+      item: 'Estoque',
+   },
+   {
+      id: '1ef2e661-24d9-42d6-9d73-dae4abdfaa91',
+      codigo: '40-000-046-881',
+      descricao: 'Carrinho de Mão ',
+      classificacao: 'Despesa',
+      valor: ' R$ 122,33 ',
+      ged: '18601',
+      ft: '1271',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '1f425b13-64d3-44e0-bf03-fb0ed66fa5ef',
+      codigo: '40-000-034-534',
+      descricao: 'Cavadeira Articulada Tipo Light ',
+      classificacao: 'Despesa',
+      valor: ' R$ 135,44 ',
+      ged: '18601',
+      ft: '1060',
+      item: 'Estoque',
+   },
+   {
+      id: 'fa408399-04fc-44ad-8baa-646714358099',
+      codigo: '50-000-032-543',
+      descricao: 'Cavadeira reta (Cavadeira reta Metalica)',
+      classificacao: 'Despesa',
+      valor: ' R$ 212,22 ',
+      ged: '18601',
+      ft: '1062',
+      item: 'Estoque',
+   },
+   {
+      id: '8e3a2cc6-8eb0-41e4-aedd-15b01473d102',
+      codigo: '50-000-032-506',
+      descricao: 'CAVALETE PARA LEVANTAMENTO DE BOBINAS',
+      classificacao: 'Investimento',
+      valor: ' R$ 8.505,00 ',
+      ged: '18601',
+      ft: '2013',
+      item: 'Rotativo',
+   },
+   {
+      id: 'f6712e2c-fccb-454c-b4ef-73ae32728a06',
+      codigo: '40-000-016-343',
+      descricao: 'Chave Catraca Soquete Quadrado 24 e 27 mm',
+      classificacao: 'Despesa',
+      valor: ' R$ 362,10 ',
+      ged: '18601',
+      ft: '1066',
+      item: 'Estoque',
+   },
+   {
+      id: '211e9dee-739e-4197-88a0-f23e7d37b03d',
+      codigo: '40-000-045-651',
+      descricao: 'Chave Combinada com Catraca N° 13',
+      classificacao: 'Despesa',
+      valor: ' R$ 23,40 ',
+      ged: '18601',
+      ft: '1264',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '826a8f91-253a-4bdb-ae6c-ccf9e06395e0',
+      codigo: '40-000-045-652',
+      descricao: 'Chave Combinada com Catraca N° 17',
+      classificacao: 'Despesa',
+      valor: ' R$ 33,45 ',
+      ged: '18601',
+      ft: '1264',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '0911b759-5ad9-49bb-bfb2-3e0990f7286a',
+      codigo: '40-000-045-659',
+      descricao: 'Chave Combinada com Catraca N° 19',
+      classificacao: 'Despesa',
+      valor: ' R$ 42,76 ',
+      ged: '18601',
+      ft: '1264',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '867d44c5-ff60-4d95-81c8-8d2ac60cde0c',
+      codigo: '40-000-015-613',
+      descricao: 'Chave de Boca Ajustável N° 08',
+      classificacao: 'Despesa',
+      valor: ' R$ 32,90 ',
+      ged: '18601',
+      ft: '1073',
+      item: 'Estoque',
+   },
+   {
+      id: 'b5a7c92f-6fff-43ec-8cec-6f799b5f304d',
+      codigo: '40-000-015-475',
+      descricao: 'Chave de Boca Ajustável N° 12',
+      classificacao: 'Despesa',
+      valor: ' R$ 46,20 ',
+      ged: '18601',
+      ft: '1073',
+      item: 'Estoque',
+   },
+   {
+      id: '2e5bbb21-598d-4caf-8b9f-39b471ec0cc0',
+      codigo: '40-000-045-591',
+      descricao: 'Chave de Fenda Protegida G',
+      classificacao: 'Despesa',
+      valor: ' R$ 8,99 ',
+      ged: '18601',
+      ft: '1076',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '169295c6-6a21-40fc-a7d4-03e61b76100c',
+      codigo: '40-000-045-592',
+      descricao: 'Chave de Fenda Protegida M',
+      classificacao: 'Despesa',
+      valor: ' R$ 11,34 ',
+      ged: '18601',
+      ft: '1076',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: 'afdac32c-2098-4310-849b-7fe0c7d37cf2',
+      codigo: '40-000-045-576',
+      descricao: 'Chave de Fenda Protegida PP',
+      classificacao: 'Despesa',
+      valor: ' R$ 14,56 ',
+      ged: '18601',
+      ft: '1076',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '4153094e-b98d-4f8c-b7cd-d32a0f632f66',
+      codigo: '40-000-015-616',
+      descricao: 'Chave de grifo 14  adaptada',
+      classificacao: 'Despesa',
+      valor: ' R$ 228,03 ',
+      ged: '18601',
+      ft: '1086',
+      item: 'Estoque',
+   },
+   {
+      id: '2269832b-a171-46df-aac5-5bd33e2c6c50',
+      codigo: '40-000-032-894',
+      descricao: 'Chave T - Ponta Allen de 5 mm',
+      classificacao: 'Despesa',
+      valor: ' R$ 73,08 ',
+      ged: '18601',
+      ft: '1089',
+      item: 'Estoque',
+   },
+   {
+      id: '82562d38-1d0d-43ef-a8cf-49363357e33e',
+      codigo: '40-000-034-501',
+      descricao: 'Cinta de 64 MM para Mão Francesa',
+      classificacao: 'Despesa',
+      valor: ' R$ 607,37 ',
+      ged: '18601',
+      ft: '1090',
+      item: 'Estoque',
+   },
+   {
+      id: 'c99d2d29-ac8a-4d7c-a082-024759dc24c0',
+      codigo: '40-000-046-866',
+      descricao: 'CINTA PARA TROCA DE FUSÍVEL',
+      classificacao: 'Despesa',
+      valor: ' R$ 32,41 ',
+      ged: '18601',
+      ft: '1225',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: 'b82ffaf8-d0f5-414a-a02d-21707746ea89',
+      codigo: '40-000-034-524',
+      descricao: 'COBERTURA CIRCULAR 300X600MM',
+      classificacao: 'Despesa',
+      valor: ' R$ 328,70 ',
+      ged: '18601',
+      ft: '1099',
+      item: 'Rotativo',
+   },
+   {
+      id: 'dcdafdb6-a70a-4b38-b998-3f33376d802b',
+      codigo: '40-000-004-210',
+      descricao: 'Cobertura Flexível para Condutor 1400mm (classe 2)',
+      classificacao: 'Investimento',
+      valor: ' R$ 2.069,10 ',
+      ged: '18601',
+      ft: '1094',
+      item: 'Estoque',
+   },
+   {
+      id: 'be432fd3-1171-417e-b36e-91c1c633d36d',
+      codigo: '40-000-034-510',
+      descricao: 'Cobertura Flexível para Condutor 915mm (classe 2)',
+      classificacao: 'Despesa/Investimento',
+      valor: ' R$ 1.057,64 ',
+      ged: '18601',
+      ft: '1094',
+      item: 'Estoque',
+   },
+   {
+      id: '82a4a40a-72be-476b-a9d6-fabdb6d9bac4',
+      codigo: '40-000-015-469',
+      descricao: 'COBERTURA ISOLANTE ROLDANA-IMP',
+      classificacao: 'Despesa',
+      valor: ' R$ 70,86 ',
+      ged: '18601',
+      ft: '1098',
+      item: 'Rotativo',
+   },
+   {
+      id: '4672b986-ff4c-4a5d-b639-5775996151bc',
+      codigo: '40-000-004-215',
+      descricao: 'Cobertura Rígida Circular 150 x 600mm de 15KV (classe 2)',
+      classificacao: 'Despesa',
+      valor: ' R$ 104,72 ',
+      ged: '18601',
+      ft: '1099',
+      item: 'Estoque',
+   },
+   {
+      id: '3df86451-982f-4f06-8479-1fce0bce02bb',
+      codigo: '40-000-034-522',
+      descricao: 'Cobertura Rígida Circular 220x1200mm de 36KV (classe 4)',
+      classificacao: 'Despesa',
+      valor: ' R$ 543,87 ',
+      ged: '18601',
+      ft: '1099',
+      item: 'Estoque',
+   },
+   {
+      id: '4c5abe81-f11b-49ba-8ae4-eb2d089a7cce',
+      codigo: '40-000-034-518',
+      descricao:
+         'Cobertura Rígida Circular 230 x 600mm de 15KVe 25KV (classe 3)',
+      classificacao: 'Despesa',
+      valor: ' R$ 260,20 ',
+      ged: '18601',
+      ft: '1099',
+      item: 'Rotativo',
+   },
+   {
+      id: '51a342b4-a0f5-4bd6-975d-b136f64a78e6',
+      codigo: '40-000-004-214',
+      descricao: 'Cobertura Rígida Circular 300mm de 15KV',
+      classificacao: 'Despesa',
+      valor: ' R$ 90,56 ',
+      ged: '18601',
+      ft: '1099',
+      item: 'Estoque',
+   },
+   {
+      id: 'ffac8192-56b6-4261-9fff-b4b4f3d0bd2a',
+      codigo: '40-000-034-523',
+      descricao: 'Cobertura Rígida Circular 300x1800mm de 36KV (classe 4)',
+      classificacao: 'Despesa',
+      valor: ' R$ 560,40 ',
+      ged: '18601',
+      ft: '1099',
+      item: 'Estoque',
+   },
+   {
+      id: '36e78723-fe6d-44ad-9b47-c6a418501e32',
+      codigo: '40-000-004-211',
+      descricao: 'Cobertura Rígida para Condutor (Classe 2)',
+      classificacao: 'Despesa',
+      valor: ' R$ 117,23 ',
+      ged: '18601',
+      ft: '1105',
+      item: 'Estoque',
+   },
+   {
+      id: 'f7a530b3-7868-4a5e-9550-f01b1b79a8a3',
+      codigo: '50-000-032-493',
+      descricao: 'COMPACTADOR HIDRAULICO',
+      classificacao: 'Investimento',
+      valor: ' R$ 17.390,00 ',
+      ged: '18602',
+      ft: '2017',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: 'bf42de35-2876-454a-8a5c-a5a1655c3a9a',
+      codigo: '50-000-032-502',
+      descricao:
+         'Cone de Sinalização (Pode ser adquirido a fita refletiva separada)',
+      classificacao: 'Despesa',
+      valor: ' R$ 90,00 ',
+      ged: '18602',
+      ft: '1259',
+      item: 'Estoque',
+   },
+   {
+      id: '46e73035-8838-46cf-beb7-12cf48a0c9f2',
+      codigo: '40-000-045-600',
+      descricao: 'Conjunto de Corda de Serviço (10mm)',
+      classificacao: 'Despesa',
+      valor: ' R$ 11,20 ',
+      ged: '18602',
+      ft: '1113',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: 'e9f9640a-2881-4755-add8-b2bca423a17e',
+      codigo: '50-000-015-012',
+      descricao: 'CONJUNTO SOQUETES E CH CATRACA',
+      classificacao: 'Despesa',
+      valor: ' R$ 455,80 ',
+      ged: '18601',
+      ft: '1065',
+      item: 'Rotativo',
+   },
+   {
+      id: '4bc9ee3b-4165-457b-a26f-4b701127067e',
+      codigo: '40-000-034-575',
+      descricao: 'Corda de Polipropileno (12 mm)',
+      classificacao: 'Despesa',
+      valor: ' R$ 1,91 ',
+      ged: '18602',
+      ft: '1109',
+      item: 'Estoque',
+   },
+   {
+      id: '402d94f0-e520-45f8-a44f-b0a04c97b6c0',
+      codigo: '40-000-015-515',
+      descricao: 'Corda de Polipropileno 12mm (linha de vida)',
+      classificacao: 'Despesa',
+      valor: ' R$ 264,08 ',
+      ged: '18602',
+      ft: '1111',
+      item: 'Estoque',
+   },
+   {
+      id: '3bb7e267-5b30-413b-927c-919513392703',
+      codigo: '40-000-040-151',
+      descricao: 'CORDA P/ ESCALADA BRANCA E AZUL- PC 100M',
+      classificacao: 'Despesa',
+      valor: ' R$ 1.378,00 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '9c05357b-fb8f-487a-b245-1d3d49419ddb',
+      codigo: '40-000-034-574',
+      descricao: 'CORDA POLIPROP 10MM',
+      classificacao: 'Despesa',
+      valor: ' R$ 1,59 ',
+      ged: '18602',
+      ft: '1109',
+      item: 'Estoque',
+   },
+   {
+      id: '47856c14-62a4-4883-adce-1197de1c7766',
+      codigo: '40-000-045-628',
+      descricao: 'Cortadora de vergalhão',
+      classificacao: 'Investimento',
+      valor: ' R$ 24.322,40 ',
+      ged: '18602',
+      ft: '2026',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: '0a1f5509-4061-4080-b160-0e4a7af10dd6',
+      codigo: '40-000-034-583',
+      descricao: 'Cravador de Haste Cantoneira Aterramento',
+      classificacao: 'Despesa',
+      valor: ' R$ 1.039,87 ',
+      ged: '18602',
+      ft: '1119',
+      item: 'Rotativo',
+   },
+   {
+      id: 'fc222aaf-8f8e-4a06-9c30-e7e9ea34955c',
+      codigo: '40-000-047-333',
+      descricao: 'CRAVADOR DE HASTE REDONDA DE ATERRAMENTO',
+      classificacao: 'Despesa',
+      valor: ' R$ 2.213,00 ',
+      ged: '18602',
+      ft: '1120',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: '763deb26-80c4-4687-9e51-6a58c234fed7',
+      codigo: '50-000-032-544',
+      descricao: 'Cruzeta Auxiliar (2400mm)',
+      classificacao: 'Investimento',
+      valor: ' R$ 4.331,05 ',
+      ged: '18602',
+      ft: '1122',
+      item: 'Rotativo',
+   },
+   {
+      id: '38d097c4-d0d7-42c5-95c2-c91c6efaaf2c',
+      codigo: '40-000-034-482',
+      descricao: 'Decapador de Condutor RDC (até 25 kv)',
+      classificacao: 'Despesa',
+      valor: ' R$ 949,00 ',
+      ged: '18602',
+      ft: '1123',
+      item: 'Estoque',
+   },
+   {
+      id: 'fd000263-2b13-4b21-b381-50537f08acf5',
+      codigo: '40-000-045-593',
+      descricao:
+         'Decapador de Condutor RDC (até 34,5 kv) - Somente para bases que atende 34,5 KV',
+      classificacao: 'Despesa',
+      valor: ' R$ 899,30 ',
+      ged: '18602',
+      ft: '1124',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: 'af9bff91-ea37-4f21-87e6-432e57006226',
+      codigo: '40-000-032-652',
+      descricao: 'Degrau de Fibra para Poste Circular',
+      classificacao: 'Despesa',
+      valor: ' R$ 130,17 ',
+      ged: '18602',
+      ft: '1125',
+      item: 'Estoque',
+   },
+   {
+      id: '7d2d79ad-dbe8-42af-8c5e-fd2df9eb0827',
+      codigo: '40-000-032-345',
+      descricao: 'DESC AUTBLOC IDL 11,5 A 13MM TRANSM',
+      classificacao: 'Despesa',
+      valor: ' R$ 1.758,24 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '831436d0-3689-45e9-aa1c-28b9a97b9d4b',
+      codigo: '50-000-030-998',
+      descricao: 'Detector de Tensão por Contato 5 a 35 kV',
+      classificacao: 'Despesa/Investimento',
+      valor: ' R$ 440,98 ',
+      ged: '18602',
+      ft: '2032',
+      item: 'Estoque',
+   },
+   {
+      id: '00d24863-5d6a-43b8-9a0e-216fdf0fd67c',
+      codigo: '40-000-046-882',
+      descricao: 'Disjuntor trifásico jumper para rede secundaria ',
+      classificacao: 'Despesa',
+      valor: ' R$ 2.312,44 ',
+      ged: '18602',
+      ft: '1257',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: 'ff4bb8f2-6fb0-4c7d-a259-8ddb65cffd08',
+      codigo: '50-000-011-078',
+      descricao: 'Dispositivo para Abertura em Carga de 25KV',
+      classificacao: 'Investimento',
+      valor: ' R$ 4.134,00 ',
+      ged: '18602',
+      ft: '2038',
+      item: 'Estoque',
+   },
+   {
+      id: '717b2d4d-2905-45af-af8e-34283f4fd1a7',
+      codigo: '50-000-032-521',
+      descricao:
+         'Dispositivo para Abertura em Carga de 34,5KV - Somente para bases que atende 34,5 KV',
+      classificacao: 'Investimento',
+      valor: ' R$ 9.516,15 ',
+      ged: '18602',
+      ft: '2038',
+      item: 'Estoque',
+   },
+   {
+      id: '3948f622-cd37-4b7a-b8d2-0118b67a3b5c',
+      codigo: '40-000-016-239',
+      descricao: 'Encerado de Lona 2 X 2 m',
+      classificacao: 'Despesa',
+      valor: ' R$ 152,87 ',
+      ged: '18602',
+      ft: '1133',
+      item: 'Estoque',
+   },
+   {
+      id: '7d223710-d24f-4eeb-94f4-22af0f51ce15',
+      codigo: '40-000-034-570',
+      descricao: 'Enxada',
+      classificacao: 'Despesa',
+      valor: ' R$ 24,90 ',
+      ged: '18602',
+      ft: '1134',
+      item: 'Estoque',
+   },
+   {
+      id: 'f31e27d3-3c27-4138-9d16-514944819a84',
+      codigo: '40-000-034-569',
+      descricao: 'Enxadão',
+      classificacao: 'Despesa',
+      valor: ' R$ 56,54 ',
+      ged: '18602',
+      ft: '1137',
+      item: 'Estoque',
+   },
+   {
+      id: '1a2de014-6f82-4a23-b1a0-5fa1f892a38f',
+      codigo: '40-000-015-019',
+      descricao: 'EQUIPAMENTO RESGATE ESTRUT AER-EPI',
+      classificacao: 'Despesa',
+      valor: ' R$ 333,90 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'dedacb37-cf04-4b23-82a1-4ada87ea3108',
+      codigo: '40-000-015-428',
+      descricao: 'Escada (Fibra) (10,8 m)',
+      classificacao: 'Investimento',
+      valor: ' R$ 1.137,41 ',
+      ged: '18602',
+      ft: '2042',
+      item: 'Rotativo',
+   },
+   {
+      id: 'afdaa168-1713-4708-84d5-f529fc114a31',
+      codigo: '40-000-015-425',
+      descricao: 'Escada (Fibra) (6,6 m)',
+      classificacao: 'Despesa/Investimento',
+      valor: ' R$ 528,50 ',
+      ged: '18602',
+      ft: '2042',
+      item: 'Estoque',
+   },
+   {
+      id: '2b5cd6fa-b267-413d-8c31-decec87edeac',
+      codigo: '40-000-015-426',
+      descricao: 'Escada (Fibra) (7,8 m)',
+      classificacao: 'Despesa/Investimento',
+      valor: ' R$ 609,72 ',
+      ged: '18602',
+      ft: '2042',
+      item: 'Estoque',
+   },
+   {
+      id: '849e556a-a224-42ef-896c-6187a2a8c866',
+      codigo: '40-000-030-784',
+      descricao: 'Escada (Fibra) (9,7 m)',
+      classificacao: 'Despesa/Investimento',
+      valor: ' R$ 773,54 ',
+      ged: '18602',
+      ft: '2042',
+      item: 'Estoque',
+   },
+   {
+      id: 'adfaf968-eab7-4916-a802-a504551bb673',
+      codigo: '40-000-034-559',
+      descricao: 'Escova de Aço tipo V',
+      classificacao: 'Despesa',
+      valor: ' R$ 130,69 ',
+      ged: '18602',
+      ft: '1142',
+      item: 'Estoque',
+   },
+   {
+      id: 'aec5d9b2-2c7b-4f1a-9d1a-8b949b54ae5e',
+      codigo: '40-000-004-028',
+      descricao: 'Esticador para cabo de aço',
+      classificacao: 'Despesa',
+      valor: ' R$ 187,90 ',
+      ged: '18602',
+      ft: '1146',
+      item: 'Estoque',
+   },
+   {
+      id: '779af95c-7662-48d7-9589-3445fa2ab77b',
+      codigo: '40-000-004-026',
+      descricao: 'Esticador para Condutor 2/0 a 4/0 AWG            ',
+      classificacao: 'Despesa',
+      valor: ' R$ 212,33 ',
+      ged: '18602',
+      ft: '1147',
+      item: 'Estoque',
+   },
+   {
+      id: 'b9af2005-2e4c-49f2-b6eb-80b8b36b8579',
+      codigo: '40-000-015-708',
+      descricao: 'Esticador para Condutor 336 AWG                     ',
+      classificacao: 'Despesa/Investimento',
+      valor: ' R$ 392,85 ',
+      ged: '18602',
+      ft: '1147',
+      item: 'Estoque',
+   },
+   {
+      id: 'fe6693b7-74a0-4ece-8c5c-4a2006fb0d58',
+      codigo: '40-000-004-027',
+      descricao: 'Esticador para Condutor 477 AWG                    ',
+      classificacao: 'Despesa/Investimento',
+      valor: ' R$ 360,00 ',
+      ged: '18602',
+      ft: '1147',
+      item: 'Estoque',
+   },
+   {
+      id: 'f0578ab5-56ee-41fb-9aad-c2bc90924f93',
+      codigo: '40-000-015-906',
+      descricao: 'Esticador para Condutor até 1/0 AWG             ',
+      classificacao: 'Despesa',
+      valor: ' R$ 180,32 ',
+      ged: '18602',
+      ft: '1147',
+      item: 'Estoque',
+   },
+   {
+      id: 'fd4e83bf-639d-403c-8bdd-4e94427d6967',
+      codigo: '40-000-032-895',
+      descricao: 'Estribo para Aterramento Secundario ',
+      classificacao: 'Despesa',
+      valor: ' R$ 25,62 ',
+      ged: '18602',
+      ft: '1155',
+      item: 'Estoque',
+   },
+   {
+      id: '918f0d09-f12a-4b7e-b69a-0f5a2efa667c',
+      codigo: '40-000-030-805',
+      descricao: 'Estribo para Mão Francesa',
+      classificacao: 'Despesa',
+      valor: ' R$ 232,62 ',
+      ged: '18602',
+      ft: '1156',
+      item: 'Estoque',
+   },
+   {
+      id: '9c021c6b-db2a-4cdd-9040-42908f34f3b2',
+      codigo: '40-000-015-705',
+      descricao: 'Estropo de Aço (1200mm)',
+      classificacao: 'Despesa',
+      valor: ' R$ 133,56 ',
+      ged: '18602',
+      ft: '1157',
+      item: 'Estoque',
+   },
+   {
+      id: '03c053cc-2d5f-40b1-9c3f-2734e10a8f12',
+      codigo: '40-000-015-706',
+      descricao: 'Estropo de Aço (1600mm)',
+      classificacao: 'Despesa',
+      valor: ' R$ 186,03 ',
+      ged: '18602',
+      ft: '1157',
+      item: 'Estoque',
+   },
+   {
+      id: '2317f0c8-cc88-4e80-ba68-6c474afd00c9',
+      codigo: '40-000-015-448',
+      descricao: 'Estropo de Nylon de 1.500 mm (postes)',
+      classificacao: 'Despesa',
+      valor: ' R$ 88,90 ',
+      ged: '18602',
+      ft: '1165',
+      item: 'Estoque',
+   },
+   {
+      id: 'eb61bbab-4ddd-4f54-ad05-13cd9916621a',
+      codigo: '40-000-015-704',
+      descricao: 'Estropo de Nylon de 1.800 mm (postes)',
+      classificacao: 'Despesa',
+      valor: ' R$ 99,66 ',
+      ged: '18602',
+      ft: '1165',
+      item: 'Estoque',
+   },
+   {
+      id: '134a57e9-e1a0-4bd7-b4ce-6790a5fe111b',
+      codigo: '40-000-031-012',
+      descricao: 'Estropo de Nylon de 1100 mm',
+      classificacao: 'Despesa',
+      valor: ' R$ 45,07 ',
+      ged: '18602',
+      ft: '1165',
+      item: 'Estoque',
+   },
+   {
+      id: 'f3766309-b1be-4d0f-87b9-a4a804477069',
+      codigo: '40-000-044-201',
+      descricao: 'Estropo de Nylon de 600 mm',
+      classificacao: 'Despesa',
+      valor: ' R$ 18,84 ',
+      ged: '18602',
+      ft: '1165',
+      item: 'Estoque',
+   },
+   {
+      id: 'dd914803-463b-46ba-9ebb-1761509c6702',
+      codigo: '40-000-030-673',
+      descricao: 'Estropo de Nylon de 800 mm',
+      classificacao: 'Despesa',
+      valor: ' R$ 35,11 ',
+      ged: '18602',
+      ft: '1165',
+      item: 'Estoque',
+   },
+   {
+      id: 'b95e9e55-1a27-4cd6-9917-7548fdb6fcbd',
+      codigo: '40-000-033-944',
+      descricao: 'Estropo de Poliester formato anel (tipo 1)',
+      classificacao: 'Despesa',
+      valor: ' R$ 89,14 ',
+      ged: '18602',
+      ft: '1162',
+      item: 'Estoque',
+   },
+   {
+      id: 'dfde092d-096f-4128-a0f6-77d5d58cc9fd',
+      codigo: '40-000-033-946',
+      descricao: 'Estropo de Poliester formato anel (tipo 3)',
+      classificacao: 'Despesa',
+      valor: ' R$ 119,90 ',
+      ged: '18602',
+      ft: '1162',
+      item: 'Estoque',
+   },
+   {
+      id: 'bdfe80bf-e542-4979-927c-6858ffa3d9e7',
+      codigo: '40-000-046-495',
+      descricao: 'ESTROPO DE POLIÉSTER PARA POSTE 15/18M',
+      classificacao: 'Despesa',
+      valor: ' R$ 315,66 ',
+      ged: '18602',
+      ft: '1244',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: 'aa93858b-ef4d-4195-b368-c2741a6f4776',
+      codigo: '40-000-015-449',
+      descricao: 'Estropo de poliéster para transformador (G)',
+      classificacao: 'Despesa',
+      valor: ' R$ 127,65 ',
+      ged: '18602',
+      ft: '1173',
+      item: 'Estoque',
+   },
+   {
+      id: 'bb1b2b1f-e541-4933-a61e-2af8ccc727ac',
+      codigo: '40-000-015-461',
+      descricao: 'Estropo de poliéster para transformador (P)',
+      classificacao: 'Despesa',
+      valor: ' R$ 113,23 ',
+      ged: '18602',
+      ft: '1173',
+      item: 'Estoque',
+   },
+   {
+      id: 'b7755b52-74a5-48de-9520-706a724b14e0',
+      codigo: '40-000-031-021',
+      descricao: 'ESTROPO POLIESTER 2600MM',
+      classificacao: 'Despesa',
+      valor: ' R$ 277,90 ',
+      ged: '18602',
+      ft: '1165',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: '013ce6da-ae52-47fa-a9bf-2b685e70f682',
+      codigo: '40-000-015-904',
+      descricao: 'ESTROPO POLIESTER CHAVE A OLEO 400A-IMP',
+      classificacao: 'Despesa',
+      valor: ' R$ 303,72 ',
+      ged: '18602',
+      ft: '1169',
+      item: 'Rotativo',
+   },
+   {
+      id: 'b40e30d4-f000-4e83-a170-06d0d4fe847d',
+      codigo: '40-000-046-484',
+      descricao: 'ESTROPO POLIÉSTER PARA POSTE 1000/1200',
+      classificacao: 'Despesa',
+      valor: ' R$ 234,56 ',
+      ged: '18602',
+      ft: '1244',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '10644eaa-3863-4132-b584-dfd5ea850571',
+      codigo: '40-000-046-481',
+      descricao: 'ESTROPO POLIÉSTER PARA POSTE 200/400/600',
+      classificacao: 'Despesa',
+      valor: ' R$ 198,77 ',
+      ged: '18602',
+      ft: '1244',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: 'e7956e45-1b26-4cec-966b-06363741386f',
+      codigo: '40-000-015-905',
+      descricao: 'ESTROPO POLIESTER REGULADOR TENSAO-IMP',
+      classificacao: 'Despesa',
+      valor: ' R$ 311,37 ',
+      ged: '18602',
+      ft: '1169',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: 'c4e94e91-397a-4af3-b00f-65935af5a078',
+      codigo: '40-000-015-902',
+      descricao: 'ESTROPO RELIG BRUSH PMR3,D WHIPP&BOURNE',
+      classificacao: 'Despesa',
+      valor: ' R$ 134,62 ',
+      ged: '18602',
+      ft: '1169',
+      item: 'Rotativo',
+   },
+   {
+      id: 'c86bd748-ed1c-4535-86a1-2bbf1559b822',
+      codigo: '40-000-015-903',
+      descricao: 'ESTROPO RELIG REYROLLE, NU-LEC, COOPER',
+      classificacao: 'Despesa',
+      valor: ' R$ 293,63 ',
+      ged: '18602',
+      ft: '1169',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: 'feaf3e43-8dfe-4dd9-9a37-139c7de7a49a',
+      codigo: '40-000-046-460',
+      descricao: 'ESTRUTURA DE CHAVE FERRAMENTA',
+      classificacao: 'Despesa',
+      valor: ' R$ 2.412,69 ',
+      ged: '18602',
+      ft: '1265',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: 'ce79b74e-a1c0-43af-a092-a0dfe2da9588',
+      codigo: '40-000-034-552',
+      descricao: 'Faca Curva',
+      classificacao: 'Despesa',
+      valor: ' R$ 113,76 ',
+      ged: '18602',
+      ft: '1178',
+      item: 'Estoque',
+   },
+   {
+      id: '251a5d6b-fe91-4983-aa27-5eb4ee0844a7',
+      codigo: '40-000-046-871',
+      descricao: 'FAIXA REFLETIVA',
+      classificacao: 'Despesa',
+      valor: ' R$ 23,44 ',
+      ged: '18602',
+      ft: '1159',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: '28cd9185-47fa-4bb7-9b9e-14af81bc95f5',
+      codigo: '40-000-047-032',
+      descricao:
+         'Ferramenta de Aplicação de Conectores e Corte de Condutor a Bateria (FEERGS)',
+      classificacao: 'Investimento',
+      valor: ' R$ 34.000,00 ',
+      ged: '18602',
+      ft: '2050',
+      item: 'Estoque',
+   },
+   {
+      id: 'dfc219b1-09c0-4189-b67a-830e0613f0e8',
+      codigo: '50-000-015-065',
+      descricao: 'Ferramenta para Aplicação de Conector Cunha (KRJ)',
+      classificacao: 'Investimento',
+      valor: ' R$ 2.450,00 ',
+      ged: '18602',
+      ft: '2051',
+      item: 'Estoque',
+   },
+   {
+      id: '9399bb54-0734-4a3a-82ce-01c36f4166ec',
+      codigo: '40-000-047-045',
+      descricao: 'FITA ADESIVA PARA CONES',
+      classificacao: 'Despesa',
+      valor: ' R$ 18,54 ',
+      ged: '18602',
+      ft: '1291',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: 'd8cc3290-9165-4b23-b82c-bf210160655d',
+      codigo: '40-000-015-022',
+      descricao: 'Fita de Sinalização com Recolhedor',
+      classificacao: 'Despesa',
+      valor: ' R$ 131,80 ',
+      ged: '18602',
+      ft: '1258',
+      item: 'Estoque',
+   },
+   {
+      id: '157abcf5-1370-4041-8bc0-4bac8659d41b',
+      codigo: '40-000-032-354',
+      descricao: 'FITA TIPO SLING 1200MM VERMELHA',
+      classificacao: 'Despesa',
+      valor: ' R$ 71,68 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '85858a08-aac8-4c50-8a12-30d1b0749406',
+      codigo: '40-000-015-006',
+      descricao: 'FITA VELCRO DUPLA FACE 250MM',
+      classificacao: 'Despesa',
+      valor: ' R$ 10,49 ',
+      ged: '18602',
+      ft: '1185',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: '1bccaffb-3bec-4b2b-be71-6757e6332772',
+      codigo: '40-000-015-619',
+      descricao: 'Fita Velcro Dupla Face 800mm',
+      classificacao: 'Despesa',
+      valor: ' R$ 15,85 ',
+      ged: '18602',
+      ft: '1186',
+      item: 'Estoque',
+   },
+   {
+      id: '6a05db23-72ae-414e-831a-3e1816bcc22a',
+      codigo: '40-000-034-565',
+      descricao: 'Foice Panamá',
+      classificacao: 'Despesa',
+      valor: ' R$ 23,78 ',
+      ged: '18602',
+      ft: '1310',
+      item: 'Estoque',
+   },
+   {
+      id: '0bcb05ea-ca82-4c46-aca5-a618bb9f3c46',
+      codigo: '40-000-004-037',
+      descricao: 'FOLHA SERRA PARA METAIS',
+      classificacao: 'Despesa',
+      valor: ' R$ 5,31 ',
+      ged: '18602',
+      ft: '1187',
+      item: 'Estoque',
+   },
+   {
+      id: 'a05e31b1-b311-4596-b6d9-d12394f19072',
+      codigo: '40-000-015-470',
+      descricao: 'Gancho de linha de vida',
+      classificacao: 'Despesa',
+      valor: ' R$ 125,48 ',
+      ged: '18602',
+      ft: '1189',
+      item: 'Estoque',
+   },
+   {
+      id: 'd1c80828-60ae-4d20-967b-1fef959412cc',
+      codigo: '40-000-030-720',
+      descricao: 'Gancho para Içamento de Materiais',
+      classificacao: 'Despesa',
+      valor: ' R$ 70,68 ',
+      ged: '18602',
+      ft: '1191',
+      item: 'Estoque',
+   },
+   {
+      id: 'd1f18d9a-4001-44a1-909e-10e5ae738f8f',
+      codigo: '40-000-034-528',
+      descricao: 'Garrafão Térmico (5 Litros)',
+      classificacao: 'Despesa',
+      valor: ' R$ 28,94 ',
+      ged: '18602',
+      ft: '1192',
+      item: 'Estoque',
+   },
+   {
+      id: 'd0f67ab3-89b3-49e2-9778-0e5c8457408a',
+      codigo: '40-000-045-649',
+      descricao: 'Gerador monofásico',
+      classificacao: 'Investimento',
+      valor: ' R$ 6.715,23 ',
+      ged: '18602',
+      ft: '2076',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: '8c1be5fd-125b-4178-b961-6d182b705e60',
+      codigo: '40-000-004-040',
+      descricao: 'Grampo de Torção para Cabo Jumper',
+      classificacao: 'Despesa',
+      valor: ' R$ 122,90 ',
+      ged: '18602',
+      ft: '1194',
+      item: 'Estoque',
+   },
+   {
+      id: 'bccc3221-4fba-4098-8a61-8d968d72d29b',
+      codigo: '50-000-032-546',
+      descricao: 'Grampo para Bucha de Transformador (Presilha para BY-PASS)',
+      classificacao: 'Despesa',
+      valor: ' R$ 340,00 ',
+      ged: '18602',
+      ft: '2052',
+      item: 'Estoque',
+   },
+   {
+      id: '1ce1fc63-9e52-422b-b5a2-aea8e0d6bc0a',
+      codigo: '50-000-032-525',
+      descricao: 'GUINCHO CABRESTANTE',
+      classificacao: 'Investimento',
+      valor: ' R$ 34.175,85 ',
+      ged: '18602',
+      ft: '1195',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: 'f83cbd0d-59e3-452a-b2be-5c557bc49d37',
+      codigo: '40-000-034-832',
+      descricao: 'GUINCHO DE IÇAMENTO MANUAL COM SUPORTE ',
+      classificacao: 'Investimento',
+      valor: ' R$ 3.350,00 ',
+      ged: '18602',
+      ft: '1196',
+      item: 'Rotativo',
+   },
+   {
+      id: '6f675f32-8ccb-4660-8e3a-dc2627bf03a6',
+      codigo: '50-000-011-212',
+      descricao: 'GUINCHO PORTATIL CABO DE ACO 2000KG',
+      classificacao: 'Despesa',
+      valor: ' R$ 620,05 ',
+      ged: '18602',
+      ft: '1197',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: '732fd37b-2f3a-4f14-b8b1-833f2b568849',
+      codigo: '50-000-032-501',
+      descricao: 'Guincho Portátil de Corrente N° 1500',
+      classificacao: 'Despesa/Investimento',
+      valor: ' R$ 905,95 ',
+      ged: '18602',
+      ft: '2036',
+      item: 'Rotativo',
+   },
+   {
+      id: 'e56dfec0-267e-46cd-bac1-ca923857038e',
+      codigo: '50-000-015-748',
+      descricao: 'Guincho Portátil de Corrente N° 500',
+      classificacao: 'Despesa',
+      valor: ' R$ 471,90 ',
+      ged: '18602',
+      ft: '2039',
+      item: 'Estoque',
+   },
+   {
+      id: '94cdf776-fa7c-44eb-a43e-bb82911d6b7b',
+      codigo: '50-000-010-458',
+      descricao: 'Guincho Portátil de Corrente N° 750',
+      classificacao: 'Despesa/Investimento',
+      valor: ' R$ 548,90 ',
+      ged: '18602',
+      ft: '2053',
+      item: 'Estoque',
+   },
+   {
+      id: '09beb1fb-ed4b-4269-b45e-233c48a3b837',
+      codigo: '50-000-011-190',
+      descricao: 'Guincho Portátil Linha Viva Tirante de Nylon',
+      classificacao: 'Despesa/Investimento',
+      valor: ' R$ 550,00 ',
+      ged: '18602',
+      ft: '2041',
+      item: 'Estoque',
+   },
+   {
+      id: 'f90a4df8-5ad7-490e-9287-8a40fb560a95',
+      codigo: '50-000-032-499',
+      descricao: 'INFLADOR LUVAS BORRACHAS',
+      classificacao: 'Despesa',
+      valor: ' R$ 985,39 ',
+      ged: '18602',
+      ft: '2054',
+      item: 'Estoque',
+   },
+   {
+      id: '591841d5-084f-4a02-9c0e-c15c79554db2',
+      codigo: '40-000-015-608',
+      descricao: 'Jampe Provisório Isolado 2 AWG 1,20 m (Classe 2)',
+      classificacao: 'Despesa',
+      valor: ' R$ 698,18 ',
+      ged: '18602',
+      ft: '1201',
+      item: 'Estoque',
+   },
+   {
+      id: 'ff993da9-4292-4fd1-b079-9d7702315942',
+      codigo: '40-000-015-609',
+      descricao: 'Jampe Provisório Isolado 2 AWG 4,00 m  (Classe 2)',
+      classificacao: 'Despesa',
+      valor: ' R$ 869,28 ',
+      ged: '18602',
+      ft: '1201',
+      item: 'Estoque',
+   },
+   {
+      id: '25976e1f-9169-48f3-be3b-610e04d1ff27',
+      codigo: '40-000-015-611',
+      descricao: 'Jampe Provisório Isolado 4/0 AWG 1,20 m  (Classe 2)',
+      classificacao: 'Despesa',
+      valor: ' R$ 606,91 ',
+      ged: '18602',
+      ft: '1201',
+      item: 'Estoque',
+   },
+   {
+      id: '89ce0def-5ad5-4254-9e5a-aee2f92007e4',
+      codigo: '40-000-015-612',
+      descricao: 'Jampe Provisório Isolado 4/0 AWG 5,00 m  (Classe 2)',
+      classificacao: 'Investimento',
+      valor: ' R$ 1.814,67 ',
+      ged: '18602',
+      ft: '1201',
+      item: 'Estoque',
+   },
+   {
+      id: '0820139c-37bd-44d7-9afc-320556b74c2a',
+      codigo: '40-000-032-279',
+      descricao: 'JAQUETA IMPERMEAVEL CPFL SERV - EG',
+      classificacao: 'Despesa',
+      valor: ' R$ 388,96 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '1cdc6e18-d6fa-4de5-983c-fca3ad96377d',
+      codigo: '40-000-032-277',
+      descricao: 'JAQUETA IMPERMEAVEL CPFL SERV - G',
+      classificacao: 'Despesa',
+      valor: ' R$ 537,46 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'bb37cdeb-c262-4c65-a8a3-b18a137941d5',
+      codigo: '40-000-032-278',
+      descricao: 'JAQUETA IMPERMEAVEL CPFL SERV - GG',
+      classificacao: 'Despesa',
+      valor: ' R$ 537,46 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'eb1b4803-331f-461e-9ad2-4f804300e5d3',
+      codigo: '40-000-032-276',
+      descricao: 'JAQUETA IMPERMEAVEL CPFL SERV - M',
+      classificacao: 'Despesa',
+      valor: ' R$ 537,46 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'a1831daf-e065-460c-8d61-fdf3b9334a8f',
+      codigo: '40-000-030-000',
+      descricao: 'JAQUETA IMPERMEAVEL CPFL SERV - P',
+      classificacao: 'Despesa',
+      valor: ' R$ 398,36 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '2cb8a282-191f-4693-b79a-84ca739455f0',
+      codigo: '40-000-047-527',
+      descricao: 'JAQUETA IMPERMEÁVEL NÃO FR EG',
+      classificacao: 'Despesa',
+      valor: ' R$ 118,55 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '9afdea17-1455-45e7-aabb-7d50fb3f2b1a',
+      codigo: '40-000-047-525',
+      descricao: 'JAQUETA IMPERMEÁVEL NÃO FR G',
+      classificacao: 'Despesa',
+      valor: ' R$ 118,55 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: 'd9dd28ff-fb7d-42f9-b12e-70c329b7cb8f',
+      codigo: '40-000-047-526',
+      descricao: 'JAQUETA IMPERMEÁVEL NÃO FR GG',
+      classificacao: 'Despesa',
+      valor: ' R$ 118,55 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: 'e88e38a1-a977-40d5-8391-8c6df5fcaa38',
+      codigo: '40-000-047-524',
+      descricao: 'JAQUETA IMPERMEÁVEL NÃO FR M',
+      classificacao: 'Despesa',
+      valor: ' R$ 118,55 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '3479f39f-9f77-4312-86d7-f31bea2e7354',
+      codigo: '40-000-047-523',
+      descricao: 'JAQUETA IMPERMEÁVEL NÃO FR P',
+      classificacao: 'Despesa',
+      valor: ' R$ 118,55 ',
+      ged: '18525',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '3adbfd32-990e-4ade-9b0c-901dd2b48b53',
+      codigo: '40-000-016-453',
+      descricao: 'KIT CINTO PARAQ CESTO AÉREO TAM1',
+      classificacao: 'Despesa',
+      valor: ' R$ 664,94 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '53a93c78-f128-4e94-b576-ed9ba842eaa0',
+      codigo: '40-000-016-454',
+      descricao: 'KIT CINTO PARAQ CESTO AÉREO TAM2',
+      classificacao: 'Despesa',
+      valor: ' R$ 667,80 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '4305d01a-d5a1-4ade-9c5c-c0c7fb259bc4',
+      codigo: '40-000-015-688',
+      descricao: 'KIT CINTURAO PARAQ T0/TALAB E TRAVA-EPI',
+      classificacao: 'Despesa',
+      valor: ' R$ 1.537,00 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'dd65253e-6efb-4e4b-8530-7fec5788b5e4',
+      codigo: '40-000-015-545',
+      descricao: 'KIT CINTURAO PARAQ T1/TALAB E TRAVA-EPI',
+      classificacao: 'Despesa',
+      valor: ' R$ 1.490,36 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '546a0872-5377-4e35-bc3e-39a93f693fae',
+      codigo: '40-000-015-546',
+      descricao: 'KIT CINTURAO PARAQ T2/TALAB E TRAVA-EPI',
+      classificacao: 'Despesa',
+      valor: ' R$ 1.537,00 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'f5d85a68-91af-4634-9d97-0280525e87f6',
+      codigo: '40-000-015-548',
+      descricao: 'KIT CINTURAO PARAQ T3/TALAB E TRAVA-EPI',
+      classificacao: 'Despesa',
+      valor: ' R$ 1.537,00 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'fee97d96-9e0b-467f-8ee0-0a59fc22352e',
+      codigo: '40-000-046-546',
+      descricao: 'LAMINA P/ SERRA PODA C/ FIM CURSO ',
+      classificacao: 'Despesa',
+      valor: ' R$ 265,20 ',
+      ged: '18601',
+      ft: '1014',
+      item: 'Rotativo',
+   },
+   {
+      id: '31d6ab74-eb13-46d8-8a19-9442f515fb75',
+      codigo: '40-000-003-980',
+      descricao: 'LANTERNA PORTATIL',
+      classificacao: 'Despesa',
+      valor: ' R$ 189,53 ',
+      ged: '18602',
+      ft: '1209',
+      item: 'Rotativo',
+   },
+   {
+      id: '624324bc-bee2-4b2b-9748-d9b30d0ece77',
+      codigo: '40-000-004-266',
+      descricao: 'Lençol de Borracha para LV - Inteiro (Classe 4)',
+      classificacao: 'Despesa',
+      valor: ' R$ 322,10 ',
+      ged: '18602',
+      ft: '1210',
+      item: 'Estoque',
+   },
+   {
+      id: '9303fd03-806e-484e-a7a6-9441abf33327',
+      codigo: '40-000-004-267',
+      descricao: 'Lençol de Borracha para LV - Semipartido (Classe 4)',
+      classificacao: 'Despesa',
+      valor: ' R$ 322,04 ',
+      ged: '18602',
+      ft: '1210',
+      item: 'Estoque',
+   },
+   {
+      id: '5dbccb8f-b514-45b5-991e-a3432c131ebd',
+      codigo: '40-000-015-478',
+      descricao: 'LENÇOL ISOLANTE PARA BAIXA TENSÃO',
+      classificacao: 'Despesa',
+      valor: ' R$ 181,63 ',
+      ged: '18602',
+      ft: '1218',
+      item: 'Estoque',
+   },
+   {
+      id: 'fe64c0ff-3877-4544-a274-cc67c9ac2396',
+      codigo: '40-000-045-438',
+      descricao: 'Lençol Isolante para LV com Velcro (Classe 3)',
+      classificacao: 'Despesa',
+      valor: ' R$ 213,45 ',
+      ged: '18602',
+      ft: '1215',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '52cae438-82c8-4722-949b-504326b06672',
+      codigo: '40-000-015-013',
+      descricao: 'LENÇOL ISOLANTE TIPO LÂMINA PARA BT',
+      classificacao: 'Despesa',
+      valor: ' R$ 56,43 ',
+      ged: '18602',
+      ft: '1219',
+      item: 'Estoque',
+   },
+   {
+      id: '3b7497dd-81f4-4531-b5dc-0eeb2150072b',
+      codigo: '40-000-045-049',
+      descricao: 'Lençol Lamina Rosa',
+      classificacao: 'Despesa',
+      valor: ' R$ 25,36 ',
+      ged: '18602',
+      ft: '1277',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: 'c63aa9d5-9074-45cf-94a3-6a3a0370ff1a',
+      codigo: '40-000-046-494',
+      descricao: 'LENTE REPOSICAO P/ OCULOS PROT CINZA  ',
+      classificacao: 'Despesa',
+      valor: ' R$ 20,55 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '471ff2e3-a8dd-479a-8e60-88bf57b45661',
+      codigo: '40-000-045-572',
+      descricao: 'Lima Chata',
+      classificacao: 'Despesa',
+      valor: ' R$ 14,63 ',
+      ged: '18602',
+      ft: '1220',
+      item: 'Estoque',
+   },
+   {
+      id: '00b887e9-38c7-4644-9418-1d9dcc58c346',
+      codigo: '40-000-046-885',
+      descricao: 'Luva Giratória 5 Tonelada',
+      classificacao: 'Despesa',
+      valor: ' R$ 1.211,34 ',
+      ged: '18602',
+      ft: '1100',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: '6b82fce4-fdfa-4343-b883-c98c8cf00338',
+      codigo: '40-000-030-740',
+      descricao: 'LUVA ISOLANTE DE CLASSE 0 Nº 10',
+      classificacao: 'Despesa',
+      valor: ' R$ 701,49 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '91cc255d-dcf2-4644-8c12-c0627ce16982',
+      codigo: '40-000-030-751',
+      descricao: 'LUVA ISOLANTE DE CLASSE 0 Nº 10 ½',
+      classificacao: 'Despesa',
+      valor: ' R$ 701,49 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: 'f4cb5db0-e958-42af-a7db-7c7619b2a315',
+      codigo: '40-000-030-746',
+      descricao: 'LUVA ISOLANTE DE CLASSE 0 Nº 11',
+      classificacao: 'Despesa',
+      valor: ' R$ 42,00 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: '6db1c083-184a-4e56-bf58-0e5b01c88a66',
+      codigo: '40-000-031-097',
+      descricao: 'LUVA ISOLANTE DE CLASSE 0 Nº 11½',
+      classificacao: 'Despesa',
+      valor: ' R$ 174,00 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: '201a643e-6b3b-4b48-92d1-7b48ac535bc7',
+      codigo: '40-000-031-111',
+      descricao: 'LUVA ISOLANTE DE CLASSE 0 Nº 12',
+      classificacao: 'Despesa',
+      valor: ' R$ 174,00 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: '4491e9a2-47a8-4dc4-83a3-da21216e7429',
+      codigo: '40-000-030-822',
+      descricao: 'LUVA ISOLANTE DE CLASSE 0 Nº 8',
+      classificacao: 'Despesa',
+      valor: ' R$ 230,58 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: '0319f8a9-8770-476a-a7fe-016f0dcf5a3e',
+      codigo: '40-000-031-090',
+      descricao: 'LUVA ISOLANTE DE CLASSE 0 Nº 8 ½',
+      classificacao: 'Despesa',
+      valor: ' R$ 395,50 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: 'bd313887-5ab3-4ceb-ac5c-f8c8c6e311fa',
+      codigo: '40-000-030-792',
+      descricao: 'LUVA ISOLANTE DE CLASSE 0 Nº 9',
+      classificacao: 'Despesa',
+      valor: ' R$ 386,72 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '30dccc81-2e61-4a19-a451-921a8d7c754a',
+      codigo: '40-000-030-745',
+      descricao: 'LUVA ISOLANTE DE CLASSE 0 Nº 9 ½',
+      classificacao: 'Despesa',
+      valor: ' R$ 274,23 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '5f22e93e-bfc5-4ee5-a8b1-2a64bf4cc8e5',
+      codigo: '40-000-004-279',
+      descricao: 'LUVA ISOLANTE DE CLASSE 2 Nº 10',
+      classificacao: 'Despesa',
+      valor: ' R$ 640,83 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: 'e4419cbf-6885-4837-a4d8-86176f7a1724',
+      codigo: '40-000-006-410',
+      descricao: 'LUVA ISOLANTE DE CLASSE 2 Nº 10 ½',
+      classificacao: 'Despesa',
+      valor: ' R$ 399,00 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: '5615a2aa-57f6-4004-8a74-168fc77ded6d',
+      codigo: '40-000-015-052',
+      descricao: 'LUVA ISOLANTE DE CLASSE 2 Nº 11',
+      classificacao: 'Despesa',
+      valor: ' R$ 762,21 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: '35a94835-291b-478e-9501-9f24374ee91f',
+      codigo: '40-000-015-052',
+      descricao: 'LUVA ISOLANTE DE CLASSE 2 Nº 11½',
+      classificacao: 'Despesa',
+      valor: ' R$ 359,00 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: '28b18c09-974d-4848-83bc-928ff54f6669',
+      codigo: '40-000-034-884',
+      descricao: 'LUVA ISOLANTE DE CLASSE 2 Nº 12',
+      classificacao: 'Despesa',
+      valor: ' R$ 512,55 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: 'ac92ba8d-cfcb-4c1f-993e-39967ca69d49',
+      codigo: '40-000-034-881',
+      descricao: 'LUVA ISOLANTE DE CLASSE 2 Nº 8',
+      classificacao: 'Despesa',
+      valor: ' R$ 432,69 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: '97a885e6-b56b-4d77-9f3f-026f547970aa',
+      codigo: '40-000-034-882',
+      descricao: 'LUVA ISOLANTE DE CLASSE 2 Nº 8 ½',
+      classificacao: 'Despesa',
+      valor: ' R$ 507,94 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: 'e50247c5-aa6a-4f52-80c2-0e6e636ba2b6',
+      codigo: '40-000-006-396',
+      descricao: 'LUVA ISOLANTE DE CLASSE 2 Nº 9',
+      classificacao: 'Despesa',
+      valor: ' R$ 399,00 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: 'd95b5e8d-9fa2-4b91-a2ea-c3700dd36473',
+      codigo: '40-000-006-409',
+      descricao: 'LUVA ISOLANTE DE CLASSE 2 Nº 9 ½',
+      classificacao: 'Despesa',
+      valor: ' R$ 399,00 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: 'fb9cfee3-e5fb-4893-a13d-cff030c9458c',
+      codigo: '40-000-031-027',
+      descricao: 'LUVA ISOLANTE DE CLASSE 3 Nº  8 ½',
+      classificacao: 'Despesa',
+      valor: ' R$ 634,64 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: '5408e3bf-dfc8-4b28-a9b0-3f878c581630',
+      codigo: '40-000-015-277',
+      descricao: 'LUVA ISOLANTE DE CLASSE 3 Nº 10',
+      classificacao: 'Despesa',
+      valor: ' R$ 2.827,36 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '1f47ee47-3675-4297-afd2-2c0c9f314597',
+      codigo: '40-000-015-051',
+      descricao: 'LUVA ISOLANTE DE CLASSE 3 Nº 10 ½',
+      classificacao: 'Despesa',
+      valor: ' R$ 2.284,88 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: '126bc2d4-b88f-426c-a586-396a7f4acc87',
+      codigo: '40-000-015-276',
+      descricao: 'LUVA ISOLANTE DE CLASSE 3 Nº 11',
+      classificacao: 'Despesa',
+      valor: ' R$ 2.151,18 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: '32639459-633a-43c4-ad95-6d289cbf2cd0',
+      codigo: '40-000-015-276',
+      descricao: 'LUVA ISOLANTE DE CLASSE 3 Nº 11 ½',
+      classificacao: 'Despesa',
+      valor: ' R$ 325,60 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: '3ad48cb7-397e-4c14-a18f-26a6e09d861d',
+      codigo: '40-000-031-009',
+      descricao: 'LUVA ISOLANTE DE CLASSE 3 Nº 12',
+      classificacao: 'Despesa',
+      valor: ' R$ 325,60 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: 'ebc2bb25-bcfb-44a0-aa19-d83c75142aa0',
+      codigo: '40-000-031-017',
+      descricao: 'LUVA ISOLANTE DE CLASSE 3 Nº 8',
+      classificacao: 'Despesa',
+      valor: ' R$ 634,64 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: '96a4f16e-1448-40a3-a3e4-841a6a0488d5',
+      codigo: '40-000-031-008',
+      descricao: 'LUVA ISOLANTE DE CLASSE 3 Nº 9',
+      classificacao: 'Despesa',
+      valor: ' R$ 4.023,06 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '8bd2f8cd-c527-41c8-a69b-599468b9c4d4',
+      codigo: '40-000-006-393',
+      descricao: 'LUVA ISOLANTE DE CLASSE 3 Nº 9 ½',
+      classificacao: 'Despesa',
+      valor: ' R$ 3.308,89 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '9e24ca43-3c3b-4867-84af-075ebcf1e042',
+      codigo: '40-000-034-886',
+      descricao: 'LUVA ISOLANTE DE CLASSE 4 Nº  8 ½',
+      classificacao: 'Despesa',
+      valor: ' R$ 1.195,33 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: 'f7a6be20-50c4-4ecd-bc52-6953deeb3fbf',
+      codigo: '40-000-015-531',
+      descricao: 'LUVA ISOLANTE DE CLASSE 4 Nº 10',
+      classificacao: 'Despesa',
+      valor: ' R$ 2.492,05 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: '34a17349-3f6f-4416-84b8-d7178974909c',
+      codigo: '40-000-015-532',
+      descricao: 'LUVA ISOLANTE DE CLASSE 4 Nº 10 ½',
+      classificacao: 'Despesa',
+      valor: ' R$ 2.382,60 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: '56a21348-c0b4-4d74-a65b-850835731cca',
+      codigo: '40-000-015-533',
+      descricao: 'LUVA ISOLANTE DE CLASSE 4 Nº 11',
+      classificacao: 'Despesa',
+      valor: ' R$ 2.380,55 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: 'a3f14c20-4e1e-4be8-80e9-845dec7e2e99',
+      codigo: '40-000-034-888',
+      descricao: 'LUVA ISOLANTE DE CLASSE 4 Nº 11 ½',
+      classificacao: 'Despesa',
+      valor: ' R$ 1.214,98 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: 'bcc74959-7693-495a-908d-6a5932796922',
+      codigo: '40-000-034-889',
+      descricao: 'LUVA ISOLANTE DE CLASSE 4 Nº 12',
+      classificacao: 'Despesa',
+      valor: ' R$ 1.222,55 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: '23175eec-a7cd-4693-945b-beb72c3ffe64',
+      codigo: '40-000-034-885',
+      descricao: 'LUVA ISOLANTE DE CLASSE 4 Nº 8',
+      classificacao: 'Despesa',
+      valor: ' R$ 1.278,88 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: 'abf89331-6cc4-4902-87ef-3f1b24f42c65',
+      codigo: '40-000-034-887',
+      descricao: 'LUVA ISOLANTE DE CLASSE 4 Nº 9',
+      classificacao: 'Despesa',
+      valor: ' R$ 1.009,40 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: 'e5c4258a-c265-4318-b643-d28dd7efbae6',
+      codigo: '40-000-015-529',
+      descricao: 'LUVA ISOLANTE DE CLASSE 4 Nº 9 ½',
+      classificacao: 'Despesa',
+      valor: ' R$ 2.189,27 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: '9dcee186-0223-4089-a2b1-71e380aa7cf8',
+      codigo: '40-000-006-394',
+      descricao: 'LUVA PROT COURO LUV BORR TAMANHO G',
+      classificacao: 'Despesa',
+      valor: ' R$ 27,83 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'df6a9cbd-2670-4912-abc0-ff1a42f8f7c4',
+      codigo: '40-000-004-276',
+      descricao: 'LUVA PROT COURO LUV BORR TAMANHO M',
+      classificacao: 'Despesa',
+      valor: ' R$ 28,00 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'a29f849d-f1f9-4504-bc26-13cb112596c9',
+      codigo: '40-000-004-272',
+      descricao: 'LUVA PROT COURO LUVA BORR TAMANHO P',
+      classificacao: 'Despesa',
+      valor: ' R$ 28,00 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '85fcb05c-dcc8-442c-8742-45ed7588ec5b',
+      codigo: '40-000-041-313',
+      descricao: 'LUVA PROT NYLON REVE 3/4 NITR NEOPRE T7',
+      classificacao: 'Despesa',
+      valor: ' R$ 27,00 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '983b0352-0b50-4492-bbf1-45f27b5b764b',
+      codigo: '40-000-041-315',
+      descricao: 'LUVA PROT NYLON REVES 3/4 NITR NEOPRE T8',
+      classificacao: 'Despesa',
+      valor: ' R$ 29,14 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '22bbfeb4-a7b5-4c8f-b945-efc9b909ad67',
+      codigo: '40-000-046-205',
+      descricao: 'LUVA PROT QUIMICA MAXIDRY PLUS G               ',
+      classificacao: 'Despesa',
+      valor: ' R$ 47,50 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'd1ee42a5-56f3-49a6-bc63-0abcd062d8ef',
+      codigo: '40-000-046-204',
+      descricao: 'LUVA PROT QUIMICA MAXIDRY PLUS M           ',
+      classificacao: 'Despesa',
+      valor: ' R$ 45,00 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'be6eaf6f-67a6-409e-971f-1e927727e06c',
+      codigo: '40-000-046-183',
+      descricao: 'LUVA PROT QUIMICA MAXIDRY PLUS P               ',
+      classificacao: 'Despesa',
+      valor: ' R$ 45,00 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '5f209fb8-8960-4e7f-946a-6ef829ad360a',
+      codigo: '40-000-046-206',
+      descricao: 'LUVA PROT QUIMICA MAXIDRY PLUS XG        ',
+      classificacao: 'Despesa',
+      valor: ' R$ 47,50 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'f155da7c-f1cb-4e12-9646-e16bfbbc4988',
+      codigo: '40-000-032-307',
+      descricao: 'LUVA PROT. NYLON REVES. 3/4 NITR NEOPREM',
+      classificacao: 'Despesa',
+      valor: ' R$ 27,39 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'c859e884-5cfd-4948-a8eb-f2022890cb4e',
+      codigo: '40-000-032-308',
+      descricao: 'LUVA PROT. NYLON REVES. 3/4 NITR NEOPREM',
+      classificacao: 'Despesa',
+      valor: ' R$ 28,92 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'b20c96da-0980-4b1d-992c-dce3d1aa2861',
+      codigo: '40-000-032-309',
+      descricao: 'LUVA PROT. TRIC.ANTI CORTE E BANHO NIT.',
+      classificacao: 'Despesa',
+      valor: ' R$ 39,89 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'b9cdda69-d2dc-4964-b177-ab130b40db5a',
+      codigo: '40-000-032-310',
+      descricao: 'LUVA PROT. TRIC.ANTI CORTE E BANHO NIT.',
+      classificacao: 'Despesa',
+      valor: ' R$ 39,89 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '3522f794-b791-4a9d-853a-40ce816438c6',
+      codigo: '40-000-046-035',
+      descricao: 'Luva proteção anti corte punho 12 cm G    ',
+      classificacao: 'Despesa',
+      valor: ' R$ 43,00 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '1f128b3a-0fdc-48ea-95e0-aaf7a901cf91',
+      codigo: '40-000-046-034',
+      descricao: 'Luva proteção anti corte punho 12 cm M     ',
+      classificacao: 'Despesa',
+      valor: ' R$ 43,00 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '6c041cf8-c3d6-4f55-a2b7-491699cf21c2',
+      codigo: '40-000-046-033',
+      descricao: 'Luva proteção anti corte punho 12 cm P  ',
+      classificacao: 'Despesa',
+      valor: ' R$ 43,00 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'ab107b7e-c416-454b-99fd-4234780a78d9',
+      codigo: '40-000-046-037',
+      descricao: 'Luva proteção anti corte punho 12 cm XG    ',
+      classificacao: 'Despesa',
+      valor: ' R$ 43,00 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'c5a560fc-f15c-458d-993b-b98f405c3bf8',
+      codigo: '40-000-031-157',
+      descricao: 'LUVA SEG VAQUETA TAMANHO G',
+      classificacao: 'Despesa',
+      valor: ' R$ 20,78 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'f5545f61-ba8d-4105-8e1a-ee588614c5ed',
+      codigo: '40-000-031-149',
+      descricao: 'LUVA SEG VAQUETA TAMANHO M',
+      classificacao: 'Despesa',
+      valor: ' R$ 20,25 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'dcedfd7b-6dec-4104-952b-21fba65847e2',
+      codigo: '40-000-031-148',
+      descricao: 'LUVA SEG VAQUETA TAMANHO P',
+      classificacao: 'Despesa',
+      valor: ' R$ 19,61 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '8c8cc31d-5e2e-4e2e-ba54-8b16f8e193a8',
+      codigo: '40-000-034-490',
+      descricao: 'LUVA SUEDINE LINHA VIVA',
+      classificacao: 'Despesa',
+      valor: ' R$ 5,83 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '8bae4fae-3b28-449a-8c07-3a3475e0e920',
+      codigo: '40-000-015-693',
+      descricao: 'MANGA CURVA ISOL BORR CL2 TAM G',
+      classificacao: 'Despesa',
+      valor: ' R$ 3.569,41 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '5ed0c756-e8c6-4e85-9c69-c41ec9176774',
+      codigo: '40-000-006-364',
+      descricao: 'MANGA CURVA ISOL BORR CL2 TAM M',
+      classificacao: 'Despesa',
+      valor: ' R$ 3.326,33 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '92fcaa16-ee6f-4f8a-8e1b-bba524e4b954',
+      codigo: '40-000-015-692',
+      descricao: 'MANGA CURVA ISOL BORR CL3 TAM G',
+      classificacao: 'Despesa',
+      valor: ' R$ 4.446,00 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '470adced-0a08-4a88-a108-d4d2b71d988b',
+      codigo: '40-000-015-285',
+      descricao: 'MANGA CURVA ISOL BORR CL3 TAM M',
+      classificacao: 'Despesa',
+      valor: ' R$ 3.132,92 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '53225016-cb24-4256-85e8-00f16af2220b',
+      codigo: '40-000-015-702',
+      descricao: 'MANGA CURVA ISOL BORR CL4 TAM G',
+      classificacao: 'Despesa',
+      valor: ' R$ 6.918,82 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: '9b509412-10d4-4370-9e43-faaeefc8d81f',
+      codigo: '40-000-015-701',
+      descricao: 'MANGA CURVA ISOL BORR CL4 TAM M',
+      classificacao: 'Despesa',
+      valor: ' R$ 7.215,58 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: '88eca585-2d6b-46db-9400-91e3862f9f62',
+      codigo: '40-000-032-346',
+      descricao: 'MANGA EM RASPA DE COURO(CARBOGRAFITE)',
+      classificacao: 'Despesa',
+      valor: ' R$ 47,16 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'bce08b36-c643-4c1c-88f4-664bebc19834',
+      codigo: '40-000-035-523',
+      descricao: 'MANGOTE DE SEGURANCA',
+      classificacao: 'Despesa',
+      valor: ' R$ 124,79 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '67172c00-09b1-467b-9adc-467e7eb5eb21',
+      codigo: '40-000-046-974',
+      descricao: 'Maquina de Impacto DTW 300',
+      classificacao: 'Investimento',
+      valor: ' R$ 3.200,00 ',
+      ged: '18603',
+      ft: '2087',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: '4ff08627-a381-46d6-8c58-83f103866e89',
+      codigo: '40-000-046-976',
+      descricao: 'Maquina de Impacto DTW 800',
+      classificacao: 'Investimento',
+      valor: ' R$ 4.470,00 ',
+      ged: '18603',
+      ft: '2086',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: '03e2dfa3-46a4-42f9-8d22-b97d7cdf2ea9',
+      codigo: '40-000-034-562',
+      descricao: 'Marreta de 1 Kg',
+      classificacao: 'Despesa',
+      valor: ' R$ 75,00 ',
+      ged: '18603',
+      ft: '1226',
+      item: 'Estoque',
+   },
+   {
+      id: 'db0d1a98-f342-4bdf-a138-e1be86e0ef78',
+      codigo: '40-000-030-990',
+      descricao: 'Marreta de 5 KG',
+      classificacao: 'Despesa',
+      valor: ' R$ 230,85 ',
+      ged: '18603',
+      ft: '1276',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: 'b36868f5-66f0-4879-b07c-9dfe50d41b54',
+      codigo: '40-000-015-012',
+      descricao: 'Martelo Ponta e Pá',
+      classificacao: 'Despesa',
+      valor: ' R$ 102,08 ',
+      ged: '18603',
+      ft: '1230',
+      item: 'Rotativo',
+   },
+   {
+      id: 'f260c1a8-25e4-4902-904e-15ebb91dc47a',
+      codigo: '40-000-044-989',
+      descricao: 'MASCARA CIRURGICA PAC (pacote c/ 50)  ',
+      classificacao: 'Despesa',
+      valor: ' R$ 19,28 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '36658797-76ac-4b63-883b-193d770d2a9b',
+      codigo: '40-000-035-522',
+      descricao: 'MASCARA DESCARTAVEL COM VALVULA PPF2',
+      classificacao: 'Despesa',
+      valor: ' R$ 10,95 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '4b5076bb-8184-48a3-9a8a-39cb31ce2bfd',
+      codigo: '40-000-032-330',
+      descricao: 'MASCARA SOLDA AUTO ESCURECIMENTO',
+      classificacao: 'Despesa',
+      valor: ' R$ 403,78 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'a31e575f-0619-45cf-bdfb-0d67eaa48086',
+      codigo: '40-000-004-061',
+      descricao: 'Matriz    163 ',
+      classificacao: 'Despesa',
+      valor: ' R$ 88,00 ',
+      ged: '18603',
+      ft: '1255',
+      item: 'Rotativo',
+   },
+   {
+      id: '33ad9742-1ca4-4675-ae08-0d003c90d1c9',
+      codigo: '40-000-004-052',
+      descricao: 'Matriz    236',
+      classificacao: 'Despesa',
+      valor: ' R$ 88,00 ',
+      ged: '18603',
+      ft: '1255',
+      item: 'Rotativo',
+   },
+   {
+      id: '61717081-5621-4848-a28a-b248cba24295',
+      codigo: '40-000-004-053',
+      descricao: 'Matriz    237',
+      classificacao: 'Despesa',
+      valor: ' R$ 88,00 ',
+      ged: '18603',
+      ft: '1255',
+      item: 'Rotativo',
+   },
+   {
+      id: '0b3bd590-b3bf-4e2a-b4c9-088c91b22a41',
+      codigo: '40-000-004-062',
+      descricao: 'Matriz    238',
+      classificacao: 'Despesa',
+      valor: ' R$ 88,00 ',
+      ged: '18603',
+      ft: '1255',
+      item: 'Rotativo',
+   },
+   {
+      id: '74d79064-0eba-44b3-826d-0eb4c726447c',
+      codigo: '40-000-004-063',
+      descricao: 'Matriz    239',
+      classificacao: 'Despesa',
+      valor: ' R$ 88,00 ',
+      ged: '18603',
+      ft: '1255',
+      item: 'Rotativo',
+   },
+   {
+      id: 'ad734223-4e91-4396-b530-ac36b86372a6',
+      codigo: '40-000-004-064',
+      descricao: 'Matriz    242',
+      classificacao: 'Despesa',
+      valor: ' R$ 88,00 ',
+      ged: '18603',
+      ft: '1242',
+      item: 'Rotativo',
+   },
+   {
+      id: 'f60c42af-cfdf-4dab-8f89-737285c592c7',
+      codigo: '40-000-004-065',
+      descricao: 'Matriz    243',
+      classificacao: 'Despesa',
+      valor: ' R$ 88,00 ',
+      ged: '18603',
+      ft: '1255',
+      item: 'Rotativo',
+   },
+   {
+      id: 'c1251f98-5c35-4130-9757-f8a16243681b',
+      codigo: '40-000-004-066',
+      descricao: 'Matriz    245',
+      classificacao: 'Despesa',
+      valor: ' R$ 88,00 ',
+      ged: '18603',
+      ft: '1255',
+      item: 'Rotativo',
+   },
+   {
+      id: '106b842e-4acb-4db2-a562-cd122e957ee1',
+      codigo: '40-000-004-067',
+      descricao: 'Matriz    248',
+      classificacao: 'Despesa',
+      valor: ' R$ 88,00 ',
+      ged: '18603',
+      ft: '1255',
+      item: 'Rotativo',
+   },
+   {
+      id: '8f6348c8-0068-4267-ba6b-23b3eb4b0ada',
+      codigo: '40-000-004-068',
+      descricao: 'Matriz    249',
+      classificacao: 'Despesa',
+      valor: ' R$ 88,00 ',
+      ged: '18603',
+      ft: '1255',
+      item: 'Rotativo',
+   },
+   {
+      id: '47f208d3-3ba2-4c76-ab15-20e64d3d624a',
+      codigo: '40-000-004-069',
+      descricao: 'Matriz    252',
+      classificacao: 'Despesa',
+      valor: ' R$ 88,00 ',
+      ged: '18603',
+      ft: '1255',
+      item: 'Rotativo',
+   },
+   {
+      id: 'ed649dd4-af36-4627-8b39-f91ec820108b',
+      codigo: '40-000-004-087',
+      descricao: 'Matriz    316',
+      classificacao: 'Despesa',
+      valor: ' R$ 88,00 ',
+      ged: '18603',
+      ft: '1255',
+      item: 'Rotativo',
+   },
+   {
+      id: '463905df-37de-4950-abfd-30389ded7fbd',
+      codigo: '40-000-004-070',
+      descricao: 'Matriz    317',
+      classificacao: 'Despesa',
+      valor: ' R$ 88,00 ',
+      ged: '18603',
+      ft: '1255',
+      item: 'Rotativo',
+   },
+   {
+      id: 'cb6bd4d0-b834-4181-a6c8-864041b989ba',
+      codigo: '40-000-004-071',
+      descricao: 'Matriz    321',
+      classificacao: 'Despesa',
+      valor: ' R$ 88,00 ',
+      ged: '18603',
+      ft: '1255',
+      item: 'Rotativo',
+   },
+   {
+      id: '6e801e56-25a6-4dbf-9d2e-852ce4a70b14',
+      codigo: '40-000-004-077',
+      descricao: 'Matrriz W - 163',
+      classificacao: 'Despesa',
+      valor: ' R$ 88,00 ',
+      ged: '18603',
+      ft: '1242',
+      item: 'Rotativo',
+   },
+   {
+      id: 'b2b92492-428c-47b0-a72a-bc71d8b69e5a',
+      codigo: '40-000-004-076',
+      descricao: 'Matrriz W - 236',
+      classificacao: 'Despesa',
+      valor: ' R$ 88,00 ',
+      ged: '18603',
+      ft: '1242',
+      item: 'Rotativo',
+   },
+   {
+      id: '3f079c27-e4b3-4dac-9b30-d78148e3fade',
+      codigo: '40-000-004-078',
+      descricao: 'Matrriz W - 237',
+      classificacao: 'Despesa',
+      valor: ' R$ 88,00 ',
+      ged: '18603',
+      ft: '1242',
+      item: 'Rotativo',
+   },
+   {
+      id: 'bed0cc19-885e-4063-8d79-1643d4639ef2',
+      codigo: '40-000-004-079',
+      descricao: 'Matrriz W - 238',
+      classificacao: 'Despesa',
+      valor: ' R$ 88,00 ',
+      ged: '18603',
+      ft: '1242',
+      item: 'Rotativo',
+   },
+   {
+      id: '1cb37042-2128-460a-b2cd-900fceb5d14a',
+      codigo: '40-000-004-080',
+      descricao: 'Matrriz W - 239',
+      classificacao: 'Despesa',
+      valor: ' R$ 88,00 ',
+      ged: '18603',
+      ft: '1242',
+      item: 'Rotativo',
+   },
+   {
+      id: 'c62271c9-039b-48f0-b672-d713ba40fb32',
+      codigo: '40-000-004-082',
+      descricao: 'Matrriz W - 243',
+      classificacao: 'Despesa',
+      valor: ' R$ 88,00 ',
+      ged: '18603',
+      ft: '1242',
+      item: 'Rotativo',
+   },
+   {
+      id: 'b210f9af-2b64-421a-a429-f426b0611993',
+      codigo: '40-000-034-529',
+      descricao: 'Metro Zigue Zague (2 metros)',
+      classificacao: 'Despesa',
+      valor: ' R$ 15,80 ',
+      ged: '18603',
+      ft: '1278',
+      item: 'Estoque',
+   },
+   {
+      id: '06b9e46f-1c4d-48cb-81f0-6be19db0c4b1',
+      codigo: '40-000-034-568',
+      descricao: 'MOITAO DOIS GORNES LINHA MORTA',
+      classificacao: 'Despesa',
+      valor: ' R$ 1.061,14 ',
+      ged: '18603',
+      ft: '1279',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: '71c6269f-a0e0-41cf-ab0e-b5a33101d4d3',
+      codigo: '40-000-034-558',
+      descricao: 'MOITÃO EM AÇO DE 3 GORNES',
+      classificacao: 'Despesa',
+      valor: ' R$ 1.293,17 ',
+      ged: '18603',
+      ft: '1280',
+      item: 'Rotativo',
+   },
+   {
+      id: 'c0e6361c-8e99-46ce-a8ed-13e0e2bd9a29',
+      codigo: '40-000-034-515',
+      descricao: 'MOITAO LINHA VIVA',
+      classificacao: 'Despesa',
+      valor: ' R$ 528,94 ',
+      ged: '18603',
+      ft: '1281',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: '2283fca1-0e4d-4d3d-880a-ed3fa2ab4919',
+      codigo: '40-000-016-467',
+      descricao: 'MOSQUETAO ACO TIPO PERA 3500KG-EPC',
+      classificacao: 'Despesa',
+      valor: ' R$ 63,55 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'cb467c16-27d7-42e1-8958-5fd84283d1a6',
+      codigo: '40-000-034-551',
+      descricao: 'Mosquetão com mola',
+      classificacao: 'Despesa',
+      valor: ' R$ 12,72 ',
+      ged: '18603',
+      ft: '1282',
+      item: 'Estoque',
+   },
+   {
+      id: '496010a6-feed-4533-b95d-6c26a621e6b2',
+      codigo: '40-000-015-516',
+      descricao: 'MOSQUETAO OVAL ACO 2200KG F-EPI',
+      classificacao: 'Despesa',
+      valor: ' R$ 79,80 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '3f8b2180-bc1e-458a-99e7-0e87431ab30e',
+      codigo: '40-000-047-049',
+      descricao: 'MOTOPODA À BATERIA',
+      classificacao: 'Investimento',
+      valor: ' R$ 4.399,88 ',
+      ged: '18603',
+      ft: '2060',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: '164f4b3b-2749-49d7-8ebb-bb6016435187',
+      codigo: '50-000-032-492',
+      descricao: 'MOTOSSERRA',
+      classificacao: 'Investimento',
+      valor: ' R$ 2.153,33 ',
+      ged: '18603',
+      ft: '2061',
+      item: 'Rotativo',
+   },
+   {
+      id: '59e5ee0a-fbc4-451e-8a6c-05f9cf63aca7',
+      codigo: '40-000-047-050',
+      descricao: 'MOTOSSERRA A BATERIA',
+      classificacao: 'Investimento',
+      valor: ' R$ 3.583,44 ',
+      ged: '18603',
+      ft: '2064',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: 'e8317fee-f508-46f9-872f-52a45997aa23',
+      codigo: '40-000-034-567',
+      descricao: 'Nível de Bolha – Madeira',
+      classificacao: 'Despesa',
+      valor: ' R$ 27,86 ',
+      ged: '18603',
+      ft: '1283',
+      item: 'Estoque',
+   },
+   {
+      id: '4a09ef3c-a643-45b7-b3c8-89c22ba86b2a',
+      codigo: '40-000-045-575',
+      descricao: 'Nivelador de Escada tipo Degrau',
+      classificacao: 'Despesa',
+      valor: ' R$ 185,31 ',
+      ged: '18603',
+      ft: '1285',
+      item: 'Estoque',
+   },
+   {
+      id: 'ea5bb1bc-40fa-407b-a70c-c239ae60eae8',
+      codigo: '40-000-032-362',
+      descricao: 'OCULOS PROT   SOLDA TON 5',
+      classificacao: 'Despesa',
+      valor: ' R$ 22,58 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '9d1dc347-fe70-43c3-a743-b712699ce165',
+      codigo: '40-000-046-493',
+      descricao: 'OCULOS PROTECAO CINZA ANTI EMBAC IV      ',
+      classificacao: 'Despesa',
+      valor: ' R$ 47,89 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '1f429d44-2152-41eb-b349-eb517d76f433',
+      codigo: '40-000-010-344',
+      descricao: 'OCULOS SEG INCOLOR - EPI - IMP',
+      classificacao: 'Despesa',
+      valor: ' R$ 11,00 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'e2afa77a-06b2-4ee6-9f3f-2d9d3693dee2',
+      codigo: '40-000-034-531',
+      descricao: 'Pá',
+      classificacao: 'Despesa',
+      valor: ' R$ 46,14 ',
+      ged: '18603',
+      ft: '1286',
+      item: 'Estoque',
+   },
+   {
+      id: '62f1a0f9-38ef-4315-af61-0d5b7253bf6b',
+      codigo: '40-000-046-886',
+      descricao: 'Patesca',
+      classificacao: 'Despesa',
+      valor: ' R$ 19.865,82 ',
+      ged: '18603',
+      ft: '1101',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: '61dbf5a2-f198-43d9-a8a6-5dafbe168a48',
+      codigo: '40-000-034-582',
+      descricao: 'Pedarol para Escalada e apoio em postes DT',
+      classificacao: 'Despesa',
+      valor: ' R$ 358,15 ',
+      ged: '18603',
+      ft: '1289',
+      item: 'Estoque',
+   },
+   {
+      id: 'c2424d4d-0455-461b-9217-83578d167786',
+      codigo: '40-000-047-051',
+      descricao: 'PERFURATRIZ PARA USO EM GUINDAUTO',
+      classificacao: 'Investimento',
+      valor: ' R$ 23.986,55 ',
+      ged: '18603',
+      ft: '2068',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: '0b28af5f-7ca5-4dc4-af52-a9051bd2db95',
+      codigo: '40-000-004-285',
+      descricao: 'PERNEIRA COURO VACUM FIXAR CALCADO',
+      classificacao: 'Despesa',
+      valor: ' R$ 31,96 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '438d9b00-8cb4-4c55-8d06-03c673c9d70d',
+      codigo: '40-000-032-349',
+      descricao: 'PERNEIRA EM RASPA',
+      classificacao: 'Despesa',
+      valor: ' R$ 40,32 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '071a26b4-8e0c-407f-9e31-f74ff3bd6897',
+      codigo: '40-000-034-541',
+      descricao: 'Picareta Alvião (Chibanca)',
+      classificacao: 'Despesa',
+      valor: ' R$ 45,49 ',
+      ged: '18603',
+      ft: '1290',
+      item: 'Estoque',
+   },
+   {
+      id: 'b927bb57-bac2-4a79-ac3d-4b9e78aa4482',
+      codigo: '40-000-015-127',
+      descricao: 'Placa de Interdição de Manobras',
+      classificacao: 'Despesa',
+      valor: ' R$ 250,05 ',
+      ged: '18603',
+      ft: '1293',
+      item: 'Estoque',
+   },
+   {
+      id: '1924f31e-d238-4b00-904f-97426e8450c0',
+      codigo: '40-000-046-872',
+      descricao: 'PLACA DE SINALIZAÇÃO PARA BIG JUMPER',
+      classificacao: 'Despesa',
+      valor: ' R$ 22,87 ',
+      ged: '18603',
+      ft: '1161',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: '11e66f56-3abd-41d9-a909-fcc3657a4350',
+      codigo: '40-000-047-047',
+      descricao: 'PLACA INTERDIÇÃO DE MANOBRA S/ SUPORTE',
+      classificacao: 'Despesa',
+      valor: ' R$ 22,87 ',
+      ged: '18603',
+      ft: '1293',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '493d041e-9fb1-4df5-a08f-5182a4b494f2',
+      codigo: '40-000-033-092',
+      descricao: 'POLIA PARA RESGATE',
+      classificacao: 'Despesa',
+      valor: ' R$ 658,51 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'a5fd9d1a-a78c-4cc7-9197-f16873a2172c',
+      codigo: '40-000-047-046',
+      descricao: 'PONTEIRA PARA PRENDEDOR',
+      classificacao: 'Despesa',
+      valor: ' R$ 5,50 ',
+      ged: '18603',
+      ft: '1247',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: 'c8514cd7-4523-477a-bfa1-5b01e10cc3e0',
+      codigo: '40-000-034-540',
+      descricao: 'Ponteiro de aço',
+      classificacao: 'Despesa',
+      valor: ' R$ 43,30 ',
+      ged: '18603',
+      ft: '1296',
+      item: 'Estoque',
+   },
+   {
+      id: '05bbfda6-60b0-4128-9f61-a6b30fa62fa4',
+      codigo: '40-000-034-625',
+      descricao: 'Porta Fusível para Jamper Linha Viva',
+      classificacao: 'Despesa',
+      valor: ' R$ 486,24 ',
+      ged: '18603',
+      ft: '1298',
+      item: 'Estoque',
+   },
+   {
+      id: '9ab99450-ac40-4484-84f7-d38e7bcdda41',
+      codigo: '40-000-004-115',
+      descricao: 'Pregador de Cobertura para Linha Viva',
+      classificacao: 'Despesa',
+      valor: ' R$ 49,89 ',
+      ged: '18603',
+      ft: '1299',
+      item: 'Estoque',
+   },
+   {
+      id: '241204ac-58d0-4fe7-9163-d206cfdc5de3',
+      codigo: '40-000-045-626',
+      descricao: 'Presilha de Suspensão / Elevação',
+      classificacao: 'Despesa',
+      valor: ' R$ 325,66 ',
+      ged: '18603',
+      ft: '1300',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: 'f2154441-f7f1-4ac4-a764-fa26480b8cc2',
+      codigo: '40-000-015-471',
+      descricao: 'Presilha para Manobra',
+      classificacao: 'Despesa',
+      valor: ' R$ 153,00 ',
+      ged: '18603',
+      ft: '1301',
+      item: 'Estoque',
+   },
+   {
+      id: 'be20c190-461e-48e9-947f-47ea861e1262',
+      codigo: '40-000-031-195',
+      descricao: 'PROT FACIAL TELA NAILON OPER MOTOSERRA',
+      classificacao: 'Despesa',
+      valor: ' R$ 125,00 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: 'f5b56bef-b000-44c3-bc06-4dadc66f2672',
+      codigo: '40-000-015-689',
+      descricao: 'PROTECAO CORDA TALABARTE-EPI',
+      classificacao: 'Despesa',
+      valor: ' R$ 68,90 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'aa6d1222-d889-4a6a-8acb-0fa205f5e958',
+      codigo: '40-000-015-160',
+      descricao: 'PROTET AUDITIVO ESPUMA TIPO INSE',
+      classificacao: 'Despesa',
+      valor: ' R$ 0,59 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'cc3af03a-dbb4-4827-8e47-329fb3338672',
+      codigo: '40-000-016-350',
+      descricao: 'PROTETOR AURICULAR ABAFADOR-EPI',
+      classificacao: 'Despesa',
+      valor: ' R$ 62,34 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'f0a7cf7d-053a-4bff-b00d-0df14a2a8239',
+      codigo: '40-000-004-289',
+      descricao: 'PROTETOR AURICULAR PLUG GRANDE',
+      classificacao: 'Despesa',
+      valor: ' R$ 2,47 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '850db66e-6d0d-48fd-a6d2-a80c80c0821e',
+      codigo: '40-000-048-043',
+      descricao: 'PROTETOR PARA ARMAÇÃO SECUNDÁRIA',
+      classificacao: 'Despesa',
+      valor: ' R$ 35,00 ',
+      ged: '18603',
+      ft: '1338',
+      item: 'Estoque',
+   },
+   {
+      id: '71f91222-607c-4b99-9b6f-83cb47b46355',
+      codigo: '40-000-006-275',
+      descricao: 'PROTETOR FACIAL CAPACETE C/LENTE',
+      classificacao: 'Despesa',
+      valor: ' R$ 117,20 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'dff38b20-36f9-46ea-9634-9e3a2aff3393',
+      codigo: '40-000-034-553',
+      descricao: 'PROTETOR SOLAR CORPO',
+      classificacao: 'Despesa',
+      valor: ' R$ 7,87 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '557139de-e1ed-4cef-8901-cdb9709d3ad2',
+      codigo: '40-000-034-560',
+      descricao: 'Prumo',
+      classificacao: 'Despesa',
+      valor: ' R$ 20,92 ',
+      ged: '18603',
+      ft: '1302',
+      item: 'Estoque',
+   },
+   {
+      id: 'ab7953ef-a8b2-415f-96d7-52ff9bd5388d',
+      codigo: '40-000-045-623',
+      descricao: 'Refletor de led a bateria',
+      classificacao: 'Investimento',
+      valor: ' R$ 2.110,33 ',
+      ged: '18603',
+      ft: '2088',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: 'e327fb17-49a9-4a69-bca3-17275be77d82',
+      codigo: '40-000-047-093',
+      descricao: 'RESPIRADOR PURIFICADOR DE AR AZUL PFF2',
+      classificacao: 'Despesa',
+      valor: ' R$ 1,20 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'a5cefe58-52ac-40d3-aed3-b9d65f97484f',
+      codigo: '40-000-045-558',
+      descricao: 'Rompedor de concreto elétrico bivolt',
+      classificacao: 'Investimento',
+      valor: ' R$ 4.533,98 ',
+      ged: '18603',
+      ft: '2059',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: '62285990-9f20-46bd-b3f1-31b1082e4099',
+      codigo: '40-000-047-052',
+      descricao: 'SACA POSTE',
+      classificacao: 'Investimento',
+      valor: ' R$ 10.530,00 ',
+      ged: '18603',
+      ft: '2046',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: '5c08fcae-37a3-4169-9a2c-1df4984d1553',
+      codigo: '40-000-016-005',
+      descricao: 'SACOLA CORDA LINHA VID LONA IMP TR-EPI',
+      classificacao: 'Despesa',
+      valor: ' R$ 139,92 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'a513103e-b9ee-4cff-9064-d5bbd87c71be',
+      codigo: '40-000-004-123',
+      descricao: 'SACOLA LONA GUARDAR LUVAS ISOL./PROT',
+      classificacao: 'Despesa',
+      valor: ' R$ 43,46 ',
+      ged: '2276',
+      ft: 'EPI',
+      item: 'Rotativo',
+   },
+   {
+      id: '3bc39d90-5b94-414e-8ddb-c45c2bd3747f',
+      codigo: '40-000-015-015',
+      descricao: 'SELA AMARRACAO CORDA',
+      classificacao: 'Despesa',
+      valor: ' R$ 356,00 ',
+      ged: '18603',
+      ft: '1306',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: 'd2f038a1-4e30-4972-92bd-5c182e5279ce',
+      codigo: '50-000-032-549',
+      descricao: 'Sela para poste 38',
+      classificacao: 'Despesa/Investimento',
+      valor: ' R$ 1.190,70 ',
+      ged: '18603',
+      ft: '2075',
+      item: 'Estoque',
+   },
+   {
+      id: '1a955130-8732-4231-949a-9a8d0a674eec',
+      codigo: '50-000-032-548',
+      descricao: 'Sela para poste 64',
+      classificacao: 'Despesa/Investimento',
+      valor: ' R$ 1.108,70 ',
+      ged: '18603',
+      ft: '2075',
+      item: 'Estoque',
+   },
+   {
+      id: '0b18b99c-c8da-4360-a672-26544043f471',
+      codigo: '50-000-015-017',
+      descricao: 'Sela plataforma para poste',
+      classificacao: 'Despesa/Investimento',
+      valor: ' R$ 333,90 ',
+      ged: '18603',
+      ft: '1307',
+      item: 'Estoque',
+   },
+   {
+      id: 'ac7170ef-c9f3-485f-a742-f96e07c1ee9d',
+      codigo: '40-000-046-887',
+      descricao: 'Separador Cabo Multiplexado',
+      classificacao: 'Despesa',
+      valor: ' R$ 23,00 ',
+      ged: '18603',
+      ft: '1269',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '23b30289-1c45-45ac-8541-e5f6e45a6068',
+      codigo: '40-000-046-793',
+      descricao: 'Separador de cabos / condutores (BT Energizada)',
+      classificacao: 'Despesa',
+      valor: ' R$ 76,35 ',
+      ged: '18603',
+      ft: '1221',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: 'f4e68808-1dbf-40c6-9129-f2aa93d85abb',
+      codigo: '50-000-032-495',
+      descricao: 'SERRA HIDRAULICA CORRENTE  - IMP',
+      classificacao: 'Investimento',
+      valor: ' R$ 14.039,99 ',
+      ged: '18603',
+      ft: '2077',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: 'c99e3913-1b72-434d-9bb3-a83d4c60b5e2',
+      codigo: '40-000-046-547',
+      descricao: 'SERRA PODA C/ FIM CURSO ENG UNIVERSAL',
+      classificacao: 'Despesa',
+      valor: ' R$ 418,63 ',
+      ged: '18603',
+      ft: '1311',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '1bea59b1-3969-489c-a3d7-ff9dc28135be',
+      codigo: '40-000-034-627',
+      descricao: 'Serra sabre',
+      classificacao: 'Investimento',
+      valor: ' R$ 1.687,09 ',
+      ged: '18603',
+      ft: '2089',
+      item: 'Rotativo',
+   },
+   {
+      id: 'c5b57251-d55e-4cfa-9af3-36a18e810efc',
+      codigo: '40-000-047-517',
+      descricao: 'SOLVENTE ECOLOGICO',
+      classificacao: 'Despesa',
+      valor: ' R$ 110,00 ',
+      ged: '18603',
+      ft: '1070',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '38f3fcc9-3202-4977-8e3c-6ac079c5667c',
+      codigo: '40-000-045-118',
+      descricao: 'Soquete Longo para Pafuso Sextavado N° 13',
+      classificacao: 'Despesa',
+      valor: ' R$ 88,32 ',
+      ged: '18603',
+      ft: '1327',
+      item: 'Estoque',
+   },
+   {
+      id: '5b008917-a416-476e-b45a-95635496731c',
+      codigo: '40-000-045-136',
+      descricao: 'Soquete Longo para Pafuso Sextavado N° 19 e 17',
+      classificacao: 'Despesa',
+      valor: ' R$ 124,22 ',
+      ged: '18603',
+      ft: '1327',
+      item: 'Estoque',
+   },
+   {
+      id: '0652363d-5808-4277-90e0-405c261e3187',
+      codigo: '40-000-045-052',
+      descricao: 'Soquete Longo para Porca Quadrada N° 19 e 16',
+      classificacao: 'Despesa',
+      valor: ' R$ 110,55 ',
+      ged: '18603',
+      ft: '1326',
+      item: 'Estoque',
+   },
+   {
+      id: 'f6850e7d-9063-45ef-b99e-77006fdc1837',
+      codigo: '40-000-045-110',
+      descricao: 'Soquete Longo para Porca Quadrada N° 24 e 27',
+      classificacao: 'Despesa',
+      valor: ' R$ 114,22 ',
+      ged: '18603',
+      ft: '1326',
+      item: 'Estoque',
+   },
+   {
+      id: '41b72dcd-9c93-45d8-a49a-07d6331c8253',
+      codigo: '40-000-034-505',
+      descricao: 'Soquete Manual',
+      classificacao: 'Despesa',
+      valor: ' R$ 324,36 ',
+      ged: '18603',
+      ft: '1313',
+      item: 'Estoque',
+   },
+   {
+      id: 'a6d94061-6766-45e3-88c2-5778a0a01a7a',
+      codigo: '40-000-034-591',
+      descricao: 'SUPORTE P/VISOR DO PROTETOR FACIAL',
+      classificacao: 'Despesa',
+      valor: ' R$ 58,80 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '441942c6-fca4-4cad-b422-4113ddd841a0',
+      codigo: '40-000-034-577',
+      descricao: 'Suporte para Apoio de Poste (Tripé)',
+      classificacao: 'Investimento',
+      valor: ' R$ 2.850,00 ',
+      ged: '18603',
+      ft: '1314',
+      item: 'Estoque',
+   },
+   {
+      id: 'a519d046-c4e5-4346-a2e8-a37c28b7da23',
+      codigo: '40-000-047-095',
+      descricao: 'SUPORTE PARA BANDEIROLA',
+      classificacao: 'Despesa',
+      valor: ' R$ 213,55 ',
+      ged: '18603',
+      ft: '1071',
+      item: 'Estoque',
+   },
+   {
+      id: '3d7dd2f5-86a6-43c3-9e39-b50cbd2a704d',
+      codigo: '40-000-015-017',
+      descricao: 'Suporte para condutor',
+      classificacao: 'Despesa',
+      valor: ' R$ 266,00 ',
+      ged: '18603',
+      ft: '1315',
+      item: 'Estoque',
+   },
+   {
+      id: '159830c3-1c32-4ac7-a01e-f062ddbd6fc1',
+      codigo: '40-000-041-993',
+      descricao: 'Suporte tipo U com Colar de 64 MM',
+      classificacao: 'Despesa',
+      valor: ' R$ 428,86 ',
+      ged: '18603',
+      ft: '1316',
+      item: 'Estoque',
+   },
+   {
+      id: '418c5812-29c5-476c-b3b8-61853a503780',
+      codigo: '40-000-032-782',
+      descricao: 'TALABARTE CESTO AÉREO 1,5M',
+      classificacao: 'Despesa',
+      valor: ' R$ 243,73 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '0140fb50-521a-47e4-b550-43df4b7ea75f',
+      codigo: '40-000-015-542',
+      descricao: 'TALABARTE SEG DUPLO Y-EPI',
+      classificacao: 'Despesa',
+      valor: ' R$ 625,40 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '5f325435-e1d0-4d8c-9bbf-afe39978257d',
+      codigo: '40-000-015-538',
+      descricao: 'TALABARTE SEG REGUL E CORD C/PRO-EPI',
+      classificacao: 'Despesa',
+      valor: ' R$ 350,97 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'cdc937a7-ee71-4188-bc0a-be2119756412',
+      codigo: '40-000-004-322',
+      descricao: 'TALCO INDUSTRIAL BRANCO ASTM MALHA 325',
+      classificacao: 'Despesa',
+      valor: ' R$ 7,63 ',
+      ged: '18603',
+      ft: '1317',
+      item: 'Rotativo',
+   },
+   {
+      id: '86906e99-8c60-4ea0-9e0a-3db83d99e981',
+      codigo: '40-000-034-489',
+      descricao: 'Talhadeira chata',
+      classificacao: 'Despesa',
+      valor: ' R$ 35,09 ',
+      ged: '18603',
+      ft: '1318',
+      item: 'Estoque',
+   },
+   {
+      id: '3512a25c-8fe3-44ae-b5e3-5192ebe637e4',
+      codigo: '40-000-031-786',
+      descricao: 'Tesourão Cabo de Fibra Curto Linha Viva',
+      classificacao: 'Despesa/Investimento',
+      valor: ' R$ 370,00 ',
+      ged: '18603',
+      ft: '1319',
+      item: 'Estoque',
+   },
+   {
+      id: '99958ad5-ecac-4d40-bea7-5ac1b7f08fdc',
+      codigo: '40-000-045-137',
+      descricao: 'Tesourão Cabo de Fibra Curto Linha Viva Bico Papagaio',
+      classificacao: 'Despesa',
+      valor: ' R$ 244,33 ',
+      ged: '18603',
+      ft: '1273',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '58914e0a-8ca6-4402-9ebf-111e5663c3ff',
+      codigo: '50-000-010-299',
+      descricao: 'Tesourão para Cortar Cabos (18)',
+      classificacao: 'Despesa',
+      valor: ' R$ 76,80 ',
+      ged: '18603',
+      ft: '2078',
+      item: 'Estoque',
+   },
+   {
+      id: '44b85fcd-4133-4121-b9d6-1862fa511a66',
+      codigo: '50-000-032-500',
+      descricao: 'Tesourão para Cortar Cabos (30)',
+      classificacao: 'Despesa',
+      valor: ' R$ 95,00 ',
+      ged: '18603',
+      ft: '2078',
+      item: 'Estoque',
+   },
+   {
+      id: '14bc8455-4ae3-4a50-a8ef-9fc389005290',
+      codigo: '40-000-046-545',
+      descricao: 'Testador de Sequencia de Fase',
+      classificacao: 'Investimento',
+      valor: ' R$ 4.230,99 ',
+      ged: '18603',
+      ft: '1320',
+      item: 'Estoque',
+   },
+   {
+      id: '962a2d1f-092b-466f-b63d-4c4d5cccac07',
+      codigo: '40-000-030-607',
+      descricao: 'Trado',
+      classificacao: 'Despesa',
+      valor: ' R$ 96,85 ',
+      ged: '18603',
+      ft: '1321',
+      item: 'Estoque',
+   },
+   {
+      id: '3286ffda-eecb-4a73-b962-06f5c4db4c13',
+      codigo: '40-000-015-521',
+      descricao: 'TRAVA QUEDA C/ABSORV IMP MOSQ PERA-EPI',
+      classificacao: 'Despesa',
+      valor: ' R$ 408,01 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'ead8a694-0944-4934-b2b7-509881fb2231',
+      codigo: '40-000-043-941',
+      descricao: 'TRAVAQUEDA RETRATIL 2,5 M     item novo (cadeia reversa)',
+      classificacao: 'Despesa',
+      valor: ' R$ 1.254,00 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: 'c6d6e42e-8df9-4d10-8e18-9b1917357b95',
+      codigo: '40-000-047-048',
+      descricao: 'TRENA A LASER',
+      classificacao: 'Investimento',
+      valor: ' R$ 450,00 ',
+      ged: '18603',
+      ft: '2047',
+      item: 'Novo_Rotativo',
+   },
+   {
+      id: 'deef766b-bf10-41db-8685-f8bac9049fa5',
+      codigo: '40-000-034-556',
+      descricao: 'Trena Fita de Fibra de  50 mts',
+      classificacao: 'Despesa',
+      valor: ' R$ 44,60 ',
+      ged: '18603',
+      ft: '1323',
+      item: 'Estoque',
+   },
+   {
+      id: '6c5ef348-089c-431d-a1d4-982490acbe08',
+      codigo: '40-000-034-566',
+      descricao: 'Trena fita metalica de 2 mts',
+      classificacao: 'Despesa',
+      valor: ' R$ 4,24 ',
+      ged: '18603',
+      ft: '1324',
+      item: 'Estoque',
+   },
+   {
+      id: 'aa6e119c-1205-4cb2-b98f-9b23644e9aa7',
+      codigo: '40-000-015-539',
+      descricao: 'Vara de Manobra Telescópica Reforçada',
+      classificacao: 'Despesa/Investimento',
+      valor: ' R$ 924,29 ',
+      ged: '18603',
+      ft: '2082',
+      item: 'Estoque',
+   },
+   {
+      id: '03662e85-6d45-49a3-aa19-60301fcda131',
+      codigo: '40-000-003-283',
+      descricao: 'VARA MANOB SECCION C/4 ELEMENT',
+      classificacao: 'Despesa',
+      valor: ' R$ 720,30 ',
+      ged: '18603',
+      ft: '2081',
+      item: 'Rotativo',
+   },
+   {
+      id: 'b7fc4456-e793-4576-945d-069610d7a5d1',
+      codigo: '40-000-046-888',
+      descricao: 'Vassoura ',
+      classificacao: 'Despesa',
+      valor: ' R$ 15,00 ',
+      ged: '18603',
+      ft: '1272',
+      item: 'Novo_ Estoque',
+   },
+   {
+      id: '7b859cef-6a61-4bf0-8663-f76b6c1f86f9',
+      codigo: '40-000-004-815',
+      descricao: 'VESTIMENTA IGNIF 88/12 JAQUETA - EG - Jaqueta de Frio FR',
+      classificacao: 'Despesa',
+      valor: ' R$ 265,00 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'b3e19f30-9340-43e8-9a08-0f3e13351794',
+      codigo: '40-000-004-811',
+      descricao: 'VESTIMENTA IGNIF 88/12 JAQUETA - G - Jaqueta de Frio FR',
+      classificacao: 'Despesa',
+      valor: ' R$ 265,00 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'c4831ab1-b3e9-46e7-afba-3b9a23177bf9',
+      codigo: '40-000-004-813',
+      descricao: 'VESTIMENTA IGNIF 88/12 JAQUETA - GG - Jaqueta de Frio FR',
+      classificacao: 'Despesa',
+      valor: ' R$ 265,00 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '0628f91f-a51f-49c3-a3fc-97855de80dba',
+      codigo: '40-000-004-809',
+      descricao: 'VESTIMENTA IGNIF 88/12 JAQUETA - M - Jaqueta de Frio FR',
+      classificacao: 'Despesa',
+      valor: ' R$ 265,00 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '9c00a51d-6576-4f04-aa65-68134883a51a',
+      codigo: '40-000-004-807',
+      descricao: 'VESTIMENTA IGNIF 88/12 JAQUETA - P - Jaqueta de Frio FR',
+      classificacao: 'Despesa',
+      valor: ' R$ 265,00 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'b3e5b4cb-e867-4c25-9758-712b95180841',
+      codigo: '40-000-015-383',
+      descricao: 'VESTIMENTA IGNIF CALCA - EGG',
+      classificacao: 'Despesa',
+      valor: ' R$ 109,24 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '0e94a327-1025-43ff-b7c7-19f35f2ea436',
+      codigo: '40-000-015-351',
+      descricao: 'VESTIMENTA IGNIF CALCA - G',
+      classificacao: 'Despesa',
+      valor: ' R$ 99,85 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '8b4b07a3-2102-4e4b-8da3-f68baf627e0b',
+      codigo: '40-000-015-352',
+      descricao: 'VESTIMENTA IGNIF CALCA - GG',
+      classificacao: 'Despesa',
+      valor: ' R$ 99,85 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'a32f88c7-d9c2-432d-a3af-1ed66cd40f46',
+      codigo: '40-000-015-350',
+      descricao: 'VESTIMENTA IGNIF CALCA - M',
+      classificacao: 'Despesa',
+      valor: ' R$ 99,85 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '441ab7a6-9a02-4bbd-acc1-b5d7390df52d',
+      codigo: '40-000-015-348',
+      descricao: 'VESTIMENTA IGNIF CALCA - PP',
+      classificacao: 'Despesa',
+      valor: ' R$ 108,34 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'e9ea3bd1-1ba3-4ac3-9b3c-67d85b278fa9',
+      codigo: '40-000-015-353',
+      descricao: 'VESTIMENTA IGNIF CALCA  - EG',
+      classificacao: 'Despesa',
+      valor: ' R$ 99,85 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'b3cc70eb-ea35-49af-a9ab-475372a11d74',
+      codigo: '40-000-015-349',
+      descricao: 'VESTIMENTA IGNIF CALCA  - P',
+      classificacao: 'Despesa',
+      valor: ' R$ 99,85 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'ca634da0-2186-4f14-9b17-4d8c55c9adf6',
+      codigo: '40-000-016-255',
+      descricao: 'VESTIMENTA IGNIF CAMISA SERV - EG',
+      classificacao: 'Despesa',
+      valor: ' R$ 140,74 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '2806ed53-d4a1-4403-8c6a-918983b96670',
+      codigo: '40-000-016-256',
+      descricao: 'VESTIMENTA IGNIF CAMISA SERV - EGG',
+      classificacao: 'Despesa',
+      valor: ' R$ 137,37 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'ec1ed490-255c-406f-9b16-8c17816d2c17',
+      codigo: '40-000-016-253',
+      descricao: 'VESTIMENTA IGNIF CAMISA SERV - G',
+      classificacao: 'Despesa',
+      valor: ' R$ 115,54 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'ff5c172f-8d1c-4ea0-b5d6-95f1efc661e6',
+      codigo: '40-000-016-254',
+      descricao: 'VESTIMENTA IGNIF CAMISA SERV - GG',
+      classificacao: 'Despesa',
+      valor: ' R$ 115,54 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'f240c526-632f-41cf-a323-c98fea59c4a6',
+      codigo: '40-000-016-252',
+      descricao: 'VESTIMENTA IGNIF CAMISA SERV - M',
+      classificacao: 'Despesa',
+      valor: ' R$ 115,54 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: '0771e81e-d98d-4675-be60-39c9bf9a307b',
+      codigo: '40-000-016-251',
+      descricao: 'VESTIMENTA IGNIF CAMISA SERV - P',
+      classificacao: 'Despesa',
+      valor: ' R$ 115,54 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'db83e1f1-25c4-4b8b-b567-553290ed32dc',
+      codigo: '40-000-016-250',
+      descricao: 'VESTIMENTA IGNIF CAMISA SERV - PP',
+      classificacao: 'Despesa',
+      valor: ' R$ 115,54 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'c24e4983-efe8-420d-bb3f-9b9af64863d9',
+      codigo: '40-000-004-290',
+      descricao: 'VESTIMENTA PROT CONTRA INSETO G',
+      classificacao: 'Despesa',
+      valor: ' R$ 201,40 ',
+      ged: '14688',
+      ft: 'EPI',
+      item: 'Estoque',
+   },
+   {
+      id: 'cc34731e-74ed-4b87-99c8-15e81e4370c6',
+      codigo: '50-000-010-066',
+      descricao: 'Volt - Amperimetro Tipo Alicate',
+      classificacao: 'Despesa/Investimento',
+      valor: ' R$ 520,00 ',
+      ged: '18603',
+      ft: '2085',
+      item: 'Estoque',
    },
 ];

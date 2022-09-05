@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, Box, HStack } from 'native-base';
 import { Dimensions } from 'react-native';
+import { GlobalText } from '../GlobalText';
 
 const w = Dimensions.get('window').width;
 
@@ -13,19 +14,19 @@ interface Props {
 export function CardItem({ item, qnt, description }: Props) {
    return (
       <Box borderRadius="10" p="5" w="90%" bg="dark.600">
-         <HStack p="1" bg="dark.700">
-            <Text>Item: </Text>
-            <Text ml={w * 0.2}>{item}</Text>
+         <HStack p="1" bg="dark.700" alignItems="center">
+            <GlobalText font="Black" text="Item: " />
+            <GlobalText text={item} font="Regular" size={12} />
          </HStack>
 
-         <HStack p="1">
-            <Text>Quantidae: </Text>
-            <Text ml={w * 0.11}>{qnt}</Text>
+         <HStack alignItems="center" p="1">
+            <GlobalText font="Black" text="Quantidade: " />
+            <GlobalText text={qnt} font="Regular" size={12} />
          </HStack>
 
-         <HStack p="1" bg="dark.700">
-            <Text>Descrição: </Text>
-            <Text ml={w * 0.11}>{description}</Text>
+         <HStack p="1" bg="dark.700" alignItems="center">
+            <GlobalText font="Black" text="Descrição: " />
+            <GlobalText text={description} font="Regular" size={12} />
          </HStack>
       </Box>
    );

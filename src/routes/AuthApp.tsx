@@ -17,17 +17,18 @@ function TabNavigation() {
       <Tab.Navigator
          screenOptions={{
             headerShown: false,
-            tabBarActiveTintColor: 'blue',
+            tabBarActiveTintColor: theme.colors.orange.tom,
             tabBarStyle: {
                paddingBottom: 4,
                paddingTop: 4,
                height: 60,
-               backgroundColor: '#fff',
+               backgroundColor: theme.colors.blue.tom,
             },
             tabBarLabelStyle: {
                fontSize: 14,
                textAlign: 'center',
-               width: 100,
+               width: 110,
+               fontFamily: 'Black',
             },
          }}
       >

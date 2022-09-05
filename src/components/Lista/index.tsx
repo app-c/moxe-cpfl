@@ -2,9 +2,10 @@ import React from 'react';
 import { Text, Box, VStack } from 'native-base';
 import theme from '../../global/styles/theme';
 import { Line } from '../Line';
+import { GlobalText } from '../GlobalText';
 
 interface IProps {
-   situacao: 'pendente' | 'em separacao' | 'entregue';
+   situacao: string;
    item: string;
    data: string;
    qnt: string;
@@ -40,10 +41,10 @@ export function Lista({ situacao, item, data, qnt }: IProps) {
          bg="dark.700"
       >
          <VStack space="2">
-            <Text color="dark.200">ITEM: {item}</Text>
-            <Text color="dark.200">QUANTIDADE: {qnt}</Text>
-            <Text color="dark.200">DATA: {data}</Text>
-            <Text color="dark.200">SITUAÇÃO: {situacao}</Text>
+            <GlobalText font="Black" text={`ITEM: ${item}`} />
+            <GlobalText font="Black" text={`QUANTIDADE: ${qnt}`} />
+            <GlobalText font="Black" text={`DATA: ${data}`} />
+            <GlobalText font="Black" text={`SITUAÇÃO: ${situacao}`} />
          </VStack>
          <Line color={color} />
       </Box>

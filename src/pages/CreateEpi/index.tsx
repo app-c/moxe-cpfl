@@ -16,13 +16,17 @@ import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import * as ImagePicker from 'expo-image-picker';
 import { Feather } from '@expo/vector-icons';
 import storage from '@react-native-firebase/storage';
+import { format } from 'date-fns';
 import { Input } from '../../components/Input';
 import { useAuth } from '../../hooks/AuthContext';
 import { colecao } from '../../colecao';
-import { IUser } from '../../dtos';
+import { IMaterial, IReqEpi, IUser } from '../../dtos';
 import { CardItem } from '../../components/CardItem';
-import { ListMaterial } from '../../utils/MaterialList';
+import { ListMaterial, materias } from '../../utils/MaterialList';
 import { Itens } from '../../components/Itens';
+import { Header } from '../../components/Header';
+import { GlobalText } from '../../components/GlobalText';
+import theme from '../../global/styles/theme';
 
 interface Props {
    token: string;
@@ -67,10 +71,11 @@ export function CreateEpi() {
    const [messageErrItem, setMessageErrItem] = React.useState('');
    const [errDes, setErrDes] = React.useState(false);
    const [messageErrDes, setMessageErrDes] = React.useState('');
-   const [cart, setCart] = React.useState<PropsItens[]>([]);
+   const [cart, setCart] = React.useState<IReqEpi[]>([]);
    const [showModaItens, setModaItens] = React.useState(false);
    const [image, setImage] = React.useState(null);
-   const [epis, setEpis] = React.useState<EpisPros[]>([]);
+   const [dataMaterial, setMaterial] = React.useState<IMaterial[]>(materias);
+   const [materialInfo, setMaterialInfo] = React.useState<IMaterial>();
 
    //* * FORM */
    const [item, setItem] = React.useState('SELECIONE UM ITEM');
@@ -79,6 +84,7 @@ export function CreateEpi() {
    const [type, setType] = React.useState('');
    const [imageUrl, setImageUrl] = React.useState('');
 
+   // todo TOKEN MOXIRIFADO */.................................................
    React.useEffect(() => {
       Fire()
          .collection(colecao.MOXERIFE)
@@ -93,39 +99,23 @@ export function CreateEpi() {
          });
    }, []);
 
-   console.log(expoToken);
-
-   const handleSubmit = React.useCallback(async () => {
+   const submit = React.useCallback(async () => {
       if (cart.length > 0) {
          for (let i = 0; i < cart.length; i += 1) {
-            const dados = {
-               item: cart[i].item,
-               data: new Date().getTime(),
-               situacao: 'pendente',
-               descricao: cart[i].descricao,
-               user_id: user.id,
-               nome: user.nome,
-               token: expoToken,
-               quantidade: qnt,
-               image: imageUrl,
-            };
-
+            const dados = cart[i];
             Fire()
                .collection(colect.REQEPI)
                .add(dados)
-               .then(() => {
-                  Alert.alert('Sucesso!', 'Aguarde a separaçao do seu pedido');
-                  nav.navigate('home');
+               .catch(err => {
+                  return Alert.alert('Erro ao carregar ser dados', err);
                });
-
             for (let i = 0; i < tokenMoxerife.length; i += 1) {
                const message = {
                   to: tokenMoxerife[i].token,
                   sound: 'default',
                   title: 'NOVA REQUISIÇÃO DE EPI',
-                  body: `Colaborador ${user.nome} fez uma socilicitação do item: ${dados.item}`,
+                  body: `Colaborador ${user.nome} fez uma socilicitação do item: ${dados.material_info.descricao}`,
                };
-
                await fetch('https://exp.host/--/api/v2/push/send', {
                   method: 'POST',
                   headers: {
@@ -137,7 +127,16 @@ export function CreateEpi() {
                });
             }
          }
+         Alert.alert('Sucesso!', 'Aguarde a separaçao do seu pedido');
+         nav.reset({
+            index: 1,
+            routes: [{ name: 'home' }],
+         });
       } else {
+         if (item === 'SELECIONE UM ITEM') {
+            return Alert.alert('ALERTA', 'selecione um item para continuar');
+         }
+
          if (descricao && qnt) {
             setErro(false);
             setErrDes(false);
@@ -149,11 +148,6 @@ export function CreateEpi() {
             setMessageErrItem('informe a quantidade');
             return;
          }
-
-         if (item === 'SELECIONE UM ITEM') {
-            return Alert.alert('ALERTA', 'selecione um item para continuar');
-         }
-
          if (image === null) {
             return Alert.alert(
                'ATENÇÃO',
@@ -162,15 +156,14 @@ export function CreateEpi() {
          }
 
          const dados = {
-            item,
-            data: new Date().getTime(),
-            situacao: 'pendente',
+            whoFor: 'PESSOAL',
+            data: format(new Date(), 'dd/mm/yy'),
             descricao,
-            user_id: user.id,
-            nome: user.nome,
-            token: expoToken,
-            image: imageUrl,
             quantidade: qnt,
+            situacao: 'pendente',
+            image: imageUrl,
+            user_info: user,
+            material_info: materialInfo,
          };
 
          Fire()
@@ -178,7 +171,16 @@ export function CreateEpi() {
             .add(dados)
             .then(() => {
                Alert.alert('Sucesso!', 'Aguarde a separaçao do seu pedido');
-               nav.navigate('home');
+               nav.reset({
+                  index: 1,
+                  routes: [{ name: 'home' }],
+               });
+            })
+            .catch(err => {
+               return Alert.alert(
+                  'Ocorreu um erro ao carregar seus arquivos',
+                  err,
+               );
             });
 
          for (let i = 0; i < tokenMoxerife.length; i += 1) {
@@ -186,9 +188,8 @@ export function CreateEpi() {
                to: tokenMoxerife[i].token,
                sound: 'default',
                title: 'NOVA REQUISIÇÃO DE EPI',
-               body: `Colaborador ${user.nome} fez uma socilicitação do item: ${dados.item}`,
+               body: `Colaborador ${user.nome} fez uma socilicitação do item: ${dados.material_info.descricao}`,
             };
-
             await fetch('https://exp.host/--/api/v2/push/send', {
                method: 'POST',
                headers: {
@@ -210,16 +211,43 @@ export function CreateEpi() {
       cart,
       colect.REQEPI,
       descricao,
-      expoToken,
       image,
       imageUrl,
       item,
+      materialInfo,
       nav,
       qnt,
       tokenMoxerife,
-      user.id,
-      user.nome,
+      user,
    ]);
+
+   const handleSubmit = useCallback(() => {
+      Fire()
+         .collection(colecao.REQEPI)
+         .get()
+         .then(h => {
+            const dt = h.docs.map(h => h.data() as IReqEpi);
+            const fil = dt.find(h => {
+               if (
+                  h.situacao === 'pendente' &&
+                  user.id === h.user_info.id &&
+                  h.material_info.codigo === materialInfo.codigo
+               ) {
+                  return h;
+               }
+            });
+
+            if (fil) {
+               return Alert.alert(
+                  'Atenção',
+                  'Você já pediu este item, aguarde a entrega para pedir novamente',
+               );
+            }
+
+            submit();
+            setCart([]);
+         });
+   }, [materialInfo, submit, user.id]);
 
    const handleAddCart = React.useCallback(() => {
       if (item === 'SELECIONE UM ITEM') {
@@ -241,30 +269,66 @@ export function CreateEpi() {
          );
       }
 
-      const dados = {
-         type,
-         item,
-         data: new Date().getTime(),
-         situacao: 'pendente',
-         descricao,
-         user_id: user.id,
-         nome: user.nome,
-         token: expoToken,
-         image,
-         qnt,
-      };
+      Fire()
+         .collection(colecao.REQEPI)
+         .get()
+         .then(h => {
+            const dt = h.docs.map(h => h.data() as IReqEpi);
+            const fil = dt.find(h => {
+               if (
+                  h.situacao === 'pendente' &&
+                  user.id === h.user_info.id &&
+                  h.material_info.codigo === materialInfo.codigo
+               ) {
+                  return h;
+               }
+            });
 
-      setType('');
-      setItem('SELECIONE UM ITEM');
-      setDescricao('');
-      setQnt('');
-      setImage(null);
+            if (fil) {
+               return Alert.alert(
+                  'Atenção',
+                  'Você já pediu este item, aguarde a entrega para pedir novamente',
+               );
+            }
+            const dados = {
+               data: format(new Date().getTime(), 'dd/mm/yy'),
+               description: descricao,
+               quantidade: qnt,
+               situacao: 'pendente',
+               image: imageUrl,
+               user_info: user,
+               material_info: materialInfo,
+               whoFor: 'PESSOAL',
+            };
 
-      setCart([...cart, dados]);
-   }, [cart, descricao, expoToken, image, item, qnt, type, user.id, user.nome]);
+            const findD = cart.find(h => {
+               if (h.material_info.descricao === materialInfo.descricao) {
+                  return h;
+               }
+            });
 
-   const handleSelectItem = React.useCallback((item: string) => {
-      setItem(item === 'NENHUM' ? 'SELECIONE UM ITEM' : item);
+            if (findD) {
+               return Alert.alert(
+                  'Atenção',
+                  'você já adicionou esse item na lista!',
+               );
+            }
+
+            setType('');
+            setItem('SELECIONE UM ITEM');
+            setDescricao('');
+            setQnt('');
+            setImage(null);
+            setCart([...cart, dados]);
+         });
+   }, [cart, descricao, image, imageUrl, item, materialInfo, qnt, user]);
+
+   const handleSelectItem = React.useCallback((item: IMaterial) => {
+      setItem(
+         item.descricao === 'NENHUM' ? 'SELECIONE UM ITEM' : item.descricao,
+      );
+      setMaterialInfo(item);
+
       setSearch('');
       setModaItens(false);
    }, []);
@@ -278,8 +342,6 @@ export function CreateEpi() {
          aspect: [4, 3],
          quality: 1,
       });
-
-      console.log(result);
 
       if (!result.cancelled) {
          setImage(result.uri);
@@ -297,45 +359,16 @@ export function CreateEpi() {
 
    const [search, setSearch] = React.useState('');
 
-   const listaEpis = React.useMemo(() => {
-      return epis.filter(h => h.type === 'EPI');
-   }, [epis]);
+   const filtroMateriais = React.useMemo(() => {
+      return dataMaterial.filter(h => h.ft === 'EPI');
+   }, [dataMaterial]);
 
-   const materiais =
+   const materiaisEpis =
       search.length > 0
-         ? listaEpis.filter(h => {
+         ? filtroMateriais.filter(h => {
               return h.item.includes(search);
            })
-         : listaEpis;
-
-   useFocusEffect(
-      useCallback(() => {
-         const li = [];
-
-         for (let i = 0; i < ListMaterial.length; i += 1) {
-            const [codigo, item, ig] = ListMaterial[i][
-               'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM'
-            ]
-               .split(';')
-               .map(String);
-
-            const [ged, ft, type, ignore] =
-               ListMaterial[i].Column2.split(';').map(String);
-
-            const dados = {
-               codig: codigo,
-               item,
-               type,
-               ged,
-               ft,
-               index: i,
-            };
-
-            li.push(dados);
-         }
-         setEpis(li);
-      }, []),
-   );
+         : filtroMateriais;
 
    return (
       <Box>
@@ -353,25 +386,23 @@ export function CreateEpi() {
                      autoCapitalize="characters"
                   />
                </Box>
+
                <FlatList
-                  data={materiais}
-                  keyExtractor={h => String(h.index)}
+                  data={materiaisEpis}
+                  keyExtractor={h => String(h.id)}
                   renderItem={({ item: h }) => (
                      <Itens
-                        key={h.index}
                         pres={() => {
-                           handleSelectItem(h.item);
-                           setType(h.type);
+                           handleSelectItem(h);
+                           setType(h.ft);
                         }}
-                        item={h.item}
+                        item={h.descricao}
                      />
                   )}
                />
             </Box>
          </Modal>
-         <Center mt="5">
-            <Text>REQUISIÇÃO DE EPIS</Text>
-         </Center>
+         <Header text="REQUISIÇÃO DE EPIS" />
 
          <Box p="5">
             <VStack>
@@ -409,7 +440,12 @@ export function CreateEpi() {
                </Box>
 
                <TouchableOpacity onPress={pickImage}>
-                  <Center w="110" p="1" mt="5" bg="dark.700">
+                  <Center
+                     p="2"
+                     mt="5"
+                     borderRadius="10"
+                     bg={theme.colors.yellow.tranparente}
+                  >
                      {image ? (
                         <Box>
                            <Image
@@ -420,7 +456,12 @@ export function CreateEpi() {
                            />
                         </Box>
                      ) : (
-                        <Text>Adicionar foto</Text>
+                        <GlobalText
+                           text="Adicionar foto"
+                           font="Black"
+                           size={14}
+                           color={theme.colors.blue.tom}
+                        />
                      )}
                   </Center>
                </TouchableOpacity>
@@ -429,7 +470,11 @@ export function CreateEpi() {
 
          <HStack mt="5" justifyContent="space-between" px={5}>
             <Center>
-               <Button bg="green.400" onPress={handleSubmit}>
+               <Button
+                  bg={theme.colors.green.tom}
+                  fontFamily="Bold"
+                  onPress={handleSubmit}
+               >
                   FINALIZAR PEDIDO
                </Button>
             </Center>
@@ -437,10 +482,19 @@ export function CreateEpi() {
             <Center>
                <TouchableOpacity onPress={handleAddCart}>
                   <HStack alignItems="center">
-                     <Feather name="plus-circle" size={20} />
-                     <Text alignSelf="center" ml="1">
-                        adicionar item {'\n'} na lista
-                     </Text>
+                     <Feather
+                        name="plus-circle"
+                        size={25}
+                        color={theme.colors.orange.tom}
+                     />
+                     <Center ml="2">
+                        <GlobalText
+                           text={`Adicionar item ${'\n'} na lista`}
+                           font="Black"
+                           color={theme.colors.blue.tom}
+                           size={16}
+                        />
+                     </Center>
                   </HStack>
                </TouchableOpacity>
             </Center>
@@ -454,9 +508,9 @@ export function CreateEpi() {
             renderItem={({ item: h }) => (
                <Box mt="5">
                   <CardItem
-                     qnt={h.qnt}
-                     description={h.descricao}
-                     item={h.item}
+                     qnt={h.quantidade}
+                     description={h.description}
+                     item={h.material_info.descricao}
                   />
                </Box>
             )}

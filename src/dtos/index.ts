@@ -7,28 +7,37 @@ export interface IUser {
    token: string;
 }
 
-export interface IReqEpi {
-   item: string;
-   data: number;
-   situacao: 'pendente' | 'em separacao' | 'entregue';
-   descricao: string;
+export interface IMaterial {
    id: string;
-   user_id: string;
-   nome: string;
-   dataFormatada?: string;
-   quantidade: string;
-   token: string;
+   codigo: string;
+   descricao: string;
+   classificacao: string;
+   valor: string;
    ged: string;
-   lf: string;
+   ft: string;
+   item: string;
+}
+
+export interface IReqEpi {
+   whoFor: string;
+   data: string;
+   description: string;
+   quantidade: string;
+   situacao: string;
+   image: string;
+   material_info: IMaterial;
+   user_info: IUser;
 }
 
 export interface IReqFerramenta {
-   item: string;
-   data: number;
+   whoFor: string;
+   data: string;
+   description: string;
+   quantidade: string;
    situacao: string;
-   descricao: string;
-   id: string;
-   user_id: string;
-   nome: string;
-   dataFormatada?: string;
+   image: string;
+   material_info: IMaterial;
+   user_info: IUser;
+   placa: string;
+   veiculo: string;
 }

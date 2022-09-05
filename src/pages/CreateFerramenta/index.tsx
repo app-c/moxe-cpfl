@@ -2,11 +2,22 @@
 /* eslint-disable camelcase */
 /* eslint-disable consistent-return */
 /* eslint-disable no-await-in-loop */
-import React, { useCallback } from 'react';
-import { Text, Box, Center, VStack, Button, HStack, Image } from 'native-base';
+import React, { useCallback, useState } from 'react';
+import {
+   Text,
+   Box,
+   Center,
+   VStack,
+   Button,
+   HStack,
+   Image,
+   Select,
+   CheckIcon,
+} from 'native-base';
 import Fire from '@react-native-firebase/firestore';
 import {
    Alert,
+   Dimensions,
    FlatList,
    Modal,
    ScrollView,
@@ -16,46 +27,24 @@ import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import * as ImagePicker from 'expo-image-picker';
 import { Feather } from '@expo/vector-icons';
 import storage from '@react-native-firebase/storage';
+import { format } from 'date-fns';
 import { Input } from '../../components/Input';
 import { useAuth } from '../../hooks/AuthContext';
 import { colecao } from '../../colecao';
-import { IUser } from '../../dtos';
+import { IMaterial, IReqEpi, IReqFerramenta, IUser } from '../../dtos';
 import { CardItem } from '../../components/CardItem';
-import { ListMaterial } from '../../utils/MaterialList';
+import { ListMaterial, materias } from '../../utils/MaterialList';
 import { Itens } from '../../components/Itens';
 import { CircleSelect } from '../../components/CircleSelect';
+import { SearchInput } from '../../components/SearchInput';
+import { Veiculos } from '../../utils/Veiculos';
+import { GlobalText } from '../../components/GlobalText';
+import theme from '../../global/styles/theme';
+import ranhado from '../../assets/ranhado.png';
+import { Header } from '../../components/Header';
 
 interface Props {
    token: string;
-}
-
-interface PropsList {
-   item: string;
-   id: string;
-   type: string;
-}
-
-interface PropsItens {
-   item: string;
-   id?: string;
-   type: string;
-   image: string;
-   qnt: string;
-   data: number;
-   situacao: string;
-   descricao: string;
-   user_id: string;
-   nome: string;
-   token: string;
-}
-
-interface EpisPros {
-   codig: string;
-   item: string;
-   type: string;
-   ged: string;
-   ft: string;
-   index: number;
 }
 
 export function CreateFerramenta() {
@@ -63,18 +52,31 @@ export function CreateFerramenta() {
    const colect = colecao;
    const nav = useNavigation();
 
+   const w = Dimensions.get('window').width;
+
    const [tokenMoxerife, setTokenMoxerife] = React.useState<Props[]>([]);
    const [erro, setErro] = React.useState(false);
    const [messageErrItem, setMessageErrItem] = React.useState('');
    const [errDes, setErrDes] = React.useState(false);
    const [messageErrDes, setMessageErrDes] = React.useState('');
-   const [cart, setCart] = React.useState<PropsItens[]>([]);
+   const [cart, setCart] = React.useState<IReqFerramenta[]>([]);
    const [showModaItens, setModaItens] = React.useState(false);
    const [image, setImage] = React.useState(null);
-   const [epis, setEpis] = React.useState<EpisPros[]>([]);
+
+   const [dataMaterial, setDataMaterial] = React.useState<IMaterial[]>(
+      materias.map(h => {
+         const up = h.descricao.toUpperCase();
+         return {
+            ...h,
+            descricao: up,
+         };
+      }),
+   );
+
    const [typeItem, setTypeItem] = React.useState('');
    const [placa, setPlaca] = React.useState('');
    const [modalTypeItem, setModalTypeItem] = React.useState(true);
+   const [materialInfo, setInfoMaterial] = React.useState<IMaterial>();
 
    //* * FORM */
    const [item, setItem] = React.useState('SELECIONE UM ITEM');
@@ -82,7 +84,10 @@ export function CreateFerramenta() {
    const [qnt, setQnt] = React.useState('');
    const [type, setType] = React.useState('');
    const [imageUrl, setImageUrl] = React.useState('');
-   const [car, setCar] = React.useState<number>(0);
+   const [car, setCar] = React.useState('');
+   const [nowData, setNowData] = useState('');
+
+   const cars = [{ nome: 'GD 10' }, { nome: 'GD 11' }, { nome: 'GD 12' }];
 
    React.useEffect(() => {
       Fire()
@@ -98,37 +103,20 @@ export function CreateFerramenta() {
          });
    }, []);
 
-   const handleSubmit = React.useCallback(async () => {
+   const dt = new Date();
+   const data = format(dt, 'dd/mm/yy');
+
+   const submit = React.useCallback(async () => {
       if (cart.length > 0) {
          for (let i = 0; i < cart.length; i += 1) {
-            const dados = {
-               item: cart[i].item,
-               data: new Date().getTime(),
-               situacao: 'pendente',
-               descricao: cart[i].descricao,
-               user_id: user.id,
-               nome: user.nome,
-               token: expoToken,
-               quantidade: qnt,
-               image: imageUrl,
-               tipo_item: typeItem,
-               placa: typeItem === 'CAMINHÃO' ? placa : 0,
-            };
-
-            Fire()
-               .collection(colect.REQFERRAMENTA)
-               .add(dados)
-               .then(() => {
-                  Alert.alert('Sucesso!', 'Aguarde a separaçao do seu pedido');
-                  nav.navigate('home');
-               });
+            const dados = cart[i];
 
             for (let i = 0; i < tokenMoxerife.length; i += 1) {
                const message = {
                   to: tokenMoxerife[i].token,
                   sound: 'default',
                   title: 'NOVA REQUISIÇÃO DE EPI',
-                  body: `Colaborador ${user.nome} fez uma socilicitação do item: ${dados.item}`,
+                  body: `Colaborador ${user.nome} fez uma socilicitação do item: ${dados.material_info.descricao}`,
                };
 
                await fetch('https://exp.host/--/api/v2/push/send', {
@@ -141,22 +129,33 @@ export function CreateFerramenta() {
                   body: JSON.stringify(message),
                });
             }
+
+            Fire()
+               .collection(colect.REQFERRAMENTA)
+               .add(dados)
+               .then(() => {});
+
+            Alert.alert('Sucesso!', 'Aguarde a separaçao do seu pedido');
+            nav.reset({
+               key: 'home',
+               routes: nav.navigate('home'),
+            });
          }
       } else {
-         if (descricao && qnt) {
-            setErro(false);
-            setErrDes(false);
+         if (item === 'SELECIONE UM ITEM') {
+            return Alert.alert('ALERTA', 'selecione um item para continuar');
          }
+
          if (descricao.trim() === '' && qnt.trim() === '') {
             setErro(true);
             setErrDes(true);
             setMessageErrDes('descreva o motivo da troca');
             setMessageErrItem('informe a quantidade');
-            return;
+            return Alert.alert('Atenção', 'Favaor preencher todos campos');
          }
 
-         if (item === 'SELECIONE UM ITEM') {
-            return Alert.alert('ALERTA', 'selecione um item para continuar');
+         if (placa.trim() === '' && typeItem === 'VEICULO') {
+            return Alert.alert('ATENÇÃO', 'Favor informar a placa');
          }
 
          if (image === null) {
@@ -166,38 +165,40 @@ export function CreateFerramenta() {
             );
          }
 
-         if (placa.trim() === '' && typeItem === 'CAMINHÃO') {
-            return Alert.alert('ATENÇÃO', 'Favor informar a placa');
+         if (typeItem === 'VEICULO' && car === '') {
+            return Alert.alert('Atenção', 'Precisa informar o veículo');
          }
 
          const dados = {
-            item,
-            data: new Date().getTime(),
-            situacao: 'pendente',
-            descricao,
-            user_id: user.id,
-            nome: user.nome,
-            token: expoToken,
-            image: imageUrl,
+            whoFor: typeItem,
+            data,
+            description: descricao,
             quantidade: qnt,
-            tipo_item: typeItem,
-            placa: typeItem === 'CAMINHÃO' ? placa : 0,
+            situacao: 'pendente',
+            image: imageUrl,
+            user_info: user,
+            material_info: materialInfo,
+            placa: typeItem === 'VEICULO' ? placa : null,
+            veiculo: car || null,
          };
 
-         Fire()
-            .collection(colect.REQFERRAMENTA)
-            .add(dados)
-            .then(() => {
-               Alert.alert('Sucesso!', 'Aguarde a separaçao do seu pedido');
-               nav.navigate('home');
-            });
+         // Fire()
+         //    .collection(colect.REQFERRAMENTA)
+         //    .add(dados)
+         //    .then(() => {
+         //       Alert.alert('Sucesso!', 'Aguarde a separaçao do seu pedido');
+         //       nav.reset({
+         //          index: 1,
+         //          routes: [{ name: 'home' }],
+         //       });
+         //    });
 
          for (let i = 0; i < tokenMoxerife.length; i += 1) {
             const message = {
                to: tokenMoxerife[i].token,
                sound: 'default',
                title: 'NOVA REQUISIÇÃO DE EPI',
-               body: `Colaborador ${user.nome} fez uma socilicitação do item: ${dados.item}`,
+               body: `Colaborador ${user.nome} fez uma socilicitação do item: ${dados.material_info.descricao}`,
             };
 
             await fetch('https://exp.host/--/api/v2/push/send', {
@@ -217,22 +218,60 @@ export function CreateFerramenta() {
       setDescricao('');
       setQnt('');
       setImage(null);
+      setCart([]);
    }, [
+      car,
       cart,
       colect.REQFERRAMENTA,
+      data,
       descricao,
-      expoToken,
       image,
       imageUrl,
       item,
+      materialInfo,
       nav,
       placa,
       qnt,
       tokenMoxerife,
       typeItem,
-      user.id,
-      user.nome,
+      user,
    ]);
+
+   const handleSubmit = useCallback(() => {
+      if (!materialInfo) {
+         return Alert.alert(
+            'Atenção',
+            'Todos os campos precisam estar preenchidos',
+         );
+      }
+      Fire()
+         .collection(colecao.REQFERRAMENTA)
+         .get()
+         .then(h => {
+            const dt = h.docs.map(h => h.data() as IReqFerramenta);
+            const fil = dt.find(h => {
+               if (
+                  h.situacao === 'pendente' &&
+                  user.id === h.user_info.id &&
+                  h.material_info.codigo === materialInfo.codigo &&
+                  typeItem === h.whoFor &&
+                  h.veiculo === car
+               ) {
+                  return h;
+               }
+            });
+
+            if (fil) {
+               return Alert.alert(
+                  'Atenção',
+                  'Você já pediu este item, aguarde a entrega para pedir novamente',
+               );
+            }
+
+            submit();
+            setCart([]);
+         });
+   }, [car, materialInfo, submit, typeItem, user.id]);
 
    const handleAddCart = React.useCallback(() => {
       if (item === 'SELECIONE UM ITEM') {
@@ -240,9 +279,10 @@ export function CreateFerramenta() {
       }
 
       if (descricao.trim() === '' && qnt.trim() === '') {
+         setMessageErrDes('descreva o motivo da troca');
          setErro(true);
          setErrDes(true);
-         setMessageErrDes('descreva o motivo da troca');
+         console.log(typeItem);
          setMessageErrItem('informe a quantidade');
          return;
       }
@@ -254,54 +294,90 @@ export function CreateFerramenta() {
          );
       }
 
-      if (placa.trim() === '') {
+      if (placa.trim() === '' && typeItem === 'VEICULO') {
          return Alert.alert('ATENÇÃO', 'Favor informar a placa');
       }
 
-      if (car === 0 && typeItem === 'CAMINHÃO') {
-         return Alert.alert('ATENÇÃO', 'Favor informar o número do caminhão');
+      if (car === '' && typeItem === 'VEICULO') {
+         return Alert.alert('ATENÇÃO', 'Favor informar o número do VEICULO');
       }
 
-      const dados = {
-         type,
-         item,
-         data: new Date().getTime(),
-         situacao: 'pendente',
-         descricao,
-         user_id: user.id,
-         nome: user.nome,
-         token: expoToken,
-         image,
-         qnt,
-         tipo_item: typeItem,
-         placa: typeItem === 'CAMINHÃO' ? placa : 0,
-         car,
-      };
+      Fire()
+         .collection(colecao.REQFERRAMENTA)
+         .get()
+         .then(h => {
+            const dt = h.docs.map(h => h.data() as IReqFerramenta);
+            const fil = dt.find(h => {
+               if (
+                  h.situacao === 'pendente' &&
+                  user.id === h.user_info.id &&
+                  h.material_info.codigo === materialInfo.codigo &&
+                  typeItem === h.whoFor &&
+                  h.veiculo === car
+               ) {
+                  return h;
+               }
+            });
 
-      setType('');
-      setItem('SELECIONE UM ITEM');
-      setDescricao('');
-      setQnt('');
-      setImage(null);
+            if (fil) {
+               return Alert.alert(
+                  'Atenção',
+                  'Você já pediu este item, aguarde a entrega para pedir novamente',
+               );
+            }
 
-      setCart([...cart, dados]);
+            const dados = {
+               whoFor: typeItem,
+               data: nowData,
+               description: descricao,
+               quantidade: qnt,
+               situacao: 'pendente',
+               image,
+               user_info: user,
+               material_info: materialInfo,
+               placa: typeItem === 'VEICULO' ? placa : null,
+               veiculo: car,
+            };
+
+            const findCart = cart.find(h => {
+               if (h.material_info.descricao === materialInfo.descricao) {
+                  return h;
+               }
+            });
+
+            if (findCart) {
+               return Alert.alert(
+                  'Atenção',
+                  'você já adicionou esse material na lista ',
+               );
+            }
+
+            setCart([...cart, dados]);
+            setType('');
+            setItem('SELECIONE UM ITEM');
+            setDescricao('');
+            setQnt('');
+            setImage(null);
+         });
    }, [
-      cart,
-      descricao,
-      expoToken,
-      car,
-      image,
       item,
-      placa,
+      descricao,
       qnt,
-      type,
+      image,
+      placa,
+      car,
       typeItem,
-      user.id,
-      user.nome,
+      nowData,
+      user,
+      materialInfo,
+      cart,
    ]);
 
-   const handleSelectItem = React.useCallback((item: string) => {
-      setItem(item === 'NENHUM' ? 'SELECIONE UM ITEM' : item);
+   const handleSelectItem = React.useCallback((item: IMaterial) => {
+      setItem(
+         item.descricao === 'NENHUM' ? 'SELECIONE UM ITEM' : item.descricao,
+      );
+      setInfoMaterial(item);
       setSearch('');
       setModaItens(false);
    }, []);
@@ -320,7 +396,7 @@ export function CreateFerramenta() {
          setImage(result.uri);
 
          const fileName = new Date().getTime();
-         const reference = storage().ref(`/epi/${fileName}.png`);
+         const reference = storage().ref(`/ferramenta/${fileName}.png`);
 
          await reference.putFile(result.uri);
          const photoUrl = await reference.getDownloadURL();
@@ -333,53 +409,43 @@ export function CreateFerramenta() {
    const [search, setSearch] = React.useState('');
 
    const listaEpis = React.useMemo(() => {
-      return epis.filter(h => h.type !== 'EPI');
-   }, [epis]);
+      return dataMaterial.filter(h => h.ft !== 'EPI');
+   }, [dataMaterial]);
 
-   const materiais =
+   const listaFerramentas =
       search.length > 0
          ? listaEpis.filter(h => {
-              return h.item.includes(search);
+              return h.descricao.includes(search);
            })
          : listaEpis;
 
    useFocusEffect(
       useCallback(() => {
-         const li = [];
+         setItem('SELECIONE UM ITEM');
          setModalTypeItem(true);
-         setErro(false);
          setErrDes(false);
-
-         for (let i = 0; i < ListMaterial.length; i += 1) {
-            const [codigo, item, ig] = ListMaterial[i][
-               'C�DIGO;DESCRIÇAO;CLASSIFICAÇAO CONTAB�L;VALOR;GED;FT;ITEM'
-            ]
-               .split(';')
-               .map(String);
-
-            const [ged, ft, type, ignore] =
-               ListMaterial[i].Column2.split(';').map(String);
-
-            const dados = {
-               codig: codigo,
-               item,
-               type,
-               ged,
-               ft,
-               index: i,
-            };
-
-            li.push(dados);
-         }
-         setEpis(li);
+         setErro(false);
       }, []),
    );
 
+   const top = -w * 0.8;
    return (
       <>
          <Modal visible={modalTypeItem}>
-            <Center flex={1}>
-               <Text>ESSA FERRAMENTA É PARA USO:</Text>
+            <Center bg="dark.700" flex={1}>
+               <Image
+                  resizeMode="contain"
+                  size={w * 0.9}
+                  mt={top}
+                  source={ranhado}
+                  alt="image"
+               />
+               <GlobalText
+                  text="ESSA FERRAMENTA É PARA USO: "
+                  font="Black"
+                  color={theme.colors.blue.tom}
+                  size={18}
+               />
 
                <HStack space={10} mt="10">
                   <CircleSelect
@@ -392,51 +458,44 @@ export function CreateFerramenta() {
                   />
 
                   <CircleSelect
-                     selected={typeItem === 'CAMINHÃO'}
+                     selected={typeItem === 'VEICULO'}
                      pres={() => {
-                        setTypeItem('CAMINHÃO');
+                        setTypeItem('VEICULO');
                         setModalTypeItem(false);
                      }}
-                     text="CAMINHÃO"
+                     text="VEÍCULO"
                   />
                </HStack>
             </Center>
          </Modal>
+
+         <Header text={`REQUISIÇÃO DE ${'\n'}FERRAMENTAS`} />
+
          {typeItem === 'PESSOAL' ? (
             <Box>
                <Modal visible={showModaItens}>
                   <Box p="3" flex={1} bg="dark.800">
                      <Box mb="5">
-                        <Input
-                           value={search}
-                           error={errDes}
-                           erroMessage=""
+                        <SearchInput
+                           text="PEQUISAR ITEM"
                            onChangeText={h => setSearch(h)}
-                           label="DESCRIÇAO"
-                           title="PESQUISAR POR UM ITEM"
-                           text="descricao não pode ficar em branco"
-                           autoCapitalize="characters"
                         />
                      </Box>
                      <FlatList
-                        data={materiais}
-                        keyExtractor={h => String(h.index)}
+                        data={listaFerramentas}
+                        keyExtractor={h => String(h.id)}
                         renderItem={({ item: h }) => (
                            <Itens
-                              key={h.index}
                               pres={() => {
-                                 handleSelectItem(h.item);
-                                 setType(h.type);
+                                 handleSelectItem(h);
+                                 setType(h.ft);
                               }}
-                              item={h.item}
+                              item={h.descricao}
                            />
                         )}
                      />
                   </Box>
                </Modal>
-               <Center mt="5">
-                  <Text>REQUISIÇÃO DE FERRAMENTAS</Text>
-               </Center>
 
                <Box p="5">
                   <VStack>
@@ -474,7 +533,12 @@ export function CreateFerramenta() {
                      </Box>
 
                      <TouchableOpacity onPress={pickImage}>
-                        <Center w="110" p="1" mt="5" bg="dark.700">
+                        <Center
+                           borderRadius="10"
+                           p="1"
+                           mt="5"
+                           bg={theme.colors.yellow.tranparente}
+                        >
                            {image ? (
                               <Box>
                                  <Image
@@ -485,7 +549,7 @@ export function CreateFerramenta() {
                                  />
                               </Box>
                            ) : (
-                              <Text>Adicionar foto</Text>
+                              <GlobalText text="Adicionar foto" font="Black" />
                            )}
                         </Center>
                      </TouchableOpacity>
@@ -519,9 +583,9 @@ export function CreateFerramenta() {
                   renderItem={({ item: h }) => (
                      <Box mt="5">
                         <CardItem
-                           qnt={h.qnt}
-                           description={h.descricao}
-                           item={h.item}
+                           qnt={h.quantidade}
+                           description={h.description}
+                           item={h.material_info.descricao}
                         />
                      </Box>
                   )}
@@ -532,36 +596,26 @@ export function CreateFerramenta() {
                <Modal visible={showModaItens}>
                   <Box p="3" flex={1} bg="dark.800">
                      <Box mb="5">
-                        <Input
-                           value={search}
-                           error={errDes}
-                           erroMessage=""
+                        <SearchInput
+                           text="PESQUISAR POR UM ITEM"
                            onChangeText={h => setSearch(h)}
-                           label="DESCRIÇAO"
-                           title="PESQUISAR POR UM ITEM"
-                           text="descricao não pode ficar em branco"
-                           autoCapitalize="characters"
                         />
                      </Box>
                      <FlatList
-                        data={materiais}
-                        keyExtractor={h => String(h.index)}
+                        data={listaFerramentas}
+                        keyExtractor={h => String(h.id)}
                         renderItem={({ item: h }) => (
                            <Itens
-                              key={h.index}
                               pres={() => {
-                                 handleSelectItem(h.item);
-                                 setType(h.type);
+                                 handleSelectItem(h);
+                                 setType(h.ft);
                               }}
-                              item={h.item}
+                              item={h.descricao}
                            />
                         )}
                      />
                   </Box>
                </Modal>
-               <Center mt="5">
-                  <Text>REQUISIÇÃO DE FERRAMENTAS</Text>
-               </Center>
 
                <Box p="5">
                   <VStack>
@@ -572,7 +626,7 @@ export function CreateFerramenta() {
                            borderColor="dark.600"
                            borderRadius={25}
                         >
-                           <Text>{item}</Text>
+                           <GlobalText text={item} font="bold" />
                         </Box>
                      </TouchableOpacity>
 
@@ -615,21 +669,32 @@ export function CreateFerramenta() {
                         </Box>
 
                         <Box w="100">
-                           <Input
-                              keyboardType="ascii-capable"
-                              autoCapitalize="characters"
-                              error={errDes}
-                              erroMessage={messageErrItem}
-                              onChangeText={h => setCar(Number(h))}
-                              label="QUANTIDADE"
-                              title="car"
-                              text="descricao não pode ficar em branco"
-                           />
+                           <Select
+                              selectedValue={car}
+                              minWidth="110"
+                              accessibilityLabel="Choose Service"
+                              placeholder="VEÍCULO"
+                              _selectedItem={{
+                                 bg: 'teal.600',
+                                 endIcon: <CheckIcon size="5" />,
+                              }}
+                              mt={1}
+                              onValueChange={itemValue => setCar(itemValue)}
+                           >
+                              {Veiculos.map(h => (
+                                 <Select.Item label={h.NOME} value={h.NOME} />
+                              ))}
+                           </Select>
                         </Box>
                      </HStack>
 
                      <TouchableOpacity onPress={pickImage}>
-                        <Center w="110" p="1" mt="5" bg="dark.700">
+                        <Center
+                           borderRadius="10"
+                           p="1"
+                           mt="5"
+                           bg={theme.colors.yellow.tranparente}
+                        >
                            {image ? (
                               <Box>
                                  <Image
@@ -640,7 +705,7 @@ export function CreateFerramenta() {
                                  />
                               </Box>
                            ) : (
-                              <Text>Adicionar foto</Text>
+                              <GlobalText text="Adicionar foto" font="Black" />
                            )}
                         </Center>
                      </TouchableOpacity>
@@ -649,7 +714,7 @@ export function CreateFerramenta() {
 
                <HStack mt="5" justifyContent="space-between" px={5}>
                   <Center>
-                     <Button bg="green.400" onPress={handleSubmit}>
+                     <Button bg={theme.colors.green.tom} onPress={handleSubmit}>
                         FINALIZAR PEDIDO
                      </Button>
                   </Center>
@@ -657,10 +722,19 @@ export function CreateFerramenta() {
                   <Center>
                      <TouchableOpacity onPress={handleAddCart}>
                         <HStack alignItems="center">
-                           <Feather name="plus-circle" size={20} />
-                           <Text alignSelf="center" ml="1">
-                              adicionar item {'\n'} na lista
-                           </Text>
+                           <Feather
+                              name="plus-circle"
+                              size={25}
+                              color={theme.colors.orange.tom}
+                           />
+                           <Center ml="2">
+                              <GlobalText
+                                 text={`Adicionar item ${'\n'} na lista`}
+                                 font="Black"
+                                 color={theme.colors.blue.tom}
+                                 size={16}
+                              />
+                           </Center>
                         </HStack>
                      </TouchableOpacity>
                   </Center>
@@ -674,9 +748,9 @@ export function CreateFerramenta() {
                   renderItem={({ item: h }) => (
                      <Box mt="5">
                         <CardItem
-                           qnt={h.qnt}
-                           description={h.descricao}
-                           item={h.item}
+                           qnt={h.quantidade}
+                           description={h.description}
+                           item={h.material_info.descricao}
                         />
                      </Box>
                   )}

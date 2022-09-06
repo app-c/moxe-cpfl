@@ -27,6 +27,7 @@ import { Itens } from '../../components/Itens';
 import { Header } from '../../components/Header';
 import { GlobalText } from '../../components/GlobalText';
 import theme from '../../global/styles/theme';
+import { SearchInput } from '../../components/SearchInput';
 
 interface Props {
    token: string;
@@ -366,7 +367,7 @@ export function CreateEpi() {
    const materiaisEpis =
       search.length > 0
          ? filtroMateriais.filter(h => {
-              return h.item.includes(search);
+              return h.descricao.includes(search);
            })
          : filtroMateriais;
 
@@ -375,14 +376,9 @@ export function CreateEpi() {
          <Modal visible={showModaItens}>
             <Box p="3" flex={1} bg="dark.800">
                <Box mb="5">
-                  <Input
-                     value={search}
-                     error={errDes}
-                     erroMessage=""
+                  <SearchInput
+                     text="PESQUISAR UM ITEM"
                      onChangeText={h => setSearch(h)}
-                     label="DESCRIÇAO"
-                     title="PESQUISAR POR UM ITEM"
-                     text="descricao não pode ficar em branco"
                      autoCapitalize="characters"
                   />
                </Box>

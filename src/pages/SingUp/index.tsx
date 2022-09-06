@@ -50,9 +50,10 @@ export function SignUp() {
                .then(() => {
                   Alert.alert('Cadastro realizado');
                   navigate('signIn');
-               });
+               })
+               .catch(h => Alert.alert('Algo deu errado', h));
          })
-         .catch(h => console.log(h));
+         .catch(h => Alert.alert('Algo deu errado', h));
    }, [email, erro, matricula, navigate, nome, senha]);
    const w = Dimensions.get('window').width;
 

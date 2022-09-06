@@ -182,16 +182,16 @@ export function CreateFerramenta() {
             veiculo: car || null,
          };
 
-         // Fire()
-         //    .collection(colect.REQFERRAMENTA)
-         //    .add(dados)
-         //    .then(() => {
-         //       Alert.alert('Sucesso!', 'Aguarde a separaçao do seu pedido');
-         //       nav.reset({
-         //          index: 1,
-         //          routes: [{ name: 'home' }],
-         //       });
-         //    });
+         Fire()
+            .collection(colect.REQFERRAMENTA)
+            .add(dados)
+            .then(() => {
+               Alert.alert('Sucesso!', 'Aguarde a separaçao do seu pedido');
+               nav.reset({
+                  index: 1,
+                  routes: [{ name: 'home' }],
+               });
+            });
 
          for (let i = 0; i < tokenMoxerife.length; i += 1) {
             const message = {
@@ -332,7 +332,7 @@ export function CreateFerramenta() {
                description: descricao,
                quantidade: qnt,
                situacao: 'pendente',
-               image,
+               image: imageUrl,
                user_info: user,
                material_info: materialInfo,
                placa: typeItem === 'VEICULO' ? placa : null,
@@ -365,9 +365,10 @@ export function CreateFerramenta() {
       qnt,
       image,
       placa,
-      car,
       typeItem,
+      car,
       nowData,
+      imageUrl,
       user,
       materialInfo,
       cart,
@@ -479,6 +480,7 @@ export function CreateFerramenta() {
                         <SearchInput
                            text="PEQUISAR ITEM"
                            onChangeText={h => setSearch(h)}
+                           autoCapitalize="characters"
                         />
                      </Box>
                      <FlatList
@@ -599,6 +601,7 @@ export function CreateFerramenta() {
                         <SearchInput
                            text="PESQUISAR POR UM ITEM"
                            onChangeText={h => setSearch(h)}
+                           autoCapitalize="characters"
                         />
                      </Box>
                      <FlatList

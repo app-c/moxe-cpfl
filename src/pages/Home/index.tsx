@@ -4,7 +4,7 @@ import Fire from '@react-native-firebase/firestore';
 import { Feather } from '@expo/vector-icons';
 import { FlatList } from 'react-native';
 import { colecao } from '../../colecao';
-import { IReqEpi } from '../../dtos';
+import { IReqEpi, IReqFerramenta } from '../../dtos';
 import { Cards } from '../../components/cards';
 import { Lista } from '../../components/Lista';
 import { SearchInput } from '../../components/SearchInput';
@@ -27,35 +27,51 @@ export function Home() {
          .onSnapshot(data => {
             const dt = data.docs.map(h => h.data() as IReqEpi);
 
-            const up = dt.map(h => {
-               const cs = h.material_info.descricao.toUpperCase();
+            const up = dt
+               .map(h => {
+                  const cs = h.material_info.descricao.toUpperCase();
 
-               return {
-                  ...h,
-                  material_info: {
-                     ...h.material_info,
-                     descricao: cs,
-                  },
-               };
-            });
+                  return {
+                     ...h,
+                     material_info: {
+                        ...h.material_info,
+                        descricao: cs,
+                     },
+                  };
+               })
+               .filter(h => h.user_info.id === user.id);
 
             setDataEpi(up);
          });
 
       return () => lod();
-   }, []);
+   }, [user.id]);
 
    React.useEffect(() => {
       const lod = Fire()
          .collection(colecao.REQFERRAMENTA)
          .onSnapshot(data => {
-            const dt = data.docs.map(h => h.data() as IReqEpi);
+            const dt = data.docs.map(h => h.data() as IReqFerramenta);
+
+            const up = dt
+               .map(h => {
+                  const cs = h.material_info.descricao.toUpperCase();
+
+                  return {
+                     ...h,
+                     material_info: {
+                        ...h.material_info,
+                        descricao: cs,
+                     },
+                  };
+               })
+               .filter(h => h.user_info.id === user.id);
 
             setDataFer(dt);
          });
 
       return () => lod();
-   }, []);
+   }, [user.id]);
 
    const filEpi = dataEpi.filter(h => select === h.situacao);
 

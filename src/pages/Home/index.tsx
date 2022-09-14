@@ -67,7 +67,7 @@ export function Home() {
                })
                .filter(h => h.user_info.id === user.id);
 
-            setDataFer(dt);
+            setDataFer(up);
          });
 
       return () => lod();
@@ -96,18 +96,20 @@ export function Home() {
    const ferramenta =
       search.length > 0
          ? filFe.filter(h => {
-              return h.user_info.nome.includes(search);
+              return h.material_info.descricao.includes(search);
            })
          : filFe;
 
    const ferramental =
       search.length > 0
-         ? filFer.filter(h => h.user_info.nome.includes(search))
+         ? filFer.filter(h => h.material_info.descricao.includes(search))
          : filFer;
+
+   console.log(ferramenta);
 
    return (
       <Box flex="1">
-         <Header text={`Olá ${user.nome}`} />
+         <Header text={user.nome} />
          <Box mt="-6" p="10">
             <SearchInput
                text="PESQUISAR ITEM"
@@ -115,7 +117,7 @@ export function Home() {
                autoCapitalize="characters"
             />
          </Box>
-         <HStack mt="1">
+         <HStack mt="-5">
             <ScrollView
                showsHorizontalScrollIndicator={false}
                horizontal

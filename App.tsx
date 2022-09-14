@@ -33,7 +33,7 @@ export default function App() {
          <AppProvider>
             <NativeBaseProvider theme={theme2}>
                <View style={{ flex: 1 }}>
-                  <StatusBar style="dark" hidden />
+                  <StatusBar translucent />
                   <Routes />
                </View>
             </NativeBaseProvider>

@@ -22,7 +22,7 @@ export function Cards({ title, pres, presIn }: Props) {
             bg={theme.colors.green.tom}
             opacity={presIn ? 1 : 0.4}
             ml="10"
-            h={w * 0.14}
+            h={w * 0.1}
             px="10"
          >
             <Center>

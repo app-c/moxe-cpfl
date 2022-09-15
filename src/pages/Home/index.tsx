@@ -105,8 +105,6 @@ export function Home() {
          ? filFer.filter(h => h.material_info.descricao.includes(search))
          : filFer;
 
-   console.log(ferramenta);
-
    return (
       <Box flex="1">
          <Header text={user.nome} />

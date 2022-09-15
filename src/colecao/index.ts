@@ -1,6 +1,7 @@
 export const colecao = {
    USER: 'users',
-   REQEPI: 'reqEpi',
+   solicitacao: 'soli',
+   arquivo: 'arq',
    REQFERRAMENTA: 'reqFerramenta',
    MOXERIFE: 'moxerife',
 };

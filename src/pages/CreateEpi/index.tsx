@@ -105,7 +105,7 @@ export function CreateEpi() {
          for (let i = 0; i < cart.length; i += 1) {
             const dados = cart[i];
             Fire()
-               .collection(colect.REQEPI)
+               .collection(colect.solicitacao)
                .add(dados)
                .catch(err => {
                   return Alert.alert('Erro ao carregar ser dados', err);
@@ -168,7 +168,7 @@ export function CreateEpi() {
          };
 
          Fire()
-            .collection(colect.REQEPI)
+            .collection(colect.solicitacao)
             .add(dados)
             .then(() => {
                Alert.alert('Sucesso!', 'Aguarde a separaçao do seu pedido');

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, Box, Input, HStack, ScrollView } from 'native-base';
+import { Text, Box, Input, HStack, ScrollView, Center } from 'native-base';
 import Fire from '@react-native-firebase/firestore';
 import { Feather } from '@expo/vector-icons';
 import { FlatList } from 'react-native';
@@ -16,14 +16,12 @@ export function Home() {
    const { user } = useAuth();
    const [search, setSearch] = React.useState('');
    const [dataEpi, setDataEpi] = React.useState<IReqEpi[]>([]);
-   const [dataFer, setDataFer] = React.useState<IReqEpi[]>([]);
    const [select, setSelect] = React.useState('pendente');
-   const [type, setType] = React.useState('EPI');
 
    // TODO BUSCAR DO BANCO DE DADOS */
    React.useEffect(() => {
       const lod = Fire()
-         .collection(colecao.REQEPI)
+         .collection(colecao.solicitacao)
          .onSnapshot(data => {
             const dt = data.docs.map(h => h.data() as IReqEpi);
 
@@ -47,44 +45,7 @@ export function Home() {
       return () => lod();
    }, [user.id]);
 
-   React.useEffect(() => {
-      const lod = Fire()
-         .collection(colecao.REQFERRAMENTA)
-         .onSnapshot(data => {
-            const dt = data.docs.map(h => h.data() as IReqFerramenta);
-
-            const up = dt
-               .map(h => {
-                  const cs = h.material_info.descricao.toUpperCase();
-
-                  return {
-                     ...h,
-                     material_info: {
-                        ...h.material_info,
-                        descricao: cs,
-                     },
-                  };
-               })
-               .filter(h => h.user_info.id === user.id);
-
-            setDataFer(up);
-         });
-
-      return () => lod();
-   }, [user.id]);
-
    const filEpi = dataEpi.filter(h => select === h.situacao);
-
-   const filFe = dataFer.filter(h => {
-      if (h.whoFor === 'PESSOAL' && select === h.situacao) {
-         return h;
-      }
-   });
-   const filFer = dataFer.filter(h => {
-      if (h.whoFor === 'VEICULO' && h.situacao === select) {
-         return h;
-      }
-   });
 
    const lista =
       search.length > 0
@@ -92,18 +53,6 @@ export function Home() {
               return h.material_info.descricao.includes(search);
            })
          : filEpi;
-
-   const ferramenta =
-      search.length > 0
-         ? filFe.filter(h => {
-              return h.material_info.descricao.includes(search);
-           })
-         : filFe;
-
-   const ferramental =
-      search.length > 0
-         ? filFer.filter(h => h.material_info.descricao.includes(search))
-         : filFer;
 
    return (
       <Box flex="1">
@@ -115,30 +64,8 @@ export function Home() {
                autoCapitalize="characters"
             />
          </Box>
-         <HStack mt="-5">
-            <ScrollView
-               showsHorizontalScrollIndicator={false}
-               horizontal
-               contentContainerStyle={{ paddingRight: 100 }}
-            >
-               <Cards
-                  pres={() => setType('EPI')}
-                  title="EPI"
-                  presIn={type === 'EPI'}
-               />
-               <Cards
-                  pres={() => setType('FERRAMENTA')}
-                  title="FERRAMENTA"
-                  presIn={type === 'FERRAMENTA'}
-               />
-               <Cards
-                  pres={() => setType('FERRAMENTAL')}
-                  title="FERRAMENTAL"
-                  presIn={type === 'FERRAMENTAL'}
-               />
-            </ScrollView>
-         </HStack>
-         <Box mb="5" px="10">
+
+         <Center mt="-10" mb="5" px="10">
             <HStack justifyContent="space-between" mt="5">
                <CircleSelect
                   pres={() => setSelect('pendente')}
@@ -156,59 +83,23 @@ export function Home() {
                   text="entregue"
                />
             </HStack>
-         </Box>
+         </Center>
 
-         {type === 'EPI' && (
-            <FlatList
-               contentContainerStyle={{ paddingBottom: 200 }}
-               data={lista}
-               keyExtractor={h => String(h.data)}
-               renderItem={({ item: h }) => (
-                  <Box>
-                     <Lista
-                        data={h.data}
-                        item={h.material_info.descricao}
-                        situacao={h.situacao}
-                        qnt={h.quantidade}
-                     />
-                  </Box>
-               )}
-            />
-         )}
-         {type === 'FERRAMENTA' && (
-            <FlatList
-               contentContainerStyle={{ paddingBottom: 200 }}
-               data={ferramenta}
-               keyExtractor={h => String(h.data)}
-               renderItem={({ item: h }) => (
-                  <Box>
-                     <Lista
-                        data={h.data}
-                        item={h.material_info.descricao}
-                        situacao={h.situacao}
-                        qnt={h.quantidade}
-                     />
-                  </Box>
-               )}
-            />
-         )}
-         {type === 'FERRAMENTAL' && (
-            <FlatList
-               contentContainerStyle={{ paddingBottom: 200 }}
-               data={ferramental}
-               keyExtractor={h => String(h.data)}
-               renderItem={({ item: h }) => (
-                  <Box>
-                     <Lista
-                        data={h.data}
-                        item={h.material_info.classificacao}
-                        situacao={h.situacao}
-                        qnt={h.quantidade}
-                     />
-                  </Box>
-               )}
-            />
-         )}
+         <FlatList
+            contentContainerStyle={{ paddingBottom: 200 }}
+            data={lista}
+            keyExtractor={h => h.id}
+            renderItem={({ item: h }) => (
+               <Box>
+                  <Lista
+                     data={h.data}
+                     item={h.material_info.descricao}
+                     situacao={h.situacao}
+                     qnt={h.quantidade}
+                  />
+               </Box>
+            )}
+         />
       </Box>
    );
 }

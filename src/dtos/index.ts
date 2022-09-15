@@ -19,6 +19,7 @@ export interface IMaterial {
 }
 
 export interface IReqEpi {
+   id: string;
    whoFor: string;
    data: string;
    description: string;
@@ -27,17 +28,6 @@ export interface IReqEpi {
    image: string;
    material_info: IMaterial;
    user_info: IUser;
-}
-
-export interface IReqFerramenta {
-   whoFor: string;
-   data: string;
-   description: string;
-   quantidade: string;
-   situacao: string;
-   image: string;
-   material_info: IMaterial;
-   user_info: IUser;
-   placa: string;
-   veiculo: string;
+   placa?: string;
+   veiculo?: string;
 }

@@ -33,7 +33,7 @@ import { useAuth } from '../../hooks/AuthContext';
 import { colecao } from '../../colecao';
 import { IMaterial, IReqEpi, IReqFerramenta, IUser } from '../../dtos';
 import { CardItem } from '../../components/CardItem';
-import { ListMaterial, materias } from '../../utils/MaterialList';
+import { materias } from '../../utils/MaterialList';
 import { Itens } from '../../components/Itens';
 import { CircleSelect } from '../../components/CircleSelect';
 import { SearchInput } from '../../components/SearchInput';
@@ -131,7 +131,7 @@ export function CreateFerramenta() {
             }
 
             Fire()
-               .collection(colect.REQFERRAMENTA)
+               .collection(colect.solicitacao)
                .add(dados)
                .then(() => {});
 
@@ -170,6 +170,7 @@ export function CreateFerramenta() {
          }
 
          const dados = {
+            id: new Date().getTime(),
             whoFor: typeItem,
             data,
             description: descricao,
@@ -183,7 +184,7 @@ export function CreateFerramenta() {
          };
 
          Fire()
-            .collection(colect.REQFERRAMENTA)
+            .collection(colect.solicitacao)
             .add(dados)
             .then(() => {
                Alert.alert('Sucesso!', 'Aguarde a separaçao do seu pedido');
@@ -222,7 +223,7 @@ export function CreateFerramenta() {
    }, [
       car,
       cart,
-      colect.REQFERRAMENTA,
+      colect.solicitacao,
       data,
       descricao,
       image,
@@ -245,7 +246,7 @@ export function CreateFerramenta() {
          );
       }
       Fire()
-         .collection(colecao.REQFERRAMENTA)
+         .collection(colecao.solicitacao)
          .get()
          .then(h => {
             const dt = h.docs.map(h => h.data() as IReqFerramenta);
@@ -302,63 +303,124 @@ export function CreateFerramenta() {
          return Alert.alert('ATENÇÃO', 'Favor informar o número do VEICULO');
       }
 
-      Fire()
-         .collection(colecao.REQFERRAMENTA)
-         .get()
-         .then(h => {
-            const dt = h.docs.map(h => h.data() as IReqFerramenta);
-            const fil = dt.find(h => {
-               if (
-                  h.situacao === 'pendente' &&
-                  user.id === h.user_info.id &&
-                  h.material_info.codigo === materialInfo.codigo &&
-                  typeItem === h.whoFor &&
-                  h.veiculo === car
-               ) {
-                  return h;
+      if (typeItem === 'VEICULO') {
+         Fire()
+            .collection(colecao.solicitacao)
+            .get()
+            .then(h => {
+               const dt = h.docs.map(h => h.data() as IReqFerramenta);
+               const fil = dt.find(h => {
+                  if (
+                     h.situacao === 'pendente' &&
+                     user.id === h.user_info.id &&
+                     h.material_info.codigo === materialInfo.codigo &&
+                     typeItem === h.whoFor &&
+                     h.veiculo === car
+                  ) {
+                     return h;
+                  }
+               });
+
+               if (fil) {
+                  return Alert.alert(
+                     'Atenção',
+                     'Você já pediu este item, aguarde a entrega para pedir novamente',
+                  );
                }
-            });
 
-            if (fil) {
-               return Alert.alert(
-                  'Atenção',
-                  'Você já pediu este item, aguarde a entrega para pedir novamente',
-               );
-            }
+               const dados = {
+                  id: new Date().getTime(),
+                  whoFor: typeItem,
+                  data: nowData,
+                  description: descricao,
+                  quantidade: qnt,
+                  situacao: 'pendente',
+                  image: imageUrl,
+                  user_info: user,
+                  material_info: materialInfo,
+                  placa: typeItem === 'VEICULO' ? placa : null,
+                  veiculo: car,
+               };
 
-            const dados = {
-               whoFor: typeItem,
-               data: nowData,
-               description: descricao,
-               quantidade: qnt,
-               situacao: 'pendente',
-               image: imageUrl,
-               user_info: user,
-               material_info: materialInfo,
-               placa: typeItem === 'VEICULO' ? placa : null,
-               veiculo: car,
-            };
+               const findCart = cart.find(h => {
+                  if (h.material_info.descricao === materialInfo.descricao) {
+                     return h;
+                  }
+               });
 
-            const findCart = cart.find(h => {
-               if (h.material_info.descricao === materialInfo.descricao) {
-                  return h;
+               if (findCart) {
+                  return Alert.alert(
+                     'Atenção',
+                     'você já adicionou esse material na lista ',
+                  );
                }
+
+               setCart([...cart, dados]);
+               setType('');
+               setItem('SELECIONE UM ITEM');
+               setDescricao('');
+               setQnt('');
+               setImage(null);
             });
+      } else {
+         Fire()
+            .collection(colecao.solicitacao)
+            .get()
+            .then(h => {
+               const dt = h.docs.map(h => h.data() as IReqFerramenta);
+               const fil = dt.find(h => {
+                  if (
+                     h.situacao === 'pendente' &&
+                     user.id === h.user_info.id &&
+                     h.material_info.codigo === materialInfo.codigo &&
+                     typeItem === h.whoFor
+                  ) {
+                     return h;
+                  }
+               });
 
-            if (findCart) {
-               return Alert.alert(
-                  'Atenção',
-                  'você já adicionou esse material na lista ',
-               );
-            }
+               if (fil) {
+                  return Alert.alert(
+                     'Atenção',
+                     'Você já pediu este item, aguarde a entrega para pedir novamente',
+                  );
+               }
 
-            setCart([...cart, dados]);
-            setType('');
-            setItem('SELECIONE UM ITEM');
-            setDescricao('');
-            setQnt('');
-            setImage(null);
-         });
+               const dados = {
+                  id: new Date().getTime(),
+                  whoFor: typeItem,
+                  data: nowData,
+                  description: descricao,
+                  quantidade: qnt,
+                  situacao: 'pendente',
+                  image: imageUrl,
+                  user_info: user,
+                  material_info: materialInfo,
+                  placa: typeItem === 'VEICULO' ? placa : null,
+                  veiculo: car,
+               };
+
+               const findCart = cart.find(h => {
+                  if (h.material_info.descricao === materialInfo.descricao) {
+                     return h;
+                  }
+               });
+
+               if (findCart) {
+                  return Alert.alert(
+                     'Atenção',
+                     'você já adicionou esse material na lista ',
+                  );
+               }
+
+               setCart([...cart, dados]);
+               setType('');
+               setItem('SELECIONE UM ITEM');
+               setDescricao('');
+               setQnt('');
+               setImage(null);
+            });
+      }
    }, [
       item,
       descricao,
@@ -388,7 +450,7 @@ export function CreateFerramenta() {
    const pickImage = React.useCallback(async () => {
       const result = await ImagePicker.launchCameraAsync({
          mediaTypes: ImagePicker.MediaTypeOptions.All,
-         allowsEditing: true,
+         allowsEditing: false,
          aspect: [4, 3],
          quality: 1,
       });

@@ -5,14 +5,8 @@
 import React, { useCallback } from 'react';
 import { Text, Box, Center, VStack, Button, HStack, Image } from 'native-base';
 import Fire from '@react-native-firebase/firestore';
-import {
-   Alert,
-   FlatList,
-   Modal,
-   ScrollView,
-   TouchableOpacity,
-} from 'react-native';
-import { useFocusEffect, useNavigation } from '@react-navigation/native';
+import { Alert, FlatList, Modal, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import * as ImagePicker from 'expo-image-picker';
 import { Feather } from '@expo/vector-icons';
 import storage from '@react-native-firebase/storage';
@@ -22,7 +16,7 @@ import { useAuth } from '../../hooks/AuthContext';
 import { colecao } from '../../colecao';
 import { IMaterial, IReqEpi, IUser } from '../../dtos';
 import { CardItem } from '../../components/CardItem';
-import { ListMaterial, materias } from '../../utils/MaterialList';
+import { materias } from '../../utils/MaterialList';
 import { Itens } from '../../components/Itens';
 import { Header } from '../../components/Header';
 import { GlobalText } from '../../components/GlobalText';
@@ -31,35 +25,6 @@ import { SearchInput } from '../../components/SearchInput';
 
 interface Props {
    token: string;
-}
-
-interface PropsList {
-   item: string;
-   id: string;
-   type: string;
-}
-
-interface PropsItens {
-   item: string;
-   id?: string;
-   type: string;
-   image: string;
-   qnt: string;
-   data: number;
-   situacao: string;
-   descricao: string;
-   user_id: string;
-   nome: string;
-   token: string;
-}
-
-interface EpisPros {
-   codig: string;
-   item: string;
-   type: string;
-   ged: string;
-   ft: string;
-   index: number;
 }
 
 export function CreateEpi() {
@@ -157,6 +122,7 @@ export function CreateEpi() {
          }
 
          const dados = {
+            id: new Date().getTime(),
             whoFor: 'PESSOAL',
             data: format(new Date(), 'dd/mm/yy'),
             descricao,
@@ -210,7 +176,7 @@ export function CreateEpi() {
       setImage(null);
    }, [
       cart,
-      colect.REQEPI,
+      colect.solicitacao,
       descricao,
       image,
       imageUrl,
@@ -224,7 +190,7 @@ export function CreateEpi() {
 
    const handleSubmit = useCallback(() => {
       Fire()
-         .collection(colecao.REQEPI)
+         .collection(colecao.solicitacao)
          .get()
          .then(h => {
             const dt = h.docs.map(h => h.data() as IReqEpi);
@@ -271,7 +237,7 @@ export function CreateEpi() {
       }
 
       Fire()
-         .collection(colecao.REQEPI)
+         .collection(colecao.solicitacao)
          .get()
          .then(h => {
             const dt = h.docs.map(h => h.data() as IReqEpi);
@@ -292,6 +258,7 @@ export function CreateEpi() {
                );
             }
             const dados = {
+               id: new Date().getTime(),
                data: format(new Date().getTime(), 'dd/mm/yy'),
                description: descricao,
                quantidade: qnt,
@@ -339,7 +306,7 @@ export function CreateEpi() {
    const pickImage = React.useCallback(async () => {
       const result = await ImagePicker.launchCameraAsync({
          mediaTypes: ImagePicker.MediaTypeOptions.All,
-         allowsEditing: true,
+         allowsEditing: false,
          aspect: [4, 3],
          quality: 1,
       });
@@ -355,8 +322,6 @@ export function CreateEpi() {
          setImageUrl(photoUrl);
       }
    }, []);
-
-   //* * FILTRO DOS EPIS */
 
    const [search, setSearch] = React.useState('');
 

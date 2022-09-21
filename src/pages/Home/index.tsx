@@ -1,11 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Text, Box, Input, HStack, ScrollView, Center } from 'native-base';
 import Fire from '@react-native-firebase/firestore';
-import { Feather } from '@expo/vector-icons';
 import { FlatList } from 'react-native';
+import * as Notifications from 'expo-notifications';
 import { colecao } from '../../colecao';
-import { IReqEpi, IReqFerramenta } from '../../dtos';
-import { Cards } from '../../components/cards';
+import { IReqEpi } from '../../dtos';
 import { Lista } from '../../components/Lista';
 import { SearchInput } from '../../components/SearchInput';
 import { CircleSelect } from '../../components/CircleSelect';
@@ -46,6 +45,7 @@ export function Home() {
    }, [user.id]);
 
    const filEpi = dataEpi.filter(h => select === h.situacao);
+   console.log(user.token);
 
    const lista =
       search.length > 0
@@ -57,6 +57,7 @@ export function Home() {
    return (
       <Box flex="1">
          <Header text={user.nome} />
+
          <Box mt="-6" p="10">
             <SearchInput
                text="PESQUISAR ITEM"
@@ -73,8 +74,8 @@ export function Home() {
                   text="pendente"
                />
                <CircleSelect
-                  pres={() => setSelect('em separacao')}
-                  selected={select === 'em separacao'}
+                  pres={() => setSelect('separado')}
+                  selected={select === 'separado'}
                   text="separado"
                />
                <CircleSelect

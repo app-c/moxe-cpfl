@@ -82,7 +82,7 @@ export function SignIn() {
                <Center>
                   <Image source={log} size="300" alt="image" />
                   <GlobalText
-                     text="MOXE"
+                     text="SEEF"
                      size={58}
                      color={theme.colors.orange.tom}
                      font="gloria"

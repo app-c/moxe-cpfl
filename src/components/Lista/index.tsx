@@ -21,7 +21,7 @@ export function Lista({ situacao, item, data, qnt }: IProps) {
          setColor(colors.red.tom);
       }
 
-      if (situacao === 'em separacao') {
+      if (situacao === 'separado') {
          setColor(colors.yellow.tom);
       }
 

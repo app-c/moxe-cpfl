@@ -62,7 +62,7 @@ export function SignUp() {
          <Center mt={-w * 0.2}>
             <Image source={log} size={w * 0.8} alt="image" />
             <GlobalText
-               text="MOXE"
+               text="SEEF"
                size={58}
                color={theme.colors.orange.tom}
                font="gloria"

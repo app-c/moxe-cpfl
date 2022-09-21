@@ -178,6 +178,7 @@ export function CreateEpi() {
       cart,
       colect.solicitacao,
       descricao,
+      expoToken,
       image,
       imageUrl,
       item,
@@ -289,7 +290,17 @@ export function CreateEpi() {
             setImage(null);
             setCart([...cart, dados]);
          });
-   }, [cart, descricao, image, imageUrl, item, materialInfo, qnt, user]);
+   }, [
+      cart,
+      descricao,
+      expoToken,
+      image,
+      imageUrl,
+      item,
+      materialInfo,
+      qnt,
+      user,
+   ]);
 
    const handleSelectItem = React.useCallback((item: IMaterial) => {
       setItem(

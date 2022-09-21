@@ -15,9 +15,8 @@ import Firestore from '@react-native-firebase/firestore';
 
 import { format } from 'date-fns';
 import * as Notifications from 'expo-notifications';
-import { IUser, IReqEpi, IReqFerramenta } from '../dtos';
+import { IUser } from '../dtos';
 import { colecao } from '../colecao';
-import { ListMaterial } from '../utils/MaterialList';
 
 interface SignInCred {
    email: string;
@@ -53,10 +52,6 @@ export const AuthProvider: React.FC = ({ children }) => {
 
    const [epis, setEpis] = React.useState<EpisPros[]>([]);
 
-   const [listReqFerramenta, setListReqFerramenta] = React.useState<
-      IReqFerramenta[]
-   >([]);
-
    const [expoToken, setExpotoken] = React.useState('');
 
    const LoadingUser = useCallback(async () => {
@@ -86,7 +81,7 @@ export const AuthProvider: React.FC = ({ children }) => {
                   .doc(au.user.uid)
                   .get()
                   .then(async profile => {
-                     const { nome, token, matricula } = profile.data() as IUser;
+                     const { nome, matricula } = profile.data() as IUser;
 
                      if (profile.exists) {
                         const userData = {
@@ -94,7 +89,7 @@ export const AuthProvider: React.FC = ({ children }) => {
                            id: au.user.uid,
                            nome,
                            matricula,
-                           token,
+                           token: expoToken,
                         };
                         await AsyncStorage.setItem(
                            User_Collection,
@@ -159,13 +154,21 @@ export const AuthProvider: React.FC = ({ children }) => {
          });
       }
 
+      // Firestore()
+      //    .collection(colecao.USER)
+      //    .doc(user.id)
+      //    .get()
+      //    .then(h => {
+      //       const u = h.data() as IUser;
+
+      //       const dados = {
+      //          ...u,
+      //          token,
+      //       };
+      //       setUser(dados);
+      //    });
+
       setExpotoken(token);
-   }, []);
-
-   React.useEffect(() => {
-      const li = [];
-
-      setEpis(li);
    }, []);
 
    React.useEffect(() => {

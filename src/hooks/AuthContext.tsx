@@ -81,13 +81,14 @@ export const AuthProvider: React.FC = ({ children }) => {
                   .doc(au.user.uid)
                   .get()
                   .then(async profile => {
-                     const { nome, matricula } = profile.data() as IUser;
+                     const { nome, matricula, city } = profile.data() as IUser;
 
                      if (profile.exists) {
                         const userData = {
                            email: au.user.email,
                            id: au.user.uid,
                            nome,
+                           city,
                            matricula,
                            token: expoToken,
                         };

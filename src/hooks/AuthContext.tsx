@@ -81,7 +81,8 @@ export const AuthProvider: React.FC = ({ children }) => {
                   .doc(au.user.uid)
                   .get()
                   .then(async profile => {
-                     const { nome, matricula, city } = profile.data() as IUser;
+                     const { nome, matricula, city, token } =
+                        profile.data() as IUser;
 
                      if (profile.exists) {
                         const userData = {
@@ -90,7 +91,7 @@ export const AuthProvider: React.FC = ({ children }) => {
                            nome,
                            city,
                            matricula,
-                           token: expoToken,
+                           token,
                         };
                         await AsyncStorage.setItem(
                            User_Collection,
@@ -155,27 +156,11 @@ export const AuthProvider: React.FC = ({ children }) => {
          });
       }
 
-      // Firestore()
-      //    .collection(colecao.USER)
-      //    .doc(user.id)
-      //    .get()
-      //    .then(h => {
-      //       const u = h.data() as IUser;
-
-      //       const dados = {
-      //          ...u,
-      //          token,
-      //       };
-      //       setUser(dados);
-      //    });
-
       setExpotoken(token);
    }, []);
 
    React.useEffect(() => {
       Token();
-
-      return () => Token();
    }, [Token]);
 
    return (

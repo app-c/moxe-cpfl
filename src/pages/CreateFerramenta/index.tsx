@@ -166,6 +166,13 @@ export function CreateFerramenta() {
             return Alert.alert('Atenção', 'Precisa informar o veículo');
          }
 
+         if (Number(qnt) > 5) {
+            return Alert.alert(
+               'Erro',
+               'quantidade de pedido dever ser memor que 5 (cinco)',
+            );
+         }
+
          const dados = {
             id: new Date().getTime(),
             whoFor: typeItem,
@@ -320,6 +327,13 @@ export function CreateFerramenta() {
                   return Alert.alert(
                      'Atenção',
                      'Você já pediu este item, aguarde a entrega para pedir novamente',
+                  );
+               }
+
+               if (Number(qnt) > 5) {
+                  return Alert.alert(
+                     'Erro',
+                     'quantidade de pedido dever ser memor que 5 (cinco)',
                   );
                }
 

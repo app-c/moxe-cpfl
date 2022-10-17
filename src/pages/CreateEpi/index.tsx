@@ -121,6 +121,13 @@ export function CreateEpi() {
             );
          }
 
+         if (Number(qnt) > 5) {
+            return Alert.alert(
+               'Erro',
+               'quantidade de pedido dever ser memor que 5 (cinco)',
+            );
+         }
+
          const dados = {
             id: new Date().getTime(),
             whoFor: 'PESSOAL',
@@ -129,7 +136,10 @@ export function CreateEpi() {
             quantidade: qnt,
             situacao: 'pendente',
             image: imageUrl,
-            user_info: user,
+            user_info: {
+               ...user,
+               token: expoToken,
+            },
             material_info: materialInfo,
          };
 
@@ -237,6 +247,13 @@ export function CreateEpi() {
          );
       }
 
+      if (Number(qnt) > 5) {
+         return Alert.alert(
+            'Erro',
+            'quantidade de pedido dever ser memor que 5 (cinco)',
+         );
+      }
+
       Fire()
          .collection(colecao.solicitacao)
          .get()
@@ -265,7 +282,10 @@ export function CreateEpi() {
                quantidade: qnt,
                situacao: 'pendente',
                image: imageUrl,
-               user_info: user,
+               user_info: {
+                  ...user,
+                  token: expoToken,
+               },
                material_info: materialInfo,
                whoFor: 'PESSOAL',
             };

@@ -12,11 +12,15 @@
         {
           "photosPermission": "custom photos permission",
           "cameraPermission": "Allow $(PRODUCT_NAME) to open the camera",
-
           "//": "Disables the microphone permission",
           "microphonePermission": false
         }
       ]
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "29ff0406-b8e2-4e0b-b76b-2897efe77aaa"
+      }
+    }
   }
 }

@@ -85,9 +85,6 @@ export function CreateFerramenta() {
    const [type, setType] = React.useState('');
    const [imageUrl, setImageUrl] = React.useState('');
    const [car, setCar] = React.useState('');
-   const [nowData, setNowData] = useState('');
-
-   const cars = [{ nome: 'GD 10' }, { nome: 'GD 11' }, { nome: 'GD 12' }];
 
    React.useEffect(() => {
       Fire()
@@ -104,7 +101,7 @@ export function CreateFerramenta() {
    }, []);
 
    const dt = new Date();
-   const data = format(dt, 'dd/mm/yy');
+   const data = format(dt, 'dd/MM/yy');
 
    const submit = React.useCallback(async () => {
       if (cart.length > 0) {
@@ -172,7 +169,7 @@ export function CreateFerramenta() {
          const dados = {
             id: new Date().getTime(),
             whoFor: typeItem,
-            data,
+            data: format(new Date(), 'dd/MM/yy'),
             description: descricao,
             quantidade: qnt,
             situacao: 'pendente',
@@ -224,7 +221,6 @@ export function CreateFerramenta() {
       car,
       cart,
       colect.solicitacao,
-      data,
       descricao,
       image,
       imageUrl,
@@ -283,7 +279,6 @@ export function CreateFerramenta() {
          setMessageErrDes('descreva o motivo da troca');
          setErro(true);
          setErrDes(true);
-         console.log(typeItem);
          setMessageErrItem('informe a quantidade');
          return;
       }
@@ -331,7 +326,7 @@ export function CreateFerramenta() {
                const dados = {
                   id: new Date().getTime(),
                   whoFor: typeItem,
-                  data: nowData,
+                  data: format(new Date(), 'dd/MM/yy'),
                   description: descricao,
                   quantidade: qnt,
                   situacao: 'pendente',
@@ -389,7 +384,7 @@ export function CreateFerramenta() {
                const dados = {
                   id: new Date().getTime(),
                   whoFor: typeItem,
-                  data: nowData,
+                  data: format(new Date(), 'dd/MM/yy'),
                   description: descricao,
                   quantidade: qnt,
                   situacao: 'pendente',
@@ -429,7 +424,7 @@ export function CreateFerramenta() {
       placa,
       typeItem,
       car,
-      nowData,
+      format(new Date(), 'dd/MM/yy'),
       imageUrl,
       user,
       materialInfo,

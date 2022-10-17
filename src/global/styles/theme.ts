@@ -17,6 +17,7 @@ export default {
       blue: {
          tom: 'rgba(28, 57, 90, 1)',
          transparente: 'rgba(28, 57, 90, 0.4)',
+         transparente2: 'rgba(28, 57, 90, 0.6)',
       },
 
       orange: {

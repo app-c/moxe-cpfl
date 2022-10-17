@@ -115,6 +115,7 @@ export function SignIn() {
                            fontFamily="gloria"
                         />
                         <Input
+                           secureTextEntry
                            onChangeText={h => setSenha(h)}
                            title="digite sua senha"
                            erroMessage={messageErrSenha}

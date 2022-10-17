@@ -124,7 +124,7 @@ export function CreateEpi() {
          const dados = {
             id: new Date().getTime(),
             whoFor: 'PESSOAL',
-            data: format(new Date(), 'dd/mm/yy'),
+            data: format(new Date(), 'dd/MM/yy'),
             descricao,
             quantidade: qnt,
             situacao: 'pendente',

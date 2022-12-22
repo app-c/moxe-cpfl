@@ -1,14 +1,12 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React from 'react';
 import {
-   Text,
    Box,
-   Stack,
    FormControl,
-   Input as In,
    IInputProps,
-   WarningOutlineIcon,
+   Input as In,
+   WarningOutlineIcon
 } from 'native-base';
+import React from 'react';
 
 interface Props extends IInputProps {
    title: string;
@@ -32,14 +30,16 @@ export function Input({
             <In
                fontFamily="bold"
                mt="2"
+               fontSize={14}
                variant="underlined"
                placeholder={title}
+               placeholderTextColor="#201919"
                {...rest}
             />
             <FormControl.ErrorMessage
                leftIcon={<WarningOutlineIcon size="xs" />}
             >
-               {erroMessage}
+               {erroMessage}#555555
             </FormControl.ErrorMessage>
          </FormControl>
       </Box>

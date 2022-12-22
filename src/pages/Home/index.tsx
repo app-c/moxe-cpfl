@@ -1,15 +1,14 @@
-import React, { useCallback, useEffect } from 'react';
-import { Text, Box, Input, HStack, ScrollView, Center } from 'native-base';
 import Fire from '@react-native-firebase/firestore';
-import { Alert, FlatList, Platform } from 'react-native';
-import * as Notifications from 'expo-notifications';
 import { useFocusEffect } from '@react-navigation/native';
+import * as Notifications from 'expo-notifications';
+import { Box, Center, HStack } from 'native-base';
+import React, { useCallback } from 'react';
+import { Alert, FlatList, Platform } from 'react-native';
 import { colecao } from '../../colecao';
-import { IReqEpi } from '../../dtos';
-import { Lista } from '../../components/Lista';
-import { SearchInput } from '../../components/SearchInput';
 import { CircleSelect } from '../../components/CircleSelect';
 import { Header } from '../../components/Header';
+import { Lista } from '../../components/Lista';
+import { IReqEpi } from '../../dtos';
 import { useAuth } from '../../hooks/AuthContext';
 
 export function Home() {
@@ -20,7 +19,7 @@ export function Home() {
 
    // TODO BUSCAR DO BANCO DE DADOS */
    React.useEffect(() => {
-      const lod = Fire()
+      Fire()
          .collection(colecao.solicitacao)
          .onSnapshot(data => {
             const dt = data.docs.map(h => h.data() as IReqEpi);
@@ -41,8 +40,6 @@ export function Home() {
 
             setDataEpi(up);
          });
-
-      return () => lod();
    }, [user.id]);
 
    const filEpi = dataEpi.filter(h => select === h.situacao);
@@ -86,10 +83,6 @@ export function Home() {
       });
    }, [user]);
 
-   React.useEffect(() => {
-      updateToken();
-   }, [updateToken]);
-
    useFocusEffect(
       useCallback(() => {
          updateToken();
@@ -99,16 +92,7 @@ export function Home() {
    return (
       <Box flex="1">
          <Header text={user.nome} />
-
-         <Box mt="-6" p="10">
-            <SearchInput
-               text="PESQUISAR ITEM"
-               onChangeText={h => setSearch(h)}
-               autoCapitalize="characters"
-            />
-         </Box>
-
-         <Center mt="-10" mb="5" px="10">
+         <Center mb="5" px="10">
             <HStack justifyContent="space-between" mt="5">
                <CircleSelect
                   pres={() => setSelect('pendente')}
@@ -130,8 +114,8 @@ export function Home() {
 
          <FlatList
             contentContainerStyle={{ paddingBottom: 200 }}
-            data={lista}
-            keyExtractor={h => h.id}
+            data={filEpi}
+            keyExtractor={h => String(h.id)}
             renderItem={({ item: h }) => (
                <Box>
                   <Lista

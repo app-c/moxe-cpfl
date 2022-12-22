@@ -1,9 +1,9 @@
-import React from 'react';
+import { FontAwesome5 } from '@expo/vector-icons';
 import { Box, Center, HStack, Image } from 'native-base';
+import React from 'react';
 import { Dimensions, Text, TouchableOpacity } from 'react-native';
-import { Feather, FontAwesome5 } from '@expo/vector-icons';
-import theme from '../../global/styles/theme';
 import logo from '../../assets/ico.png';
+import theme from '../../global/styles/theme';
 import { useAuth } from '../../hooks/AuthContext';
 
 interface Props {
@@ -14,7 +14,7 @@ export function Header({ text }: Props) {
    const { signOut } = useAuth();
    const wi = Dimensions.get('window').width;
    return (
-      <Box py={wi * 0.015} pb="3" bg={theme.colors.blue.tom}>
+      <Box py={wi * 0.05} pb="3" bg={theme.colors.blue.tom}>
          <Center />
          <HStack
             mt="5"
@@ -25,23 +25,31 @@ export function Header({ text }: Props) {
             <Image
                alt="image"
                // size={wi * 0.3}
-               w={wi * 0.33}
-               h={wi * 0.2}
+               w={wi * 0.25}
+               h={wi * 0.15}
                resizeMode="contain"
                top="3"
                source={logo}
             />
-            <Text
-               style={{
-                  color: '#fff',
-                  fontFamily: 'bold',
-                  fontSize: 18,
-                  textAlign: 'center',
-               }}
-            >
-               Olá {'\n'}
-               {text}
-            </Text>
+            <Box w={wi * 0.5} top="2">
+               <Text
+                  style={{
+                     color: '#fff',
+                     fontFamily: 'bold',
+                  }}
+               >
+                  Olá
+               </Text>
+               <Text
+                  style={{
+                     color: '#fff',
+                     fontFamily: 'bold',
+                     fontSize: 14,
+                  }}
+               >
+                  {text}
+               </Text>
+            </Box>
 
             <TouchableOpacity onPress={signOut}>
                <Center>

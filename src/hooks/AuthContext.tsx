@@ -2,21 +2,20 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable camelcase */
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import Auth from '@react-native-firebase/auth';
+import Firestore from '@react-native-firebase/firestore';
 import React, {
    createContext,
    useCallback,
    useContext,
    useEffect,
-   useState,
+   useState
 } from 'react';
 import { Alert, Platform } from 'react-native';
-import Auth from '@react-native-firebase/auth';
-import Firestore from '@react-native-firebase/firestore';
 
-import { format } from 'date-fns';
 import * as Notifications from 'expo-notifications';
-import { IUser } from '../dtos';
 import { colecao } from '../colecao';
+import { IUser } from '../dtos';
 
 interface SignInCred {
    email: string;

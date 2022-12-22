@@ -1,24 +1,15 @@
-import React from 'react';
-import {
-   Text,
-   Box,
-   Center,
-   Image,
-   Stack,
-   FormControl,
-   VStack,
-   Button,
-} from 'native-base';
-import { Alert, Dimensions, ScrollView, TouchableOpacity } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import Fire from '@react-native-firebase/firestore';
 import Auth from '@react-native-firebase/auth';
-import { Input } from '../../components/Input';
-import { colecao } from '../../colecao';
+import Fire from '@react-native-firebase/firestore';
+import { useNavigation } from '@react-navigation/native';
+import { Box, Button, Center, Image, VStack } from 'native-base';
+import React from 'react';
+import { Alert, Dimensions, ScrollView, TouchableOpacity } from 'react-native';
 import log from '../../../assets/ranha.png';
+import { colecao } from '../../colecao';
 import { GlobalText } from '../../components/GlobalText';
-import theme from '../../global/styles/theme';
+import { Input } from '../../components/Input';
 import { ModalCity } from '../../components/ModalCity';
+import theme from '../../global/styles/theme';
 
 export function SignUp() {
    const { navigate } = useNavigation();
@@ -29,11 +20,11 @@ export function SignUp() {
    const [nome, setNome] = React.useState('');
    const [city, setCity] = React.useState('ESCOLHA SUA CIDADE');
 
+   const [loading, setLoading] = React.useState(false);
+
    const [modalCity, setModalCity] = React.useState(false);
 
    const [erro, setErro] = React.useState(false);
-
-   console.log(city);
 
    const handleSubmit = React.useCallback(async () => {
       setErro(false);
@@ -48,6 +39,8 @@ export function SignUp() {
       if (senha.length < 6) {
          return Alert.alert('Senha deve conter mínimo de 6 digitos');
       }
+
+      setLoading(true);
 
       Auth()
          .createUserWithEmailAndPassword(email, senha)
@@ -68,15 +61,15 @@ export function SignUp() {
                   navigate('signIn');
                })
                .catch(h => {
-                  console.log(h);
+                  console.log(h, 'erro no cadastro');
                });
          })
          .catch(h => {
             if (h.code === 'auth/invalid-email') {
                Alert.alert('Erro ao criar sua conta', 'Insira um email valido');
             }
-            console.log(h.code);
-         });
+         })
+         .then(() => setLoading(false));
    }, [city, email, erro, matricula, navigate, nome, senha]);
 
    const w = Dimensions.get('window').width;

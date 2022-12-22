@@ -2,46 +2,46 @@
 /* eslint-disable camelcase */
 /* eslint-disable consistent-return */
 /* eslint-disable no-await-in-loop */
-import React, { useCallback, useState } from 'react';
+import { Feather } from '@expo/vector-icons';
+import Fire from '@react-native-firebase/firestore';
+import storage from '@react-native-firebase/storage';
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
+import { format } from 'date-fns';
+import * as ImagePicker from 'expo-image-picker';
 import {
-   Text,
    Box,
-   Center,
-   VStack,
    Button,
+   Center,
+   CheckIcon,
    HStack,
    Image,
    Select,
-   CheckIcon,
+   Text,
+   VStack
 } from 'native-base';
-import Fire from '@react-native-firebase/firestore';
+import React, { useCallback } from 'react';
 import {
+   ActivityIndicator,
    Alert,
    Dimensions,
    FlatList,
    Modal,
-   ScrollView,
-   TouchableOpacity,
+   TouchableOpacity
 } from 'react-native';
-import { useFocusEffect, useNavigation } from '@react-navigation/native';
-import * as ImagePicker from 'expo-image-picker';
-import { Feather } from '@expo/vector-icons';
-import storage from '@react-native-firebase/storage';
-import { format } from 'date-fns';
-import { Input } from '../../components/Input';
-import { useAuth } from '../../hooks/AuthContext';
-import { colecao } from '../../colecao';
-import { IMaterial, IReqEpi, IReqFerramenta, IUser } from '../../dtos';
-import { CardItem } from '../../components/CardItem';
-import { materias } from '../../utils/MaterialList';
-import { Itens } from '../../components/Itens';
-import { CircleSelect } from '../../components/CircleSelect';
-import { SearchInput } from '../../components/SearchInput';
-import { Veiculos } from '../../utils/Veiculos';
-import { GlobalText } from '../../components/GlobalText';
-import theme from '../../global/styles/theme';
 import ranhado from '../../assets/ranhado.png';
+import { colecao } from '../../colecao';
+import { CardItem } from '../../components/CardItem';
+import { CircleSelect } from '../../components/CircleSelect';
+import { GlobalText } from '../../components/GlobalText';
 import { Header } from '../../components/Header';
+import { Input } from '../../components/Input';
+import { Itens } from '../../components/Itens';
+import { SearchInput } from '../../components/SearchInput';
+import { IMaterial, IReqFerramenta, IUser } from '../../dtos';
+import theme from '../../global/styles/theme';
+import { useAuth } from '../../hooks/AuthContext';
+import { materias } from '../../utils/MaterialList';
+import { Veiculos } from '../../utils/Veiculos';
 
 interface Props {
    token: string;
@@ -53,6 +53,8 @@ export function CreateFerramenta() {
    const nav = useNavigation();
 
    const w = Dimensions.get('window').width;
+
+   const [loading, setLoading] = React.useState(false);
 
    const [tokenMoxerife, setTokenMoxerife] = React.useState<Props[]>([]);
    const [erro, setErro] = React.useState(false);
@@ -104,6 +106,7 @@ export function CreateFerramenta() {
    const data = format(dt, 'dd/MM/yy');
 
    const submit = React.useCallback(async () => {
+      setLoading(true);
       if (cart.length > 0) {
          for (let i = 0; i < cart.length; i += 1) {
             const dados = cart[i];
@@ -130,7 +133,8 @@ export function CreateFerramenta() {
             Fire()
                .collection(colect.solicitacao)
                .add(dados)
-               .then(() => {});
+               .then(() => {})
+               .finally(() => setLoading(false));
 
             Alert.alert('Sucesso!', 'Aguarde a separaçao do seu pedido');
             nav.reset({
@@ -438,7 +442,6 @@ export function CreateFerramenta() {
       placa,
       typeItem,
       car,
-      format(new Date(), 'dd/MM/yy'),
       imageUrl,
       user,
       materialInfo,
@@ -631,9 +634,13 @@ export function CreateFerramenta() {
 
                <HStack mt="5" justifyContent="space-between" px={5}>
                   <Center>
-                     <Button bg="green.400" onPress={handleSubmit}>
-                        FINALIZAR PEDIDO
-                     </Button>
+                     {loading ? (
+                        <ActivityIndicator />
+                     ) : (
+                        <Button bg="green.400" onPress={handleSubmit}>
+                           FINALIZAR PEDIDO
+                        </Button>
+                     )}
                   </Center>
 
                   <Center>

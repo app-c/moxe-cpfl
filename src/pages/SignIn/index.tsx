@@ -1,22 +1,19 @@
-import React from 'react';
+import { useNavigation } from '@react-navigation/native';
 import {
-   Text,
    Box,
+   Button,
    Center,
    Image,
-   Stack,
-   FormControl,
-   VStack,
-   Button,
    KeyboardAvoidingView,
+   VStack
 } from 'native-base';
-import { Dimensions, TouchableOpacity } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import { Input } from '../../components/Input';
-import { useAuth } from '../../hooks/AuthContext';
-import theme from '../../global/styles/theme';
+import React from 'react';
+import { ActivityIndicator, Dimensions, TouchableOpacity } from 'react-native';
 import log from '../../../assets/ranha.png';
 import { GlobalText } from '../../components/GlobalText';
+import { Input } from '../../components/Input';
+import theme from '../../global/styles/theme';
+import { useAuth } from '../../hooks/AuthContext';
 
 export function SignIn() {
    const w = Dimensions.get('window').width;
@@ -27,6 +24,8 @@ export function SignIn() {
    const [senha, setSenha] = React.useState('');
    const [erroMail, setErroMail] = React.useState(false);
    const [messageErr, setMessageErr] = React.useState('');
+
+   const [loading, setLoading] = React.useState(false);
 
    const [errSenha, setErrSenha] = React.useState(false);
    const [messageErrSenha, setMessageErrSenha] = React.useState('');
@@ -49,27 +48,36 @@ export function SignIn() {
          setMessageErrSenha('Senha no mínimo 6 digitos');
          return;
       }
+      setLoading(true);
+
+      setErroMail(false);
+      setErrSenha(false);
 
       signIn({
          email,
          senha,
-      }).catch(err => {
-         console.log(err.code);
-         if (err.code === 'auth/user-not-found') {
-            setErroMail(true);
-            setMessageErr('Usuário não encontrado');
-         }
+      })
+         .catch(err => {
+            if (err.code === 'auth/user-not-found') {
+               setErroMail(true);
+               setMessageErr('Usuário não encontrado');
+            }
 
-         if (err.code === 'auth/invalid-email') {
-            setErroMail(true);
-            setMessageErr('Email invalido');
-         }
+            if (err.code === 'auth/invalid-email') {
+               setErroMail(true);
+               setMessageErr('Email invalido');
+            }
 
-         if (err.code === 'auth/wrong-password') {
-            setErrSenha(true);
-            setMessageErrSenha('Senha inválida');
-         }
-      });
+            if (err.code === 'auth/wrong-password') {
+               setErrSenha(true);
+               setMessageErrSenha('Senha inválida');
+            }
+
+            setLoading(false);
+         })
+         .finally(() => {
+            setLoading(false);
+         });
    }, [email, senha, signIn]);
 
    return (
@@ -128,9 +136,17 @@ export function SignIn() {
                      </VStack>
                   </Box>
 
-                  <Button onPress={handleSubmit} w="80%" size="lg">
-                     Entrar
-                  </Button>
+                  <TouchableOpacity>
+                     <Box>
+                        {loading ? (
+                           <ActivityIndicator />
+                        ) : (
+                           <Button onPress={handleSubmit} w="80%" size="lg">
+                              Entrar
+                           </Button>
+                        )}
+                     </Box>
+                  </TouchableOpacity>
                </Center>
             </KeyboardAvoidingView>
          </Box>

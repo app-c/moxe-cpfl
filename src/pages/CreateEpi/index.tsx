@@ -2,26 +2,32 @@
 /* eslint-disable camelcase */
 /* eslint-disable consistent-return */
 /* eslint-disable no-await-in-loop */
-import React, { useCallback } from 'react';
-import { Text, Box, Center, VStack, Button, HStack, Image } from 'native-base';
-import Fire from '@react-native-firebase/firestore';
-import { Alert, FlatList, Modal, TouchableOpacity } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import * as ImagePicker from 'expo-image-picker';
 import { Feather } from '@expo/vector-icons';
+import Fire from '@react-native-firebase/firestore';
 import storage from '@react-native-firebase/storage';
+import { useNavigation } from '@react-navigation/native';
 import { format } from 'date-fns';
-import { Input } from '../../components/Input';
-import { useAuth } from '../../hooks/AuthContext';
+import * as ImagePicker from 'expo-image-picker';
+import { Box, Button, Center, HStack, Image, Text, VStack } from 'native-base';
+import React, { useCallback } from 'react';
+import {
+   ActivityIndicator,
+   Alert,
+   FlatList,
+   Modal,
+   TouchableOpacity
+} from 'react-native';
 import { colecao } from '../../colecao';
-import { IMaterial, IReqEpi, IUser } from '../../dtos';
 import { CardItem } from '../../components/CardItem';
-import { materias } from '../../utils/MaterialList';
-import { Itens } from '../../components/Itens';
-import { Header } from '../../components/Header';
 import { GlobalText } from '../../components/GlobalText';
-import theme from '../../global/styles/theme';
+import { Header } from '../../components/Header';
+import { Input } from '../../components/Input';
+import { Itens } from '../../components/Itens';
 import { SearchInput } from '../../components/SearchInput';
+import { IMaterial, IReqEpi, IUser } from '../../dtos';
+import theme from '../../global/styles/theme';
+import { useAuth } from '../../hooks/AuthContext';
+import { materias } from '../../utils/MaterialList';
 
 interface Props {
    token: string;
@@ -31,6 +37,8 @@ export function CreateEpi() {
    const { user, expoToken } = useAuth();
    const colect = colecao;
    const nav = useNavigation();
+
+   const [loading, setLoading] = React.useState(false);
 
    const [tokenMoxerife, setTokenMoxerife] = React.useState<Props[]>([]);
    const [erro, setErro] = React.useState(false);
@@ -200,6 +208,7 @@ export function CreateEpi() {
    ]);
 
    const handleSubmit = useCallback(() => {
+      setLoading(true);
       Fire()
          .collection(colecao.solicitacao)
          .get()
@@ -224,7 +233,8 @@ export function CreateEpi() {
 
             submit();
             setCart([]);
-         });
+         })
+         .finally(() => setLoading(false));
    }, [materialInfo, submit, user.id]);
 
    const handleAddCart = React.useCallback(() => {
@@ -394,6 +404,7 @@ export function CreateEpi() {
                />
             </Box>
          </Modal>
+
          <Header text="REQUISIÇÃO DE EPIS" />
 
          <Box p="5">
@@ -418,7 +429,7 @@ export function CreateEpi() {
                   title="Descreva o motivo do pedido"
                   text="descricao não pode ficar em branco"
                />
-               <Box w="100">
+               <Box w="110">
                   <Input
                      keyboardType="numeric"
                      value={qnt}
@@ -462,16 +473,6 @@ export function CreateEpi() {
 
          <HStack mt="5" justifyContent="space-between" px={5}>
             <Center>
-               <Button
-                  bg={theme.colors.green.tom}
-                  fontFamily="Bold"
-                  onPress={handleSubmit}
-               >
-                  FINALIZAR PEDIDO
-               </Button>
-            </Center>
-
-            <Center>
                <TouchableOpacity onPress={handleAddCart}>
                   <HStack alignItems="center">
                      <Feather
@@ -489,6 +490,20 @@ export function CreateEpi() {
                      </Center>
                   </HStack>
                </TouchableOpacity>
+            </Center>
+
+            <Center>
+               {loading ? (
+                  <ActivityIndicator />
+               ) : (
+                  <Button
+                     bg={theme.colors.green.tom}
+                     fontFamily="Bold"
+                     onPress={handleSubmit}
+                  >
+                     FINALIZAR PEDIDO
+                  </Button>
+               )}
             </Center>
          </HStack>
 

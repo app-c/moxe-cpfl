@@ -105,182 +105,6 @@ export function CreateFerramenta() {
    const dt = new Date();
    const data = format(dt, 'dd/MM/yy');
 
-   const submit = React.useCallback(async () => {
-      setLoading(true);
-      if (cart.length > 0) {
-         for (let i = 0; i < cart.length; i += 1) {
-            const dados = cart[i];
-
-            for (let i = 0; i < tokenMoxerife.length; i += 1) {
-               const message = {
-                  to: tokenMoxerife[i].token,
-                  sound: 'default',
-                  title: 'NOVA REQUISIÇÃO DE EPI',
-                  body: `Colaborador ${user.nome} fez uma socilicitação do item: ${dados.material_info.descricao}`,
-               };
-
-               await fetch('https://exp.host/--/api/v2/push/send', {
-                  method: 'POST',
-                  headers: {
-                     Accept: 'application/json',
-                     'Accept-encoding': 'gzip, deflate',
-                     'Content-Type': 'application/json',
-                  },
-                  body: JSON.stringify(message),
-               });
-            }
-
-            Fire()
-               .collection(colect.solicitacao)
-               .add(dados)
-               .then(() => {})
-               .finally(() => setLoading(false));
-
-            Alert.alert('Sucesso!', 'Aguarde a separaçao do seu pedido');
-            nav.reset({
-               key: 'home',
-               routes: nav.navigate('home'),
-            });
-         }
-      } else {
-         if (item === 'SELECIONE UM ITEM') {
-            return Alert.alert('ALERTA', 'selecione um item para continuar');
-         }
-
-         if (descricao.trim() === '' && qnt.trim() === '') {
-            setErro(true);
-            setErrDes(true);
-            setMessageErrDes('descreva o motivo da troca');
-            setMessageErrItem('informe a quantidade');
-            return Alert.alert('Atenção', 'Favaor preencher todos campos');
-         }
-
-         if (placa.trim() === '' && typeItem === 'VEICULO') {
-            return Alert.alert('ATENÇÃO', 'Favor informar a placa');
-         }
-
-         if (image === null) {
-            return Alert.alert(
-               'ATENÇÃO',
-               'Favor adicionar uma imagem mostrando a situação do item à ser trocado',
-            );
-         }
-
-         if (typeItem === 'VEICULO' && car === '') {
-            return Alert.alert('Atenção', 'Precisa informar o veículo');
-         }
-
-         if (Number(qnt) > 5) {
-            return Alert.alert(
-               'Erro',
-               'quantidade de pedido dever ser memor que 5 (cinco)',
-            );
-         }
-
-         const dados = {
-            id: new Date().getTime(),
-            whoFor: typeItem,
-            data: format(new Date(), 'dd/MM/yy'),
-            description: descricao,
-            quantidade: qnt,
-            situacao: 'pendente',
-            image: imageUrl,
-            user_info: user,
-            material_info: materialInfo,
-            placa: typeItem === 'VEICULO' ? placa : null,
-            veiculo: car || null,
-         };
-
-         Fire()
-            .collection(colect.solicitacao)
-            .add(dados)
-            .then(() => {
-               Alert.alert('Sucesso!', 'Aguarde a separaçao do seu pedido');
-               nav.reset({
-                  index: 1,
-                  routes: [{ name: 'home' }],
-               });
-            });
-
-         for (let i = 0; i < tokenMoxerife.length; i += 1) {
-            const message = {
-               to: tokenMoxerife[i].token,
-               sound: 'default',
-               title: 'NOVA REQUISIÇÃO DE EPI',
-               body: `Colaborador ${user.nome} fez uma socilicitação do item: ${dados.material_info.descricao}`,
-            };
-
-            await fetch('https://exp.host/--/api/v2/push/send', {
-               method: 'POST',
-               headers: {
-                  Accept: 'application/json',
-                  'Accept-encoding': 'gzip, deflate',
-                  'Content-Type': 'application/json',
-               },
-               body: JSON.stringify(message),
-            });
-         }
-      }
-
-      setType('');
-      setItem('SELECIONE UM ITEM');
-      setDescricao('');
-      setQnt('');
-      setImage(null);
-      setCart([]);
-   }, [
-      car,
-      cart,
-      colect.solicitacao,
-      descricao,
-      image,
-      imageUrl,
-      item,
-      materialInfo,
-      nav,
-      placa,
-      qnt,
-      tokenMoxerife,
-      typeItem,
-      user,
-   ]);
-
-   const handleSubmit = useCallback(() => {
-      if (!materialInfo) {
-         return Alert.alert(
-            'Atenção',
-            'Todos os campos precisam estar preenchidos',
-         );
-      }
-      Fire()
-         .collection(colecao.solicitacao)
-         .get()
-         .then(h => {
-            const dt = h.docs.map(h => h.data() as IReqFerramenta);
-            const fil = dt.find(h => {
-               if (
-                  h.situacao === 'pendente' &&
-                  user.id === h.user_info.id &&
-                  h.material_info.codigo === materialInfo.codigo &&
-                  typeItem === h.whoFor &&
-                  h.veiculo === car
-               ) {
-                  return h;
-               }
-            });
-
-            if (fil) {
-               return Alert.alert(
-                  'Atenção',
-                  'Você já pediu este item, aguarde a entrega para pedir novamente',
-               );
-            }
-
-            submit();
-            setCart([]);
-         });
-   }, [car, materialInfo, submit, typeItem, user.id]);
-
    const handleAddCart = React.useCallback(() => {
       if (item === 'SELECIONE UM ITEM') {
          return Alert.alert('ALERTA', 'selecione um item para continuar');
@@ -311,7 +135,7 @@ export function CreateFerramenta() {
 
       if (typeItem === 'VEICULO') {
          Fire()
-            .collection(colecao.solicitacao)
+            .collection('pedidos')
             .get()
             .then(h => {
                const dt = h.docs.map(h => h.data() as IReqFerramenta);
@@ -342,7 +166,6 @@ export function CreateFerramenta() {
                }
 
                const dados = {
-                  id: new Date().getTime(),
                   whoFor: typeItem,
                   data: format(new Date(), 'dd/MM/yy'),
                   description: descricao,
@@ -377,7 +200,7 @@ export function CreateFerramenta() {
             });
       } else {
          Fire()
-            .collection(colecao.solicitacao)
+            .collection('pedidos')
             .get()
             .then(h => {
                const dt = h.docs.map(h => h.data() as IReqFerramenta);
@@ -400,7 +223,6 @@ export function CreateFerramenta() {
                }
 
                const dados = {
-                  id: new Date().getTime(),
                   whoFor: typeItem,
                   data: format(new Date(), 'dd/MM/yy'),
                   description: descricao,
@@ -447,6 +269,24 @@ export function CreateFerramenta() {
       materialInfo,
       cart,
    ]);
+
+   const handleSave = React.useCallback(() => {
+      if (cart.length === 0) {
+         return Alert.alert('Erro', 'Sua lista está vazia');
+      }
+
+      setLoading(true);
+
+      setTimeout(() => {
+         cart.forEach(i => {
+            Fire().collection('pedidos').add(i);
+         });
+
+         setLoading(false);
+         nav.navigate('home');
+         setCart([]);
+      }, 1000);
+   }, [cart, nav]);
 
    const handleSelectItem = React.useCallback((item: IMaterial) => {
       setItem(
@@ -595,7 +435,7 @@ export function CreateFerramenta() {
                         title="Descreva o motivo do pedido"
                         text="descricao não pode ficar em branco"
                      />
-                     <Box w="100">
+                     <Box w="110">
                         <Input
                            keyboardType="numeric"
                            value={qnt}
@@ -634,16 +474,6 @@ export function CreateFerramenta() {
 
                <HStack mt="5" justifyContent="space-between" px={5}>
                   <Center>
-                     {loading ? (
-                        <ActivityIndicator />
-                     ) : (
-                        <Button bg="green.400" onPress={handleSubmit}>
-                           FINALIZAR PEDIDO
-                        </Button>
-                     )}
-                  </Center>
-
-                  <Center>
                      <TouchableOpacity onPress={handleAddCart}>
                         <HStack alignItems="center">
                            <Feather name="plus-circle" size={20} />
@@ -652,6 +482,16 @@ export function CreateFerramenta() {
                            </Text>
                         </HStack>
                      </TouchableOpacity>
+                  </Center>
+
+                  <Center>
+                     {loading ? (
+                        <ActivityIndicator />
+                     ) : (
+                        <Button bg="green.400" onPress={handleSave}>
+                           FINALIZAR PEDIDO
+                        </Button>
+                     )}
                   </Center>
                </HStack>
 
@@ -722,7 +562,7 @@ export function CreateFerramenta() {
                      />
 
                      <HStack space="5">
-                        <Box w="100">
+                        <Box w="120">
                            <Input
                               keyboardType="numeric"
                               value={qnt}
@@ -795,12 +635,6 @@ export function CreateFerramenta() {
 
                <HStack mt="5" justifyContent="space-between" px={5}>
                   <Center>
-                     <Button bg={theme.colors.green.tom} onPress={handleSubmit}>
-                        FINALIZAR PEDIDO
-                     </Button>
-                  </Center>
-
-                  <Center>
                      <TouchableOpacity onPress={handleAddCart}>
                         <HStack alignItems="center">
                            <Feather
@@ -818,6 +652,16 @@ export function CreateFerramenta() {
                            </Center>
                         </HStack>
                      </TouchableOpacity>
+                  </Center>
+
+                  <Center>
+                     {loading ? (
+                        <ActivityIndicator />
+                     ) : (
+                        <Button bg="green.400" onPress={handleSave}>
+                           FINALIZAR PEDIDO
+                        </Button>
+                     )}
                   </Center>
                </HStack>
 

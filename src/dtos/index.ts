@@ -20,7 +20,7 @@ export interface IMaterial {
 }
 
 export interface IReqEpi {
-   id: number;
+   id?: string;
    whoFor: string;
    data: string;
    description: string;

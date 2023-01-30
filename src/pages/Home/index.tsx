@@ -20,9 +20,14 @@ export function Home() {
    // TODO BUSCAR DO BANCO DE DADOS */
    React.useEffect(() => {
       Fire()
-         .collection(colecao.solicitacao)
+         .collection('pedidos')
          .onSnapshot(data => {
-            const dt = data.docs.map(h => h.data() as IReqEpi);
+            const dt = data.docs.map(h => {
+               return {
+                  ...h.data(),
+                  id: h.id,
+               } as IReqEpi;
+            });
 
             const up = dt
                .map(h => {
@@ -89,6 +94,14 @@ export function Home() {
       }, [updateToken]),
    );
 
+   const detetePedido = React.useCallback((id: string) => {
+      Fire()
+         .collection('pedidos')
+         .doc(id)
+         .delete()
+         .then(() => Alert.alert('Item deletado'));
+   }, []);
+
    return (
       <Box flex="1">
          <Header text={user.nome} />
@@ -119,10 +132,10 @@ export function Home() {
             renderItem={({ item: h }) => (
                <Box>
                   <Lista
-                     data={h.data}
-                     item={h.material_info.descricao}
-                     situacao={h.situacao}
-                     qnt={h.quantidade}
+                     item={h}
+                     del={() => {
+                        detetePedido(h.id);
+                     }}
                   />
                </Box>
             )}

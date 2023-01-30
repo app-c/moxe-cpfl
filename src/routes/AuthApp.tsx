@@ -1,11 +1,11 @@
-import React from 'react';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Entypo, FontAwesome5 } from '@expo/vector-icons';
-import { Home } from '../pages/Home';
-import { CreateEpi } from '../pages/CreateEpi';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import React from 'react';
 import theme from '../global/styles/theme';
+import { CreateEpi } from '../pages/CreateEpi';
 import { CreateFerramenta } from '../pages/CreateFerramenta';
+import { Home } from '../pages/Home';
 
 const { colors } = theme;
 
@@ -72,7 +72,7 @@ export function AuthApp() {
             headerShown: false,
          }}
       >
-         <Screen name="home" component={TabNavigation} />
+         <Screen name="homeA" component={TabNavigation} />
       </Navigator>
    );
 }

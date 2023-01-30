@@ -1,34 +1,35 @@
+import { Box, Button, VStack } from 'native-base';
 import React from 'react';
-import { Text, Box, VStack } from 'native-base';
+import { Dimensions } from 'react-native';
+import { IReqEpi } from '../../dtos';
 import theme from '../../global/styles/theme';
-import { Line } from '../Line';
 import { GlobalText } from '../GlobalText';
+import { Line } from '../Line';
 
 interface IProps {
-   situacao: string;
-   item: string;
-   data: string;
-   qnt: string;
+   item: IReqEpi;
+   del: () => void;
 }
 
-export function Lista({ situacao, item, data, qnt }: IProps) {
+export function Lista({ del, item }: IProps) {
    const [color, setColor] = React.useState('red.500');
+   const w = Dimensions.get('window').width;
 
    const { colors } = theme;
 
    React.useEffect(() => {
-      if (situacao === 'pendente') {
+      if (item.situacao === 'pendente') {
          setColor(colors.red.tom);
       }
 
-      if (situacao === 'separado') {
+      if (item.situacao === 'separado') {
          setColor(colors.yellow.tom);
       }
 
-      if (situacao === 'entregue') {
+      if (item.situacao === 'entregue') {
          setColor(colors.green.tom);
       }
-   }, [colors.green.tom, colors.red.tom, colors.yellow.tom, situacao]);
+   }, [colors.green.tom, colors.red.tom, colors.yellow.tom, item]);
 
    return (
       <Box
@@ -41,11 +42,29 @@ export function Lista({ situacao, item, data, qnt }: IProps) {
          bg="dark.700"
       >
          <VStack space="2">
-            <GlobalText font="Black" text={`ITEM: ${item}`} />
-            <GlobalText font="Black" text={`QUANTIDADE: ${qnt}`} />
-            <GlobalText font="Black" text={`DATA: ${data}`} />
-            <GlobalText font="Black" text={`SITUAÇÃO: ${situacao}`} />
+            <Box flexDirection="row" justifyContent="space-between">
+               <GlobalText
+                  font="Black"
+                  text={`ITEM: ${item.material_info.descricao}`}
+               />
+            </Box>
+            <GlobalText font="Black" text={`QUANTIDADE: ${item.quantidade}`} />
+            <GlobalText font="Black" text={`DATA: ${item.data}`} />
+            <GlobalText font="Black" text={`SITUAÇÃO: ${item.situacao}`} />
          </VStack>
+
+         {item.situacao === 'pendente' && (
+            <Button
+               h={w * 0.08}
+               p={0}
+               w={w * 0.2}
+               _text={{ fontSize: 14, fontWeight: 600 }}
+               bg={theme.colors.red.tom}
+               onPress={del}
+            >
+               Deletar
+            </Button>
+         )}
          <Line color={color} />
       </Box>
    );

@@ -9,7 +9,7 @@ import { useNavigation } from '@react-navigation/native';
 import { format } from 'date-fns';
 import * as ImagePicker from 'expo-image-picker';
 import { Box, Button, Center, HStack, Image, Text, VStack } from 'native-base';
-import React, { useCallback } from 'react';
+import React from 'react';
 import {
    ActivityIndicator,
    Alert,
@@ -73,171 +73,10 @@ export function CreateEpi() {
          });
    }, []);
 
-   const submit = React.useCallback(async () => {
-      if (cart.length > 0) {
-         for (let i = 0; i < cart.length; i += 1) {
-            const dados = cart[i];
-            Fire()
-               .collection(colect.solicitacao)
-               .add(dados)
-               .catch(err => {
-                  return Alert.alert('Erro ao carregar ser dados', err);
-               });
-            for (let i = 0; i < tokenMoxerife.length; i += 1) {
-               const message = {
-                  to: tokenMoxerife[i].token,
-                  sound: 'default',
-                  title: 'NOVA REQUISIÇÃO DE EPI',
-                  body: `Colaborador ${user.nome} fez uma socilicitação do item: ${dados.material_info.descricao}`,
-               };
-               await fetch('https://exp.host/--/api/v2/push/send', {
-                  method: 'POST',
-                  headers: {
-                     Accept: 'application/json',
-                     'Accept-encoding': 'gzip, deflate',
-                     'Content-Type': 'application/json',
-                  },
-                  body: JSON.stringify(message),
-               });
-            }
-         }
-         Alert.alert('Sucesso!', 'Aguarde a separaçao do seu pedido');
-         nav.reset({
-            index: 1,
-            routes: [{ name: 'home' }],
-         });
-      } else {
-         if (item === 'SELECIONE UM ITEM') {
-            return Alert.alert('ALERTA', 'selecione um item para continuar');
-         }
-
-         if (descricao && qnt) {
-            setErro(false);
-            setErrDes(false);
-         }
-         if (descricao.trim() === '' && qnt.trim() === '') {
-            setErro(true);
-            setErrDes(true);
-            setMessageErrDes('descreva o motivo da troca');
-            setMessageErrItem('informe a quantidade');
-            return;
-         }
-         if (image === null) {
-            return Alert.alert(
-               'ATENÇÃO',
-               'Favor adicionar uma imagem mostrando a situação do item à ser trocado',
-            );
-         }
-
-         if (Number(qnt) > 5) {
-            return Alert.alert(
-               'Erro',
-               'quantidade de pedido dever ser memor que 5 (cinco)',
-            );
-         }
-
-         const dados = {
-            id: new Date().getTime(),
-            whoFor: 'PESSOAL',
-            data: format(new Date(), 'dd/MM/yy'),
-            descricao,
-            quantidade: qnt,
-            situacao: 'pendente',
-            image: imageUrl,
-            user_info: {
-               ...user,
-               token: expoToken,
-            },
-            material_info: materialInfo,
-         };
-
-         Fire()
-            .collection(colect.solicitacao)
-            .add(dados)
-            .then(() => {
-               Alert.alert('Sucesso!', 'Aguarde a separaçao do seu pedido');
-               nav.reset({
-                  index: 1,
-                  routes: [{ name: 'home' }],
-               });
-            })
-            .catch(err => {
-               return Alert.alert(
-                  'Ocorreu um erro ao carregar seus arquivos',
-                  err,
-               );
-            });
-
-         for (let i = 0; i < tokenMoxerife.length; i += 1) {
-            const message = {
-               to: tokenMoxerife[i].token,
-               sound: 'default',
-               title: 'NOVA REQUISIÇÃO DE EPI',
-               body: `Colaborador ${user.nome} fez uma socilicitação do item: ${dados.material_info.descricao}`,
-            };
-            await fetch('https://exp.host/--/api/v2/push/send', {
-               method: 'POST',
-               headers: {
-                  Accept: 'application/json',
-                  'Accept-encoding': 'gzip, deflate',
-                  'Content-Type': 'application/json',
-               },
-               body: JSON.stringify(message),
-            });
-         }
-      }
-
-      setType('');
-      setItem('SELECIONE UM ITEM');
-      setDescricao('');
-      setQnt('');
-      setImage(null);
-   }, [
-      cart,
-      colect.solicitacao,
-      descricao,
-      expoToken,
-      image,
-      imageUrl,
-      item,
-      materialInfo,
-      nav,
-      qnt,
-      tokenMoxerife,
-      user,
-   ]);
-
-   const handleSubmit = useCallback(() => {
-      setLoading(true);
-      Fire()
-         .collection(colecao.solicitacao)
-         .get()
-         .then(h => {
-            const dt = h.docs.map(h => h.data() as IReqEpi);
-            const fil = dt.find(h => {
-               if (
-                  h.situacao === 'pendente' &&
-                  user.id === h.user_info.id &&
-                  h.material_info.codigo === materialInfo.codigo
-               ) {
-                  return h;
-               }
-            });
-
-            if (fil) {
-               return Alert.alert(
-                  'Atenção',
-                  'Você já pediu este item, aguarde a entrega para pedir novamente',
-               );
-            }
-
-            submit();
-            setCart([]);
-         })
-         .finally(() => setLoading(false));
-   }, [materialInfo, submit, user.id]);
 
    const handleAddCart = React.useCallback(() => {
+      const car: any[] = [];
+
       if (item === 'SELECIONE UM ITEM') {
          return Alert.alert('ALERTA', 'selecione um item para continuar');
       }
@@ -264,8 +103,10 @@ export function CreateEpi() {
          );
       }
 
+      setLoading(true);
+
       Fire()
-         .collection(colecao.solicitacao)
+         .collection('pedidos')
          .get()
          .then(h => {
             const dt = h.docs.map(h => h.data() as IReqEpi);
@@ -286,8 +127,7 @@ export function CreateEpi() {
                );
             }
             const dados = {
-               id: new Date().getTime(),
-               data: format(new Date().getTime(), 'dd/mm/yy'),
+               data: format(new Date().getTime(), 'dd/MM/yy'),
                description: descricao,
                quantidade: qnt,
                situacao: 'pendente',
@@ -319,7 +159,8 @@ export function CreateEpi() {
             setQnt('');
             setImage(null);
             setCart([...cart, dados]);
-         });
+         })
+         .finally(() => setLoading(false));
    }, [
       cart,
       descricao,
@@ -331,6 +172,25 @@ export function CreateEpi() {
       qnt,
       user,
    ]);
+
+   const handleSend = React.useCallback(() => {
+      if (cart.length === 0) {
+         return Alert.alert('Erro', 'Não há item em sua lista');
+      }
+
+      setLoading(true);
+
+      setTimeout(() => {
+         cart.forEach(i => {
+            Fire().collection('pedidos').add(i);
+         });
+         setCart([]);
+
+         setLoading(false);
+
+         nav.navigate('home');
+      }, 3000);
+   }, [cart, nav]);
 
    const handleSelectItem = React.useCallback((item: IMaterial) => {
       setItem(
@@ -499,7 +359,7 @@ export function CreateEpi() {
                   <Button
                      bg={theme.colors.green.tom}
                      fontFamily="Bold"
-                     onPress={handleSubmit}
+                     onPress={handleSend}
                   >
                      FINALIZAR PEDIDO
                   </Button>

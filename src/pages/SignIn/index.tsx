@@ -6,13 +6,19 @@ import {
    Image,
    KeyboardAvoidingView,
    Text,
-   VStack
+   VStack,
 } from 'native-base';
 import React from 'react';
-import { ActivityIndicator, Dimensions, TouchableOpacity } from 'react-native';
+import {
+   ActivityIndicator,
+   Alert,
+   Dimensions,
+   TouchableOpacity,
+} from 'react-native';
 import log from '../../../assets/ranha.png';
 import { GlobalText } from '../../components/GlobalText';
 import { Input } from '../../components/Input';
+import { ModalCity } from '../../components/ModalCity';
 import theme from '../../global/styles/theme';
 import { useAuth } from '../../hooks/AuthContext';
 
@@ -21,152 +27,102 @@ export function SignIn() {
    const { navigate } = useNavigation();
    const { signIn } = useAuth();
 
-   const [email, setEmail] = React.useState('');
-   const [senha, setSenha] = React.useState('');
-   const [erroMail, setErroMail] = React.useState(false);
-   const [messageErr, setMessageErr] = React.useState('');
+   const [nome, setNome] = React.useState('');
+   const [matricula, setMatricula] = React.useState('');
+   const [city, setCity] = React.useState('Selecione sua cidade');
+   const [modalCity, setModalCity] = React.useState(false);
 
    const [loading, setLoading] = React.useState(false);
 
-   const [errSenha, setErrSenha] = React.useState(false);
-   const [messageErrSenha, setMessageErrSenha] = React.useState('');
-
    const handleSubmit = React.useCallback(() => {
-      if (email === '') {
-         setErroMail(true);
-         setMessageErr('Digite um email');
-         return;
+      if (nome === '' && matricula === '') {
+         return Alert.alert('Erro', 'Favor informar seu nome e sua matrícula');
       }
-
-      if (senha === '') {
-         setErrSenha(true);
-         setMessageErrSenha('Digite uma senha');
-         return;
-      }
-
-      if (senha.length < 6) {
-         setErrSenha(true);
-         setMessageErrSenha('Senha no mínimo 6 digitos');
-         return;
-      }
-      setLoading(true);
-
-      setErroMail(false);
-      setErrSenha(false);
 
       signIn({
-         email,
-         senha,
-      })
-         .catch(err => {
-            if (err.code === 'auth/user-not-found') {
-               setErroMail(true);
-               setMessageErr('Usuário não encontrado');
-            }
+         nome,
+         matricula,
+         city,
+      });
+   }, [city, matricula, nome, signIn]);
 
-            if (err.code === 'auth/invalid-email') {
-               setErroMail(true);
-               setMessageErr('Email invalido');
-            }
-
-            if (err.code === 'auth/wrong-password') {
-               setErrSenha(true);
-               setMessageErrSenha('Senha inválida');
-            }
-
-            setLoading(false);
-         })
-         .finally(() => {
-            setLoading(false);
-         });
-   }, [email, senha, signIn]);
+   const handleSelect = React.useCallback(() => {
+      setModalCity(false);
+   }, []);
 
    return (
-      <>
-         <Box bg={theme.colors.blue.tom} flex="1">
-            <Text color="#fff" left={10} top="10">
-               version: 1.0.2
-            </Text>
-            <KeyboardAvoidingView
-               behavior="position"
-               style={{ paddingBottom: 90 }}
-            >
-               <Center>
-                  <Image source={log} size="300" alt="image" />
-                  <GlobalText
-                     text="SEEF"
-                     size={58}
-                     color={theme.colors.orange.tom}
-                     font="gloria"
-                     marginTop={-100}
-                     top={-20}
-                  />
-               </Center>
+      <Box bg={theme.colors.blue.tom} flex="1">
+         <Text color="#fff" left={10} top="10">
+            version: 1.0.2
+         </Text>
+         <KeyboardAvoidingView
+            behavior="position"
+            style={{ paddingBottom: 90 }}
+         >
+            <ModalCity
+               visible={modalCity}
+               pres={handleSelect}
+               selectCity={(item: string) => setCity(item)}
+               select={city}
+            />
+            <Center>
+               <Image source={log} size="300" alt="image" />
+               <GlobalText
+                  text="SEEF"
+                  size={58}
+                  color={theme.colors.orange.tom}
+                  font="gloria"
+                  marginTop={-100}
+                  top={-20}
+               />
 
-               <Center>
-                  <Box p="10" w="100%">
-                     <GlobalText
-                        text="Entre com sua conta"
-                        color="#fff"
-                        font="bold"
-                        size={16}
-                     />
-                     <VStack space={2}>
-                        <Input
-                           keyboardType="email-address"
-                           autoCapitalize="none"
-                           error={erroMail}
-                           title="digite seu email"
-                           erroMessage={messageErr}
-                           label="E-mail"
-                           onChangeText={h => setEmail(h)}
-                           color="dark.900"
-                           fontSize={16}
-                           pl={5}
-                           selectionColor={theme.colors.orange.tom}
-                           fontFamily="gloria"
+               <Box w="100%" p="10">
+                  <Input
+                     onChangeText={setNome}
+                     _focus={{
+                        borderColor: theme.colors.green.tom,
+                     }}
+                     selectionColor="#fff"
+                     placeholder="Nome"
+                     placeholderTextColor="rgb(200, 200, 200)"
+                     color="#fff"
+                     fontSize={18}
+                  />
+
+                  <Input
+                     onChangeText={setMatricula}
+                     _focus={{
+                        borderColor: theme.colors.green.tom,
+                     }}
+                     selectionColor="#fff"
+                     placeholder="Matrícula"
+                     placeholderTextColor="rgb(200, 200, 200)"
+                     color="#fff"
+                     fontSize={18}
+                  />
+
+                  <TouchableOpacity onPress={() => setModalCity(true)}>
+                     <Center w="100%" py="2" px="3" bg="dark.900" mt="10">
+                        <GlobalText
+                           text={city}
+                           font={theme.fonts.black}
+                           color={theme.colors.blue.tom}
                         />
-                        <Input
-                           secureTextEntry
-                           onChangeText={h => setSenha(h)}
-                           title="digite sua senha"
-                           erroMessage={messageErrSenha}
-                           error={errSenha}
-                           fontSize={16}
-                           pl={5}
-                           selectionColor={theme.colors.orange.tom}
-                           color="dark.900"
-                        />
-                     </VStack>
-                  </Box>
+                     </Center>
+                  </TouchableOpacity>
 
                   <TouchableOpacity>
-                     <Box>
+                     <Box mt="40%">
                         {loading ? (
                            <ActivityIndicator />
                         ) : (
-                           <Button onPress={handleSubmit} w="80%" size="lg">
-                              Entrar
-                           </Button>
+                           <Button onPress={handleSubmit}>Entrar</Button>
                         )}
                      </Box>
                   </TouchableOpacity>
-               </Center>
-            </KeyboardAvoidingView>
-         </Box>
-
-         <Box bg={theme.colors.blue.transparente} flex="0.1">
-            <Center mt={w * 0.04}>
-               <TouchableOpacity onPress={() => navigate('signUp')}>
-                  <GlobalText
-                     color={theme.colors.blue.tom}
-                     font="Black"
-                     size={16}
-                     text="CRIAR UM CONTA"
-                  />
-               </TouchableOpacity>
+               </Box>
             </Center>
-         </Box>
-      </>
+         </KeyboardAvoidingView>
+      </Box>
    );
 }

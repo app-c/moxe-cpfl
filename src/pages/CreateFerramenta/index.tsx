@@ -17,7 +17,7 @@ import {
    Image,
    Select,
    Text,
-   VStack
+   VStack,
 } from 'native-base';
 import React, { useCallback } from 'react';
 import {
@@ -26,7 +26,7 @@ import {
    Dimensions,
    FlatList,
    Modal,
-   TouchableOpacity
+   TouchableOpacity,
 } from 'react-native';
 import ranhado from '../../assets/ranhado.png';
 import { colecao } from '../../colecao';
@@ -166,16 +166,13 @@ export function CreateFerramenta() {
                }
 
                const dados = {
-                  whoFor: typeItem,
-                  data: format(new Date(), 'dd/MM/yy'),
+                  data: format(new Date(), 'dd/MM/yy - HH:mm'),
                   description: descricao,
-                  quantidade: qnt,
-                  situacao: 'pendente',
-                  image: imageUrl,
-                  user_info: user,
-                  material_info: materialInfo,
-                  placa: typeItem === 'VEICULO' ? placa : null,
-                  veiculo: car,
+                  qnt: String(qnt),
+                  photo: imageUrl,
+                  user,
+                  item: materialInfo,
+                  pushNotification: expoToken,
                };
 
                const findCart = cart.find(h => {

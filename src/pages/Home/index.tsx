@@ -17,10 +17,14 @@ export function Home() {
    const [dataEpi, setDataEpi] = React.useState<IReqEpi[]>([]);
    const [select, setSelect] = React.useState('pendente');
 
+   const [dataP, setDataP] = React.useState<IReqEpi[]>([]);
+   const [dataS, setDataS] = React.useState<IReqEpi[]>([]);
+   const [dataE, setDataE] = React.useState<IReqEpi[]>([]);
+
    // TODO BUSCAR DO BANCO DE DADOS */
    React.useEffect(() => {
       Fire()
-         .collection('pedidos')
+         .collection('pendente')
          .onSnapshot(data => {
             const dt = data.docs.map(h => {
                return {
@@ -29,32 +33,66 @@ export function Home() {
                } as IReqEpi;
             });
 
-            const up = dt
-               .map(h => {
-                  const cs = h.material_info.descricao.toUpperCase();
-
-                  return {
-                     ...h,
-                     material_info: {
-                        ...h.material_info,
-                        descricao: cs,
-                     },
-                  };
-               })
-               .filter(h => h.user_info.id === user.id);
-
-            setDataEpi(up);
+            setDataP(dt);
          });
-   }, [user.id]);
 
-   const filEpi = dataEpi.filter(h => select === h.situacao);
+      Fire()
+         .collection('separado')
+         .onSnapshot(data => {
+            const dt = data.docs.map(h => {
+               return {
+                  ...h.data(),
+                  id: h.id,
+               } as IReqEpi;
+            });
 
-   const lista =
-      search.length > 0
-         ? filEpi.filter(h => {
-              return h.material_info.descricao.includes(search);
-           })
-         : filEpi;
+            setDataS(dt);
+         });
+
+      Fire()
+         .collection('entregue')
+         .onSnapshot(data => {
+            const dt = data.docs.map(h => {
+               return {
+                  ...h.data(),
+                  id: h.id,
+               } as IReqEpi;
+            });
+
+            setDataE(dt);
+         });
+   }, []);
+
+   const lista = React.useMemo(() => {
+      const p = dataP
+         .filter(h => h.user.matricula === user.matricula)
+         .sort((a, b) => {
+            if (a.data < b.data) {
+               return -1;
+            }
+            return 1;
+         });
+
+      const s = dataS
+         .filter(h => h.user.matricula === user.matricula)
+         .sort((a, b) => {
+            if (a.data < b.data) {
+               return -1;
+            }
+            return 1;
+         });
+
+      const e = dataE
+         .filter(h => h.user.matricula === user.matricula)
+         .sort((a, b) => {
+            if (a.data < b.data) {
+               return -1;
+            }
+            return 1;
+         });
+
+      return { p, s, e };
+   }, [dataE, dataP, dataS, user.matricula]);
 
    const updateToken = React.useCallback(async () => {
       const { status: existingStatus } =
@@ -82,11 +120,7 @@ export function Home() {
             lightColor: '#FF231F7C',
          });
       }
-
-      Fire().collection(colecao.USER).doc(user.id).update({
-         token,
-      });
-   }, [user]);
+   }, []);
 
    useFocusEffect(
       useCallback(() => {
@@ -125,21 +159,63 @@ export function Home() {
             </HStack>
          </Center>
 
-         <FlatList
-            contentContainerStyle={{ paddingBottom: 200 }}
-            data={filEpi}
-            keyExtractor={h => String(h.id)}
-            renderItem={({ item: h }) => (
-               <Box>
-                  <Lista
-                     item={h}
-                     del={() => {
-                        detetePedido(h.id);
-                     }}
-                  />
-               </Box>
-            )}
-         />
+         {select === 'pendente' && (
+            <FlatList
+               contentContainerStyle={{ paddingBottom: 200 }}
+               data={lista.p}
+               keyExtractor={h => String(h.id)}
+               renderItem={({ item: h }) => (
+                  <Box>
+                     <Lista
+                        situation="pendente"
+                        item={h}
+                        showButton="show"
+                        del={() => {
+                           detetePedido(h.id);
+                        }}
+                     />
+                  </Box>
+               )}
+            />
+         )}
+
+         {select === 'separado' && (
+            <FlatList
+               contentContainerStyle={{ paddingBottom: 200 }}
+               data={lista.s}
+               keyExtractor={h => String(h.id)}
+               renderItem={({ item: h }) => (
+                  <Box>
+                     <Lista
+                        situation="separado"
+                        item={h}
+                        del={() => {
+                           detetePedido(h.id);
+                        }}
+                     />
+                  </Box>
+               )}
+            />
+         )}
+
+         {select === 'entregue' && (
+            <FlatList
+               contentContainerStyle={{ paddingBottom: 200 }}
+               data={lista.e}
+               keyExtractor={h => String(h.id)}
+               renderItem={({ item: h }) => (
+                  <Box>
+                     <Lista
+                        situation="entregue"
+                        item={h}
+                        del={() => {
+                           detetePedido(h.id);
+                        }}
+                     />
+                  </Box>
+               )}
+            />
+         )}
       </Box>
    );
 }

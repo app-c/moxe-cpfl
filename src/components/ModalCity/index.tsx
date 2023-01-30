@@ -13,7 +13,8 @@ interface Props {
 
 const city = [
    { city: 'BOTUCATU', id: 1 },
-   { city: 'RIBEIRÃO PRETO', id: 2 },
+   { city: 'ARAÇATUBA', id: 2 },
+   { city: 'RIBEIRÃO PRETO', id: 3 },
 ];
 
 export function ModalCity({ visible, select, pres, selectCity }: Props) {

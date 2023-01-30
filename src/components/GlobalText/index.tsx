@@ -5,8 +5,8 @@ import { Text, TextProps } from 'react-native';
 
 interface Props extends TextProps {
    color?: string;
-   font: string;
-   size: number;
+   font?: string;
+   size?: number;
    text: string;
 }
 

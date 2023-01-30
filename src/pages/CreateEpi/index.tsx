@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 /* eslint-disable @typescript-eslint/no-use-before-define */
 /* eslint-disable camelcase */
 /* eslint-disable consistent-return */
@@ -15,7 +16,7 @@ import {
    Alert,
    FlatList,
    Modal,
-   TouchableOpacity
+   TouchableOpacity,
 } from 'react-native';
 import { colecao } from '../../colecao';
 import { CardItem } from '../../components/CardItem';
@@ -73,7 +74,6 @@ export function CreateEpi() {
          });
    }, []);
 
-
    const handleAddCart = React.useCallback(() => {
       const car: any[] = [];
 
@@ -106,15 +106,14 @@ export function CreateEpi() {
       setLoading(true);
 
       Fire()
-         .collection('pedidos')
+         .collection('pendente')
          .get()
          .then(h => {
             const dt = h.docs.map(h => h.data() as IReqEpi);
             const fil = dt.find(h => {
                if (
-                  h.situacao === 'pendente' &&
-                  user.id === h.user_info.id &&
-                  h.material_info.codigo === materialInfo.codigo
+                  user.matricula === h.user.matricula &&
+                  h.item.codigo === materialInfo.codigo
                ) {
                   return h;
                }
@@ -127,17 +126,13 @@ export function CreateEpi() {
                );
             }
             const dados = {
-               data: format(new Date().getTime(), 'dd/MM/yy'),
+               data: format(new Date(), 'dd/MM/yy - HH:mm'),
                description: descricao,
-               quantidade: qnt,
-               situacao: 'pendente',
-               image: imageUrl,
-               user_info: {
-                  ...user,
-                  token: expoToken,
-               },
-               material_info: materialInfo,
-               whoFor: 'PESSOAL',
+               qnt: String(qnt),
+               photo: imageUrl,
+               user,
+               item: materialInfo,
+               pushNotification: expoToken,
             };
 
             const findD = cart.find(h => {
@@ -182,7 +177,7 @@ export function CreateEpi() {
 
       setTimeout(() => {
          cart.forEach(i => {
-            Fire().collection('pedidos').add(i);
+            Fire().collection('pendente').add(i);
          });
          setCart([]);
 
@@ -375,9 +370,9 @@ export function CreateEpi() {
             renderItem={({ item: h }) => (
                <Box mt="5">
                   <CardItem
-                     qnt={h.quantidade}
+                     qnt={h.qnt}
                      description={h.description}
-                     item={h.material_info.descricao}
+                     item={h.item.descricao}
                   />
                </Box>
             )}

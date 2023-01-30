@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 import { Box, Button, VStack } from 'native-base';
 import React from 'react';
 import { Dimensions } from 'react-native';
@@ -9,27 +10,29 @@ import { Line } from '../Line';
 interface IProps {
    item: IReqEpi;
    del: () => void;
+   showButton?: 'show' | 'none';
+   situation: 'pendente' | 'separado' | 'entregue';
 }
 
-export function Lista({ del, item }: IProps) {
+export function Lista({ del, item, showButton = 'none', situation }: IProps) {
    const [color, setColor] = React.useState('red.500');
    const w = Dimensions.get('window').width;
 
    const { colors } = theme;
 
    React.useEffect(() => {
-      if (item.situacao === 'pendente') {
+      if (situation === 'pendente') {
          setColor(colors.red.tom);
       }
 
-      if (item.situacao === 'separado') {
+      if (situation === 'separado') {
          setColor(colors.yellow.tom);
       }
 
-      if (item.situacao === 'entregue') {
+      if (situation === 'entregue') {
          setColor(colors.green.tom);
       }
-   }, [colors.green.tom, colors.red.tom, colors.yellow.tom, item]);
+   }, [colors.green.tom, colors.red.tom, colors.yellow.tom, item, situation]);
 
    return (
       <Box
@@ -43,17 +46,13 @@ export function Lista({ del, item }: IProps) {
       >
          <VStack space="2">
             <Box flexDirection="row" justifyContent="space-between">
-               <GlobalText
-                  font="Black"
-                  text={`ITEM: ${item.material_info.descricao}`}
-               />
+               <GlobalText font="Black" text={`ITEM: ${item.item.descricao}`} />
             </Box>
-            <GlobalText font="Black" text={`QUANTIDADE: ${item.quantidade}`} />
+            <GlobalText font="Black" text={`QUANTIDADE: ${item.qnt}`} />
             <GlobalText font="Black" text={`DATA: ${item.data}`} />
-            <GlobalText font="Black" text={`SITUAÇÃO: ${item.situacao}`} />
          </VStack>
 
-         {item.situacao === 'pendente' && (
+         {showButton === 'show' && (
             <Button
                h={w * 0.08}
                p={0}

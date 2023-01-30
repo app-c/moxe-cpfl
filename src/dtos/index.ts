@@ -1,15 +1,12 @@
 /* eslint-disable camelcase */
 export interface IUser {
    nome: string;
-   email: string;
    matricula: number;
-   id: string;
-   token: string;
    city: string;
 }
 
 export interface IMaterial {
-   id: string;
+   id?: string;
    codigo: string;
    descricao: string;
    classificacao: string;
@@ -20,15 +17,12 @@ export interface IMaterial {
 }
 
 export interface IReqEpi {
-   id?: string;
-   whoFor: string;
+   id: string;
+   user: IUser;
+   pushNotification: string;
+   item: IMaterial;
+   photo: string;
+   qnt: string;
    data: string;
    description: string;
-   quantidade: string;
-   situacao: string;
-   image: string;
-   material_info: IMaterial;
-   user_info: IUser;
-   placa?: string;
-   veiculo?: string;
 }

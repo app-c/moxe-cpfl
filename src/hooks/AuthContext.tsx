@@ -9,7 +9,7 @@ import React, {
    useCallback,
    useContext,
    useEffect,
-   useState
+   useState,
 } from 'react';
 import { Alert, Platform } from 'react-native';
 
@@ -18,8 +18,9 @@ import { colecao } from '../colecao';
 import { IUser } from '../dtos';
 
 interface SignInCred {
-   email: string;
-   senha: string;
+   nome: string;
+   matricula: string;
+   city: string;
 }
 
 interface AuthContexData {
@@ -44,12 +45,8 @@ const User_Collection = '@Req:user';
 export const AuthContext = createContext<AuthContexData>({} as AuthContexData);
 
 export const AuthProvider: React.FC = ({ children }) => {
-   const { USER, REQFERRAMENTA } = colecao;
-
    const [loading, setLoading] = useState(true);
-   const [user, setUser] = useState<IUser | null>(null);
-
-   const [epis, setEpis] = React.useState<EpisPros[]>([]);
+   const [user, setUser] = useState<IUser | null>();
 
    const [expoToken, setExpotoken] = React.useState('');
 
@@ -70,47 +67,16 @@ export const AuthProvider: React.FC = ({ children }) => {
       LoadingUser();
    }, [LoadingUser]);
 
-   const signIn = useCallback(
-      async ({ email, senha }) => {
-         await Auth()
-            .signInWithEmailAndPassword(email, senha)
-            .then(au => {
-               Firestore()
-                  .collection(USER)
-                  .doc(au.user.uid)
-                  .get()
-                  .then(async profile => {
-                     const { nome, matricula, city, token } =
-                        profile.data() as IUser;
+   const signIn = useCallback(async ({ nome, city, matricula }) => {
+      const user = {
+         nome,
+         city,
+         matricula,
+      };
 
-                     if (profile.exists) {
-                        const userData = {
-                           email: au.user.email,
-                           id: au.user.uid,
-                           nome,
-                           city,
-                           matricula,
-                           token,
-                        };
-                        await AsyncStorage.setItem(
-                           User_Collection,
-                           JSON.stringify(userData),
-                        );
-                        setUser(userData);
-                     }
-                  })
-                  .catch(err => {
-                     const { code } = err;
-                     Alert.alert(
-                        'Login',
-                        'Não foi possível carregar os dados do usuário',
-                     );
-                  });
-            });
-         // .catch(h => console.log(h.code));
-      },
-      [USER],
-   );
+      await AsyncStorage.setItem(User_Collection, JSON.stringify(user));
+      setUser(user);
+   }, []);
 
    //* ORDERS.................................................................
 

@@ -43,7 +43,7 @@ function TabNavigation() {
          />
 
          <Tab.Screen
-            name="PEDIR EPI"
+            name="PEDIR EPI / FERRAMENTA"
             component={CreateEpi}
             options={{
                tabBarIcon: ({ color, size }) => (
@@ -51,7 +51,7 @@ function TabNavigation() {
                ),
             }}
          />
-
+         {/* 
          <Tab.Screen
             name="PEDIR FERRAMENTA"
             component={CreateFerramenta}
@@ -60,7 +60,7 @@ function TabNavigation() {
                   <FontAwesome5 name="uikit" size={size} color={color} />
                ),
             }}
-         />
+         /> */}
       </Tab.Navigator>
    );
 }

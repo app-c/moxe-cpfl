@@ -53,7 +53,7 @@ export function SignIn() {
    return (
       <Box bg={theme.colors.blue.tom} flex="1">
          <Text color="#fff" left={10} top="10">
-            version: 1.0.2
+            version: 2.0.0
          </Text>
          <KeyboardAvoidingView
             behavior="position"

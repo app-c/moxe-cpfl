@@ -130,7 +130,7 @@ export function Home() {
 
    const detetePedido = React.useCallback((id: string) => {
       Fire()
-         .collection('pedidos')
+         .collection('pendente')
          .doc(id)
          .delete()
          .then(() => Alert.alert('Item deletado'));

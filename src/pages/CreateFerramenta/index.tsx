@@ -37,7 +37,7 @@ import { Header } from '../../components/Header';
 import { Input } from '../../components/Input';
 import { Itens } from '../../components/Itens';
 import { SearchInput } from '../../components/SearchInput';
-import { IMaterial, IReqFerramenta, IUser } from '../../dtos';
+import { IMaterial, IUser } from '../../dtos';
 import theme from '../../global/styles/theme';
 import { useAuth } from '../../hooks/AuthContext';
 import { materias } from '../../utils/MaterialList';
@@ -49,7 +49,6 @@ interface Props {
 
 export function CreateFerramenta() {
    const { user, expoToken } = useAuth();
-   const colect = colecao;
    const nav = useNavigation();
 
    const w = Dimensions.get('window').width;
@@ -141,7 +140,6 @@ export function CreateFerramenta() {
                const dt = h.docs.map(h => h.data() as IReqFerramenta);
                const fil = dt.find(h => {
                   if (
-                     h.situacao === 'pendente' &&
                      user.id === h.user_info.id &&
                      h.material_info.codigo === materialInfo.codigo &&
                      typeItem === h.whoFor &&

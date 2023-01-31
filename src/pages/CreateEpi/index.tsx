@@ -136,7 +136,7 @@ export function CreateEpi() {
             };
 
             const findD = cart.find(h => {
-               if (h.material_info.descricao === materialInfo.descricao) {
+               if (h.item.descricao === materialInfo.descricao) {
                   return h;
                }
             });
@@ -167,6 +167,7 @@ export function CreateEpi() {
       qnt,
       user,
    ]);
+   console.log(cart.length);
 
    const handleSend = React.useCallback(() => {
       if (cart.length === 0) {
@@ -175,16 +176,16 @@ export function CreateEpi() {
 
       setLoading(true);
 
-      setTimeout(() => {
-         cart.forEach(i => {
-            Fire().collection('pendente').add(i);
-         });
-         setCart([]);
+      cart.forEach(i => {
+         Fire().collection('pendente').add(i);
+      });
+      setCart([]);
 
+      setTimeout(() => {
          setLoading(false);
 
          nav.navigate('home');
-      }, 3000);
+      }, 2500);
    }, [cart, nav]);
 
    const handleSelectItem = React.useCallback((item: IMaterial) => {
@@ -227,10 +228,10 @@ export function CreateEpi() {
 
    const materiaisEpis =
       search.length > 0
-         ? filtroMateriais.filter(h => {
+         ? dataMaterial.filter(h => {
               return h.descricao.includes(search);
            })
-         : filtroMateriais;
+         : dataMaterial;
 
    return (
       <Box>
